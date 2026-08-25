@@ -12,6 +12,7 @@ import AnalyticsTracker from "@/components/AnalyticsTracker";
 import PublicFloatingLayer from "@/components/PublicFloatingLayer";
 
 export const dynamic = "force-dynamic";
+const PUBLIC_SITE_NAME = "Cihat Erdem Studio";
 
 function splitKeywords(v?: string) {
   return String(v || "")
@@ -79,7 +80,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: seo.meta.defaultTitle,
       description: seo.meta.defaultDescription,
       url: baseUrl || undefined,
-      siteName: seo.jsonld.organizationName || seo.meta.publisher || "Dromocob",
+      siteName: PUBLIC_SITE_NAME,
       locale: seo.openGraph.locale,
       type: seo.openGraph.defaultType === "product" ? "website" : "website",
       images: seo.meta.defaultOgImage
@@ -145,7 +146,7 @@ export default async function RootLayout({
       ? {
         "@context": "https://schema.org",
         "@type": "Organization",
-        name: seo.jsonld.organizationName || "Dromocob",
+        name: PUBLIC_SITE_NAME,
         alternateName: Array.from(new Set([
           ...(seo.meta.brandAliases || "").split(",").map((x) => x.trim()).filter(Boolean),
           "Cihat Erdem Digital Studio",
@@ -302,7 +303,7 @@ export default async function RootLayout({
               __html: JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "WebSite",
-                name: seo.jsonld.organizationName || "Dromocob",
+                name: PUBLIC_SITE_NAME,
                 alternateName: Array.from(new Set([
                   ...(seo.meta.brandAliases || "").split(",").map((x) => x.trim()).filter(Boolean),
                   "Cihat Erdem Digital Studio",
@@ -329,7 +330,7 @@ export default async function RootLayout({
               __html: JSON.stringify({
                 "@context": "https://schema.org",
                 "@type": "ProfessionalService",
-                name: "Dromocob Digital Experience Studio",
+                name: "Cihat Erdem Web Tasarım ve SEO Stüdyosu",
                 image: seo.jsonld.organizationLogo || (baseUrl ? `${baseUrl}/dromocob-app-icon-512.png` : undefined),
                 url: baseUrl || undefined,
                 telephone: seo.jsonld.phone || "+90 530 478 82 98",

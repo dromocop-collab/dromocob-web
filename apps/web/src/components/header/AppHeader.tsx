@@ -698,7 +698,7 @@ useEffect(() => {
 
   const brandLogoUrl = seg(brand?.logoUrl) || "/dromocob-app-icon-192.png";
   const brandLink = safeUrl(brand?.logoLink || "/");
-  const brandTitle = pickLocaleText(brand?.title, "Dromocob", "Dromocob");
+  const brandTitle = pickLocaleText(brand?.title, "Cihat Erdem Studio", "Cihat Erdem Studio");
   const brandMark = seg(hdr?.brand?.markText || "D");
 
   function closeAll() {

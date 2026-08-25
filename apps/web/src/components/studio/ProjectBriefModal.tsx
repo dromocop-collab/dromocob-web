@@ -16,6 +16,7 @@ import {
   X,
 } from "lucide-react";
 import s from "./ProjectBriefModal.module.css";
+import brandAssets from "./BrandLogo.module.css";
 import { studioTemplates } from "@/data/studioCatalog";
 
 type Props = { open: boolean; onClose: () => void };
@@ -128,7 +129,7 @@ export default function ProjectBriefModal({ open, onClose }: Props) {
       <section className={s.modal} role="dialog" aria-modal="true" aria-labelledby="brief-title">
         <aside className={s.aside}>
           <div className={s.asideGlow} />
-          <div className={s.asideBrand}><span>D</span><b>DROMOCOB</b></div>
+          <div className={s.asideBrand}><span className={brandAssets.logoBox}><img className={brandAssets.logoImg} src="/dromocob-app-icon-192.png" alt="" /></span><b>CIHAT ERDEM STUDIO</b></div>
           <div className={s.asideCopy}>
             <span><Sparkles /> PROJECT BUILDER / 01</span>
             <h2>Fikrinizi,<br /><em>etkileyici bir</em><br />deneyime çevirelim.</h2>

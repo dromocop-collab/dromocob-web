@@ -65,8 +65,8 @@ export type SeoSettings = {
 
 const DEFAULTS: SeoSettings = {
   meta: {
-    titleTemplate: "%s | Dromocob",
-    defaultTitle: "Dromocob",
+    titleTemplate: "%s | Cihat Erdem Studio",
+    defaultTitle: "Web Tasarım, E-Ticaret ve SEO Ajansı | Cihat Erdem",
     defaultDescription:
       "Dromocob; sektörünüze özel, SEO uyumlu, yüksek performanslı ve yönetim panelli web siteleri tasarlar ve geliştirir.",
     defaultOgImage: "https://dromocob.tr/home/dromocob-studio-hero-v1.jpg",
@@ -74,9 +74,9 @@ const DEFAULTS: SeoSettings = {
     themeColor: "#0b0b0b",
     defaultKeywords: "web tasarım, kurumsal web sitesi, e-ticaret sitesi, SEO uyumlu web sitesi, İstanbul web tasarım ajansı",
     author: "Cihat Erdem",
-    publisher: "Dromocob",
-    appName: "Dromocob",
-    brandAliases: "Dromocob, Dromocob Studio, Cihat Erdem Digital Studio, cihaterdem.com",
+    publisher: "Cihat Erdem Studio",
+    appName: "Cihat Erdem Studio",
+    brandAliases: "Cihat Erdem Studio, Cihat Erdem Web Tasarım, Dromocob, dromocob.tr, cihaterdem.com",
   },
   google: {
     searchConsoleVerification: "",
@@ -103,8 +103,8 @@ const DEFAULTS: SeoSettings = {
   },
   jsonld: {
     enabled: true,
-    organizationName: "Dromocob",
-    organizationLogo: "https://dromocob.tr/dromocob-mark.svg",
+    organizationName: "Cihat Erdem Studio",
+    organizationLogo: "https://dromocob.tr/dromocob-app-icon-512.png",
     sameAs: [],
     phone: "+90 530 478 82 98",
     email: "info@dromocob.tr",

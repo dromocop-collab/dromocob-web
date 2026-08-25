@@ -233,8 +233,8 @@ export default function ChatWidget({ loc = "tr" }: { loc?: "tr" | "en" }) {
   const [enabled, setEnabled] = useState(true);
 
   const [cfgTitle, setCfgTitle] = useState<LT>({
-    tr: "Dromocob Canlı Stüdyo",
-    en: "Dromocob Live Studio",
+    tr: "Cihat Erdem Canlı Stüdyo",
+    en: "Cihat Erdem Live Studio",
   });
 
   const [cfgSub, setCfgSub] = useState<LT>({
@@ -475,7 +475,7 @@ useEffect(() => {
         const legacySubtitle = s(d?.subtitle?.tr) === "Hızlıca yaz, hemen dönüş yapalım.";
         const legacyPlaceholder = s(d?.placeholder?.tr) === "Mesajını yaz…";
 
-        setCfgTitle(!legacyTitle && d?.title ? d.title : { tr: "Dromocob Canlı Stüdyo", en: "Dromocob Live Studio" });
+        setCfgTitle(!legacyTitle && d?.title ? d.title : { tr: "Cihat Erdem Canlı Stüdyo", en: "Cihat Erdem Live Studio" });
         setCfgSub(
           !legacySubtitle && d?.subtitle ? d.subtitle : {
             tr: "Projenizi birlikte netleştirelim.",
@@ -1003,7 +1003,7 @@ email: isAnonymousUser
               {!hasChat ? (
                 <div className={styles.welcome}>
                   <div className={styles.welcomeBubble}>
-                    <b>Merhaba, Dromocob&apos;a hoş geldiniz 👋</b>
+                    <b>Merhaba, Cihat Erdem Studio&apos;ya hoş geldiniz 👋</b>
                     <br />
                     {isAnonymousUser
                       ? "Sektörünüzü ve hedefinizi birkaç cümleyle anlatın; doğru demo ve çözümle başlayalım."

@@ -102,7 +102,7 @@ export default function ResetPasswordClient() {
     <main className={styles.wrap}>
       <section className={styles.shell}>
         <aside className={styles.left}>
-          <div className={styles.brandRow}><div className={styles.mark}>D</div><div><div className={styles.brandTitle}>DROMOCOB</div><div className={styles.brandSub}>Digital experience studio</div></div></div>
+          <div className={styles.brandRow}><div className={styles.mark}><img src="/dromocob-app-icon-192.png" alt="" /></div><div><div className={styles.brandTitle}>CIHAT ERDEM</div><div className={styles.brandSub}>Web tasarım &amp; SEO stüdyosu</div></div></div>
           <div className={styles.kicker}>YENİ GÜVENLİK ANAHTARI</div>
           <h1 className={styles.heroTitle}>Hesabının kontrolünü yenile.</h1>
           <div className={styles.breadcrumb}><Link href="/">Anasayfa</Link><span>›</span><span>Yeni şifre</span></div>

@@ -112,11 +112,11 @@ export default function RegisterPage() {
       <section className={styles.shell}>
        <aside className={styles.left}>
   <div className={styles.brandRow}>
-    <div className={styles.mark}>D</div>
+    <div className={styles.mark}><img src="/dromocob-app-icon-192.png" alt="" /></div>
     <div>
-      <div className={styles.brandTitle}>Dromocob</div>
+      <div className={styles.brandTitle}>CIHAT ERDEM</div>
       <div className={styles.brandSub}>
-        Digital experience studio
+        Web tasarım &amp; SEO stüdyosu
       </div>
     </div>
   </div>

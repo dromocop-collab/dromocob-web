@@ -44,12 +44,12 @@ export default function ForgotPage() {
     <main className={styles.wrap}>
       <section className={styles.shell}>
         <aside className={styles.left}>
-          <div className={styles.brandRow}><div className={styles.mark}>D</div><div><div className={styles.brandTitle}>DROMOCOB</div><div className={styles.brandSub}>Digital experience studio</div></div></div>
+          <div className={styles.brandRow}><div className={styles.mark}><img src="/dromocob-app-icon-192.png" alt="" /></div><div><div className={styles.brandTitle}>CIHAT ERDEM</div><div className={styles.brandSub}>Web tasarım &amp; SEO stüdyosu</div></div></div>
           <div className={styles.kicker}>HESAP KURTARMA</div>
           <h1 className={styles.heroTitle}>Erişimini güvenle geri al.</h1>
           <div className={styles.breadcrumb}><Link href="/">Anasayfa</Link><span>›</span><span>Şifre sıfırlama</span></div>
           <div className={styles.infoStack}>
-            <div className={styles.infoCard}><div className={styles.infoCardTitle}>Tek kullanımlık güvenlik kodu</div><div className={styles.infoCardText}>Kodun yalnızca 10 dakika geçerli ve beş denemeyle sınırlı. Dromocob ekibi bu kodu senden asla istemez.</div></div>
+            <div className={styles.infoCard}><div className={styles.infoCardTitle}>Tek kullanımlık güvenlik kodu</div><div className={styles.infoCardText}>Kodun yalnızca 10 dakika geçerli ve beş denemeyle sınırlı. Cihat Erdem Studio ekibi bu kodu senden asla istemez.</div></div>
             <div className={styles.infoMiniGrid}><div className={styles.infoMini}><strong>6 haneli</strong><span>Hızlı doğrulama</span></div><div className={styles.infoMini}><strong>Şifreli</strong><span>Güvenli teslimat</span></div></div>
           </div>
         </aside>

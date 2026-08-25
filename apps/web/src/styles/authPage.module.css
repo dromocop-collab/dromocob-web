@@ -20,6 +20,8 @@
 .left::after { content: ""; position: absolute; width: 280px; height: 280px; right: -110px; bottom: -90px; border: 1px solid rgba(80, 225, 205, .28); border-radius: 50%; box-shadow: 0 0 0 42px rgba(124,108,255,.05), 0 0 0 84px rgba(124,108,255,.025); animation: authSpin 24s linear infinite; }
 .brandRow { display: flex; align-items: center; gap: 15px; }
 .mark { width: 52px; height: 52px; display: grid; place-items: center; border-radius: 17px; color: white; font-weight: 950; font-size: 24px; background: linear-gradient(145deg, #8a77ff, #416ff4 72%); box-shadow: 0 15px 36px rgba(93, 83, 246, .42), inset 0 1px rgba(255,255,255,.3); }
+.mark { overflow: hidden; padding: 0; background: #091321; }
+.mark img { width: 100%; height: 100%; display: block; object-fit: cover; }
 .brandTitle { font-size: 19px; font-weight: 950; letter-spacing: .24em; }
 .brandSub { margin-top: 4px; color: #8293b3; font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
 .kicker, .cardBadge { width: fit-content; margin-top: auto; padding: 8px 12px; border: 1px solid rgba(57, 223, 202, .28); border-radius: 999px; color: #74ead9; background: rgba(57, 223, 202, .07); font-size: 10px; font-weight: 900; letter-spacing: .18em; text-transform: uppercase; }

@@ -86,8 +86,8 @@ export default function HeaderBrand({
         )}
         {showLogo && isStudioLogo ? (
           <span className={styles.brandWord}>
-            <b>DROMOCOB</b>
-            <small>CIHAT ERDEM STUDIO</small>
+            <b>CIHAT ERDEM</b>
+            <small>WEB TASARIM &amp; SEO STÜDYOSU</small>
           </span>
         ) : null}
       </Link>

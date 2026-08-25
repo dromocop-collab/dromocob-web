@@ -2016,3 +2016,71 @@
     max-height: min(60dvh, 460px) !important;
   }
 }
+
+/* Short desktop and tablet-height screens: keep the complete composer and
+   send action inside the panel instead of letting the textarea fall below it. */
+@media (min-width: 769px) {
+  .panel {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    max-height: calc(100dvh - 112px);
+  }
+
+  .chatShell {
+    min-height: 0;
+    height: min(660px, calc(100dvh - 220px));
+    max-height: calc(100dvh - 220px);
+    grid-template-rows: minmax(80px, .24fr) minmax(0, .76fr);
+    overflow: hidden;
+  }
+
+  .msgList {
+    min-height: 0;
+    max-height: none;
+  }
+
+  .composer {
+    min-height: 0;
+    max-height: none;
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+
+  .form {
+    padding: 10px;
+    margin-bottom: 8px;
+  }
+
+  .welcome {
+    margin-bottom: 8px;
+  }
+
+  .field input {
+    min-height: 42px;
+    padding-block: 10px;
+  }
+
+  .field textarea {
+    min-height: 66px;
+    max-height: 82px;
+  }
+}
+
+@media (min-width: 769px) and (max-height: 760px) {
+  .panelTop {
+    min-height: 72px;
+    padding-block: 12px;
+  }
+
+  .chatShell {
+    height: calc(100dvh - 190px);
+    max-height: calc(100dvh - 190px);
+    grid-template-rows: 74px minmax(0, 1fr);
+  }
+
+  .leadHint,
+  .welcomeBubble {
+    padding: 9px 11px;
+    font-size: 12px;
+  }
+}

@@ -13,6 +13,7 @@ import {
 import { useEffect, useState } from "react";
 import ProjectBriefModal from "./ProjectBriefModal";
 import s from "./studioChrome.module.css";
+import brandAssets from "./BrandLogo.module.css";
 
 export default function StudioHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -42,17 +43,17 @@ export default function StudioHeader() {
       <header className={`${s.header} ${scrolled ? s.scrolled : ""} ${menuOpen ? s.menuActive : ""}`}>
         <div className={s.ambient} aria-hidden="true" />
         <div className={s.headerInner}>
-          <Link href="/" className={s.brand} onClick={closeMenu} aria-label="Dromocob ana sayfa">
-            <span className={s.brandMark}>D<i /></span>
+          <Link href="/" className={s.brand} onClick={closeMenu} aria-label="Cihat Erdem Web Tasarım Stüdyosu ana sayfa">
+            <span className={`${s.brandMark} ${brandAssets.logoBox}`}><img className={brandAssets.logoImg} src="/dromocob-app-icon-192.png" alt="" /></span>
             <span className={s.brandWords}>
-              <b>DROMOCOB</b>
-              <small>DIGITAL EXPERIENCE STUDIO</small>
+              <b>CIHAT ERDEM</b>
+              <small>WEB TASARIM &amp; SEO STÜDYOSU</small>
             </span>
           </Link>
 
           <nav className={`${s.nav} ${menuOpen ? s.navOpen : ""}`} aria-label="Ana menü">
             <div className={s.mobileNavTop}>
-              <span>MENÜ / DROMOCOB</span>
+              <span>MENÜ / CIHAT ERDEM STUDIO</span>
               <button type="button" onClick={closeMenu} aria-label="Menüyü kapat"><X /></button>
             </div>
             <Link href="/#tasarimlar" onClick={closeMenu}>Tasarımlar <span>01</span></Link>

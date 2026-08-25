@@ -1,0 +1,17 @@
+.logoBox {
+  overflow: hidden !important;
+  padding: 0 !important;
+  background: #091321 !important;
+}
+
+.logoBox::before,
+.logoBox::after {
+  display: none !important;
+}
+
+.logoImg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}

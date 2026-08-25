@@ -54,7 +54,7 @@ type ChatWidgetConfig = {
 const DEFAULT_CHAT_CONFIG: ChatWidgetConfig = {
   enabled: true,
   isOnline: true,
-  title: "Dromocob Canlı Stüdyo",
+  title: "Cihat Erdem Canlı Stüdyo",
   subtitle: "Projenizi birlikte netleştirelim.",
   placeholder: "Nasıl bir web deneyimi arıyorsunuz?",
   whatsapp: "https://wa.me/905304788298",
@@ -221,7 +221,7 @@ function AdminSupportPageInner() {
         controlVersion: "studio-contact-2026",
         enabled: chatConfig.enabled,
         isOnline: chatConfig.isOnline,
-        title: { tr: chatConfig.title, en: "Dromocob Live Studio" },
+        title: { tr: chatConfig.title, en: "Cihat Erdem Live Studio" },
         subtitle: { tr: chatConfig.subtitle, en: "Let's shape your project together." },
         placeholder: { tr: chatConfig.placeholder, en: "What kind of web experience do you need?" },
         onlineLabel: { tr: "Stüdyo çevrimiçi", en: "Studio online" },

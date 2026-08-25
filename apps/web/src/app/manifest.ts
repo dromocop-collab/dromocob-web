@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Dromocob — Dijital Deneyim Stüdyosu",
-    short_name: "Dromocob",
+    name: "Cihat Erdem — Web Tasarım ve SEO Stüdyosu",
+    short_name: "Cihat Erdem",
     description:
       "Cihat Erdem tarafından kurulan; web tasarım, e-ticaret ve dijital ürün stüdyosu.",
     start_url: "/",
