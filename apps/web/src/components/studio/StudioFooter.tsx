@@ -1,4 +1,34 @@
+"use client";
+
 import Link from "next/link";
-import { ArrowRight, Globe2, Mail, Sparkles } from "lucide-react";
+import { Globe2, Mail, Sparkles } from "lucide-react";
+import ProjectStartButton from "./ProjectStartButton";
 import s from "./studioChrome.module.css";
-export default function StudioFooter(){return <footer className={s.footer}><div className={s.footerGlow}/><div className={s.footerInner}><section className={s.footerCta}><div><span><Sparkles/> Bir sonraki güçlü marka sizinki olsun.</span><h2>Fikrinizi dijitalde<br/><em>unutulmaz hale getirelim.</em></h2></div><Link href="/iletisim">Proje başlatın <ArrowRight/></Link></section><div className={s.footerGrid}><div className={s.footerBrand}><Link href="/" className={s.brand}><span>D</span><div><b>DROMOCOB</b><small>digital experience studio</small></div></Link><p>Strateji, tasarım ve teknolojiyi birleştirerek sektörlere özel yüksek dönüşümlü web deneyimleri üretiyoruz.</p><div><a href="#"><Globe2/></a><a href="#"><Sparkles/></a><a href="mailto:hello@dromocob.com"><Mail/></a></div></div><div><b>Keşfet</b><Link href="/#tasarimlar">Tüm tasarımlar</Link><Link href="/#category-title">Sektörler</Link><Link href="/hakkimizda">Stüdyo</Link></div><div><b>Çözümler</b><Link href="/#tasarimlar">E-ticaret</Link><Link href="/#tasarimlar">Rezervasyon</Link><Link href="/#tasarimlar">Kurumsal</Link></div><div><b>İletişim</b><a href="mailto:hello@dromocob.com">hello@dromocob.com</a><span>İstanbul, Türkiye</span><span><Globe2/> Dünya çapında hizmet</span></div></div><div className={s.footerBottom}><span>© 2026 Dromocob Studio</span><span>Tasarımın ötesinde, dijital büyüme.</span></div></div></footer>}
+
+export default function StudioFooter() {
+  return (
+    <footer className={s.footer}>
+      <div className={s.footerGlow} />
+      <div className={s.footerInner}>
+        <section className={s.footerCta}>
+          <div>
+            <span><Sparkles /> Bir sonraki güçlü marka sizinki olsun.</span>
+            <h2>Fikrinizi dijitalde<br /><em>unutulmaz hale getirelim.</em></h2>
+          </div>
+          <ProjectStartButton label="Proje başlatın" variant="light" />
+        </section>
+        <div className={s.footerGrid}>
+          <div className={s.footerBrand}>
+            <Link href="/" className={s.brand}><span>D</span><div><b>DROMOCOB</b><small>digital experience studio</small></div></Link>
+            <p>Strateji, tasarım ve teknolojiyi birleştirerek sektörlere özel yüksek dönüşümlü web deneyimleri üretiyoruz.</p>
+            <div><a href="/sektorler" aria-label="Sektörler"><Globe2 /></a><a href="/hakkimizda" aria-label="Stüdyo"><Sparkles /></a><a href="mailto:hello@dromocob.com" aria-label="E-posta"><Mail /></a></div>
+          </div>
+          <div><b>Keşfet</b><Link href="/#tasarimlar">Tüm tasarımlar</Link><Link href="/sektorler">Sektörler</Link><Link href="/hakkimizda">Stüdyo</Link></div>
+          <div><b>Çözümler</b><Link href="/sektorler/e-ticaret-web-sitesi">E-ticaret web sitesi</Link><Link href="/sektorler/rent-a-car-web-sitesi">Araç kiralama sitesi</Link><Link href="/sektorler/kurumsal-web-sitesi">Kurumsal web sitesi</Link></div>
+          <div><b>İletişim</b><a href="mailto:hello@dromocob.com">hello@dromocob.com</a><span>İstanbul, Türkiye</span><span><Globe2 /> Türkiye ve dünya çapında hizmet</span></div>
+        </div>
+        <div className={s.footerBottom}><span>© 2026 Dromocob Studio</span><span>Tasarımın ötesinde, dijital büyüme.</span></div>
+      </div>
+    </footer>
+  );
+}

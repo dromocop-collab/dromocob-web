@@ -16,6 +16,7 @@ import {
   X,
 } from "lucide-react";
 import s from "./ProjectBriefModal.module.css";
+import { studioTemplates } from "@/data/studioCatalog";
 
 type Props = { open: boolean; onClose: () => void };
 type FormState = {
@@ -35,7 +36,7 @@ type FormState = {
 
 const siteTypes = [
   ["E-Ticaret", "Satış, ödeme ve yönetim paneli", "EC"],
-  ["Rent a Car", "Filo, rezervasyon ve müsaitlik", "RC"],
+  ["Araç Kiralama", "Filo, rezervasyon ve müsaitlik", "RC"],
   ["Kurumsal", "Marka, hizmetler ve güçlü dönüşüm", "CO"],
   ["Gayrimenkul", "İlan, harita ve danışman akışı", "RE"],
   ["Otel & Turizm", "Oda, tarih ve rezervasyon", "HT"],
@@ -44,18 +45,7 @@ const siteTypes = [
   ["Özel Proje", "İhtiyacınıza göre sıfırdan", "SP"],
 ];
 
-const designs = [
-  "Kararı Dromocob versin",
-  "Velocity Black",
-  "Moda Atelier",
-  "Estate Prime",
-  "Noir Table",
-  "Azure Stay",
-  "Clarity Clinic",
-  "Monolith Studio",
-  "Nexa Commerce",
-  "Drive Electric",
-];
+const designs = ["Kararı Dromocob versin", ...studioTemplates.map((item) => item.name)];
 
 const featureOptions = [
   "Yönetim paneli", "Online ödeme", "Rezervasyon", "Çoklu dil",

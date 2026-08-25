@@ -1,56 +1,114 @@
 "use client";
-import { useMemo, useState } from "react";
+
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Building2, CarFront, Check, ChevronDown, Filter, HeartPulse, Hotel, LayoutGrid, Search, ShoppingBag, Sparkles, UtensilsCrossed, WandSparkles, X } from "lucide-react";
+import { useMemo, useState } from "react";
+import {
+  ArrowRight, Building2, CarFront, Check, ChevronDown, Filter,
+  HeartPulse, Hotel, LayoutGrid, Search, ShoppingBag, Sparkles,
+  UtensilsCrossed, WandSparkles, X,
+} from "lucide-react";
+import ProjectStartButton from "@/components/studio/ProjectStartButton";
+import { sectors, studioTemplates } from "@/data/studioCatalog";
 import styles from "./HomeClient.module.css";
 
-const categories = [
-  ["rent-a-car","Rent a Car","Rezervasyon & filo",CarFront,"blue"], ["e-ticaret","E-Mağaza","Satış & ödeme",ShoppingBag,"orange"],
-  ["emlak","Emlak","İlan & harita",Building2,"violet"], ["restoran","Restoran","Menü & rezervasyon",UtensilsCrossed,"red"],
-  ["otel","Otel & Turizm","Oda & rezervasyon",Hotel,"cyan"], ["saglik","Sağlık & Klinik","Randevu & danışan",HeartPulse,"green"],
-  ["kurumsal","Kurumsal","Güçlü marka sunumu",LayoutGrid,"slate"], ["ozel","Size Özel","Sıfırdan tasarım",WandSparkles,"gold"],
-] as const;
+const iconBySector = {
+  "rent-a-car-web-sitesi": CarFront,
+  "e-ticaret-web-sitesi": ShoppingBag,
+  "emlak-web-sitesi": Building2,
+  "restoran-web-sitesi": UtensilsCrossed,
+  "otel-web-sitesi": Hotel,
+  "klinik-web-sitesi": HeartPulse,
+  "kurumsal-web-sitesi": LayoutGrid,
+} as const;
 
-const templates = [
-  [1,"Velocity Black","rent-a-car","Rent a Car","Lüks",34900,"#4f7cff",["Online rezervasyon","Filo","Çok dil"]],
-  [2,"Moda Atelier","e-ticaret","E-Mağaza","Editorial",42900,"#ff7657",["Ödeme","Kampanya","Ürün yönetimi"]],
-  [3,"Estate Prime","emlak","Emlak","Kurumsal",38900,"#8b5cf6",["Akıllı filtre","Harita","Danışman"]],
-  [4,"Noir Table","restoran","Restoran","Lüks",29900,"#e65252",["Dijital menü","Masa ayırt","Galeri"]],
-  [5,"Azure Stay","otel","Otel & Turizm","Modern",44900,"#09a6c7",["Oda seçimi","Takvim","Rezervasyon"]],
-  [6,"Clarity Clinic","saglik","Sağlık & Klinik","Minimal",32900,"#10a779",["Randevu","Uzmanlar","KVKK"]],
-  [7,"Monolith Studio","kurumsal","Kurumsal","Brutalist",26900,"#334155",["Hizmetler","Projeler","Teklif formu"]],
-  [8,"Nexa Commerce","e-ticaret","E-Mağaza","Modern",46900,"#ec4899",["Pazaryeri","Stok","Raporlama"]],
-  [9,"Drive Electric","rent-a-car","Rent a Car","Fütüristik",36900,"#22c55e",["Hızlı rezervasyon","Lokasyon","Transfer"]],
-] as const;
-const money = new Intl.NumberFormat("tr-TR",{maximumFractionDigits:0});
+const money = new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 0 });
 
-export default function HomeClient(){
-  const [query,setQuery]=useState(""); const [category,setCategory]=useState("all"); const [style,setStyle]=useState("all"); const [budget,setBudget]=useState("all"); const [open,setOpen]=useState(false);
-  const results=useMemo(()=>templates.filter(i=>{const q=query.trim().toLocaleLowerCase("tr-TR"); const hay=[i[1],i[3],i[4],...i[7]].join(" ").toLocaleLowerCase("tr-TR"); const budgetOk=budget==="all"||(budget==="under30"?i[5]<30000:budget==="30to40"?i[5]>=30000&&i[5]<=40000:i[5]>40000); return(!q||hay.includes(q))&&(category==="all"||i[2]===category)&&(style==="all"||i[4]===style)&&budgetOk}),[query,category,style,budget]);
-  const demoSlug=(name:string)=>name.toLocaleLowerCase("tr-TR").replace(/ı/g,"i").replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"");
-  const choose=(id:string)=>{setCategory(id==="ozel"?"all":id);document.getElementById("tasarimlar")?.scrollIntoView({behavior:"smooth"})};
-  return <main className={styles.page}>
-    <section className={styles.hero}><div className={styles.heroImage}/><div className={styles.heroShade}/><div className={styles.inner}>
-      <span className={styles.kicker}><Sparkles size={15}/> Yeni nesil web tasarım stüdyosu</span>
-      <h1>İşinize uygun siteyi<br/><em>dakikalar içinde keşfedin.</em></h1>
-      <p>Hazır şablon değil; sektörünüze göre kurgulanmış, yönetim panelli ve satışa hazır dijital deneyimler.</p>
-      <div className={styles.searchPanel}>
-        <label><Search/><input value={query} onChange={e=>setQuery(e.target.value)} placeholder="Örn: lüks rent a car, modern e-mağaza..."/>{query&&<button onClick={()=>setQuery("")}><X/></button>}</label>
-        <button className={styles.filter} onClick={()=>setOpen(!open)}><Filter/> Filtrele <ChevronDown/></button><a href="#tasarimlar">Tasarımları bul <ArrowRight/></a>
-        <div className={`${styles.filters} ${open?styles.filtersOpen:""}`}>
-          <select value={category} onChange={e=>setCategory(e.target.value)}><option value="all">Tüm sektörler</option>{categories.slice(0,-1).map(c=><option key={c[0]} value={c[0]}>{c[1]}</option>)}</select>
-          <select value={style} onChange={e=>setStyle(e.target.value)}><option value="all">Tüm stiller</option>{["Lüks","Modern","Minimal","Editorial","Kurumsal","Brutalist","Fütüristik"].map(x=><option key={x}>{x}</option>)}</select>
-          <select value={budget} onChange={e=>setBudget(e.target.value)}><option value="all">Tüm bütçeler</option><option value="under30">30.000 TL altı</option><option value="30to40">30–40 bin TL</option><option value="over40">40.000 TL üzeri</option></select>
+export default function HomeClient() {
+  const [query, setQuery] = useState("");
+  const [category, setCategory] = useState("all");
+  const [style, setStyle] = useState("all");
+  const [budget, setBudget] = useState("all");
+  const [open, setOpen] = useState(false);
+
+  const results = useMemo(() => studioTemplates.filter((item) => {
+    const q = query.trim().toLocaleLowerCase("tr-TR");
+    const haystack = [item.name, item.category, item.style, ...item.features].join(" ").toLocaleLowerCase("tr-TR");
+    const budgetOk = budget === "all" || (budget === "under30" ? item.price < 30000 : budget === "30to40" ? item.price >= 30000 && item.price <= 40000 : item.price > 40000);
+    return (!q || haystack.includes(q)) && (category === "all" || item.sector === category) && (style === "all" || item.style === style) && budgetOk;
+  }), [query, category, style, budget]);
+
+  return (
+    <main className={styles.page}>
+      <section className={styles.hero}>
+        <div className={styles.heroImage} /><div className={styles.heroShade} />
+        <div className={styles.inner}>
+          <span className={styles.kicker}><Sparkles size={15} /> Yeni nesil web tasarım stüdyosu</span>
+          <h1>İşinize uygun siteyi<br /><em>dakikalar içinde keşfedin.</em></h1>
+          <p>Hazır şablon değil; sektörünüze göre kurgulanmış, yönetim panelli ve satışa hazır dijital deneyimler.</p>
+          <div className={styles.searchPanel}>
+            <label><Search /><input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Örn: araç kiralama, butik otel, e-ticaret..." />{query && <button onClick={() => setQuery("")} aria-label="Aramayı temizle"><X /></button>}</label>
+            <button className={styles.filter} onClick={() => setOpen(!open)}><Filter /> Filtrele <ChevronDown /></button>
+            <a href="#tasarimlar">Tasarımları bul <ArrowRight /></a>
+            <div className={`${styles.filters} ${open ? styles.filtersOpen : ""}`}>
+              <select value={category} onChange={(e) => setCategory(e.target.value)}><option value="all">Tüm sektörler</option>{sectors.map((sector) => <option key={sector.slug} value={sector.slug}>{sector.shortName}</option>)}</select>
+              <select value={style} onChange={(e) => setStyle(e.target.value)}><option value="all">Tüm stiller</option>{["Lüks", "Modern", "Minimal", "Editoryal", "Kurumsal", "Fütüristik"].map((item) => <option key={item}>{item}</option>)}</select>
+              <select value={budget} onChange={(e) => setBudget(e.target.value)}><option value="all">Tüm bütçeler</option><option value="under30">30.000 TL altı</option><option value="30to40">30–40 bin TL</option><option value="over40">40.000 TL üzeri</option></select>
+            </div>
+          </div>
+          <div className={styles.stats}><span><b>48+</b> özgün tasarım</span><span><b>12</b> sektör</span><span><b>7–21 gün</b> teslim</span><span><b>∞</b> özelleştirme</span></div>
         </div>
-      </div><div className={styles.stats}><span><b>48+</b> özgün tasarım</span><span><b>12</b> sektör</span><span><b>7–21 gün</b> teslim</span><span><b>∞</b> özelleştirme</span></div>
-    </div></section>
-    <section className={styles.section}><header><div><span>SEKTÖRÜNÜ SEÇ</span><h2>Her iş için farklı bir dünya.</h2></div><p>Markanız hangi sektördeyse, dönüşüm sağlayan yapı ve özelliklerle oradan başlayın.</p></header>
-      <div className={styles.categoryGrid}>{categories.map((c,index)=>{const Icon=c[3];return <button key={c[0]} onClick={()=>choose(c[0])} className={`${styles.category} ${styles[`tone_${c[4]}`]}`}><div className={styles.visual} style={{"--pos":`${12+index*11}%`} as React.CSSProperties}><i/><Icon/></div><strong>{c[1]}</strong><small>{c[2]}</small><ArrowRight/></button>})}</div>
-    </section>
-    <section className={`${styles.section} ${styles.showcase}`} id="tasarimlar"><header><div><span>SEÇİLMİŞ DENEYİMLER</span><h2>Sıradan olmayan tasarımlar.</h2></div><b className={styles.count}>{results.length} tasarım bulundu</b></header>
-      <nav className={styles.chips}><button className={category==="all"?styles.active:""} onClick={()=>setCategory("all")}>Tümü</button>{categories.slice(0,7).map(c=><button key={c[0]} className={category===c[0]?styles.active:""} onClick={()=>setCategory(c[0])}>{c[1]}</button>)}</nav>
-      {results.length?<div className={styles.grid}>{results.map(i=><article key={i[0]} className={styles.card} style={{"--accent":i[6]} as React.CSSProperties}><div className={styles.mock}><div className={styles.bar}><i/><i/><i/><span/></div><div className={styles.mockHero}><small>{i[3]}</small><b>{i[1]}</b><span/></div><div className={styles.tiles}><i/><i/><i/></div></div><div className={styles.info}><div className={styles.meta}><span>{i[3]}</span><span>{i[4]}</span></div><h3>{i[1]}</h3><div className={styles.tags}>{i[7].map(t=><small key={t}><Check/>{t}</small>)}</div><footer><div><small>Başlangıç</small><b>{money.format(i[5])} TL</b></div><Link href={`/demo/${demoSlug(i[1])}`}>Canlı demoyu aç <ArrowRight/></Link></footer></div></article>)}</div>:<div className={styles.empty}><Search/><h3>Uygun tasarım bulunamadı.</h3><button onClick={()=>{setQuery("");setCategory("all");setStyle("all");setBudget("all")}}>Filtreleri temizle</button></div>}
-    </section>
-    <section className={styles.cta}><div><span><WandSparkles/> TAMAMEN SİZE ÖZEL</span><h2>Aklınızdaki site burada yoksa,<br/>birlikte sıfırdan tasarlayalım.</h2></div><Link href="/iletisim">Projenizi anlatın <ArrowRight/></Link></section>
-  </main>
+      </section>
+
+      <section className={styles.section} id="sektorler">
+        <header><div><span>SEKTÖRÜNÜ SEÇ</span><h2>Her iş için farklı bir dünya.</h2></div><p>Markanız hangi sektördeyse, dönüşüm sağlayan yapı ve özelliklerle oradan başlayın.</p></header>
+        <div className={styles.categoryGrid}>
+          {sectors.map((sector) => {
+            const Icon = iconBySector[sector.slug as keyof typeof iconBySector];
+            return (
+              <Link key={sector.slug} href={`/sektorler/${sector.slug}`} className={styles.category} style={{ "--tone": sector.accent } as React.CSSProperties}>
+                <div className={styles.visual}><Image src={sector.image} alt={`${sector.name} tasarım örneği`} fill sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 25vw" /><span /><Icon /></div>
+                <strong>{sector.shortName}</strong><small>{sector.eyebrow}</small><ArrowRight />
+              </Link>
+            );
+          })}
+          <button className={`${styles.category} ${styles.tone_gold}`} onClick={() => document.getElementById("tasarimlar")?.scrollIntoView({ behavior: "smooth" })}>
+            <div className={styles.visual}><span /><WandSparkles /></div><strong>Size Özel</strong><small>Sıfırdan özgün tasarım</small><ArrowRight />
+          </button>
+        </div>
+        <div className={styles.sectorMore}><Link href="/sektorler">Tüm sektör çözümlerini inceleyin <ArrowRight /></Link></div>
+      </section>
+
+      <section className={`${styles.section} ${styles.showcase}`} id="tasarimlar">
+        <header><div><span>SEÇİLMİŞ DENEYİMLER</span><h2>Türk markaları için özgün tasarımlar.</h2></div><b className={styles.count}>{results.length} tasarım bulundu</b></header>
+        <nav className={styles.chips} aria-label="Tasarım kategorileri"><button className={category === "all" ? styles.active : ""} onClick={() => setCategory("all")}>Tümü</button>{sectors.map((sector) => <button key={sector.slug} className={category === sector.slug ? styles.active : ""} onClick={() => setCategory(sector.slug)}>{sector.shortName}</button>)}</nav>
+        {results.length ? (
+          <div className={styles.grid}>
+            {results.map((item) => (
+              <article key={item.id} className={styles.card} style={{ "--accent": item.accent } as React.CSSProperties}>
+                <Link href={`/demo/${item.slug}`} className={styles.mock} aria-label={`${item.name} canlı demosunu aç`}>
+                  <Image src={item.image} alt={`${item.name} web sitesi küçük resmi`} fill sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 33vw" />
+                  <span className={styles.mockShade} />
+                  <span className={styles.mockBadge}>{item.category}</span>
+                  <strong>{item.name}</strong>
+                  <span className={styles.previewCta}>Canlı önizleme <ArrowRight /></span>
+                </Link>
+                <div className={styles.info}>
+                  <div className={styles.meta}><span>{item.category}</span><span>{item.style}</span></div>
+                  <h3>{item.name}</h3>
+                  <div className={styles.tags}>{item.features.map((feature) => <small key={feature}><Check />{feature}</small>)}</div>
+                  <footer><div><small>Başlangıç</small><b>{money.format(item.price)} TL</b></div><Link href={`/demo/${item.slug}`}>Canlı demoyu aç <ArrowRight /></Link></footer>
+                </div>
+              </article>
+            ))}
+          </div>
+        ) : <div className={styles.empty}><Search /><h3>Uygun tasarım bulunamadı.</h3><button onClick={() => { setQuery(""); setCategory("all"); setStyle("all"); setBudget("all"); }}>Filtreleri temizle</button></div>}
+      </section>
+
+      <section className={styles.cta}>
+        <div><span><WandSparkles /> TAMAMEN SİZE ÖZEL</span><h2>Aklınızdaki site burada yoksa,<br />birlikte sıfırdan tasarlayalım.</h2></div>
+        <ProjectStartButton label="Projenizi anlatın" variant="light" />
+      </section>
+    </main>
+  );
 }

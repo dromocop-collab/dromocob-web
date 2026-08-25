@@ -26,14 +26,23 @@ export default function robots(): MetadataRoute.Robots {
           "/account",
           "/account/",
           "/search",
+          "/shop",
+          "/products/",
+          "/demo/",
+          "/sertifika-guvence",
+          "/olcu-rehberi",
+          "/hediye-danismanligi",
+          "/randevu-magaza-deneyimi",
+          "/rates",
+          "/kargo-teslimat",
           // Eski /products/id/ route'u artık redirect yapıyor, crawl'a gerek yok
           "/products/id/",
         ],
       },
     ],
     sitemap: [
-      "https://demo.dromocob.com/sitemap.xml",
+      "https://dromocob.com/sitemap.xml",
     ],
-    host: "https://demo.dromocob.com",
+    host: "https://dromocob.com",
   };
 }

@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { adminDb } from "@/lib/firebase.admin";
 import { getSeoSettings, resolveBaseUrl } from "@/lib/getSeoSettings";
+import { sectors } from "@/data/studioCatalog";
 
 type AnyMap = Record<string, unknown>;
 
@@ -143,6 +144,15 @@ const BLOCKED_URL_PREFIXES = [
   "/test",
   "/deneme",
   "/products/id",
+  "/products",
+  "/shop",
+  "/demo",
+  "/sertifika-guvence",
+  "/olcu-rehberi",
+  "/hediye-danismanligi",
+  "/randevu-magaza-deneyimi",
+  "/rates",
+  "/kargo-teslimat",
 ];
 
 /**
@@ -214,7 +224,7 @@ function productUrlFromDoc(doc: AnyMap): string {
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const seo = await getSeoSettings();
-  const base = cleanUrl(resolveBaseUrl(seo) || "https://demo.dromocob.com");
+  const base = cleanUrl(resolveBaseUrl(seo) || "https://dromocob.com");
 
   const sitemap: MetadataRoute.Sitemap = [];
   const seen = new Set<string>();
@@ -227,15 +237,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: number;
   }> = [
     { path: "/", changeFrequency: "daily", priority: 1.0 },
-    { path: "/shop", changeFrequency: "daily", priority: 0.95 },
     { path: "/iletisim", changeFrequency: "monthly", priority: 0.75 },
-    { path: "/sertifika-guvence", changeFrequency: "monthly", priority: 0.72 },
-    { path: "/olcu-rehberi", changeFrequency: "monthly", priority: 0.68 },
-    { path: "/hediye-danismanligi", changeFrequency: "monthly", priority: 0.68 },
-    { path: "/randevu-magaza-deneyimi", changeFrequency: "monthly", priority: 0.68 },
-    { path: "/rates", changeFrequency: "hourly", priority: 0.65 },
+    { path: "/sektorler", changeFrequency: "weekly", priority: 0.92 },
+    ...sectors.map((sector) => ({ path: `/sektorler/${sector.slug}`, changeFrequency: "weekly" as const, priority: 0.88 })),
     { path: "/sss", changeFrequency: "monthly", priority: 0.70 },
-    { path: "/kargo-teslimat", changeFrequency: "monthly", priority: 0.70 },
     { path: "/hakkimizda", changeFrequency: "monthly", priority: 0.72 },
     // Yasal sayfalar
     { path: "/gizlilik-politikasi", changeFrequency: "yearly", priority: 0.40 },

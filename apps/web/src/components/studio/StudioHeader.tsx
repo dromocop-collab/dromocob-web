@@ -56,7 +56,7 @@ export default function StudioHeader() {
               <button type="button" onClick={closeMenu} aria-label="Menüyü kapat"><X /></button>
             </div>
             <Link href="/#tasarimlar" onClick={closeMenu}>Tasarımlar <span>01</span></Link>
-            <Link href="/#category-title" onClick={closeMenu}>Sektörler <ChevronDown /><span>02</span></Link>
+            <Link href="/sektorler" onClick={closeMenu}>Sektörler <ChevronDown /><span>02</span></Link>
             <Link href="/hakkimizda" onClick={closeMenu}>Stüdyo <span>03</span></Link>
             <Link href="/iletisim" onClick={closeMenu}>İletişim <span>04</span></Link>
             <div className={s.mobileAuth}>

@@ -1,250 +1,55 @@
 "use client";
 
 import Link from "next/link";
+import { ArrowRight, CheckCircle2, Clock3, Mail, MapPin, MessageCircle, ShieldCheck, Sparkles, Workflow } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useLocale } from "@/lib/useT";
+import ProjectStartButton from "@/components/studio/ProjectStartButton";
 import { getWhatsAppNumber, onWhatsAppNumberChange } from "@/lib/whatsapp";
 import s from "./IletisimPage.module.css";
 
-type L = { tr: string; en: string };
-function l(loc: "tr" | "en", v: L) { return v[loc]; }
-
-const CONTACT = {
-  storeName: "Bizim Dromocob",
-  addressLine1: "İstanbul / Türkiye",
-  addressLine2: " İstanbul · Demo Showroom",
-  phone: "+90 555 000 00 00",
-  email: "hello@dromocob.com",
-  hours_tr: [
-    { day: "Pazartesi - Cumartesi", time: "09:00 - 20:00" },
-    { day: "Pazar", time: "Kapalı" },
-  ],
-  hours_en: [
-    { day: "Monday - Saturday", time: "09:00 - 20:00" },
-    { day: "Sunday", time: "Closed" },
-  ],
-  mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3202.2156531492105!2d29.108407876367703!3d36.621195377768835!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c041006acfdaa9%3A0x62c678db418cc34f!2sBizim%206nc%C4%B1%20e-ticaret%20m%C3%BCcevherat!5e0!3m2!1str!2str!4v1776168949519!5m2!1str!2str",
-};
-
-function ContactCard({
-  title,
-  desc,
-  children,
-}: {
-  title: string;
-  desc?: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <section className={s.card}>
-      <div className={s.cardHead}>
-        <h2 className={s.cardTitle}>{title}</h2>
-        {desc ? <p className={s.cardDesc}>{desc}</p> : null}
-      </div>
-      <div>{children}</div>
-    </section>
-  );
-}
-
-function InfoRow({
-  label,
-  value,
-  href,
-}: {
-  label: string;
-  value: string;
-  href?: string;
-}) {
-  return (
-    <div className={s.infoRow}>
-      <div className={s.infoLabel}>{label}</div>
-      <div className={s.infoValue}>
-        {href ? (
-          <a
-            href={href}
-            target={href.startsWith("http") ? "_blank" : undefined}
-            rel={href.startsWith("http") ? "noreferrer" : undefined}
-            className={s.infoLink}
-          >
-            {value}
-          </a>
-        ) : (
-          value
-        )}
-      </div>
-    </div>
-  );
-}
-
-function QuickStat({
-  title,
-  text,
-}: {
-  title: string;
-  text: string;
-}) {
-  return (
-    <div className={s.quickStat}>
-      <div className={s.quickStatTitle}>{title}</div>
-      <div className={s.quickStatText}>{text}</div>
-    </div>
-  );
-}
-
 export default function IletisimPage() {
-  const loc = useLocale();
-  const [waNumber, setWaNumber] = useState(getWhatsAppNumber);
-
-  useEffect(() => {
-    return onWhatsAppNumberChange(setWaNumber);
-  }, []);
-
-  const phoneHref = `tel:${CONTACT.phone.replace(/\s+/g, "")}`;
-  const whatsappHref = `https://wa.me/${waNumber}`;
-  const mailHref = `mailto:${CONTACT.email}`;
-  const mapsHref = CONTACT.mapEmbed.replace("&output=embed", "");
-
-  const hours = loc === "en" ? CONTACT.hours_en : CONTACT.hours_tr;
+  const [whatsApp, setWhatsApp] = useState(getWhatsAppNumber);
+  useEffect(() => onWhatsAppNumberChange(setWhatsApp), []);
+  const whatsappUrl = `https://wa.me/${whatsApp}?text=${encodeURIComponent("Merhaba Dromocob, web projem hakkında görüşmek istiyorum.")}`;
 
   return (
     <main className={s.page}>
-      <section className={s.heroSection}>
-        <div className={s.heroShell}>
-          <div className={s.heroGrid}>
-            <div className={s.heroLeft}>
-              <div className={s.badge}>
-                {l(loc, { tr: "Premium Hizmet • Güvenli Alışveriş", en: "Premium Service • Secure Shopping" })}
-              </div>
-
-              <h1 className={s.heroTitle}>
-                {l(loc, { tr: "İletişim", en: "Contact" })}
-              </h1>
-
-              <p className={s.heroText}>
-                {l(loc, {
-                  tr: "Soruların, sipariş taleplerin ya da mağaza ziyareti planın için bize kolayca ulaşabilirsin. Net bilgi, hızlı dönüş ve güven veren bir deneyim burada başlar.",
-                  en: "You can easily reach us for questions, order requests, or planning a store visit. Clear information, fast response, and a trustworthy experience starts here.",
-                })}
-              </p>
-
-              <div className={s.heroActions}>
-                <a
-                  href={whatsappHref}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={`${s.btn} ${s.btnPrimary}`}
-                >
-                  {l(loc, { tr: "WhatsApp'tan Yaz", en: "Message on WhatsApp" })}
-                </a>
-
-                <a href={phoneHref} className={`${s.btn} ${s.btnSecondary}`}>
-                  {l(loc, { tr: "Hemen Ara", en: "Call Now" })}
-                </a>
-
-                <Link href="/shop" className={`${s.btn} ${s.btnGhost}`}>
-                  {l(loc, { tr: "Mağazaya Dön", en: "Back to Shop" })}
-                </Link>
-              </div>
-            </div>
-
-            <div className={s.heroRight}>
-              <div className={s.heroPanel}>
-                <QuickStat title={l(loc, { tr: "Mağaza", en: "Store" })} text={CONTACT.storeName} />
-                <QuickStat title={l(loc, { tr: "Telefon", en: "Phone" })} text={CONTACT.phone} />
-                <QuickStat title={l(loc, { tr: "E-posta", en: "Email" })} text={CONTACT.email} />
-                <QuickStat title={l(loc, { tr: "Konum", en: "Location" })} text={CONTACT.addressLine1} />
-              </div>
-            </div>
-          </div>
+      <section className={s.hero}>
+        <div className={s.grid} /><div className={s.glowA} /><div className={s.glowB} />
+        <div className={s.wrap}>
+          <span className={s.kicker}><Sparkles /> DROMOCOB PROJE OFİSİ</span>
+          <h1>İyi fikirler bir mesajla başlar.<br /><em>Birlikte büyütelim.</em></h1>
+          <p>Yeni web sitesi, e-ticaret altyapısı veya dijital ürün fikrinizi anlatın. Ekibimiz ihtiyacınızı analiz edip net bir yol haritasıyla size dönsün.</p>
+          <div className={s.heroActions}><ProjectStartButton label="Proje briefini oluştur" /><a href={whatsappUrl} target="_blank" rel="noreferrer"><MessageCircle /> WhatsApp’tan yaz</a></div>
+          <div className={s.response}><span><i /> Şu anda yeni proje kabul ediyoruz</span><span><Clock3 /> Ortalama ilk dönüş: 24–48 saat</span></div>
         </div>
       </section>
 
-      <section className={s.contentSection}>
-        <div className={s.contentGrid}>
-          <div className={s.leftCol}>
-            <ContactCard
-              title={l(loc, { tr: "Mağaza Bilgileri", en: "Store Information" })}
-              desc={l(loc, { tr: "Temel iletişim kanalları ve mağaza bilgileri.", en: "Basic contact channels and store information." })}
-            >
-              <InfoRow label={l(loc, { tr: "Mağaza", en: "Store" })} value={CONTACT.storeName} />
-              <InfoRow
-                label={l(loc, { tr: "Adres", en: "Address" })}
-                value={`${CONTACT.addressLine1} — ${CONTACT.addressLine2}`}
-              />
-              <InfoRow label={l(loc, { tr: "Telefon", en: "Phone" })} value={CONTACT.phone} href={phoneHref} />
-              <InfoRow label={l(loc, { tr: "E-posta", en: "Email" })} value={CONTACT.email} href={mailHref} />
-              <InfoRow
-                label="WhatsApp"
-                value={l(loc, { tr: "Hızlı iletişim için tıkla", en: "Click for quick contact" })}
-                href={whatsappHref}
-              />
-            </ContactCard>
-
-            <ContactCard
-              title={l(loc, { tr: "Çalışma Saatleri", en: "Business Hours" })}
-              desc={l(loc, {
-                tr: "Ziyaret öncesi kısa bir mesaj atarsan yönlendirmeyi daha hızlı yaparız.",
-                en: "Send us a quick message before your visit so we can assist you faster.",
-              })}
-            >
-              <div className={s.hoursList}>
-                {hours.map((item) => (
-                  <div key={item.day} className={s.hourItem}>
-                    <span className={s.hourDay}>{item.day}</span>
-                    <span className={s.hourTime}>{item.time}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className={s.noteBox}>
-                {l(loc, {
-                  tr: "Düzen seviyoruz; e-ticaretta da iletişimde de dağınıklık yakışmaz. Gelmeden önce ulaşman işleri hızlandırır.",
-                  en: "We value order; in lifestyle and in communication alike. Reaching out before your visit helps speed things up.",
-                })}
-              </div>
-            </ContactCard>
-          </div>
-
-          <div className={s.rightCol}>
-            <ContactCard
-              title={l(loc, { tr: "Konum / Harita", en: "Location / Map" })}
-              desc={l(loc, { tr: "Harita üzerinden doğrudan mağaza konumuna ulaşabilirsin.", en: "Find our store location directly on the map." })}
-            >
-              <div className={s.mapWrap}>
-                <iframe
-                  src={CONTACT.mapEmbed}
-                  width="100%"
-                  height="100%"
-                  className={s.mapFrame}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title={l(loc, { tr: "Mağaza Konumu", en: "Store Location" })}
-                />
-              </div>
-
-              <div className={s.mapActions}>
-                <a
-                  href={whatsappHref}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={`${s.btn} ${s.btnPrimary}`}
-                >
-                  WhatsApp
-                </a>
-
-                <a
-                  href={mapsHref}
-                  target="_blank"
-                  rel="noreferrer"
-                  className={`${s.btn} ${s.btnSecondary}`}
-                >
-                  {l(loc, { tr: "Haritada Aç", en: "Open in Maps" })}
-                </a>
-              </div>
-            </ContactCard>
-          </div>
+      <section className={s.contactSection}>
+        <div className={s.sectionHead}><span>İLETİŞİM KANALLARI</span><h2>Size en uygun yolu seçin.</h2><p>Projenizin kapsamı ne olursa olsun doğru uzmanla hızlıca eşleşin.</p></div>
+        <div className={s.contactGrid}>
+          <a href="mailto:hello@dromocob.com?subject=Yeni%20proje%20talebi" className={s.contactCard}><div><Mail /></div><small>E-POSTA</small><h3>hello@dromocob.com</h3><p>Dosya, kapsam veya referanslarınızı gönderin. Proje ekibimiz inceleyip yanıtlasın.</p><b>E-posta gönder <ArrowRight /></b></a>
+          <a href={whatsappUrl} target="_blank" rel="noreferrer" className={s.contactCard}><div><MessageCircle /></div><small>HIZLI İLETİŞİM</small><h3>WhatsApp görüşmesi</h3><p>Kısa bir mesaj bırakın; ihtiyacınızı anlayıp doğru sonraki adımı birlikte belirleyelim.</p><b>Görüşmeyi başlat <ArrowRight /></b></a>
+          <article className={s.contactCard}><div><MapPin /></div><small>PROJE OFİSİ</small><h3>İstanbul · Türkiye</h3><p>Türkiye’nin her yerine ve global markalara uzaktan strateji, tasarım ve geliştirme hizmeti.</p><b>Türkiye ve dünya çapında</b></article>
         </div>
       </section>
+
+      <section className={s.process}>
+        <div className={s.processIntro}><span><Workflow /> SÜREÇ NASIL İLERLER?</span><h2>Belirsizliği azaltan,<br />net bir başlangıç.</h2><p>Satış baskısı yerine doğru soruları soruyoruz. Böylece ilk görüşmede ihtiyacınıza uygun kapsamı netleştiriyoruz.</p><ProjectStartButton label="Ücretsiz ön görüşme başlat" variant="outline" /></div>
+        <div className={s.steps}>
+          <article><span>01</span><CheckCircle2 /><h3>Briefinizi paylaşın</h3><p>Sektör, hedef, özellik ve tasarım beklentinizi birkaç adımda anlatın.</p></article>
+          <article><span>02</span><CheckCircle2 /><h3>Stratejik inceleme</h3><p>Ekibimiz kullanıcı yolculuğu, teknoloji ve SEO fırsatlarını analiz etsin.</p></article>
+          <article><span>03</span><CheckCircle2 /><h3>Yol haritası alın</h3><p>Kapsam, takvim ve öncelikleri içeren şeffaf proje planıyla ilerleyin.</p></article>
+        </div>
+      </section>
+
+      <section className={s.assurance}>
+        <div><ShieldCheck /><span>GİZLİLİK VE GÜVEN</span><h2>Fikriniz güvende,<br />iletişiminiz net.</h2></div>
+        <p>Paylaştığınız bilgiler yalnızca proje talebinizi değerlendirmek için kullanılır. Talebiniz size özel referans koduyla sisteme kaydedilir ve yetkili ekip tarafından görüntülenir.</p>
+        <Link href="/gizlilik-politikasi">Gizlilik yaklaşımımız <ArrowRight /></Link>
+      </section>
+
+      <section className={s.finalCta}><span><Sparkles /> HAZIRSANIZ BAŞLAYALIM</span><h2>Markanızın yeni dijital<br />deneyimini birlikte tasarlayalım.</h2><ProjectStartButton label="Projemi başlat" variant="light" /></section>
     </main>
   );
 }

@@ -10,15 +10,13 @@ export async function generateMetadata(): Promise<Metadata> {
   const baseUrl = resolveBaseUrl(seo);
 
   return {
-    title: "Dromocob | Sektörünüze Özel Ultra Web Tasarımları",
+    title: "Sektörünüze Özel Ultra Web Tasarımları",
     description:
       "Rent a car, e-ticaret, emlak, restoran, otel, sağlık ve kurumsal markalar için gelişmiş, yönetim panelli web sitesi tasarımları.",
     keywords: [
       "Dromocob web tasarım",
-      "Dromocob",
-      "Dromocob",
-      "Dromocob",
-      "Dromocob tr",
+      "Dromocob web tasarım ajansı",
+      "Dromocob İstanbul",
       "Dromocob e-ticaret",
       "rent a car web sitesi",
       "e-ticaret web sitesi",
