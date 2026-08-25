@@ -33,14 +33,108 @@ service cloud.firestore {
 
     match /orders/{orderId} {
       allow read: if isAdmin() || (signedIn() && resource.data.uid == request.auth.uid);
-      allow create: if signedIn() && request.resource.data.uid == request.auth.uid;
-      allow update: if isAdmin() || (signedIn() && resource.data.uid == request.auth.uid);
+      allow write: if isAdmin();
+    }
+
+    match /products/{id} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /categories/{id} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /pages/{id} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /settings/{id} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /site_options/{id} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /home_sections/{id} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /rates/{id} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /wheel_campaigns/{id} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /wheel_rewards/{id} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /product_reviews/{id} {
+      allow read: if true;
+      allow create: if signedIn()
+        && request.resource.data.uid == request.auth.uid;
+      allow update, delete: if isAdmin();
+    }
+
+    match /stock_alerts/{id} {
+      allow read, delete: if isAdmin()
+        || (signedIn() && resource.data.uid == request.auth.uid);
+      allow create: if signedIn()
+        && request.resource.data.uid == request.auth.uid;
+      allow update: if isAdmin()
+        || (signedIn() && resource.data.uid == request.auth.uid
+          && request.resource.data.uid == request.auth.uid);
+    }
+
+    match /support_threads/{threadId} {
+      allow read: if isAdmin()
+        || (signedIn() && resource.data.uid == request.auth.uid);
+      allow create: if signedIn()
+        && request.resource.data.uid == request.auth.uid;
+      allow update: if isAdmin()
+        || (signedIn() && resource.data.uid == request.auth.uid
+          && request.resource.data.uid == request.auth.uid);
       allow delete: if isAdmin();
+
+      match /messages/{messageId} {
+        allow read, create: if isAdmin()
+          || (signedIn()
+            && get(/databases/$(database)/documents/support_threads/$(threadId)).data.uid
+              == request.auth.uid);
+        allow update, delete: if isAdmin();
+      }
+    }
+
+    match /refund_requests/{id} {
+      allow read: if isAdmin()
+        || (signedIn() && resource.data.uid == request.auth.uid);
+      allow create: if signedIn()
+        && request.resource.data.uid == request.auth.uid;
+      allow update, delete: if isAdmin();
+    }
+
+    match /carts/{userId}/items/{id} {
+      allow read, write: if isAdmin() || (signedIn() && userId == request.auth.uid);
+    }
+
+    match /wishlists/{userId}/items/{id} {
+      allow read, write: if isAdmin() || (signedIn() && userId == request.auth.uid);
     }
 
     match /{document=**} {
-      allow read: if true;
-      allow write: if isAdmin();
+      allow read, write: if isAdmin();
     }
   }
 }
