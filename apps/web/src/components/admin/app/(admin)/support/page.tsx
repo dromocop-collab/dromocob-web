@@ -217,6 +217,7 @@ function AdminSupportPageInner() {
     setNote("");
     try {
       await setDoc(doc(db, "site_options", "chat_widget"), {
+        designVersion: 2,
         enabled: chatConfig.enabled,
         isOnline: chatConfig.isOnline,
         title: { tr: chatConfig.title, en: "Dromocob Live Studio" },

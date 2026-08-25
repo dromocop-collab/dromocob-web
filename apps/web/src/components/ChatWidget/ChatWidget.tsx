@@ -470,7 +470,7 @@ useEffect(() => {
 
         const d: any = snap.exists() ? snap.data() : null;
 
-        setEnabled(d?.enabled !== false);
+        setEnabled(d?.designVersion === 2 ? d?.enabled !== false : true);
         const legacyTitle = s(d?.title?.tr) === "İletişim";
         const legacySubtitle = s(d?.subtitle?.tr) === "Hızlıca yaz, hemen dönüş yapalım.";
         const legacyPlaceholder = s(d?.placeholder?.tr) === "Mesajını yaz…";
