@@ -71,6 +71,7 @@ type LiveCounts = {
 const items: NavItem[] = [
   /* ── Genel ── */
   { section: "Genel", href: "/admin", label: "Dashboard", icon: "⌂", permission: "dashboard", tone: "blue" },
+  { section: "Genel", href: "/admin/project-briefs", label: "Proje Talepleri", icon: "✦", permission: "dashboard", tone: "violet" },
 
   /* ── Katalog ── */
   { section: "Katalog", href: "/admin/products", label: "Ürünler", icon: "◩", permission: "products", tone: "blue" },
@@ -239,9 +240,11 @@ useEffect(() => {
     }
 
     try {
-      const [tokenResult, snap] = await Promise.all([
+      const emailLower = String(user.email || "").trim().toLowerCase();
+      const [tokenResult, snap, legacyAdminSnap] = await Promise.all([
         getIdTokenResult(user, true).catch(() => null),
         getDoc(doc(db, "users", user.uid)).catch(() => null),
+        emailLower ? getDoc(doc(db, "admins", emailLower)).catch(() => null) : Promise.resolve(null),
       ]);
 
       const claims: any = tokenResult?.claims || {};
@@ -253,8 +256,11 @@ useEffect(() => {
 
       const claimRole = String(claims.role || "").trim();
       const docRole = String(data?.role || "").trim();
+      const isLegacyAdmin = Boolean(legacyAdminSnap?.exists?.() && legacyAdminSnap.data()?.enabled === true);
+      const isBootstrapAdmin = (emailLower === "zerayakkabi@gmail.com" && user.emailVerified) || isLegacyAdmin;
 
       const isClaimAdmin =
+        isBootstrapAdmin ||
         claims.admin === true ||
         claimRole === "admin" ||
         claimRoles.includes("admin");
@@ -486,7 +492,7 @@ function getDynamicBadge(item: NavItem) {
 
       <div className={s.brand}>
         <div className={s.logoBox}>
-          <div className={s.logo}>6</div>
+          <div className={s.logo}>D</div>
         </div>
 
         <div className={s.brandText}>

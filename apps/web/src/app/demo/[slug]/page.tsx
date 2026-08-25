@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, CalendarDays, Check, Quote, ShieldCheck, Sparkles, Star } from "lucide-react";
 import StudioFooter from "@/components/studio/StudioFooter";
 import StudioHeader from "@/components/studio/StudioHeader";
+import DesignQuoteButton from "@/components/studio/DesignQuoteButton";
 import s from "./demo.module.css";
 
 const demos: Record<string, any> = {
@@ -21,11 +22,12 @@ export default function DemoPage({ params }: { params: { slug: string } }) {
   const d = demos[params.slug];
   if (!d) notFound();
   const subject = d.type === "rent" ? "GT" : d.type === "estate" ? "VILLA" : d.type === "food" ? "CHEF" : d.type === "hotel" ? "SUITE" : d.type === "clinic" ? "CARE" : d.type === "corp" ? "A—01" : "DROP 01";
+  const siteType = d.type === "rent" ? "Rent a Car" : d.type === "estate" ? "Gayrimenkul" : d.type === "food" ? "Restoran" : d.type === "hotel" ? "Otel & Turizm" : d.type === "clinic" ? "Sağlık" : d.type === "corp" ? "Kurumsal" : "E-Ticaret";
   return (
     <>
       <StudioHeader />
       <main className={`${s.demo} ${s[d.theme]}`}>
-        <div className={s.topNotice}><Link href="/#tasarimlar"><ArrowLeft /> Tasarımlara dön</Link><span>CANLI DENEYİM · {d.brand}</span><Link href="/iletisim">Bu tasarımı iste <ArrowRight /></Link></div>
+        <div className={s.topNotice}><Link href="/#tasarimlar"><ArrowLeft /> Tasarımlara dön</Link><span>CANLI DENEYİM · {d.brand}</span><DesignQuoteButton brand={d.brand} design={params.slug} siteType={siteType} label="Bu tasarımı iste" variant="notice" /></div>
         <div className={s.demoBar}><b>{d.brand}</b><span>SEÇKİN DENEYİM / 2026</span><small>SCROLL TO DISCOVER ↓</small></div>
         <section className={s.hero}>
           <div className={s.orb} />
@@ -40,7 +42,7 @@ export default function DemoPage({ params }: { params: { slug: string } }) {
         <section className={s.marquee}><div>STRATEGY <i /> EXPERIENCE <i /> TECHNOLOGY <i /> PERFORMANCE <i /> STRATEGY <i /> EXPERIENCE</div></section>
         <section className={s.features}><article><span>01</span><h2>Akıllı kullanıcı deneyimi</h2><p>Her ayrıntısı kullanıcı yolculuğuna göre tasarlanmış güçlü ve akıcı deneyim.</p><Check /></article><article><span>02</span><h2>Premium hizmet</h2><p>Güven veren içerik mimarisi, hızlı etkileşim ve yüksek dönüşüm odağı.</p><ShieldCheck /></article><article><span>03</span><h2>Her ekranda etkileyici</h2><p>Mobil, tablet ve masaüstünde karakterini koruyan kusursuz tasarım sistemi.</p><Star /></article></section>
         <section className={s.testimonial}><Quote /><blockquote>“Dijital deneyimimiz artık yalnızca markamızı anlatmıyor; müşterilerimizin karar verme biçimini de dönüştürüyor.”</blockquote><div><b>ELİF DEMİR</b><span>BRAND DIRECTOR / {d.brand}</span></div></section>
-        <section className={s.demoCta}><span><CalendarDays /> PROJENİZİ HAYATA GEÇİRELİM</span><h2>Bu tasarımı markanıza<br />özel uyarlayalım.</h2><Link href="/iletisim">Teklif alın <ArrowRight /></Link></section>
+        <section className={s.demoCta}><span><CalendarDays /> PROJENİZİ HAYATA GEÇİRELİM</span><h2>Bu tasarımı markanıza<br />özel uyarlayalım.</h2><DesignQuoteButton brand={d.brand} design={params.slug} siteType={siteType} label="Teklif alın" /></section>
       </main>
       <StudioFooter />
     </>

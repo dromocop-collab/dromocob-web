@@ -37,7 +37,8 @@ export async function POST(request: NextRequest) {
 
     const reference = `DRM-${day.replace(/-/g, "").slice(2)}-${randomBytes(2).toString("hex").toUpperCase()}`;
     const features = Array.isArray(body.features) ? body.features.slice(0, 12).map((item: unknown) => text(item, 60)) : [];
-    await db.collection("project_briefs").add({
+    const source = text(body.source, 80) || "website-project-builder";
+    const briefRef = await db.collection("project_briefs").add({
       reference,
       siteType,
       design: text(body.design, 100),
@@ -47,7 +48,28 @@ export async function POST(request: NextRequest) {
       message: text(body.message, 2000),
       contact: { name, company: text(body.company, 140), email, phone },
       status: "new",
-      source: "website-project-builder",
+      source,
+      createdAt: FieldValue.serverTimestamp(),
+    });
+
+    // Trigger Email extension kurulduğunda bu kayıt otomatik bildirim gönderir.
+    await db.collection("mail").add({
+      to: ["dromocop@gmail.com"],
+      replyTo: email,
+      message: {
+        subject: `Yeni proje talebi: ${siteType} · ${reference}`,
+        text: [
+          `Talep: ${reference}`,
+          `Tasarım: ${text(body.design, 100)}`,
+          `Site türü: ${siteType}`,
+          `Ad: ${name}`,
+          `Şirket: ${text(body.company, 140) || "-"}`,
+          `E-posta: ${email}`,
+          `Telefon: ${phone}`,
+          `Not: ${text(body.message, 2000) || "-"}`,
+          `Kayıt: ${briefRef.id}`,
+        ].join("\n"),
+      },
       createdAt: FieldValue.serverTimestamp(),
     });
 

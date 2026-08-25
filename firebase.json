@@ -24,6 +24,9 @@
       }
     ]
   },
+  "extensions": {
+    "firestore-send-email": "firebase/firestore-send-email@0.2.10"
+  },
   "emulators": {
     "firestore": {
       "host": "127.0.0.1",
