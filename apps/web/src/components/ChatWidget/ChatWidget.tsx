@@ -16,7 +16,7 @@ import {
   updateDoc,
   limit as qLimit,
 } from "firebase/firestore";
-import { onIdTokenChanged, signInAnonymously } from "firebase/auth";
+import { onIdTokenChanged } from "firebase/auth";
 import { getFirebaseDb, getFirebaseAuth } from "@/lib/firebase.client";
 import styles from "./ChatWidget.module.css";
 
@@ -55,6 +55,7 @@ type MsgDoc = {
   sender?: Role;
   senderType?: Role;
   text: string;
+  sessionId?: string;
   createdAt?: any;
 };
 type OrderMini = {
@@ -180,7 +181,9 @@ function getOrCreateSessionId() {
     const cur = localStorage.getItem(key);
     if (cur) return cur;
 
-    const v = `anon_${Math.random().toString(16).slice(2)}_${Date.now()}`;
+    const v = typeof crypto !== "undefined" && "randomUUID" in crypto
+      ? `anon_${crypto.randomUUID()}`
+      : `anon_${Math.random().toString(16).slice(2)}_${Date.now()}`;
     localStorage.setItem(key, v);
 
     return v;
@@ -428,7 +431,7 @@ useEffect(() => {
         setIsAnonymousUser(Boolean(u.isAnonymous));
         return;
       }
-      setUid(null);
+      setUid(`guest:${sessionId}`);
       setIsAnonymousUser(true);
     });
 
@@ -436,21 +439,7 @@ useEffect(() => {
       alive = false;
       unsub();
     };
-  }, [auth, loc]);
-
-  useEffect(() => {
-    if (!open || uid) return;
-    let alive = true;
-    signInAnonymously(auth).then((cred) => {
-      if (!alive) return;
-      setUid(cred.user.uid);
-      setIsAnonymousUser(true);
-    }).catch(() => {
-      if (!alive) return;
-      fireToast(loc === "en" ? "Chat is temporarily unavailable." : "Canlı destek şu an kullanılamıyor.", "err");
-    });
-    return () => { alive = false; };
-  }, [auth, loc, open, uid]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [auth, sessionId]);
 
   useEffect(() => {
     let alive = true;
@@ -759,7 +748,7 @@ async function ensureThread(): Promise<string> {
     lastText: "",
     unreadByAdmin: 0,
     unreadByUser: 0,
-    uid,
+    uid: null,
     sessionId,
     page: typeof window !== "undefined" ? window.location.pathname : "",
     name: s(name),
@@ -796,6 +785,14 @@ function attachSelectedOrderToMessage() {
   async function sendMessage() {
     const clean = text.trim();
 
+    if (isAnonymousUser && (!name.trim() || phone.replace(/\D/g, "").length < 10)) {
+      fireToast(
+        loc === "en" ? "Please enter your name and phone number." : "Lütfen adınızı ve telefon numaranızı girin.",
+        "err"
+      );
+      return;
+    }
+
     if (!clean) {
       fireToast(
         loc === "en" ? "Please type a message." : "Lütfen bir mesaj yaz.",
@@ -817,7 +814,7 @@ function attachSelectedOrderToMessage() {
   threadRef,
   {
     status: "open",
-    uid,
+    uid: isAnonymousUser ? null : uid,
     sessionId,
     page: typeof window !== "undefined" ? window.location.pathname : "",
     name: isAnonymousUser
@@ -844,6 +841,7 @@ email: isAnonymousUser
         sender: "user",
         senderType: "user",
         text: clean,
+        sessionId,
         createdAt: serverTimestamp(),
       } as MsgDoc);
 

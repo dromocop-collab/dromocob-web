@@ -99,13 +99,24 @@ service cloud.firestore {
     }
 
     match /support_threads/{threadId} {
-      allow read: if isAdmin()
-        || (signedIn() && resource.data.uid == request.auth.uid);
-      allow create: if signedIn()
-        && request.resource.data.uid == request.auth.uid;
+      allow get: if isAdmin()
+        || (signedIn() && resource.data.uid == request.auth.uid)
+        || resource.data.uid == null;
+      allow list: if isAdmin();
+      allow create: if (signedIn()
+          && request.resource.data.uid == request.auth.uid)
+        || (!signedIn()
+          && request.resource.data.uid == null
+          && request.resource.data.sessionId is string
+          && request.resource.data.sessionId.size() >= 20
+          && request.resource.data.sessionId.size() <= 100);
       allow update: if isAdmin()
         || (signedIn() && resource.data.uid == request.auth.uid
-          && request.resource.data.uid == request.auth.uid);
+          && request.resource.data.uid == request.auth.uid)
+        || (!signedIn()
+          && resource.data.uid == null
+          && request.resource.data.uid == null
+          && request.resource.data.sessionId == resource.data.sessionId);
       allow delete: if isAdmin();
 
       match /messages/{messageId} {
@@ -113,6 +124,11 @@ service cloud.firestore {
           || (signedIn()
             && get(/databases/$(database)/documents/support_threads/$(threadId)).data.uid
               == request.auth.uid);
+        allow read: if get(/databases/$(database)/documents/support_threads/$(threadId)).data.uid == null;
+        allow create: if !signedIn()
+          && get(/databases/$(database)/documents/support_threads/$(threadId)).data.uid == null
+          && request.resource.data.sessionId
+            == get(/databases/$(database)/documents/support_threads/$(threadId)).data.sessionId;
         allow update, delete: if isAdmin();
       }
     }
