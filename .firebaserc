@@ -1,0 +1,11 @@
+{
+  "projects": {},
+  "targets": {},
+  "etags": {
+    "dromocob-web-edit": {
+      "extensionInstances": {
+        "firestore-send-email": "907beec22482bc20f0887412908e9e42504c29574cc482f39f01400e95ae087d"
+      }
+    }
+  }
+}

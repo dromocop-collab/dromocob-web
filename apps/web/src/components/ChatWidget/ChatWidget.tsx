@@ -672,7 +672,7 @@ async function ensureThread(): Promise<string> {
       ref,
       {
         status: "open",
-        uid,
+        uid: uid && !uid.startsWith("guest:") ? uid : null,
         sessionId,
         page: typeof window !== "undefined" ? window.location.pathname : "",
         name: s(auth.currentUser?.displayName || ""),
@@ -814,7 +814,7 @@ function attachSelectedOrderToMessage() {
   threadRef,
   {
     status: "open",
-    uid: isAnonymousUser ? null : uid,
+    uid: uid && !uid.startsWith("guest:") ? uid : null,
     sessionId,
     page: typeof window !== "undefined" ? window.location.pathname : "",
     name: isAnonymousUser
