@@ -1,0 +1,19 @@
+{
+    "heroSlides": [
+      {
+        "id": "s1",
+        "title": { "tr": "Yeni Sezon\nBileklikler", "en": "New Season\nBracelets" },
+        "priceLabel": { "tr": "Başlangıç", "en": "Starting at" },
+        "priceText": { "tr": "₺4.990", "en": "₺4,990" },
+        "primaryLabel": { "tr": "Mağazaya Git", "en": "Shop Now" },
+        "primaryUrl": "/shop",
+        "secondaryLabel": { "tr": "Detay", "en": "View Details" },
+        "secondaryUrl": "/shop?cat=bileklik",
+        "noteSmall": { "tr": "Sertifikalı ürün", "en": "Certified items" },
+        "noteLine1": { "tr": "Güvenli ödeme", "en": "Secure payment" },
+        "noteLine2": { "tr": "Hızlı kargo", "en": "Fast shipping" },
+        "image": "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?auto=format&fit=crop&w=1600&q=80",
+        "sideText": { "tr": "YENİ", "en": "NEW" }
+      }
+    ]
+  }

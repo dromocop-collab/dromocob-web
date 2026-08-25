@@ -1,0 +1,580 @@
+.page {
+  min-height: 100vh;
+  padding: 28px;
+  color: #101828;
+  background:
+    radial-gradient(circle at top left, rgba(212, 175, 55, 0.14), transparent 34%),
+    radial-gradient(circle at 80% 10%, rgba(17, 24, 39, 0.08), transparent 28%),
+    linear-gradient(180deg, #fffaf0 0%, #f7f4ee 100%);
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 22px;
+  padding: 30px;
+  margin-bottom: 20px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  box-shadow: 0 26px 80px rgba(17, 24, 39, 0.09);
+  backdrop-filter: blur(18px);
+}
+
+.heroText {
+  max-width: 780px;
+}
+
+.kicker {
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: 0.16em;
+  color: #a47c18;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 8px 0 10px;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+  color: #101828;
+}
+
+.hero p {
+  margin: 0;
+  color: #667085;
+  font-size: 15px;
+  line-height: 1.7;
+  font-weight: 650;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(110px, 1fr));
+  gap: 12px;
+}
+
+.statCard {
+  min-width: 116px;
+  padding: 16px;
+  border-radius: 22px;
+  color: #fff;
+  background:
+    linear-gradient(145deg, rgba(17, 24, 39, 0.98), rgba(52, 64, 84, 0.96));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 18px 44px rgba(17, 24, 39, 0.18);
+}
+
+.statCard span {
+  display: block;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.statCard b {
+  display: block;
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.card {
+  overflow: hidden;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  box-shadow: 0 26px 80px rgba(17, 24, 39, 0.09);
+  backdrop-filter: blur(18px);
+}
+
+.cardHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 24px 26px;
+  border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+}
+
+.cardHead h2 {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: -0.035em;
+  color: #101828;
+}
+
+.cardHead p {
+  margin: 6px 0 0;
+  color: #667085;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.livePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  border-radius: 999px;
+  background: #ecfdf3;
+  color: #027a48;
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.livePill::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: currentColor;
+  box-shadow: 0 0 0 5px rgba(2, 122, 72, 0.12);
+}
+
+.tableWrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  min-width: 1180px;
+  border-collapse: collapse;
+}
+
+.table th {
+  padding: 15px 16px;
+  text-align: left;
+  background: #f9fafb;
+  color: #667085;
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+}
+
+.table td {
+  padding: 16px;
+  vertical-align: middle;
+  color: #344054;
+  font-size: 14px;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(17, 24, 39, 0.07);
+}
+
+.table tr:hover td {
+  background: rgba(212, 175, 55, 0.045);
+}
+
+.thRight {
+  text-align: right !important;
+}
+
+.statusPill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 92px;
+  padding: 9px 11px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.statusPending {
+  background: #fffaeb;
+  color: #b54708;
+}
+
+.statusApproved {
+  background: #ecfdf3;
+  color: #027a48;
+}
+
+.statusRejected {
+  background: #f2f4f7;
+  color: #475467;
+}
+
+.statusFailed {
+  background: #fef3f2;
+  color: #b42318;
+}
+
+.mainText {
+  color: #101828;
+  font-weight: 950;
+}
+
+.subText {
+  margin-top: 4px;
+  color: #667085;
+  font-size: 12px;
+  font-weight: 750;
+  max-width: 260px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.code {
+  display: inline-flex;
+  max-width: 220px;
+  padding: 7px 9px;
+  border-radius: 12px;
+  background: #f2f4f7;
+  color: #101828;
+  font-weight: 900;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.amount {
+  color: #101828;
+  font-size: 15px;
+  font-weight: 950;
+}
+
+.reason {
+  max-width: 260px;
+  color: #344054;
+  line-height: 1.45;
+}
+
+.rejectReason {
+  margin-top: 7px;
+  color: #b42318;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.errorText {
+  max-width: 260px;
+  color: #b42318;
+  font-size: 12px;
+  font-weight: 850;
+  line-height: 1.45;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.primaryBtn,
+.ghostBtn {
+  min-height: 38px;
+  border: 0;
+  border-radius: 14px;
+  padding: 0 13px;
+  font-size: 13px;
+  font-weight: 950;
+  cursor: pointer;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    opacity 0.18s ease;
+}
+
+.primaryBtn {
+  color: #fff;
+  background: #101828;
+  box-shadow: 0 14px 34px rgba(17, 24, 39, 0.14);
+}
+
+.ghostBtn {
+  color: #101828;
+  background: #f2f4f7;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+}
+
+.primaryBtn:hover:not(:disabled),
+.ghostBtn:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.primaryBtn:disabled,
+.ghostBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  transform: none;
+  box-shadow: none;
+}
+
+.empty {
+  padding: 34px;
+  color: #667085;
+  font-weight: 850;
+}
+
+.alertBad,
+.alertOk {
+  margin-bottom: 14px;
+  padding: 15px 17px;
+  border-radius: 18px;
+  font-weight: 850;
+  border: 1px solid transparent;
+}
+
+.alertBad {
+  color: #b42318;
+  background: #fef3f2;
+  border-color: #fecdca;
+}
+
+.alertOk {
+  color: #027a48;
+  background: #ecfdf3;
+  border-color: #abefc6;
+}
+
+.stateCard,
+.deniedCard {
+  max-width: 720px;
+  margin: 60px auto;
+  padding: 34px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  box-shadow: 0 26px 80px rgba(17, 24, 39, 0.09);
+  color: #101828;
+  font-weight: 850;
+  text-align: center;
+}
+
+.deniedIcon {
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 18px;
+  border-radius: 22px;
+  background: #fef3f2;
+  color: #b42318;
+  font-size: 28px;
+}
+
+.deniedCard h1 {
+  margin: 0 0 10px;
+  font-size: 30px;
+  letter-spacing: -0.04em;
+}
+
+.deniedCard p {
+  margin: 0 auto 12px;
+  max-width: 520px;
+  color: #667085;
+  line-height: 1.6;
+}
+
+.deniedCard span {
+  color: #a47c18;
+  font-weight: 950;
+}
+
+@media (max-width: 980px) {
+  .page {
+    padding: 18px;
+  }
+
+  .hero {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 14px;
+  }
+
+  .hero,
+  .card {
+    border-radius: 22px;
+  }
+
+  .hero {
+    padding: 22px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .cardHead {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+.statusRefunded {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.24);
+  color: #047857;
+}
+
+.refundBtn {
+  min-height: 38px;
+  padding: 0 13px;
+  border: 1px solid rgba(180, 83, 9, 0.24);
+  background: linear-gradient(135deg, #fff8e8, #ffffff);
+  color: #8a5a13;
+  font-size: 12px;
+  font-weight: 950;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: 0.18s ease;
+}
+
+.refundBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(145, 106, 31, 0.12);
+}
+
+.refundBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.doneText {
+  min-height: 34px;
+  padding: 0 11px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: #f8fafc;
+  color: #667085;
+  font-size: 12px;
+  font-weight: 900;
+}
+.statusProcessing {
+  background: rgba(59, 130, 246, 0.1);
+  color: #1d4ed8;
+  border-color: rgba(59, 130, 246, 0.22);
+}
+
+.statusCancelled {
+  background: rgba(100, 116, 139, 0.1);
+  color: #475569;
+  border-color: rgba(100, 116, 139, 0.22);
+}
+.shipmentBox {
+  min-width: 220px;
+  padding: 12px 13px;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  background: #fff;
+  display: grid;
+  gap: 5px;
+}
+
+.shipmentTitle {
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0f172a;
+}
+
+.shipmentLine {
+  font-size: 12px;
+  color: #667085;
+  font-weight: 750;
+}
+
+.shipmentLine b {
+  color: #0f172a;
+  font-weight: 950;
+}
+
+.shipmentDate {
+  margin-top: 3px;
+  font-size: 11px;
+  color: #667085;
+  font-weight: 700;
+}
+
+.shipmentWarn {
+  border-color: rgba(245, 158, 11, 0.25);
+  background: linear-gradient(180deg, #fffaf0, #ffffff);
+}
+
+.shipmentInfo {
+  border-color: rgba(37, 99, 235, 0.18);
+  background: linear-gradient(180deg, #eff6ff, #ffffff);
+}
+
+.shipmentOk {
+  border-color: rgba(16, 185, 129, 0.22);
+  background: linear-gradient(180deg, #ecfdf5, #ffffff);
+}
+
+.receiveBtn {
+  min-height: 38px;
+  padding: 0 13px;
+  border: 1px solid rgba(16, 185, 129, 0.28);
+  background: #ecfdf5;
+  color: #047857;
+  font-size: 12px;
+  font-weight: 950;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.receiveBtn:hover {
+  background: #d1fae5;
+}
+
+.waitText {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 11px;
+  border: 1px solid rgba(245, 158, 11, 0.22);
+  background: #fff7ed;
+  color: #92400e;
+  font-size: 12px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.statusProcessing {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border-color: rgba(37, 99, 235, 0.22);
+}
+
+.statusRefunded {
+  background: #ecfdf5;
+  color: #047857;
+  border-color: rgba(16, 185, 129, 0.22);
+}
+
+.statusCancelled {
+  background: #f3f4f6;
+  color: #6b7280;
+  border-color: rgba(107, 114, 128, 0.18);
+}
+
+@media (max-width: 920px) {
+  .shipmentBox {
+    min-width: 180px;
+  }
+
+  .receiveBtn,
+  .waitText {
+    width: 100%;
+    justify-content: center;
+  }
+}

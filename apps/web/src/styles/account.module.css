@@ -1,0 +1,138 @@
+.accountHeroCompact {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  padding: 18px 20px;
+  border: 1px solid #e7eaf3;
+  border-radius: 24px;
+  background: linear-gradient(180deg, #f8faff 0%, #f3f6ff 100%);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.05);
+}
+
+.accountHeroCompactLeft {
+  min-width: 0;
+}
+
+.accountHeroCompactEyebrow {
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #6366f1;
+  margin-bottom: 8px;
+}
+
+.accountHeroCompactTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.accountHeroCompactTitle {
+  margin: 0;
+  font-size: clamp(24px, 2.6vw, 36px);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-weight: 900;
+  color: #0b132a;
+}
+
+.accountHeroCompactName {
+  color: #4338ca;
+}
+
+.accountHeroCompactStatus {
+  min-height: 34px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.accountHeroCompactStatusOk {
+  background: #e8f7f0;
+  color: #0f8a5f;
+  border: 1px solid #bde8d3;
+}
+
+.accountHeroCompactStatusWarn {
+  background: #fff4e8;
+  color: #c56b13;
+  border: 1px solid #f2d2ac;
+}
+
+.accountHeroCompactStats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(110px, 1fr));
+  gap: 10px;
+}
+
+.accountHeroCompactStat {
+  min-width: 110px;
+  padding: 12px 14px;
+  border: 1px solid #e5e9f2;
+  border-radius: 18px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.accountHeroCompactStat span {
+  font-size: 12px;
+  font-weight: 700;
+  color: #667085;
+}
+
+.accountHeroCompactStat strong {
+  font-size: 18px;
+  line-height: 1.15;
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: -0.03em;
+}
+
+.accountHeroCompactStatWide strong {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 1100px) {
+  .accountHeroCompact {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+  }
+
+  .accountHeroCompactStats {
+    width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .accountHeroCompact {
+    padding: 16px;
+    border-radius: 20px;
+    gap: 14px;
+  }
+
+  .accountHeroCompactTitle {
+    font-size: clamp(22px, 7vw, 30px);
+  }
+
+  .accountHeroCompactStats {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .accountHeroCompactStat {
+    min-width: 0;
+    border-radius: 16px;
+  }
+}

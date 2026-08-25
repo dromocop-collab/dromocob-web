@@ -16,10 +16,16 @@ dist/
 **/.next/
 **/out/
 **/dist/
+**/*.tsbuildinfo
+functions/lib/
+outputs/
+tools/
 
 # env
 .env
 .env.*
+!.env.example
+!**/.env.example
 apps/web/.env.local
 functions/.env
 
@@ -28,20 +34,3 @@ functions/.env
 
 # OS
 .DS_Store
-
-# Eski kaynak kopyasi: yalnızca yerel geçiş referansı, yayımlanmaz
-apps/web/
-functions/
-docs/
-scripts/
-public/
-.gemini/
-.idx/
-.vscode/
-GEMINI.md
-SATIS_ONCESI_RAPOR.md
-firestore.rules
-firestore.indexes.json
-storage.rules
-.pnpm-store/
-outputs/

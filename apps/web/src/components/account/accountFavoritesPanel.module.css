@@ -1,0 +1,22 @@
+.wrap { display: grid; gap: 22px; }
+.head { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; }
+.kicker { display: block; margin-bottom: 8px; color: #b7791f; font-size: 11px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+.head h2 { margin: 0; color: #0f172a; font-size: clamp(28px, 3vw, 42px); line-height: 1; letter-spacing: -.04em; }
+.head p { margin: 11px 0 0; color: #64748b; font-size: 14px; line-height: 1.65; font-weight: 600; }
+.count { min-width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: #0f172a; color: #fff; font-weight: 900; }
+.empty { min-height: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 30px; border: 1px dashed rgba(15,23,42,.14); border-radius: 24px; text-align: center; background: linear-gradient(180deg,#fff,#f8fafc); color: #64748b; }
+.empty strong { color: #0f172a; font-size: 18px; }
+.empty span { max-width: 440px; font-size: 13px; line-height: 1.6; }
+.empty a { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; padding: 12px 17px; border-radius: 12px; background: #0f172a; color: #fff; font-size: 13px; font-weight: 800; text-decoration: none; }
+.grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 15px; }
+.card { overflow: hidden; border: 1px solid rgba(15,23,42,.08); border-radius: 20px; background: #fff; box-shadow: 0 14px 34px rgba(15,23,42,.05); }
+.media { position: relative; display: grid; place-items: center; aspect-ratio: 1; overflow: hidden; background: #f4f1ea; color: #b7791f; font-weight: 900; text-decoration: none; }
+.media img { object-fit: cover; transition: transform .3s ease; }
+.card:hover .media img { transform: scale(1.035); }
+.body { display: grid; gap: 10px; padding: 16px; }
+.title { color: #0f172a; font-size: 14px; font-weight: 850; line-height: 1.4; text-decoration: none; }
+.body strong { color: #b7791f; font-size: 14px; }
+.body button { width: fit-content; display: inline-flex; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: #64748b; cursor: pointer; font-size: 12px; font-weight: 750; }
+.body button:hover { color: #b91c1c; }
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:520px){.grid{grid-template-columns:1fr}.head p{max-width:32ch}.media{aspect-ratio:1.35}}

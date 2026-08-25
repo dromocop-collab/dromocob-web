@@ -1,0 +1,71 @@
+.wrap{
+    padding: 18px 18px 40px;
+  }
+  
+  .container{
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  .head{
+    padding: 10px 0 16px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    margin-bottom: 18px;
+  }
+  
+  .kicker{
+    font-weight: 900;
+    letter-spacing: .12em;
+    font-size: 12px;
+    opacity: .6;
+  }
+  
+  .h1{
+    margin: 8px 0 0;
+    font-weight: 950;
+    font-size: 40px;
+    letter-spacing: -0.03em;
+    line-height: 1.06;
+  }
+  
+  .muted{
+    opacity: .75;
+    font-weight: 700;
+  }
+  
+  .blocks{
+    display: grid;
+    gap: 18px;
+  }
+  
+  .html{
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    line-height: 1.65;
+    font-size: 16px;
+  }
+  
+  .empty{
+    margin-top: 20px;
+    padding: 16px;
+    border: 1px dashed rgba(0,0,0,0.18);
+    border-radius: 16px;
+    font-weight: 800;
+    opacity: .7;
+  }
+  
+  /* skeleton */
+  .skelTitle{
+    height: 44px;
+    width: 58%;
+    border-radius: 14px;
+    background: rgba(0,0,0,0.06);
+  }
+  .skelLine{
+    margin-top: 12px;
+    height: 16px;
+    width: 92%;
+    border-radius: 10px;
+    background: rgba(0,0,0,0.05);
+  }

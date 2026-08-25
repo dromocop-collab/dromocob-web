@@ -1,0 +1,1 @@
+export { default } from "@/components/admin/app/(admin)/orders/[id]/edit/page";

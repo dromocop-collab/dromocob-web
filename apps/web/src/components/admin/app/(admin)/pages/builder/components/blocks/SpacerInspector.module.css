@@ -1,0 +1,77 @@
+.wrap {
+  display: grid;
+  gap: 18px;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.kicker {
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #5b6bff;
+}
+
+.title {
+  margin: 6px 0 0;
+  font-size: 22px;
+  font-weight: 900;
+  color: #0f172a;
+}
+
+.switchRow {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  font-weight: 800;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 900;
+  color: #344054;
+}
+
+.input {
+  width: 100%;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 16px;
+  padding: 14px 16px;
+  background: #fff;
+  color: #0f172a;
+  font-weight: 700;
+  outline: none;
+}
+
+.preview {
+  padding: 16px;
+  border-radius: 18px;
+  background: #f8fafc;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.previewInner {
+  width: 100%;
+  border-radius: 12px;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(91, 107, 255, 0.08),
+    rgba(91, 107, 255, 0.08) 10px,
+    rgba(91, 107, 255, 0.02) 10px,
+    rgba(91, 107, 255, 0.02) 20px
+  );
+  border: 1px dashed rgba(91, 107, 255, 0.24);
+}

@@ -1,0 +1,1669 @@
+/* =========================================================
+   DrawerPanel.module.css
+   Dromocob — Premium Compact Drawer UI
+   Temiz final sürüm: tüm dosyayı bununla değiştir.
+========================================================= */
+
+/* ---------- OVERLAY ---------- */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 239;
+  background: rgba(7, 17, 38, 0.38);
+  backdrop-filter: blur(2px);
+  cursor: pointer;
+}
+
+/* ---------- PANEL ---------- */
+
+.panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 240;
+
+  width: min(460px, 100vw);
+  height: 100dvh;
+
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+
+  color: #071126;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(196, 154, 71, 0.16), transparent 34%),
+    radial-gradient(circle at 92% 22%, rgba(22, 42, 89, 0.12), transparent 38%),
+    linear-gradient(180deg, #ffffff 0%, #f8f9fc 48%, #eef2f7 100%);
+
+  border-left: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: -30px 0 90px rgba(7, 17, 38, 0.28);
+
+  transform: translateX(100%);
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+
+  overflow: hidden;
+}
+
+.open {
+  transform: translateX(0);
+}
+
+.panel *,
+.panel *::before,
+.panel *::after {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+/* ---------- HEADER ---------- */
+
+.head {
+  position: relative;
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+
+  padding: 18px 18px 15px;
+
+  background: rgba(255, 255, 255, 0.88);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+
+  backdrop-filter: blur(18px);
+}
+
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.tab {
+  height: 45px;
+  padding: 0 17px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.84);
+  color: #071126;
+
+  font-size: 15px;
+  line-height: 1;
+  font-weight: 950;
+  letter-spacing: -0.04em;
+
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease,
+    color 0.18s ease;
+}
+
+.tab:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.12);
+}
+
+.tab span {
+  min-width: 24px;
+  height: 24px;
+  padding: 0 7px;
+
+  display: inline-grid;
+  place-items: center;
+
+  border-radius: 999px;
+  background: rgba(79, 70, 229, 0.1);
+  color: #4f46e5;
+
+  font-size: 13px;
+  font-weight: 950;
+}
+
+.active {
+  background: linear-gradient(135deg, #071126, #172b5c);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 18px 44px rgba(7, 17, 38, 0.28);
+}
+
+.active span {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
+.closeBtn {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 18px;
+
+  background: linear-gradient(180deg, #ffffff, #f7f8fb);
+  color: #071126;
+
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 800;
+
+  cursor: pointer;
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.09);
+
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.closeBtn:hover {
+  transform: rotate(4deg) scale(1.03);
+  background: #071126;
+  color: #ffffff;
+  box-shadow: 0 18px 42px rgba(7, 17, 38, 0.22);
+}
+
+/* ---------- BODY LAYOUT ---------- */
+
+.body {
+  min-height: 0;
+
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 12px;
+
+  overflow: hidden;
+  padding: 12px;
+}
+
+.list {
+  min-height: 0;
+
+  display: grid;
+  align-content: start;
+  gap: 11px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  padding: 0 5px 2px 0;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(15, 23, 42, 0.22) transparent;
+
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.list::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.22);
+  border-radius: 999px;
+}
+
+/* ---------- PRODUCT CARD ---------- */
+
+.itemCard {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 82px minmax(0, 1fr);
+  gap: 11px;
+
+  width: 100%;
+  padding: 11px;
+
+  border-radius: 24px;
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at 0% 0%, rgba(196, 154, 71, 0.12), transparent 36%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(247, 248, 252, 0.9));
+
+  border: 1px solid rgba(15, 23, 42, 0.075);
+
+  box-shadow:
+    0 18px 42px rgba(15, 23, 42, 0.075),
+    inset 0 1px 0 rgba(255, 255, 255, 0.86);
+}
+
+.mediaWrap {
+  position: relative;
+  z-index: 1;
+
+  width: 82px;
+  height: 82px;
+
+  display: block;
+
+  border-radius: 20px;
+  overflow: hidden;
+
+  background: #ffffff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 12px 26px rgba(15, 23, 42, 0.08);
+}
+
+.media {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.mediaPh {
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  place-items: center;
+
+  background:
+    radial-gradient(circle at center, rgba(196, 154, 71, 0.16), transparent 58%),
+    linear-gradient(135deg, #fffaf0, #ffffff);
+
+  color: #9b732a;
+
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+}
+
+.itemMain {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+.itemTop {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 36px;
+  gap: 9px;
+  align-items: start;
+}
+
+.itemInfo {
+  min-width: 0;
+  display: block;
+}
+
+.itemTitle {
+  max-width: 100%;
+  min-height: 0;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+
+  color: #071126;
+  text-decoration: none;
+
+  font-size: 16px;
+  line-height: 1.13;
+  font-weight: 950;
+  letter-spacing: -0.055em;
+}
+
+.itemTitle:hover {
+  color: #9b732a;
+}
+
+.removeBtn {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 15px;
+  border: 1px solid rgba(185, 28, 28, 0.18);
+
+  background: rgba(185, 28, 28, 0.055);
+  color: #9f2a1f;
+
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 800;
+
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(127, 29, 29, 0.07);
+
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    color 0.18s ease;
+}
+
+.removeBtn:hover {
+  transform: scale(1.04);
+  background: #9f2a1f;
+  color: #ffffff;
+}
+
+/* ---------- BADGES ---------- */
+
+.itemBadges {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+
+  margin-top: 7px;
+}
+
+.metaPill,
+.stockPill {
+  height: 23px;
+  min-height: 23px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 9px;
+  border-radius: 999px;
+
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.metaPill {
+  color: #27324a;
+  background: rgba(15, 23, 42, 0.055);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.stockPill {
+  color: #15803d;
+  background: rgba(22, 163, 74, 0.1);
+  border: 1px solid rgba(22, 163, 74, 0.18);
+}
+
+.stockPillOk {
+  color: #15803d;
+  background: rgba(22, 163, 74, 0.1);
+  border-color: rgba(22, 163, 74, 0.18);
+}
+
+.stockPillBad {
+  color: #b91c1c;
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.18);
+}
+
+/* ---------- SIZE SELECT ---------- */
+
+.sizeSelectBox {
+  width: 100%;
+  max-width: 100%;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 7px;
+
+  margin-top: 8px;
+  padding: 8px;
+
+  border-radius: 17px;
+
+  background:
+    radial-gradient(circle at right top, rgba(196, 154, 71, 0.14), transparent 42%),
+    linear-gradient(135deg, rgba(255, 249, 234, 0.96), rgba(255, 255, 255, 0.92));
+
+  border: 1px solid rgba(198, 152, 62, 0.24);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.74);
+}
+
+.sizeSelectLabel {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  margin: 0;
+
+  color: #9a6a1d;
+
+  font-size: 10px;
+  line-height: 1.1;
+  font-weight: 950;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.sizeSelectLabel::before {
+  content: "";
+
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+
+  border-radius: 999px;
+  background: linear-gradient(135deg, #d7a94d, #9c6a1d);
+  box-shadow: 0 0 0 4px rgba(198, 152, 62, 0.12);
+}
+
+.sizeSelect {
+  width: 100%;
+  max-width: 100%;
+  height: 39px;
+
+  display: block;
+  appearance: none;
+
+  border-radius: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+
+  background:
+    linear-gradient(45deg, transparent 50%, #071126 50%) calc(100% - 18px) 50% / 7px 7px no-repeat,
+    linear-gradient(180deg, #ffffff, #f9fafc);
+
+  color: #071126;
+
+  padding: 0 36px 0 12px;
+
+  font-size: 14px;
+  line-height: 39px;
+  font-weight: 950;
+
+  outline: none;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.055);
+}
+
+.sizeSelect:focus {
+  border-color: rgba(198, 152, 62, 0.66);
+  box-shadow:
+    0 0 0 4px rgba(198, 152, 62, 0.13),
+    0 8px 18px rgba(15, 23, 42, 0.055);
+}
+
+.sizeSelectWarn {
+  border-color: rgba(180, 83, 9, 0.42);
+}
+
+.sizeSelectHint {
+  margin: 0;
+
+  color: #9a3412;
+
+  font-size: 11px;
+  line-height: 1.22;
+  font-weight: 800;
+
+  overflow-wrap: anywhere;
+}
+
+/* ---------- VARIANT PILLS ---------- */
+
+.optionPills {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+
+  margin-top: 7px;
+}
+
+.optionPill {
+  max-width: 100%;
+
+  display: inline-flex;
+  align-items: center;
+
+  min-height: 24px;
+  padding: 5px 9px;
+
+  border-radius: 999px;
+  background: rgba(196, 154, 71, 0.1);
+  border: 1px solid rgba(196, 154, 71, 0.18);
+  color: #7c5419;
+
+  font-size: 11px;
+  font-weight: 900;
+
+  overflow-wrap: anywhere;
+}
+
+/* ---------- PRICE ---------- */
+
+/* Eski 2 kutulu fiyat alanı kapalı */
+.priceGrid {
+  display: none;
+}
+
+.compactPriceRow {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 9px;
+
+  padding: 8px 10px;
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(15, 23, 42, 0.075);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.74);
+}
+
+.compactPriceLabel {
+  display: block;
+
+  margin-bottom: 2px;
+
+  color: rgba(71, 85, 105, 0.72);
+
+  font-size: 10px;
+  line-height: 1;
+  font-weight: 950;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.compactPriceValue {
+  display: block;
+
+  color: #071126;
+
+  font-size: 17px;
+  line-height: 1;
+  font-weight: 950;
+  letter-spacing: -0.055em;
+
+  white-space: nowrap;
+}
+
+.compactLineHint {
+  flex: 0 0 auto;
+
+  min-height: 24px;
+  padding: 0 9px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.07);
+
+  color: #475569;
+  background: rgba(15, 23, 42, 0.055);
+
+  font-size: 11px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+/* Favori fiyat alanı */
+.priceGridSingle {
+  display: block;
+}
+
+.priceGridSingle .priceBox,
+.priceBox {
+  min-height: auto;
+
+  padding: 8px 10px;
+  border-radius: 16px;
+
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(15, 23, 42, 0.075);
+}
+
+.priceLabel {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: rgba(71, 85, 105, 0.72);
+
+  font-size: 10px;
+  font-weight: 950;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.priceValue {
+  color: #071126;
+
+  font-size: 17px;
+  line-height: 1.1;
+  font-weight: 950;
+  letter-spacing: -0.055em;
+}
+
+/* ---------- BOTTOM ACTIONS ---------- */
+
+.itemBottom {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+}
+
+.qtyControl {
+  width: 110px;
+  height: 35px;
+
+  display: grid;
+  grid-template-columns: 32px 1fr 32px;
+  align-items: center;
+
+  border-radius: 15px;
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
+}
+
+.qtyControl button {
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+  background: transparent;
+  color: #071126;
+
+  font-size: 19px;
+  line-height: 1;
+  font-weight: 950;
+
+  cursor: pointer;
+}
+
+.qtyControl button:hover:not(:disabled) {
+  background: rgba(15, 23, 42, 0.055);
+}
+
+.qtyControl button:disabled {
+  color: rgba(15, 23, 42, 0.28);
+  cursor: not-allowed;
+}
+
+.qtyControl span {
+  text-align: center;
+
+  color: #071126;
+
+  font-size: 15px;
+  font-weight: 950;
+}
+
+.detailBtn {
+  width: 100%;
+  height: 35px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+  padding: 0 10px;
+
+  color: #071126;
+  background: rgba(255, 255, 255, 0.84);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+
+  text-decoration: none;
+
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 950;
+  letter-spacing: -0.035em;
+
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
+
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.detailBtn:hover {
+  transform: translateY(-1px);
+  background: #071126;
+  color: #ffffff;
+}
+
+/* ---------- SUMMARY ---------- */
+
+.summaryCard {
+  position: relative;
+  z-index: 25;
+
+  margin: 0;
+  padding: 14px;
+
+  border-radius: 25px;
+
+  background:
+    radial-gradient(circle at 100% 0%, rgba(198, 152, 62, 0.17), transparent 38%),
+    rgba(255, 255, 255, 0.94);
+
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(15, 23, 42, 0.08);
+
+  box-shadow:
+    0 -8px 34px rgba(15, 23, 42, 0.07),
+    0 18px 48px rgba(15, 23, 42, 0.13);
+}
+
+.totalRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  margin-bottom: 11px;
+}
+
+.totalRow span {
+  color: #071126;
+
+  font-size: 17px;
+  font-weight: 950;
+  letter-spacing: -0.05em;
+}
+
+.totalRow b {
+  color: #071126;
+
+  font-size: 20px;
+  font-weight: 950;
+  letter-spacing: -0.06em;
+
+  text-align: right;
+  white-space: nowrap;
+}
+
+.footerActions {
+  display: grid;
+  grid-template-columns: 1fr 1.14fr;
+  gap: 10px;
+}
+
+.softBtn,
+.primaryBtn {
+  min-height: 46px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 18px;
+  padding: 10px 12px;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  line-height: 1.15;
+  font-weight: 950;
+  letter-spacing: -0.035em;
+
+  text-align: center;
+  cursor: pointer;
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    opacity 0.18s ease;
+}
+
+.softBtn {
+  color: #071126;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+.primaryBtn {
+  color: #ffffff;
+  background: linear-gradient(135deg, #071126, #172b5c);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 32px rgba(7, 17, 38, 0.22);
+}
+
+.softBtn:hover,
+.primaryBtn:hover {
+  transform: translateY(-1px);
+}
+
+.disabledBtn {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: 0.58;
+  filter: grayscale(0.15);
+}
+
+/* ---------- EMPTY STATE ---------- */
+
+.emptyCard {
+  min-height: 280px;
+
+  display: grid;
+  place-items: center;
+  text-align: center;
+  gap: 12px;
+
+  padding: 28px;
+  border-radius: 28px;
+
+  background:
+    radial-gradient(circle at center top, rgba(196, 154, 71, 0.13), transparent 44%),
+    rgba(255, 255, 255, 0.88);
+
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+}
+
+.emptyTitle {
+  color: #071126;
+
+  font-size: 23px;
+  font-weight: 950;
+  letter-spacing: -0.055em;
+}
+
+.emptyText {
+  max-width: 310px;
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 560px) {
+  .panel {
+    width: 100vw;
+    max-width: 100vw;
+  }
+
+  .head {
+    padding: 13px 12px 11px;
+    gap: 10px;
+  }
+
+  .tabs {
+    gap: 8px;
+  }
+
+  .tab {
+    height: 41px;
+    padding: 0 13px;
+    font-size: 13px;
+  }
+
+  .tab span {
+    min-width: 22px;
+    height: 22px;
+    font-size: 12px;
+  }
+
+  .closeBtn {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+    border-radius: 15px;
+    font-size: 22px;
+  }
+
+  .body {
+    gap: 9px;
+    padding: 9px;
+  }
+
+  .list {
+    gap: 9px;
+    padding-right: 3px;
+  }
+
+  .itemCard {
+    grid-template-columns: 70px minmax(0, 1fr);
+    gap: 9px;
+    padding: 9px;
+    border-radius: 20px;
+  }
+
+  .mediaWrap {
+    width: 70px;
+    height: 70px;
+    border-radius: 16px;
+  }
+
+  .itemTop {
+    grid-template-columns: minmax(0, 1fr) 32px;
+    gap: 7px;
+  }
+
+  .itemTitle {
+    font-size: 14px;
+    line-height: 1.12;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+
+  .removeBtn {
+    width: 32px;
+    height: 32px;
+    border-radius: 14px;
+    font-size: 18px;
+  }
+
+  .itemBadges {
+    gap: 5px;
+    margin-top: 6px;
+  }
+
+  .metaPill,
+  .stockPill {
+    height: 21px;
+    min-height: 21px;
+    padding: 0 7px;
+    font-size: 10.5px;
+  }
+
+  .sizeSelectBox {
+    margin-top: 6px;
+    padding: 6px;
+    gap: 5px;
+    border-radius: 15px;
+  }
+
+  .sizeSelectLabel {
+    font-size: 9.5px;
+    letter-spacing: 0.12em;
+  }
+
+  .sizeSelect {
+    height: 35px;
+    border-radius: 13px;
+
+    padding-left: 11px;
+    padding-right: 34px;
+
+    font-size: 13px;
+    line-height: 35px;
+  }
+
+  .sizeSelectHint {
+    font-size: 10.5px;
+    line-height: 1.18;
+  }
+
+  .compactPriceRow {
+    padding: 7px 9px;
+    border-radius: 15px;
+  }
+
+  .compactPriceLabel {
+    font-size: 9.5px;
+  }
+
+  .compactPriceValue {
+    font-size: 15.5px;
+  }
+
+  .compactLineHint {
+    min-height: 22px;
+    padding: 0 8px;
+    font-size: 10.5px;
+  }
+
+  .itemBottom {
+    grid-template-columns: 100px minmax(0, 1fr);
+    gap: 7px;
+  }
+
+  .qtyControl {
+    width: 100px;
+    height: 33px;
+    grid-template-columns: 29px 1fr 29px;
+    border-radius: 14px;
+  }
+
+  .qtyControl span {
+    font-size: 14px;
+  }
+
+  .detailBtn {
+    height: 33px;
+    border-radius: 14px;
+    font-size: 12.5px;
+  }
+
+  .summaryCard {
+    padding: 12px;
+    border-radius: 22px;
+  }
+
+  .totalRow {
+    margin-bottom: 10px;
+  }
+
+  .totalRow span {
+    font-size: 15px;
+  }
+
+  .totalRow b {
+    font-size: 17px;
+  }
+
+  .footerActions {
+    grid-template-columns: 1fr 1.12fr;
+    gap: 8px;
+  }
+
+  .softBtn,
+  .primaryBtn {
+    min-height: 42px;
+    border-radius: 16px;
+    padding: 9px 10px;
+    font-size: 12.5px;
+  }
+}
+
+/* ---------- VERY SMALL ---------- */
+
+@media (max-width: 370px) {
+  .itemCard {
+    grid-template-columns: 64px minmax(0, 1fr);
+  }
+
+  .mediaWrap {
+    width: 64px;
+    height: 64px;
+    border-radius: 15px;
+  }
+
+  .itemTitle {
+    font-size: 13.5px;
+  }
+
+  .compactPriceValue {
+    font-size: 15px;
+  }
+
+  .itemBottom {
+    grid-template-columns: 92px minmax(0, 1fr);
+  }
+
+  .qtyControl {
+    width: 92px;
+    grid-template-columns: 27px 1fr 27px;
+  }
+
+  .footerActions {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- GLOBAL FIXES ---------- */
+
+/* =========================================================
+   FINAL STABILITY PATCH
+   - line-clamp VS Code warning fix
+   - mobile drawer scroll/summary balance
+   - ölçü alanı taşma/kesilme fix
+   - arka sayfa scroll lock
+========================================================= */
+
+/* VS Code vendorPrefix uyarısı fix */
+.itemTitle {
+  line-clamp: 2;
+}
+
+/* Drawer açıkken arka sayfa kaymasın */
+
+
+/* Panel genel denge */
+.panel {
+  max-width: 460px;
+}
+
+.body {
+  height: 100%;
+  min-height: 0;
+}
+
+/* Liste gerçek scroll alanı olsun, summary ürünü ezmesin */
+.list {
+  min-height: 0;
+  max-height: 100%;
+  padding-bottom: 8px;
+}
+
+/* Kart içeriği kesilmesin */
+.itemCard {
+  align-items: start;
+  min-height: auto;
+}
+
+/* Ürün ana kolonu tam aksın */
+.itemMain {
+  align-content: start;
+}
+
+/* Ölçü kutusu select + uyarıyı tam göstersin */
+.sizeSelectBox {
+  overflow: visible;
+}
+
+.sizeSelect {
+  min-height: 39px;
+}
+
+.sizeSelectHint {
+  display: block;
+  min-height: auto;
+}
+
+/* Summary sabit kalsın ama listeyi boğmasın */
+.summaryCard {
+  flex: 0 0 auto;
+}
+
+/* Mobil: biraz daha kompakt ama okunabilir */
+@media (max-width: 560px) {
+  .panel {
+    width: 100vw;
+    max-width: 100vw;
+  }
+
+  .body {
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .list {
+    gap: 8px;
+    padding-right: 2px;
+    padding-bottom: 6px;
+  }
+
+  .itemCard {
+    grid-template-columns: 66px minmax(0, 1fr);
+    gap: 8px;
+    padding: 8px;
+    border-radius: 19px;
+  }
+
+  .mediaWrap {
+    width: 66px;
+    height: 66px;
+    border-radius: 15px;
+  }
+
+  .itemTop {
+    grid-template-columns: minmax(0, 1fr) 31px;
+    gap: 7px;
+  }
+
+  .itemTitle {
+    font-size: 13.8px;
+    line-height: 1.12;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+  }
+
+  .removeBtn {
+    width: 31px;
+    height: 31px;
+    border-radius: 13px;
+    font-size: 18px;
+  }
+
+  .itemBadges {
+    margin-top: 5px;
+    gap: 5px;
+  }
+
+  .metaPill,
+  .stockPill {
+    height: 20px;
+    min-height: 20px;
+    padding: 0 7px;
+    font-size: 10px;
+  }
+
+  .sizeSelectBox {
+    margin-top: 6px;
+    padding: 6px;
+    gap: 5px;
+    border-radius: 14px;
+  }
+
+  .sizeSelectLabel {
+    font-size: 9px;
+    letter-spacing: 0.11em;
+  }
+
+  .sizeSelectLabel::before {
+    width: 6px;
+    height: 6px;
+    flex-basis: 6px;
+  }
+
+  .sizeSelect {
+    height: 34px;
+    min-height: 34px;
+    border-radius: 12px;
+    font-size: 12.8px;
+    line-height: 34px;
+    padding: 0 32px 0 10px;
+    background:
+      linear-gradient(45deg, transparent 50%, #071126 50%) calc(100% - 17px) 50% / 7px 7px no-repeat,
+      linear-gradient(180deg, #ffffff, #f9fafc);
+  }
+
+  .sizeSelectHint {
+    font-size: 10px;
+    line-height: 1.15;
+  }
+
+  .compactPriceRow {
+    padding: 7px 8px;
+    border-radius: 14px;
+  }
+
+  .compactPriceLabel {
+    font-size: 9px;
+  }
+
+  .compactPriceValue {
+    font-size: 15px;
+  }
+
+  .itemBottom {
+    grid-template-columns: 94px minmax(0, 1fr);
+    gap: 7px;
+  }
+
+  .qtyControl {
+    width: 94px;
+    height: 32px;
+    grid-template-columns: 27px 1fr 27px;
+    border-radius: 13px;
+  }
+
+  .qtyControl button {
+    font-size: 18px;
+  }
+
+  .qtyControl span {
+    font-size: 13.5px;
+  }
+
+  .detailBtn {
+    height: 32px;
+    border-radius: 13px;
+    font-size: 12px;
+  }
+
+  .summaryCard {
+    padding: 11px;
+    border-radius: 21px;
+  }
+
+  .totalRow {
+    margin-bottom: 9px;
+  }
+
+  .totalRow span {
+    font-size: 15px;
+  }
+
+  .totalRow b {
+    font-size: 17px;
+  }
+
+  .footerActions {
+    grid-template-columns: 1fr 1.08fr;
+    gap: 8px;
+  }
+
+  .softBtn,
+  .primaryBtn {
+    min-height: 41px;
+    border-radius: 15px;
+    padding: 8px 9px;
+    font-size: 12px;
+  }
+}
+
+/* Çok dar ekranlarda butonlar alt alta insin, ezilmesin */
+@media (max-width: 380px) {
+  .footerActions {
+    grid-template-columns: 1fr;
+  }
+
+  .itemCard {
+    grid-template-columns: 62px minmax(0, 1fr);
+  }
+
+  .mediaWrap {
+    width: 62px;
+    height: 62px;
+  }
+
+  .itemBottom {
+    grid-template-columns: 1fr;
+  }
+
+  .qtyControl,
+  .detailBtn {
+    width: 100%;
+  }
+}
+/* =========================================================
+   FINAL PATCH — Drawer item full visible / no bottom clipping
+   Bunu drawerPanel.module.css dosyasının EN ALTINA koy.
+========================================================= */
+
+/* Panel içi gerçek iki alan: scroll liste + sabit özet */
+.body {
+  min-height: 0 !important;
+  height: auto !important;
+  display: grid !important;
+  grid-template-rows: minmax(0, 1fr) auto !important;
+  gap: 10px !important;
+  overflow: hidden !important;
+}
+
+/* Liste sadece kendi içinde scroll olsun, summary üstüne binmesin */
+.list {
+  min-height: 0 !important;
+  max-height: none !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  align-content: start !important;
+  gap: 12px !important;
+  padding: 0 6px 14px 0 !important;
+}
+
+/* En kritik: ürün kartı içeriği kırpmasın */
+.itemCard {
+  height: auto !important;
+  min-height: auto !important;
+  max-height: none !important;
+
+  align-items: start !important;
+  overflow: visible !important;
+
+  grid-template-columns: 76px minmax(0, 1fr) !important;
+  gap: 11px !important;
+  padding: 10px !important;
+  border-radius: 22px !important;
+}
+
+/* Görsel alanı kartı gereksiz uzatmasın */
+.mediaWrap {
+  width: 76px !important;
+  height: 76px !important;
+  border-radius: 18px !important;
+}
+
+/* Sağ kolon taşmasın/kırpılmasın */
+.itemMain,
+.itemInfo,
+.itemTop {
+  min-height: 0 !important;
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+.itemMain {
+  display: grid !important;
+  gap: 7px !important;
+}
+
+/* Başlık kompakt */
+.itemTitle {
+  min-height: 0 !important;
+  max-height: none !important;
+
+  display: -webkit-box !important;
+  line-clamp: 2;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+
+  overflow: hidden !important;
+
+  font-size: 15px !important;
+  line-height: 1.12 !important;
+}
+
+/* Badge alanı biraz sıkı */
+.itemBadges {
+  margin-top: 6px !important;
+  gap: 5px !important;
+}
+
+.metaPill,
+.stockPill {
+  height: 22px !important;
+  min-height: 22px !important;
+  padding: 0 8px !important;
+  font-size: 10.5px !important;
+}
+
+/* Ölçü alanını premium ama daha kısa yap */
+.sizeSelectBox {
+  margin-top: 7px !important;
+  padding: 7px !important;
+  gap: 5px !important;
+  border-radius: 16px !important;
+}
+
+.sizeSelectLabel {
+  font-size: 9.5px !important;
+  line-height: 1 !important;
+  letter-spacing: 0.13em !important;
+}
+
+.sizeSelect {
+  height: 36px !important;
+  min-height: 36px !important;
+  border-radius: 13px !important;
+
+  padding: 0 34px 0 11px !important;
+
+  font-size: 13.5px !important;
+  line-height: 36px !important;
+}
+
+.sizeSelectHint {
+  font-size: 10.5px !important;
+  line-height: 1.18 !important;
+}
+
+/* Fiyat kutusu kısa */
+.compactPriceRow {
+  min-height: auto !important;
+  padding: 7px 9px !important;
+  border-radius: 15px !important;
+}
+
+.compactPriceLabel {
+  font-size: 9.5px !important;
+  margin-bottom: 2px !important;
+}
+
+.compactPriceValue {
+  font-size: 16px !important;
+  line-height: 1 !important;
+}
+
+/* Alt adet + detay alanı artık görünür */
+.itemBottom {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 34px !important;
+  max-height: none !important;
+
+  display: grid !important;
+  grid-template-columns: 104px minmax(0, 1fr) !important;
+  gap: 7px !important;
+  align-items: center !important;
+
+  overflow: visible !important;
+}
+
+.qtyControl {
+  width: 104px !important;
+  height: 34px !important;
+  min-height: 34px !important;
+
+  grid-template-columns: 30px 1fr 30px !important;
+  border-radius: 14px !important;
+}
+
+.qtyControl button {
+  font-size: 18px !important;
+}
+
+.qtyControl span {
+  font-size: 14px !important;
+}
+
+.detailBtn {
+  width: 100% !important;
+  height: 34px !important;
+  min-height: 34px !important;
+
+  border-radius: 14px !important;
+  font-size: 12.5px !important;
+}
+
+/* Summary listeyi ezmesin */
+.summaryCard {
+  position: relative !important;
+  bottom: auto !important;
+  margin: 0 !important;
+  flex: initial !important;
+  z-index: 30 !important;
+}
+
+/* Mobilde biraz daha rahat nefes */
+@media (max-width: 560px) {
+  .body {
+    padding: 8px !important;
+    gap: 8px !important;
+  }
+
+  .list {
+    gap: 11px !important;
+    padding-bottom: 16px !important;
+  }
+
+  .itemCard {
+    grid-template-columns: 68px minmax(0, 1fr) !important;
+    gap: 9px !important;
+    padding: 9px !important;
+    border-radius: 20px !important;
+  }
+
+  .mediaWrap {
+    width: 68px !important;
+    height: 68px !important;
+    border-radius: 16px !important;
+  }
+
+  .itemTop {
+    grid-template-columns: minmax(0, 1fr) 31px !important;
+    gap: 7px !important;
+  }
+
+  .removeBtn {
+    width: 31px !important;
+    height: 31px !important;
+    border-radius: 13px !important;
+    font-size: 18px !important;
+  }
+
+  .itemTitle {
+    font-size: 13.7px !important;
+    line-height: 1.1 !important;
+  }
+
+  .sizeSelectBox {
+    padding: 6px !important;
+    gap: 5px !important;
+  }
+
+  .sizeSelect {
+    height: 34px !important;
+    min-height: 34px !important;
+    line-height: 34px !important;
+    font-size: 13px !important;
+  }
+
+  .compactPriceRow {
+    padding: 7px 9px !important;
+  }
+
+  .compactPriceValue {
+    font-size: 15.5px !important;
+  }
+
+  .itemBottom {
+    grid-template-columns: 96px minmax(0, 1fr) !important;
+    min-height: 32px !important;
+  }
+
+  .qtyControl {
+    width: 96px !important;
+    height: 32px !important;
+    min-height: 32px !important;
+    grid-template-columns: 28px 1fr 28px !important;
+  }
+
+  .detailBtn {
+    height: 32px !important;
+    min-height: 32px !important;
+  }
+
+  .summaryCard {
+    padding: 11px !important;
+    border-radius: 21px !important;
+  }
+}

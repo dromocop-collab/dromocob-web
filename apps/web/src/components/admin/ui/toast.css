@@ -1,0 +1,104 @@
+#admin-toast-root{
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none;
+  }
+  
+  .adminToast{
+    pointer-events: auto;
+    width: min(420px, calc(100vw - 32px));
+    display: grid;
+    grid-template-columns: 34px 1fr 34px;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 12px;
+    border: 1px solid rgba(255,255,255,.10);
+    background: rgba(17, 17, 17, .92);
+    color: #fff;
+    box-shadow: 0 18px 60px rgba(0,0,0,.35);
+    backdrop-filter: blur(10px);
+    transform: translateY(-8px);
+    opacity: 0;
+    transition: 160ms ease;
+  }
+  
+  .adminToast--on{
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .adminToast--off{
+    transform: translateY(-6px);
+    opacity: 0;
+  }
+  
+  .adminToast__icon{
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    font-weight: 900;
+    background: rgba(255,255,255,.10);
+  }
+  
+  .adminToast--success .adminToast__icon{ background: rgba(34,197,94,.18); }
+  .adminToast--error .adminToast__icon{ background: rgba(239,68,68,.18); }
+  .adminToast--info .adminToast__icon{ background: rgba(59,130,246,.18); }
+  
+  .adminToast__msg{
+    font-size: 14px;
+    font-weight: 650;
+    line-height: 1.25;
+    color: rgba(255,255,255,.92);
+  }
+  
+  .adminToast__close{
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,.12);
+    background: rgba(255,255,255,.06);
+    color: rgba(255,255,255,.9);
+    cursor: pointer;
+  }
+  
+  .adminToast__close:hover{
+    background: rgba(255,255,255,.12);
+  }
+  
+  .adminToast__bar{
+    grid-column: 1 / -1;
+    height: 2px;
+    margin-top: 8px;
+    background: rgba(255,255,255,.10);
+    position: relative;
+    overflow: hidden;
+    border-radius: 999px;
+  }
+  
+  .adminToast__bar::after{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    background: rgba(255,255,255,.35);
+    transform-origin: left;
+    animation: toastBar 2.2s linear forwards;
+  }
+  
+  .adminToast--success .adminToast__bar::after{ background: rgba(34,197,94,.65); }
+  .adminToast--error .adminToast__bar::after{ background: rgba(239,68,68,.65); }
+  .adminToast--info .adminToast__bar::after{ background: rgba(59,130,246,.65); }
+  
+  @keyframes toastBar{
+    from{ transform: scaleX(1); }
+    to{ transform: scaleX(0); }
+  }

@@ -1,0 +1,57 @@
+.page { padding: 22px; }
+.head { display:flex; justify-content:space-between; gap:16px; align-items:flex-end; margin-bottom:16px; }
+.kicker { opacity:.65; font-weight:700; font-size:12px; letter-spacing:.12em; }
+.h1 { margin:6px 0 0; font-size:26px; font-weight:900; }
+.sub { margin:6px 0 0; opacity:.7; }
+
+.saveBtn {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,.12);
+  font-weight: 800;
+  background: #111;
+  color:#fff;
+}
+
+.card {
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,.10);
+  background: #fff;
+  padding: 14px;
+}
+
+.row { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+.grid2 { display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-bottom:10px; }
+.field span { display:block; font-size:12px; font-weight:800; opacity:.7; margin-bottom:6px; }
+.field input, .field select {
+  width:100%;
+  padding:10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,.14);
+}
+
+.itemsHead { display:flex; justify-content:space-between; align-items:flex-end; gap:12px; margin-top:12px; margin-bottom:10px; }
+.muted { opacity:.65; font-size:12px; }
+
+.addBtn {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,.12);
+  font-weight: 800;
+  background: #f5f5f5;
+}
+
+.items { display:grid; gap:10px; }
+.itemCard { border:1px solid rgba(0,0,0,.10); border-radius: 14px; padding: 12px; background:#fafafa; }
+.itemTop { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
+
+.delBtn {
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,.12);
+  background:#fff;
+  font-weight: 800;
+}
+@media (max-width: 860px){
+  .grid2 { grid-template-columns: 1fr; }
+}

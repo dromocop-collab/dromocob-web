@@ -1,0 +1,146 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.52);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.modal {
+  position: relative;
+  z-index: 3001;
+  width: min(100%, 460px);
+  border-radius: 22px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: #ffffff;
+  box-shadow:
+    0 24px 70px rgba(15, 23, 42, 0.24),
+    0 8px 24px rgba(15, 23, 42, 0.10);
+  padding: 22px;
+  display: grid;
+  gap: 18px;
+}
+
+.kicker {
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #4f46e5;
+}
+
+.title {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.05;
+  font-weight: 950;
+  letter-spacing: -0.04em;
+  color: #0f172a;
+}
+
+.product {
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  padding: 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(15, 23, 42, 0.07);
+  background: #f8fafc;
+}
+
+.thumb {
+  width: 72px;
+  height: 72px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  background: #fff;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.thumbPh {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  font-weight: 900;
+  color: #475467;
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+}
+
+.productName {
+  min-width: 0;
+  font-size: 18px;
+  line-height: 1.3;
+  font-weight: 900;
+  color: #0f172a;
+  word-break: break-word;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.ghostBtn,
+.dangerBtn {
+  min-height: 50px;
+  border-radius: 16px;
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 0.16s ease;
+}
+
+.ghostBtn {
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  background: #fff;
+  color: #111827;
+}
+
+.ghostBtn:hover {
+  background: #f8fafc;
+}
+
+.dangerBtn {
+  border: 1px solid rgba(239, 68, 68, 0.18);
+  background: #b42318;
+  color: #fff;
+  box-shadow: 0 12px 24px rgba(180, 35, 24, 0.18);
+}
+
+.dangerBtn:hover {
+  filter: brightness(1.04);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 560px) {
+  .modal {
+    width: 100%;
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .actions {
+    grid-template-columns: 1fr;
+  }
+}

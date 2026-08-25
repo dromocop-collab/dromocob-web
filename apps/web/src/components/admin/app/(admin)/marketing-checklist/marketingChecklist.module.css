@@ -1,0 +1,881 @@
+/* ═══════════════════════════════════════════
+   Marketing Checklist — Admin CSS Module
+   ═══════════════════════════════════════════ */
+
+.page {
+  padding: 0 0 40px;
+}
+
+/* ── TOAST ── */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 300;
+  background: rgba(15, 23, 42, .95);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 14px;
+  font-weight: 800;
+  font-size: 14px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, .18);
+  animation: slideUp .25s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── HEADER ── */
+.top {
+  margin-bottom: 24px;
+}
+
+.kicker {
+  font-size: 12px;
+  font-weight: 800;
+  color: rgba(15, 23, 42, .5);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 950;
+  color: #0f172a;
+  letter-spacing: -.03em;
+  margin: 0 0 4px;
+}
+
+.sub {
+  font-size: 14px;
+  color: rgba(15, 23, 42, .65);
+  font-weight: 600;
+}
+
+/* ── SCORE HERO ── */
+.scoreHero {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 28px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #fff;
+  margin-bottom: 20px;
+  box-shadow: 0 16px 40px rgba(2, 6, 23, .12);
+  flex-wrap: wrap;
+}
+
+.scoreRing {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+}
+
+.scoreRingSvg {
+  transform: rotate(-90deg);
+}
+
+.scoreTrack {
+  fill: none;
+  stroke: rgba(255, 255, 255, .12);
+  stroke-width: 8;
+}
+
+.scoreBar {
+  fill: none;
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dashoffset .6s ease, stroke .3s ease;
+}
+
+.scoreValueWrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.scoreValue {
+  font-size: 28px;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.scoreLabel {
+  font-size: 10px;
+  font-weight: 700;
+  opacity: .65;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.scoreInfo {
+  flex: 1;
+  min-width: 200px;
+}
+
+.scoreTitle {
+  font-size: 20px;
+  font-weight: 950;
+  margin: 0 0 6px;
+}
+
+.scoreSub {
+  font-size: 13px;
+  opacity: .7;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* ── SECTION GRID ── */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+/* ── CARD ── */
+.card {
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, .1);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(2, 6, 23, .06);
+  overflow: hidden;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(15, 23, 42, .06);
+}
+
+.cardTitle {
+  font-size: 15px;
+  font-weight: 900;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cardBody {
+  padding: 12px 20px 16px;
+}
+
+/* ── CHECK ITEM ── */
+.checkItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(15, 23, 42, .04);
+}
+
+.checkItem:last-child {
+  border-bottom: none;
+}
+
+.checkIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+.checkOk {
+  background: rgba(5, 150, 105, .1);
+  color: #059669;
+  border: 1px solid rgba(5, 150, 105, .2);
+}
+
+.checkWarn {
+  background: rgba(217, 119, 6, .1);
+  color: #d97706;
+  border: 1px solid rgba(217, 119, 6, .2);
+}
+
+.checkFail {
+  background: rgba(220, 38, 38, .1);
+  color: #dc2626;
+  border: 1px solid rgba(220, 38, 38, .2);
+}
+
+.checkBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.checkLabel {
+  font-size: 13px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.checkDetail {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(15, 23, 42, .5);
+  margin-top: 1px;
+}
+
+.checkBadge {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.badgeGreen {
+  background: rgba(5, 150, 105, .1);
+  color: #059669;
+  border: 1px solid rgba(5, 150, 105, .2);
+}
+
+.badgeYellow {
+  background: rgba(217, 119, 6, .1);
+  color: #d97706;
+  border: 1px solid rgba(217, 119, 6, .2);
+}
+
+.badgeRed {
+  background: rgba(220, 38, 38, .1);
+  color: #dc2626;
+  border: 1px solid rgba(220, 38, 38, .2);
+}
+
+.badgeGray {
+  background: rgba(148, 163, 184, .1);
+  color: #94a3b8;
+  border: 1px solid rgba(148, 163, 184, .2);
+}
+
+/* ── PRODUCT SCORE TABLE ── */
+.tableCard {
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, .1);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(2, 6, 23, .06);
+  overflow: hidden;
+}
+
+.tableHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(15, 23, 42, .06);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tableTitle {
+  font-size: 15px;
+  font-weight: 900;
+  color: #0f172a;
+}
+
+.tableFilter {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.filterPill {
+  min-height: 30px;
+  padding: 0 12px;
+  border: 1px solid rgba(15, 23, 42, .1);
+  border-radius: 999px;
+  background: #fff;
+  color: rgba(15, 23, 42, .75);
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+
+.filterPill:hover {
+  border-color: rgba(15, 23, 42, .2);
+}
+
+.filterPillActive {
+  background: #111827;
+  color: #fff;
+  border-color: #111827;
+}
+
+.scrollWrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.prodTable {
+  display: grid;
+  grid-template-columns: 44px minmax(180px, 1.6fr) 80px 60px 60px 60px 60px 60px 60px 60px 60px 60px 80px;
+  align-items: center;
+  font-size: 12px;
+}
+
+.prodTh {
+  padding: 10px 8px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: rgba(15, 23, 42, .5);
+  background: rgba(15, 23, 42, .02);
+  border-bottom: 1px solid rgba(15, 23, 42, .08);
+  white-space: nowrap;
+  text-align: center;
+}
+
+.prodThName {
+  text-align: left;
+}
+
+.prodTd {
+  padding: 8px;
+  border-bottom: 1px solid rgba(15, 23, 42, .04);
+  text-align: center;
+}
+
+.prodThumb {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid rgba(15, 23, 42, .06);
+  background: #f6f5f2;
+}
+
+.prodName {
+  font-weight: 800;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.prodSku {
+  font-size: 10px;
+  color: rgba(15, 23, 42, .4);
+  font-weight: 600;
+  text-align: left;
+}
+
+.dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 6px;
+  display: inline-grid;
+  place-items: center;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.dotOk {
+  background: rgba(5, 150, 105, .12);
+  color: #059669;
+}
+
+.dotFail {
+  background: rgba(220, 38, 38, .12);
+  color: #dc2626;
+}
+
+.scoreCell {
+  font-weight: 900;
+  font-size: 13px;
+}
+
+.scoreHigh {
+  color: #059669;
+}
+
+.scoreMid {
+  color: #d97706;
+}
+
+.scoreLow {
+  color: #dc2626;
+}
+
+.emptyRow {
+  grid-column: 1 / -1;
+  padding: 32px 20px;
+  text-align: center;
+  color: rgba(15, 23, 42, .4);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* ── FULL WIDTH CARD ── */
+.cardFull {
+  grid-column: 1 / -1;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .scoreHero {
+    padding: 18px;
+    gap: 14px;
+  }
+
+  .scoreRing {
+    width: 80px;
+    height: 80px;
+  }
+
+  .scoreValue {
+    font-size: 22px;
+  }
+
+  .prodTable {
+    min-width: 900px;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   Description Generator — Modal
+   ═══════════════════════════════════════════ */
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: grid;
+  place-items: center;
+  background: rgba(2, 6, 23, .55);
+  backdrop-filter: blur(8px);
+  animation: fadeIn .2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modalBox {
+  width: 90%;
+  max-width: 680px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, .22);
+  animation: modalUp .25s ease;
+}
+
+@keyframes modalUp {
+  from { opacity: 0; transform: translateY(18px) scale(.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modalHead {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(15, 23, 42, .06);
+}
+
+.modalProductImg {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid rgba(15, 23, 42, .08);
+  background: #f6f5f2;
+  flex-shrink: 0;
+}
+
+.modalProductInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.modalProductTitle {
+  font-size: 15px;
+  font-weight: 900;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.modalProductMeta {
+  display: flex;
+  gap: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(15, 23, 42, .5);
+  margin-top: 2px;
+  flex-wrap: wrap;
+}
+
+.modalProductTag {
+  padding: 2px 8px;
+  border-radius: 6px;
+  background: rgba(15, 23, 42, .05);
+  font-size: 10px;
+  font-weight: 800;
+  color: rgba(15, 23, 42, .6);
+}
+
+.modalCloseBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid rgba(15, 23, 42, .08);
+  background: rgba(15, 23, 42, .03);
+  color: rgba(15, 23, 42, .55);
+  font-size: 14px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all .15s ease;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+}
+
+.modalCloseBtn:hover {
+  background: rgba(220, 38, 38, .08);
+  color: #dc2626;
+  border-color: rgba(220, 38, 38, .15);
+}
+
+.modalBody {
+  padding: 20px 24px;
+  display: grid;
+  gap: 16px;
+}
+
+.modalFieldLabel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 900;
+  color: rgba(15, 23, 42, .55);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: 6px;
+}
+
+.modalFieldCount {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(15, 23, 42, .35);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.modalTextarea {
+  width: 100%;
+  min-height: 60px;
+  padding: 12px 14px;
+  border: 1px solid rgba(15, 23, 42, .1);
+  border-radius: 14px;
+  background: #f8fbff;
+  font-size: 13px;
+  font-weight: 600;
+  color: #0f172a;
+  font-family: inherit;
+  resize: vertical;
+  line-height: 1.6;
+  transition: border-color .15s ease;
+}
+
+.modalTextarea:focus {
+  outline: none;
+  border-color: rgba(29, 78, 216, .4);
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, .08);
+}
+
+.modalTextareaLong {
+  min-height: 160px;
+}
+
+.modalWarnings {
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(217, 119, 6, .06);
+  border: 1px solid rgba(217, 119, 6, .12);
+  font-size: 11px;
+  font-weight: 700;
+  color: #92400e;
+  display: grid;
+  gap: 4px;
+}
+
+.modalFoot {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 14px 24px 20px;
+  flex-wrap: wrap;
+}
+
+.btnGhost {
+  min-height: 38px;
+  padding: 0 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, .1);
+  background: transparent;
+  color: rgba(15, 23, 42, .7);
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+
+.btnGhost:hover {
+  background: rgba(15, 23, 42, .04);
+  border-color: rgba(15, 23, 42, .18);
+}
+
+.btnRegen {
+  min-height: 38px;
+  padding: 0 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(29, 78, 216, .15);
+  background: rgba(29, 78, 216, .06);
+  color: #1d4ed8;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+
+.btnRegen:hover {
+  background: rgba(29, 78, 216, .12);
+}
+
+.btnSave {
+  min-height: 38px;
+  padding: 0 20px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(5, 150, 105, .3);
+  transition: all .15s ease;
+}
+
+.btnSave:hover {
+  box-shadow: 0 8px 24px rgba(5, 150, 105, .35);
+  transform: translateY(-1px);
+}
+
+.btnSave:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Mini Generate Button (in table) ── */
+
+.btnGenMini {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  min-height: 22px;
+  padding: 0 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(29, 78, 216, .18);
+  background: rgba(29, 78, 216, .06);
+  color: #1d4ed8;
+  font-size: 9px;
+  font-weight: 900;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all .15s ease;
+}
+
+.btnGenMini:hover {
+  background: rgba(29, 78, 216, .14);
+  border-color: rgba(29, 78, 216, .3);
+}
+
+/* ═══════════════════════════════════════════
+   Batch Panel
+   ═══════════════════════════════════════════ */
+
+.batchPanel {
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, .1);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(2, 6, 23, .06);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.batchHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(15, 23, 42, .06);
+  flex-wrap: wrap;
+}
+
+.batchTitle {
+  font-size: 15px;
+  font-weight: 900;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.batchActions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.batchBody {
+  padding: 12px 20px 16px;
+  display: grid;
+  gap: 8px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.batchRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, .05);
+  background: rgba(15, 23, 42, .015);
+  transition: background .12s ease;
+}
+
+.batchRow:hover {
+  background: rgba(15, 23, 42, .035);
+}
+
+.batchCheck {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  border: 1.5px solid rgba(15, 23, 42, .2);
+  cursor: pointer;
+  flex-shrink: 0;
+  accent-color: #059669;
+}
+
+.batchRowInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.batchRowTitle {
+  font-size: 12px;
+  font-weight: 800;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.batchRowPreview {
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(15, 23, 42, .5);
+  margin-top: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.batchRowActions {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.btnBatch {
+  min-height: 38px;
+  padding: 0 16px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(29, 78, 216, .24);
+  transition: all .15s ease;
+}
+
+.btnBatch:hover {
+  box-shadow: 0 8px 24px rgba(29, 78, 216, .3);
+  transform: translateY(-1px);
+}
+
+.btnBatch:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btnBatchSave {
+  min-height: 38px;
+  padding: 0 20px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(5, 150, 105, .3);
+  transition: all .15s ease;
+}
+
+.batchProgress {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(15, 23, 42, .5);
+  padding: 8px 20px;
+  text-align: center;
+}
+

@@ -1,0 +1,170 @@
+.page {
+  padding: 24px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.kicker {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  color: #6366f1;
+  margin-bottom: 8px;
+}
+
+.h1 {
+  margin: 0;
+  font-size: 42px;
+  line-height: 1.05;
+  font-weight: 900;
+  color: #0f172a;
+}
+
+.sub {
+  margin-top: 10px;
+  color: #475569;
+  font-weight: 600;
+  max-width: 760px;
+}
+
+.topActions {
+  display: flex;
+  gap: 10px;
+}
+
+.searchWrap {
+  margin-bottom: 20px;
+}
+
+.search {
+  width: 100%;
+  max-width: 520px;
+  border: 1px solid #dbe2ea;
+  border-radius: 14px;
+  padding: 13px 14px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f172a;
+  background: #fff;
+  outline: none;
+}
+
+.emptyBox {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 22px;
+  padding: 24px;
+  font-weight: 700;
+  color: #475569;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.orderId {
+  font-size: 18px;
+  font-weight: 900;
+  color: #0f172a;
+}
+
+.date {
+  margin-top: 4px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.badge {
+  border: 1px solid #fecaca;
+  background: #fef2f2;
+  color: #991b1b;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 800;
+  height: fit-content;
+}
+
+.meta {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.meta div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid #eef2f7;
+  background: #f8fafc;
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+.meta span {
+  color: #64748b;
+  font-weight: 700;
+}
+
+.meta b {
+  color: #0f172a;
+  font-weight: 900;
+  text-align: right;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.primaryBtn,
+.secondaryBtn,
+.dangerBtn {
+  border-radius: 14px;
+  padding: 12px 16px;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.primaryBtn {
+  border: none;
+  background: #0f172a;
+  color: #fff;
+}
+
+.secondaryBtn {
+  border: 1px solid #dbe2ea;
+  background: #fff;
+  color: #0f172a;
+}
+
+.dangerBtn {
+  border: none;
+  background: #991b1b;
+  color: #fff;
+}

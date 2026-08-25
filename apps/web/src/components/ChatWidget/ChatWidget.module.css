@@ -1,0 +1,1745 @@
+.bubble {
+  position: fixed;
+  right: max(18px, env(safe-area-inset-right));
+  bottom: max(20px, env(safe-area-inset-bottom));
+  width: 64px;
+  height: 64px;
+  border: 0;
+  border-radius: 999px;
+  z-index: 9990;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.22) 24%, transparent 38%),
+    linear-gradient(135deg, #0f172a 0%, #1f2937 42%, #b88a44 100%);
+  box-shadow:
+    0 22px 58px rgba(15, 23, 42, 0.26),
+    0 8px 22px rgba(184, 138, 68, 0.25),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.24);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+}
+
+.bubble:hover {
+  transform: translateY(-3px) scale(1.035);
+  box-shadow:
+    0 28px 72px rgba(15, 23, 42, 0.32),
+    0 12px 28px rgba(184, 138, 68, 0.28),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.34);
+}
+
+.bubbleOn {
+  transform: scale(0.96);
+  filter: saturate(1.05);
+}
+
+.bubbleIcon {
+  width: 27px;
+  height: 27px;
+  border-radius: 10px;
+  position: relative;
+  display: block;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+}
+
+.bubbleIcon::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  width: 13px;
+  height: 2px;
+  border-radius: 99px;
+  background: #0f172a;
+  box-shadow: 0 5px 0 #0f172a, 0 10px 0 #0f172a;
+  opacity: 0.78;
+}
+
+.bubbleIcon::after {
+  content: "";
+  position: absolute;
+  right: 3px;
+  bottom: -5px;
+  width: 9px;
+  height: 9px;
+  border-radius: 0 0 9px 0;
+  background: rgba(255, 255, 255, 0.96);
+  transform: rotate(45deg);
+}
+
+.onlineDot {
+  position: absolute;
+  right: 8px;
+  top: 9px;
+  width: 13px;
+  height: 13px;
+  border-radius: 999px;
+  background: #22c55e;
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.14);
+}
+
+.badge {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 7px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 900;
+  color: #fff;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  border: 2px solid #fff;
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.34);
+}
+
+.panel {
+  position: fixed;
+  right: max(18px, env(safe-area-inset-right));
+  bottom: calc(max(20px, env(safe-area-inset-bottom)) + 78px);
+  width: min(430px, calc(100vw - 28px));
+  max-height: min(760px, calc(100vh - 118px));
+  z-index: 9989;
+  overflow: hidden;
+  border-radius: 30px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(18px) scale(0.96);
+  transform-origin: right bottom;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.94)),
+    radial-gradient(circle at 20% 0%, rgba(184, 138, 68, 0.16), transparent 42%);
+  border: 1px solid rgba(15, 23, 42, 0.09);
+  box-shadow:
+    0 34px 100px rgba(15, 23, 42, 0.26),
+    0 10px 34px rgba(184, 138, 68, 0.16);
+  backdrop-filter: blur(20px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.22s cubic-bezier(0.2, 0.9, 0.25, 1);
+}
+
+.panelOn {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.panelTop {
+  padding: 21px 21px 18px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  background:
+    linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(31, 41, 55, 0.96)),
+    radial-gradient(circle at 18% 20%, rgba(184, 138, 68, 0.38), transparent 38%);
+  color: #fff;
+  position: relative;
+}
+
+.panelTop::after {
+  content: "";
+  position: absolute;
+  left: 21px;
+  right: 21px;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(245, 208, 138, 0.62), transparent);
+}
+
+.panelTitle {
+  font-size: 18px;
+  line-height: 1.15;
+  font-weight: 950;
+  letter-spacing: -0.03em;
+}
+
+.panelSub {
+  margin-top: 6px;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 13px;
+  line-height: 1.35;
+  font-weight: 650;
+}
+
+.close {
+  width: 36px;
+  height: 36px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.09);
+  color: #fff;
+  cursor: pointer;
+  font-size: 17px;
+  display: grid;
+  place-items: center;
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.close:hover {
+  transform: rotate(4deg) scale(1.04);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.chatShell {
+  display: grid;
+  grid-template-rows: minmax(180px, 1fr) auto;
+  height: min(660px, calc(100vh - 210px));
+  min-height: 520px;
+}
+
+.msgList {
+  overflow: auto;
+  padding: 18px;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(184, 138, 68, 0.08), transparent 34%),
+    linear-gradient(180deg, #fbfdff, #f8fafc);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(15, 23, 42, 0.22) transparent;
+}
+
+.msgList::-webkit-scrollbar {
+  width: 7px;
+}
+
+.msgList::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.18);
+}
+
+.leadHint {
+  padding: 14px 15px;
+  border-radius: 18px;
+  background: rgba(184, 138, 68, 0.1);
+  border: 1px solid rgba(184, 138, 68, 0.16);
+  color: #69502c;
+  font-size: 13px;
+  line-height: 1.4;
+  font-weight: 750;
+  margin-bottom: 12px;
+}
+
+.msgRow {
+  display: flex;
+  margin: 10px 0;
+}
+
+.msgUser {
+  justify-content: flex-end;
+}
+
+.msgAdmin {
+  justify-content: flex-start;
+}
+
+.msgBubble {
+  max-width: 82%;
+  padding: 11px 13px 12px;
+  border-radius: 18px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+  word-break: break-word;
+}
+
+.msgUser .msgBubble {
+  color: #fff;
+  border-bottom-right-radius: 7px;
+  background: linear-gradient(135deg, #111827, #374151);
+}
+
+.msgAdmin .msgBubble {
+  color: #111827;
+  border-bottom-left-radius: 7px;
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.msgMeta {
+  font-size: 10px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  opacity: 0.62;
+  margin-bottom: 6px;
+}
+
+.msgText {
+  white-space: pre-wrap;
+  font-size: 13.5px;
+  line-height: 1.48;
+  font-weight: 650;
+}
+
+.composer {
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.96);
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.form {
+  padding: 12px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, #fff, #f8fafc);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  margin-bottom: 12px;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.field {
+  display: grid;
+  gap: 7px;
+}
+
+.field span,
+.fieldLabelRow b {
+  color: #111827;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+
+.field input,
+.field textarea,
+.orderSelect {
+  width: 100%;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  outline: none;
+  border-radius: 16px;
+  background: #fff;
+  color: #111827;
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: 650;
+  padding: 12px 13px;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+}
+
+.field input:focus,
+.field textarea:focus,
+.orderSelect:focus {
+  border-color: rgba(184, 138, 68, 0.55);
+  box-shadow: 0 0 0 4px rgba(184, 138, 68, 0.13);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 78px;
+  max-height: 170px;
+}
+
+.fieldLabelRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.lastSeen {
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.welcome {
+  margin-bottom: 12px;
+}
+
+.welcomeBubble {
+  padding: 13px 14px;
+  border-radius: 20px;
+  color: #111827;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.98)),
+    radial-gradient(circle at 0% 0%, rgba(184, 138, 68, 0.14), transparent 40%);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  font-size: 13px;
+  line-height: 1.45;
+  font-weight: 650;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+.orderPicker {
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(250, 247, 241, 0.94)),
+    radial-gradient(circle at 100% 0%, rgba(184, 138, 68, 0.16), transparent 42%);
+  border: 1px solid rgba(184, 138, 68, 0.18);
+  box-shadow: 0 12px 32px rgba(184, 138, 68, 0.08);
+}
+
+.orderPickerHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.orderPickerHead b {
+  display: block;
+  color: #111827;
+  font-size: 13px;
+  line-height: 1.15;
+  font-weight: 950;
+  letter-spacing: -0.02em;
+}
+
+.orderPickerHead span {
+  display: block;
+  margin-top: 4px;
+  color: #64748b;
+  font-size: 11.5px;
+  line-height: 1.3;
+  font-weight: 750;
+}
+
+.orderPickerRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: center;
+}
+
+.orderSelect {
+  min-height: 44px;
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #111827;
+  border-color: rgba(184, 138, 68, 0.22);
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.orderAttachBtn {
+  height: 44px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 15px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 950;
+  background: linear-gradient(135deg, #b88a44, #8a632d);
+  box-shadow: 0 12px 24px rgba(184, 138, 68, 0.23);
+  transition: transform 0.16s ease, filter 0.16s ease;
+}
+
+.orderAttachBtn:hover {
+  transform: translateY(-1px);
+  filter: saturate(1.08);
+}
+
+.orderEmpty {
+  padding: 11px 12px;
+  border-radius: 16px;
+  color: #64748b;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px dashed rgba(15, 23, 42, 0.12);
+  font-size: 12px;
+  line-height: 1.35;
+  font-weight: 800;
+}
+
+.sendBtn {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 10px;
+  border: 0;
+  border-radius: 18px;
+  cursor: pointer;
+  color: #fff;
+  background:
+    radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.24), transparent 34%),
+    linear-gradient(135deg, #111827, #374151);
+  box-shadow: 0 16px 34px rgba(15, 23, 42, 0.18);
+  font-size: 14px;
+  font-weight: 950;
+  letter-spacing: -0.01em;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease;
+}
+
+.sendBtn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 20px 42px rgba(15, 23, 42, 0.22);
+}
+
+.sendBtn:disabled {
+  cursor: not-allowed;
+  opacity: 0.62;
+}
+
+.quickRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.quick {
+  flex: 1;
+  min-width: 110px;
+  min-height: 38px;
+  border-radius: 15px;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  color: #111827;
+  background: #fff;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  font-size: 12px;
+  font-weight: 900;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+  transition: transform 0.16s ease, border-color 0.16s ease;
+}
+
+.quick:hover {
+  transform: translateY(-1px);
+  border-color: rgba(184, 138, 68, 0.32);
+}
+
+.supportStatus {
+  margin-top: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.supportStatusDot {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.supportStatusDotOn {
+  background: #22c55e;
+  box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.12);
+}
+
+.supportStatusDotOff {
+  background: #94a3b8;
+  box-shadow: 0 0 0 5px rgba(148, 163, 184, 0.12);
+}
+
+.supportStatusText {
+  line-height: 1;
+}
+
+.toast {
+  position: fixed;
+  right: max(18px, env(safe-area-inset-right));
+  bottom: calc(max(20px, env(safe-area-inset-bottom)) + 154px);
+  z-index: 9992;
+  max-width: min(330px, calc(100vw - 28px));
+  padding: 12px 14px;
+  border-radius: 18px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  color: #fff;
+  font-size: 13px;
+  line-height: 1.25;
+  font-weight: 900;
+  box-shadow: 0 18px 44px rgba(15, 23, 42, 0.22);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.toastOn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toastOk {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+}
+
+.toastErr {
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+}
+
+@media (max-width: 560px) {
+  .bubble {
+    width: 58px;
+    height: 58px;
+    right: 14px;
+    bottom: 16px;
+  }
+
+  .panel {
+    left: 10px;
+    right: 10px;
+    bottom: 86px;
+    width: auto;
+    border-radius: 26px;
+    max-height: calc(100vh - 104px);
+  }
+
+  .panelTop {
+    padding: 18px 18px 16px;
+  }
+
+  .chatShell {
+    height: calc(100vh - 198px);
+    min-height: 480px;
+  }
+
+  .msgList {
+    padding: 14px;
+  }
+
+  .composer {
+    padding: 12px;
+  }
+
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+
+  .orderPickerRow {
+    grid-template-columns: 1fr;
+  }
+
+  .orderAttachBtn {
+    width: 100%;
+  }
+
+  .toast {
+    left: 14px;
+    right: 14px;
+    bottom: 148px;
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bubble,
+  .panel,
+  .close,
+  .sendBtn,
+  .quick,
+  .orderAttachBtn,
+  .toast {
+    transition: none;
+  }
+}
+/* =========================================================
+   MOBILE CHAT SAFE AREA FIX
+   Tarayıcı üst bar / notch / address bar arkasına girmesin
+========================================================= */
+
+@media (max-width: 768px) {
+  .panel {
+    position: fixed !important;
+
+    /* Üst tarayıcı alanından kaç */
+    top: max(14px, env(safe-area-inset-top)) !important;
+
+    /* Alttaki güvenli alan + bubble/klavye payı */
+    bottom: max(82px, calc(env(safe-area-inset-bottom) + 82px)) !important;
+
+    left: 12px !important;
+    right: 12px !important;
+
+    width: auto !important;
+    max-width: none !important;
+
+    /* Mobilde gerçek görünen yükseklik */
+    height: auto !important;
+    max-height: calc(
+      100dvh - max(14px, env(safe-area-inset-top)) - max(82px, calc(env(safe-area-inset-bottom) + 82px)) - 12px
+    ) !important;
+
+    border-radius: 26px !important;
+    overflow: hidden !important;
+  }
+
+  .panelOn {
+    transform: translateY(0) scale(1) !important;
+  }
+
+  .chatShell {
+    max-height: inherit !important;
+    min-height: 0 !important;
+  }
+
+  .msgList {
+    max-height: calc(100dvh - 390px) !important;
+    min-height: 120px !important;
+    overflow-y: auto !important;
+  }
+
+  .composer {
+    max-height: 48dvh !important;
+    overflow-y: auto !important;
+    padding-bottom: max(14px, env(safe-area-inset-bottom)) !important;
+  }
+
+  .bubble {
+    right: max(16px, env(safe-area-inset-right)) !important;
+    bottom: max(18px, calc(env(safe-area-inset-bottom) + 18px)) !important;
+  }
+
+  .toast {
+    bottom: max(92px, calc(env(safe-area-inset-bottom) + 92px)) !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .panel {
+    top: max(10px, env(safe-area-inset-top)) !important;
+    left: 10px !important;
+    right: 10px !important;
+    bottom: max(78px, calc(env(safe-area-inset-bottom) + 78px)) !important;
+
+    max-height: calc(
+      100dvh - max(10px, env(safe-area-inset-top)) - max(78px, calc(env(safe-area-inset-bottom) + 78px)) - 10px
+    ) !important;
+
+    border-radius: 24px !important;
+  }
+
+  .panelTop {
+    padding-top: 16px !important;
+  }
+
+  .msgList {
+    max-height: calc(100dvh - 410px) !important;
+  }
+
+  .composer textarea {
+    max-height: 96px !important;
+  }
+}
+@media (max-width: 768px) {
+  .panel {
+    --chat-mobile-top-gap: 58px;
+
+    top: max(
+      var(--chat-mobile-top-gap),
+      calc(env(safe-area-inset-top) + 46px)
+    ) !important;
+
+    max-height: calc(
+      100dvh - max(var(--chat-mobile-top-gap), calc(env(safe-area-inset-top) + 46px)) - max(82px, calc(env(safe-area-inset-bottom) + 82px)) - 12px
+    ) !important;
+  }
+}
+/* =========================================================
+   CHAT WIDGET MOBILE FINAL FIX — CSS MODULE SAFE
+   En alta ekle. [data-*] selector yok, build hatası vermez.
+========================================================= */
+
+@media (max-width: 768px) {
+  .bubble {
+    right: 18px !important;
+    bottom: max(18px, calc(env(safe-area-inset-bottom) + 14px)) !important;
+    width: 58px !important;
+    height: 58px !important;
+    z-index: 270 !important;
+  }
+
+  .panel {
+    position: fixed !important;
+
+    left: 12px !important;
+    right: 12px !important;
+
+    top: max(82px, calc(env(safe-area-inset-top) + 72px)) !important;
+    bottom: max(92px, calc(env(safe-area-inset-bottom) + 88px)) !important;
+
+    width: auto !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: none !important;
+
+    z-index: 269 !important;
+    border-radius: 24px !important;
+    overflow: hidden !important;
+
+    display: grid !important;
+    grid-template-rows: auto minmax(0, 1fr) !important;
+
+    box-shadow:
+      0 28px 90px rgba(8, 15, 32, 0.34),
+      inset 0 1px 0 rgba(255, 255, 255, 0.45) !important;
+  }
+
+  .panelTop {
+    padding: 16px 18px 14px !important;
+  }
+
+  .panelTitle {
+    font-size: 22px !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.055em !important;
+  }
+
+  .panelSub {
+    margin-top: 5px !important;
+    font-size: 13px !important;
+    line-height: 1.25 !important;
+  }
+
+  .close {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 15px !important;
+    font-size: 21px !important;
+  }
+
+  .chatShell {
+    min-height: 0 !important;
+    height: auto !important;
+    display: grid !important;
+    grid-template-rows: minmax(0, 1fr) auto !important;
+    overflow: hidden !important;
+  }
+
+  .msgList {
+    min-height: 0 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding: 14px 14px 10px !important;
+    overscroll-behavior: contain !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .msgBubble {
+    max-width: 88% !important;
+    padding: 12px 14px !important;
+    border-radius: 19px !important;
+  }
+
+  .msgMeta {
+    font-size: 10px !important;
+  }
+
+  .msgText {
+    font-size: 13px !important;
+    line-height: 1.38 !important;
+  }
+
+  .composer {
+    padding: 12px 14px 14px !important;
+    max-height: 42dvh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    overscroll-behavior: contain !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .orderPicker {
+    padding: 11px !important;
+    border-radius: 18px !important;
+  }
+
+  .orderPickerHead b {
+    font-size: 13px !important;
+  }
+
+  .orderPickerHead span {
+    font-size: 11px !important;
+  }
+
+  .orderPickerRow {
+    gap: 7px !important;
+  }
+
+  .orderSelect {
+    min-height: 42px !important;
+    height: 42px !important;
+    border-radius: 15px !important;
+    font-size: 12px !important;
+    padding: 0 11px !important;
+  }
+
+  .orderAttachBtn {
+    min-height: 42px !important;
+    height: 42px !important;
+    border-radius: 15px !important;
+    font-size: 12px !important;
+  }
+
+  .field span,
+  .fieldLabelRow {
+    font-size: 12px !important;
+  }
+
+  .field textarea {
+    min-height: 78px !important;
+    max-height: 104px !important;
+    border-radius: 17px !important;
+    font-size: 13px !important;
+    padding: 12px 13px !important;
+  }
+
+  .sendBtn {
+    min-height: 46px !important;
+    border-radius: 17px !important;
+    font-size: 14px !important;
+  }
+
+  .quickRow {
+    gap: 8px !important;
+  }
+
+  .quick {
+    min-height: 40px !important;
+    border-radius: 15px !important;
+    font-size: 12px !important;
+  }
+
+  .supportStatus {
+    font-size: 12px !important;
+  }
+
+  .toast {
+    bottom: max(92px, calc(env(safe-area-inset-bottom) + 88px)) !important;
+    left: 16px !important;
+    right: 16px !important;
+    width: auto !important;
+    z-index: 280 !important;
+  }
+}
+
+/* Chat panel açıkken kendi içinde scroll çalışsın, arkaya taşma azalır */
+@media (max-width: 768px) {
+  .panelOn {
+    overscroll-behavior: contain !important;
+    touch-action: pan-y !important;
+  }
+
+  .panelOn .msgList,
+  .panelOn .composer {
+    overscroll-behavior: contain !important;
+  }
+}
+/* =========================================================
+   CHAT WIDGET — MOBILE FINAL FIX
+   iOS Safari zoom + keyboard + oversized panel fix
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .bubble {
+    right: max(14px, env(safe-area-inset-right)) !important;
+    bottom: max(18px, env(safe-area-inset-bottom)) !important;
+    width: 62px !important;
+    height: 62px !important;
+    z-index: 9998 !important;
+  }
+
+  .panel {
+    position: fixed !important;
+    left: 10px !important;
+    right: 10px !important;
+    bottom: calc(10px + env(safe-area-inset-bottom)) !important;
+
+    width: auto !important;
+    max-width: none !important;
+
+    /* iOS Safari için sağlam yükseklik */
+    height: min(78dvh, 620px) !important;
+    max-height: calc(100dvh - 118px) !important;
+
+    border-radius: 24px !important;
+    overflow: hidden !important;
+    z-index: 9999 !important;
+
+    transform: translateY(18px) scale(0.98) !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  .panelOn {
+    transform: translateY(0) scale(1) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  .panelTop {
+    min-height: 72px !important;
+    padding: 14px 16px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .panelTitle {
+    font-size: 18px !important;
+    line-height: 1.1 !important;
+  }
+
+  .panelSub {
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+    max-width: 245px !important;
+  }
+
+  .close {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+  }
+
+  .chatShell {
+    height: calc(100% - 72px) !important;
+    min-height: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+  }
+
+  .msgList {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow-y: auto !important;
+    padding: 14px 14px 10px !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .composer {
+    flex: 0 0 auto !important;
+    max-height: 46dvh !important;
+    overflow-y: auto !important;
+    padding: 12px 14px 14px !important;
+    border-radius: 20px 20px 0 0 !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .form {
+    gap: 10px !important;
+  }
+
+  .grid2 {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .orderPicker {
+    padding: 12px !important;
+    border-radius: 18px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .orderPickerHead b {
+    font-size: 15px !important;
+  }
+
+  .orderPickerHead span {
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+  }
+
+  .orderPickerRow {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .orderSelect {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 48px !important;
+    font-size: 16px !important; /* iOS zoom fix */
+    border-radius: 16px !important;
+  }
+
+  .orderAttachBtn {
+    width: 100% !important;
+    min-height: 48px !important;
+    border-radius: 999px !important;
+  }
+
+  .field {
+    gap: 8px !important;
+  }
+
+  .field input,
+  .field textarea,
+  .field select,
+  .composer input,
+  .composer textarea,
+  .composer select {
+    font-size: 16px !important; /* iPhone focus zoom kesin fix */
+  }
+
+  .field textarea {
+    min-height: 92px !important;
+    max-height: 130px !important;
+    resize: none !important;
+    border-radius: 18px !important;
+  }
+
+  .sendBtn {
+    min-height: 52px !important;
+    border-radius: 999px !important;
+    font-size: 16px !important;
+    margin-top: 10px !important;
+  }
+
+  .quickRow {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+
+  .supportStatus {
+    margin-top: 8px !important;
+  }
+
+  .msgBubble {
+    max-width: 86% !important;
+    border-radius: 18px !important;
+  }
+
+  .msgText {
+    font-size: 14px !important;
+    line-height: 1.45 !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+    white-space: pre-wrap !important;
+  }
+
+  .toast {
+    left: 12px !important;
+    right: 12px !important;
+    bottom: calc(86px + env(safe-area-inset-bottom)) !important;
+    width: auto !important;
+    max-width: none !important;
+    z-index: 10000 !important;
+  }
+}
+
+/* Daha küçük iPhone ekranları */
+@media (max-width: 430px) {
+  .panel {
+    left: 8px !important;
+    right: 8px !important;
+    bottom: calc(8px + env(safe-area-inset-bottom)) !important;
+    height: min(76dvh, 590px) !important;
+    max-height: calc(100dvh - 112px) !important;
+    border-radius: 22px !important;
+  }
+
+  .panelTop {
+    min-height: 68px !important;
+    padding: 13px 14px !important;
+  }
+
+  .chatShell {
+    height: calc(100% - 68px) !important;
+  }
+
+  .msgList {
+    padding: 12px 12px 8px !important;
+  }
+
+  .composer {
+    max-height: 44dvh !important;
+    padding: 11px 12px 12px !important;
+  }
+
+  .orderPicker {
+    padding: 10px !important;
+  }
+
+  .field textarea {
+    min-height: 84px !important;
+  }
+}
+
+/* Landscape / klavye daralınca panel tam taşmasın */
+@media (max-width: 768px) and (max-height: 620px) {
+  .panel {
+    top: 8px !important;
+    bottom: 8px !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  .composer {
+    max-height: 42dvh !important;
+  }
+
+  .bubble {
+    display: none !important;
+  }
+}
+/* =========================================================
+   CHAT WIDGET — MOBILE ULTRA FINAL
+   - Ürün seçimi küçültüldü
+   - Panel gerçek mobil yüksekliğe oturdu
+   - iOS zoom fix
+   - Header/category bar arkasına taşmaz
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .bubble {
+    right: max(14px, env(safe-area-inset-right)) !important;
+    bottom: max(16px, calc(env(safe-area-inset-bottom) + 12px)) !important;
+    width: 58px !important;
+    height: 58px !important;
+    z-index: 9998 !important;
+  }
+
+  .bubbleOn {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: scale(0.82) !important;
+  }
+
+  .panel {
+    position: fixed !important;
+
+    /* Header + kategori bar altından başlasın */
+    top: max(88px, calc(env(safe-area-inset-top) + 78px)) !important;
+    left: 10px !important;
+    right: 10px !important;
+    bottom: max(10px, calc(env(safe-area-inset-bottom) + 10px)) !important;
+
+    width: auto !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: none !important;
+
+    z-index: 9999 !important;
+    border-radius: 22px !important;
+    overflow: hidden !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    transform: translateY(14px) scale(0.985) !important;
+    transform-origin: center bottom !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+
+    box-shadow:
+      0 28px 90px rgba(8, 15, 32, 0.34),
+      0 10px 34px rgba(184, 138, 68, 0.14) !important;
+  }
+
+  .panelOn {
+    transform: translateY(0) scale(1) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  .panelTop {
+    flex: 0 0 auto !important;
+    min-height: 64px !important;
+    padding: 13px 14px 12px !important;
+    align-items: center !important;
+  }
+
+  .panelTitle {
+    font-size: 20px !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.055em !important;
+  }
+
+  .panelSub {
+    margin-top: 4px !important;
+    font-size: 12px !important;
+    line-height: 1.25 !important;
+    max-width: 250px !important;
+  }
+
+  .close {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    border-radius: 15px !important;
+    font-size: 21px !important;
+  }
+
+  .chatShell {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    height: auto !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+  }
+
+  .msgList {
+    flex: 1 1 auto !important;
+    min-height: 90px !important;
+    max-height: none !important;
+
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    padding: 12px 12px 8px !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior: contain !important;
+  }
+
+  .composer {
+    flex: 0 0 auto !important;
+
+    /* Form alanı paneli yemesin */
+    max-height: 48dvh !important;
+
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    padding: 10px 12px 12px !important;
+    border-top: 1px solid rgba(15, 23, 42, 0.08) !important;
+
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior: contain !important;
+  }
+
+  /* -----------------------------
+     Sipariş desteği küçültme
+  ----------------------------- */
+
+  .orderPicker {
+    padding: 9px !important;
+    margin-bottom: 8px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 22px rgba(184, 138, 68, 0.06) !important;
+  }
+
+  .orderPickerHead {
+    margin-bottom: 7px !important;
+  }
+
+  .orderPickerHead b {
+    font-size: 13px !important;
+    line-height: 1.1 !important;
+    letter-spacing: -0.03em !important;
+  }
+
+  .orderPickerHead span {
+    margin-top: 3px !important;
+    font-size: 10.5px !important;
+    line-height: 1.25 !important;
+  }
+
+  .orderPickerRow {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 76px !important;
+    gap: 7px !important;
+    align-items: center !important;
+  }
+
+  .orderSelect {
+    min-width: 0 !important;
+    width: 100% !important;
+
+    height: 40px !important;
+    min-height: 40px !important;
+
+    padding: 0 30px 0 10px !important;
+    border-radius: 14px !important;
+
+    /* iOS zoom yapmasın ama görsel olarak büyük görünmesin */
+    font-size: 16px !important;
+    line-height: 1 !important;
+    font-weight: 850 !important;
+
+    transform: scale(0.82) !important;
+    transform-origin: left center !important;
+    width: 122% !important;
+
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  .orderAttachBtn {
+    width: 76px !important;
+    height: 40px !important;
+    min-height: 40px !important;
+
+    padding: 0 !important;
+    border-radius: 14px !important;
+
+    font-size: 12px !important;
+    font-weight: 950 !important;
+  }
+
+  .orderEmpty {
+    padding: 9px 10px !important;
+    border-radius: 14px !important;
+    font-size: 11px !important;
+  }
+
+  /* -----------------------------
+     Mesaj alanı
+  ----------------------------- */
+
+  .field {
+    gap: 6px !important;
+  }
+
+  .fieldLabelRow {
+    align-items: center !important;
+  }
+
+  .field span,
+  .fieldLabelRow b {
+    font-size: 12px !important;
+    line-height: 1 !important;
+  }
+
+  .lastSeen {
+    font-size: 11px !important;
+  }
+
+  .field input,
+  .field textarea,
+  .field select,
+  .composer input,
+  .composer textarea,
+  .composer select {
+    font-size: 16px !important; /* iOS Safari zoom fix */
+  }
+
+  .field textarea {
+    min-height: 82px !important;
+    max-height: 104px !important;
+    padding: 11px 12px !important;
+    border-radius: 16px !important;
+    resize: none !important;
+    line-height: 1.35 !important;
+  }
+
+  .sendBtn {
+    min-height: 46px !important;
+    height: 46px !important;
+    margin-top: 8px !important;
+    border-radius: 999px !important;
+    font-size: 15px !important;
+  }
+
+  .quickRow {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    margin-top: 8px !important;
+  }
+
+  .quick {
+    min-height: 38px !important;
+    border-radius: 14px !important;
+    font-size: 12px !important;
+  }
+
+  .supportStatus {
+    margin-top: 7px !important;
+    font-size: 11px !important;
+  }
+
+  /* -----------------------------
+     Mesaj balonları
+  ----------------------------- */
+
+  .msgBubble {
+    max-width: 88% !important;
+    padding: 10px 12px !important;
+    border-radius: 17px !important;
+  }
+
+  .msgMeta {
+    font-size: 9.5px !important;
+    margin-bottom: 5px !important;
+  }
+
+  .msgText {
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+    white-space: pre-wrap !important;
+    word-break: break-word !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  .leadHint,
+  .welcomeBubble {
+    padding: 10px 11px !important;
+    border-radius: 16px !important;
+    font-size: 12px !important;
+    line-height: 1.35 !important;
+  }
+
+  .welcome {
+    margin-bottom: 8px !important;
+  }
+
+  .form {
+    padding: 9px !important;
+    margin-bottom: 8px !important;
+    border-radius: 16px !important;
+  }
+
+  .grid2 {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  .toast {
+    left: 12px !important;
+    right: 12px !important;
+    bottom: max(74px, calc(env(safe-area-inset-bottom) + 72px)) !important;
+    width: auto !important;
+    max-width: none !important;
+    z-index: 10000 !important;
+  }
+}
+
+/* Daha dar iPhone ekranları */
+@media (max-width: 430px) {
+  .panel {
+    top: max(82px, calc(env(safe-area-inset-top) + 72px)) !important;
+    left: 8px !important;
+    right: 8px !important;
+    bottom: max(8px, calc(env(safe-area-inset-bottom) + 8px)) !important;
+    border-radius: 20px !important;
+  }
+
+  .panelTop {
+    min-height: 60px !important;
+    padding: 12px 13px 11px !important;
+  }
+
+  .panelTitle {
+    font-size: 19px !important;
+  }
+
+  .panelSub {
+    font-size: 11.5px !important;
+    max-width: 220px !important;
+  }
+
+  .close {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+  }
+
+  .composer {
+    max-height: 47dvh !important;
+    padding: 9px 10px 10px !important;
+  }
+
+  .msgList {
+    padding: 10px 10px 7px !important;
+  }
+
+  .orderPicker {
+    padding: 8px !important;
+  }
+
+  .orderPickerRow {
+    grid-template-columns: minmax(0, 1fr) 68px !important;
+    gap: 6px !important;
+  }
+
+  .orderAttachBtn {
+    width: 68px !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    font-size: 11.5px !important;
+  }
+
+  .orderSelect {
+    height: 38px !important;
+    min-height: 38px !important;
+    border-radius: 13px !important;
+    transform: scale(0.78) !important;
+    width: 128% !important;
+  }
+
+  .field textarea {
+    min-height: 76px !important;
+    max-height: 94px !important;
+  }
+
+  .sendBtn {
+    height: 44px !important;
+    min-height: 44px !important;
+  }
+
+  .quick {
+    min-height: 36px !important;
+  }
+}
+
+/* Klavye veya yatay dar ekran açılınca */
+@media (max-width: 768px) and (max-height: 620px) {
+  .panel {
+    top: 8px !important;
+    bottom: 8px !important;
+    left: 8px !important;
+    right: 8px !important;
+  }
+
+  .panelTop {
+    min-height: 56px !important;
+    padding: 10px 12px !important;
+  }
+
+  .panelTitle {
+    font-size: 18px !important;
+  }
+
+  .panelSub {
+    display: none !important;
+  }
+
+  .composer {
+    max-height: 43dvh !important;
+  }
+
+  .field textarea {
+    min-height: 68px !important;
+    max-height: 82px !important;
+  }
+
+  .bubble {
+    display: none !important;
+  }
+}
+/* =========================================================
+   CHAT BUBBLE — MOBILE COMPACT FIX
+   Mobilde canlı destek ikonunu daha zarif küçültür
+========================================================= */
+
+@media (max-width: 768px) {
+  .bubble {
+    width: 52px !important;
+    height: 52px !important;
+    right: max(14px, env(safe-area-inset-right)) !important;
+    bottom: max(16px, calc(env(safe-area-inset-bottom) + 12px)) !important;
+    box-shadow:
+      0 16px 42px rgba(15, 23, 42, 0.24),
+      0 6px 18px rgba(184, 138, 68, 0.2),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.22) !important;
+  }
+
+  .bubbleIcon {
+    width: 23px !important;
+    height: 23px !important;
+    border-radius: 8px !important;
+  }
+
+  .bubbleIcon::before {
+    left: 6px !important;
+    top: 7px !important;
+    width: 11px !important;
+    height: 2px !important;
+    box-shadow:
+      0 5px 0 #0f172a,
+      0 10px 0 #0f172a !important;
+  }
+
+  .bubbleIcon::after {
+    right: 3px !important;
+    bottom: -4px !important;
+    width: 7px !important;
+    height: 7px !important;
+  }
+
+  .onlineDot {
+    right: 6px !important;
+    top: 7px !important;
+    width: 11px !important;
+    height: 11px !important;
+    border-width: 2px !important;
+    box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.12) !important;
+  }
+
+  .badge {
+    top: -4px !important;
+    left: -4px !important;
+    min-width: 21px !important;
+    height: 21px !important;
+    padding: 0 6px !important;
+    font-size: 11px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .bubble {
+    width: 48px !important;
+    height: 48px !important;
+    right: 12px !important;
+    bottom: max(14px, calc(env(safe-area-inset-bottom) + 10px)) !important;
+  }
+
+  .bubbleIcon {
+    width: 21px !important;
+    height: 21px !important;
+  }
+
+  .onlineDot {
+    width: 10px !important;
+    height: 10px !important;
+    right: 5px !important;
+    top: 6px !important;
+  }
+}
+/* =========================================================
+   CHAT OPEN — BACKGROUND SCROLL LOCK STABILITY
+   Panel açıkken arka sayfa kaymasın, sadece chat içi scroll çalışsın
+========================================================= */
+
+@media (max-width: 768px) {
+  .panelOn {
+    overscroll-behavior: contain !important;
+    touch-action: pan-y !important;
+  }
+
+  .panelOn .msgList,
+  .panelOn .composer {
+    overscroll-behavior: contain !important;
+    -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-y !important;
+  }
+}
+/* =========================================================
+   CHAT SCROLL LOCK — FINAL PATCH
+   Body fixed yok. Arka sayfa kaymaz, panel içi scroll çalışır.
+========================================================= */
+
+@media (max-width: 768px) {
+  .panel {
+    overscroll-behavior: contain !important;
+  }
+
+  .panelOn {
+    overscroll-behavior: contain !important;
+    touch-action: pan-y !important;
+  }
+
+  .chatShell,
+  .msgList,
+  .composer {
+    overscroll-behavior: contain !important;
+  }
+
+  .msgList,
+  .composer {
+    -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-y !important;
+  }
+}

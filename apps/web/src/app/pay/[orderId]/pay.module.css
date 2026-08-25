@@ -1,0 +1,341 @@
+.page{
+    min-height: 100vh;
+    background: linear-gradient(180deg, #f7f7f5 0%, #f1f2f4 100%);
+    color: #0b1220;
+  }
+  
+  .wrap{
+    width: min(1200px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 26px 0 90px;
+  }
+  
+  .top{
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  
+  .kicker{
+    font-weight: 900;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: rgba(11,18,32,.58);
+  }
+  
+  .h1{
+    margin: 6px 0 0;
+    font-size: clamp(34px, 4vw, 56px);
+    line-height: .95;
+    letter-spacing: -0.05em;
+    font-weight: 950;
+  }
+  
+  .sub{
+    margin-top: 10px;
+    color: rgba(11,18,32,.70);
+    font-weight: 650;
+  }
+  
+  .backBtn{
+    height: 46px;
+    padding: 0 16px;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #0b1220;
+    border: 1px solid rgba(11,18,32,.16);
+    background: #fff;
+    font-weight: 900;
+    border-radius: 0;
+  }
+  
+  .grid{
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: 18px;
+    align-items: start;
+  }
+  
+  .left, .right{
+    min-width: 0;
+    display: grid;
+    gap: 18px;
+  }
+  
+  .card{
+    background: rgba(255,255,255,.98);
+    border: 1px solid rgba(11,18,32,.10);
+    border-radius: 0;
+    padding: 18px;
+    box-shadow: 0 14px 40px rgba(11,18,32,.06);
+  }
+  
+  .sticky{
+    position: sticky;
+    top: 110px;
+  }
+  
+  .cardHead{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  
+  .cardTitle{
+    font-weight: 950;
+    font-size: 16px;
+    letter-spacing: -0.02em;
+  }
+  
+  .pill{
+    height: 32px;
+    padding: 0 12px;
+    display:inline-flex;
+    align-items:center;
+    font-weight: 950;
+    font-size: 12px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    border: 1px solid rgba(11,18,32,.12);
+    background: rgba(11,18,32,.04);
+    border-radius: 0;
+  }
+  .pillOk{ background: rgba(16,185,129,.10); border-color: rgba(16,185,129,.25); color: #0f5132; }
+  .pillWarn{ background: rgba(245,158,11,.10); border-color: rgba(245,158,11,.25); color: #7a4a00; }
+  .pillBad{ background: rgba(239,68,68,.10); border-color: rgba(239,68,68,.25); color: #7a1111; }
+  
+  .hr{
+    height: 1px;
+    background: rgba(11,18,32,.10);
+    margin: 14px 0;
+  }
+  
+  .orderMeta{
+    display: grid;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  
+  .metaRow{
+    display:flex;
+    justify-content: space-between;
+    gap: 12px;
+    color: rgba(11,18,32,.72);
+    font-weight: 750;
+  }
+  .metaRow b{
+    color: #0b1220;
+  }
+  
+  .total{
+    font-size: 22px;
+    font-weight: 950;
+    letter-spacing: -0.03em;
+  }
+  
+  .mono{
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-weight: 900;
+  }
+  
+  .methodTitle{
+    font-weight: 950;
+    margin-top: 2px;
+  }
+  
+  .methodGrid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  
+  .methodCard{
+    text-align: left;
+    padding: 14px;
+    border: 1px solid rgba(11,18,32,.14);
+    background: #fff;
+    border-radius: 0;
+    cursor: pointer;
+    transition: transform .16s ease, border-color .16s ease, background .16s ease;
+  }
+  .methodCard:hover{
+    transform: translateY(-1px);
+    border-color: rgba(185,151,69,.60);
+    background: #fbfaf6;
+  }
+  .methodOn{
+    border-color: rgba(185,151,69,.95);
+    box-shadow: inset 0 0 0 1px rgba(185,151,69,.65);
+  }
+  
+  .methodName{
+    font-weight: 950;
+    font-size: 14px;
+  }
+  .methodDesc{
+    margin-top: 8px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(11,18,32,.68);
+    font-weight: 650;
+  }
+  
+  .bigTitle{
+    font-weight: 950;
+    font-size: 18px;
+    letter-spacing: -0.02em;
+  }
+  
+  .text{
+    margin-top: 10px;
+    font-size: 14px;
+    line-height: 1.75;
+    color: rgba(11,18,32,.72);
+    font-weight: 650;
+  }
+  
+  .payBtn{
+    margin-top: 14px;
+    width: 100%;
+    height: 56px;
+    border: 1px solid #0b1220;
+    background: linear-gradient(135deg, #0b1220 0%, #151f35 100%);
+    color: #fff;
+    font-weight: 950;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 0;
+    transition: transform .16s ease, box-shadow .16s ease, opacity .16s ease;
+  }
+  .payBtn:hover{
+    transform: translateY(-1px);
+    box-shadow: 0 18px 34px rgba(11,18,32,.18);
+  }
+  .payBtn:disabled{
+    opacity: .55;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .bankBox{
+    margin-top: 14px;
+    border: 1px solid rgba(11,18,32,.12);
+    background: rgba(11,18,32,.03);
+    padding: 14px;
+  }
+  
+  .bankRow{
+    display:grid;
+    grid-template-columns: 90px minmax(0,1fr) 92px;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(11,18,32,.10);
+  }
+  .bankRow:last-child{ border-bottom: 0; }
+  
+  .copyBtn{
+    height: 38px;
+    border: 1px solid rgba(11,18,32,.16);
+    background: #fff;
+    font-weight: 900;
+    cursor: pointer;
+    border-radius: 0;
+  }
+  
+  .miniNote{
+    margin-top: 12px;
+    font-size: 12px;
+    line-height: 1.6;
+    color: rgba(11,18,32,.62);
+    font-weight: 700;
+  }
+  
+  .alertBad{
+    border: 1px solid rgba(239,68,68,.30);
+    background: rgba(239,68,68,.06);
+    padding: 12px;
+    font-weight: 900;
+    color: #7a1111;
+    border-radius: 0;
+  }
+  
+  .actionsRow{
+    margin-top: 14px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  
+  .btnPrimary, .btnGhost{
+    height: 48px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    font-weight: 950;
+    border-radius: 0;
+  }
+  
+  .btnPrimary{
+    border: 1px solid #0b1220;
+    background:#0b1220;
+    color:#fff;
+  }
+  
+  .btnGhost{
+    border: 1px solid rgba(11,18,32,.16);
+    background:#fff;
+    color:#0b1220;
+  }
+  
+  .summaryLine{
+    display:flex;
+    justify-content: space-between;
+    gap: 12px;
+    color: rgba(11,18,32,.72);
+    font-weight: 750;
+  }
+  
+  .miniText{
+    font-size: 13px;
+    line-height: 1.6;
+    color: rgba(11,18,32,.70);
+    font-weight: 650;
+  }
+  
+  .secBox{
+    border: 1px solid rgba(11,18,32,.12);
+    background: rgba(11,18,32,.03);
+    padding: 12px;
+  }
+  .secTitle{
+    font-weight: 950;
+    margin-bottom: 8px;
+  }
+  .secList{
+    margin: 0;
+    padding-left: 18px;
+    display:grid;
+    gap: 6px;
+    color: rgba(11,18,32,.72);
+    font-weight: 650;
+  }
+  
+  /* responsive */
+  @media (max-width: 980px){
+    .grid{ grid-template-columns: 1fr; }
+    .sticky{ position: static; }
+    .methodGrid{ grid-template-columns: 1fr; }
+    .actionsRow{ grid-template-columns: 1fr; }
+    .bankRow{ grid-template-columns: 90px 1fr; }
+    .copyBtn{ grid-column: 1 / -1; }
+  }

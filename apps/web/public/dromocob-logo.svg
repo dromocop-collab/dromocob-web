@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 128" role="img" aria-labelledby="title">
+  <title id="title">Dromocob</title>
+  <rect width="128" height="128" rx="28" fill="#171713"/>
+  <path d="M34 28h29c23 0 37 13 37 36S86 100 63 100H34V28Zm19 17v38h9c12 0 19-7 19-19s-7-19-19-19h-9Z" fill="#d9ff43"/>
+  <text x="156" y="82" fill="#171713" font-family="Arial,Helvetica,sans-serif" font-size="62" font-weight="800" letter-spacing="-3">DROMOCOB</text>
+</svg>

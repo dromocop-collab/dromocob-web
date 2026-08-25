@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Dromocob</title>
+  <rect width="512" height="512" rx="112" fill="#171713"/>
+  <path d="M142 118h116c91 0 147 52 147 138S349 394 258 394H142V118Zm74 64v148h37c48 0 76-26 76-74s-28-74-76-74h-37Z" fill="#d9ff43"/>
+</svg>

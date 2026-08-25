@@ -1,0 +1,337 @@
+.wrap {
+  width: 100%;
+  padding-block: 24px;
+  background: transparent;
+}
+
+.inner {
+  width: 100%;
+  max-width: 1480px;
+  margin: 0 auto;
+  padding-inline: clamp(16px, 3vw, 36px);
+  box-sizing: border-box;
+}
+
+.shell {
+  width: 100%;
+}
+
+.stage {
+  position: relative;
+  min-height: clamp(340px, 36vw, 520px);
+  border-radius: 32px;
+  overflow: hidden;
+  background: #f6f1e8;
+  box-shadow: 0 18px 42px rgba(17, 28, 86, 0.08);
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background-image: var(--bg);
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.02);
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(10, 14, 30, 0.46) 0%, rgba(10, 14, 30, 0.14) 40%, rgba(10, 14, 30, 0.04) 100%);
+}
+
+.overlay {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: inherit;
+  padding: clamp(18px, 2.4vw, 34px);
+  pointer-events: none;
+}
+
+.overlay > * {
+  pointer-events: auto;
+}
+
+.topRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #fff;
+  backdrop-filter: blur(10px);
+}
+
+.badgeDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #d5b46a;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+}
+
+.navBtn {
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(17, 28, 86, 0.95);
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(17, 28, 86, 0.16);
+}
+
+.textBlock {
+  max-width: min(560px, 92%);
+}
+
+.h1 {
+  color: #fff;
+  font-size: clamp(30px, 4.4vw, 68px);
+  font-weight: 800;
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+  text-shadow: 0 16px 34px rgba(0, 0, 0, 0.22);
+}
+
+.sub {
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(14px, 1.2vw, 18px);
+  line-height: 1.6;
+}
+
+.priceRow {
+  margin-top: 18px;
+}
+
+.price {
+  color: #fff;
+  font-size: clamp(26px, 2.8vw, 46px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.cta,
+.ctaGhost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  margin-top: 18px;
+  padding: 0 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(10px);
+}
+
+.arr {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.bottomUi {
+  display: grid;
+  gap: 16px;
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.28);
+  cursor: pointer;
+}
+
+.dotActive {
+  width: 28px;
+  background: #ffffff;
+}
+
+.thumbs {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.thumbs::-webkit-scrollbar {
+  display: none;
+}
+
+.thumb {
+  position: relative;
+  flex: 0 0 88px;
+  width: 88px;
+  height: 88px;
+  border: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #e9e1d5;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12);
+}
+
+.thumbOn {
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,0.9),
+    0 10px 20px rgba(17, 28, 86, 0.18);
+}
+
+.thumbBg {
+  position: absolute;
+  inset: 0;
+  background-image: var(--tbg);
+  background-size: cover;
+  background-position: center;
+}
+
+.thumbShade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,14,30,.28), rgba(10,14,30,.02));
+}
+
+.thumbProg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  transform-origin: left center;
+  background: #fff;
+  animation: promoThumbProg var(--dur) linear forwards;
+}
+
+.hit {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+@keyframes promoThumbProg {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@media (max-width: 980px) {
+  .wrap {
+    padding-block: 18px;
+  }
+
+  .inner {
+    padding-inline: 16px;
+  }
+
+  .stage {
+    min-height: 400px;
+    border-radius: 24px;
+  }
+
+  .overlay {
+    padding: 18px;
+  }
+
+  .topRow {
+    align-items: flex-start;
+  }
+
+  .textBlock {
+    max-width: 100%;
+  }
+
+  .h1 {
+    font-size: clamp(26px, 7vw, 42px);
+  }
+
+  .sub {
+    font-size: 14px;
+  }
+
+  .price {
+    font-size: clamp(24px, 5vw, 34px);
+  }
+
+  .thumb {
+    flex: 0 0 74px;
+    width: 74px;
+    height: 74px;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .inner {
+    padding-inline: 12px;
+  }
+
+  .stage {
+    min-height: 360px;
+    border-radius: 20px;
+  }
+
+  .overlay {
+    padding: 16px;
+  }
+
+  .controls {
+    gap: 8px;
+  }
+
+  .navBtn {
+    width: 42px;
+    height: 42px;
+    font-size: 22px;
+  }
+
+  .badge {
+    min-height: 36px;
+    padding: 0 12px;
+    font-size: 12px;
+  }
+
+  .thumbs {
+    gap: 10px;
+  }
+
+  .thumb {
+    flex: 0 0 66px;
+    width: 66px;
+    height: 66px;
+    border-radius: 14px;
+  }
+}

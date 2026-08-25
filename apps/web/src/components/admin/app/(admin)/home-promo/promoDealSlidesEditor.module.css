@@ -1,0 +1,457 @@
+/* =========================
+   PromoDealSlidesEditor.module.css
+   TSX class isimlerine %100 uyumlu FINAL
+   ========================= */
+
+   .wrap{
+    display:grid;
+    gap:14px;
+  }
+  
+  .toolbar{
+    display:flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  
+  .hint{
+    opacity:.7;
+    font-size:13px;
+    font-weight:650;
+  }
+  
+  /* ---------- Buttons ---------- */
+  .primary,
+  .ghost,
+  .danger{
+    border:1px solid rgba(0,0,0,.10);
+    background:#fff;
+    border-radius:14px;
+    padding:10px 12px;
+    font-weight:900;
+    cursor:pointer;
+    transition:transform 160ms ease, background 160ms ease, border-color 160ms ease, filter 160ms ease;
+    user-select:none;
+  }
+  
+  .primary{
+    background:#111;
+    color:#fff;
+    border-color:rgba(0,0,0,.25);
+  }
+  .primary:hover{ filter:brightness(1.06); transform:translateY(-1px); }
+  
+  .ghost:hover{ background:rgba(0,0,0,.03); transform:translateY(-1px); }
+  
+  .danger{
+    color:#b00020;
+    border-color:rgba(176,0,32,.25);
+  }
+  .danger:hover{ background:rgba(176,0,32,.06); transform:translateY(-1px); }
+  
+  .primary:disabled,
+  .ghost:disabled,
+  .danger:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+    transform:none;
+  }
+  
+  /* ---------- Error ---------- */
+  .err{
+    background:rgba(176,0,32,.08);
+    border:1px solid rgba(176,0,32,.18);
+    color:#5a0011;
+    padding:10px 12px;
+    border-radius:14px;
+    font-weight:800;
+  }
+  
+  /* ---------- Grid / Cards ---------- */
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:14px;
+  }
+  
+  @media (max-width:1100px){
+    .grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width:720px){
+    .grid{ grid-template-columns:1fr; }
+  }
+  
+  .empty{
+    border:1px dashed rgba(0,0,0,.14);
+    border-radius:18px;
+    padding:18px;
+    opacity:.75;
+    background:rgba(255,255,255,.7);
+  }
+  
+  /* card */
+  .card{
+    border-radius:18px;
+    overflow:hidden;
+    border:1px solid rgba(0,0,0,.08);
+    background:linear-gradient(180deg, rgba(255,255,255,.98), rgba(255,255,255,.86));
+    box-shadow:0 18px 55px rgba(0,0,0,.06);
+    transition:transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  }
+  
+  .card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 28px 85px rgba(0,0,0,.10);
+    border-color:rgba(0,0,0,.10);
+  }
+  
+  /* preview */
+  .preview{
+    position:relative;
+    aspect-ratio:16/9;
+    background:rgba(0,0,0,.06);
+  }
+  
+  .preview img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transform:scale(1.02);
+  }
+  
+  /* overlay (TSX: className={s.overlay}) */
+  .overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:12px;
+    pointer-events:none;
+  
+    background:
+      radial-gradient(70% 110% at 12% 55%, rgba(0,0,0,.74) 0%, rgba(0,0,0,.28) 45%, rgba(0,0,0,0) 70%),
+      linear-gradient(to top, rgba(0,0,0,.52), rgba(0,0,0,0) 55%);
+  }
+  
+  .badge{
+    width:fit-content;
+    padding:7px 11px;
+    border-radius:999px;
+    font-weight:950;
+    font-size:12px;
+    color:#fff;
+    background:rgba(0,0,0,.38);
+    border:1px solid rgba(255,255,255,.18);
+    backdrop-filter:blur(10px);
+  }
+  
+  .price{
+    align-self:flex-start; /* solda dursun (hero gibi) */
+    color:#fff;
+    font-weight:1000;
+    letter-spacing:-0.03em;
+    font-size:clamp(26px, 3.4vw, 44px);
+    text-shadow:0 14px 40px rgba(0,0,0,.55);
+  }
+  
+  /* meta */
+  .meta{
+    padding:12px 12px 14px;
+    display:grid;
+    gap:10px;
+  }
+  
+  .row{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:10px;
+  }
+  
+  .title{
+    font-weight:1000;
+    font-size:16px;
+    letter-spacing:-0.01em;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+  }
+  
+  .order{
+    font-weight:900;
+    opacity:.7;
+    font-size:13px;
+  }
+  
+  .sub{
+    opacity:.75;
+    font-size:13px;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+  }
+  
+  .actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  
+  /* ---------- Modal (scroll fix) ---------- */
+  /* Backdrop kayar, modal içerik kendi içinde kayar */
+  .modalBackdrop{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+  
+    background:rgba(0,0,0,.45);
+    backdrop-filter:blur(6px);
+  
+    overflow-y:auto;
+    padding:24px;
+  
+    display:flex;
+    align-items:flex-start; /* center değil -> uzun modal sorun çıkarmaz */
+    justify-content:center;
+  
+    -webkit-overflow-scrolling:touch;
+  }
+  
+  @media (max-width:520px){
+    .modalBackdrop{ padding:14px; }
+  }
+  
+  .modal{
+    width:min(980px, 100%);
+    border-radius:22px;
+    background:#fff;
+  
+    box-shadow:0 30px 120px rgba(0,0,0,.25);
+    border:1px solid rgba(0,0,0,.08);
+  
+    /* kritik */
+    max-height:calc(100dvh - 48px);
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+  
+    margin-top:24px;
+  }
+  
+  @media (max-width:520px){
+    .modal{ margin-top:10px; max-height:calc(100dvh - 28px); border-radius:18px; }
+  }
+  
+  .modalHead{
+    padding:16px 18px;
+    border-bottom:1px solid rgba(0,0,0,.08);
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(10px);
+  
+    position:sticky;
+    top:0;
+    z-index:2;
+  
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:12px;
+  }
+  
+  .modalTitle{
+    font-size:18px;
+    font-weight:1000;
+    letter-spacing:-0.01em;
+  }
+  
+  .modalDesc{
+    font-size:13px;
+    opacity:.7;
+    margin-top:2px;
+  }
+  
+  /* TSX: className={s.close} */
+  .close{
+    border:1px solid rgba(0,0,0,.10);
+    background:rgba(0,0,0,.02);
+    border-radius:12px;
+    padding:8px 10px;
+    cursor:pointer;
+    font-weight:1000;
+    transition:background 160ms ease, transform 160ms ease;
+    line-height:1;
+  }
+  .close:hover{ background:rgba(0,0,0,.05); transform:translateY(-1px); }
+  
+  /* TSX: className={s.formGrid} */
+  .formGrid{
+    padding:18px;
+    overflow:auto; /* 🔥 içerik kayar */
+    -webkit-overflow-scrolling:touch;
+  
+    display:grid;
+    gap:12px;
+  }
+  
+  /* Inputs */
+  .label{
+    display:grid;
+    gap:6px;
+    font-size:13px;
+    font-weight:900;
+  }
+  
+  .input,
+  .textarea{
+    border:1px solid rgba(0,0,0,.12);
+    border-radius:12px;
+    padding:10px 12px;
+    outline:none;
+    font-weight:700;
+    background:#fff;
+    transition:border-color 160ms ease, box-shadow 160ms ease;
+  }
+  
+  .textarea{
+    min-height:86px;
+    resize:vertical;
+  }
+  
+  .input:focus,
+  .textarea:focus{
+    border-color:rgba(0,0,0,.22);
+    box-shadow:0 0 0 4px rgba(0,0,0,.06);
+  }
+  
+  /* TR/EN columns */
+  .langCols{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+  }
+  
+  @media (max-width:820px){
+    .langCols{ grid-template-columns:1fr; }
+  }
+  
+  .langCol{
+    border:1px solid rgba(0,0,0,.08);
+    border-radius:16px;
+    padding:12px;
+    background:rgba(0,0,0,.02);
+    display:grid;
+    gap:10px;
+  }
+  
+  .langHead{
+    font-weight:1000;
+    opacity:.75;
+  }
+  
+  /* checkbox row */
+  .check{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    font-weight:950;
+  }
+  
+  /* footer actions fixed */
+  .modalActions{
+    padding:14px 16px;
+    border-top:1px solid rgba(0,0,0,.08);
+    display:flex;
+    justify-content:flex-end;
+    gap:10px;
+  
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(10px);
+  
+    position:sticky;
+    bottom:0;
+    z-index:2;
+  }
+  
+  /* =========================
+     Frontend Slider Styles
+     (Senin slider componentinde kullanacağın sınıflar)
+     ========================= */
+  
+  .promo{
+    width:100%;
+    margin:0 auto;
+    border-radius:26px;
+    overflow:hidden;
+    position:relative;
+  }
+  
+  /* Slide boyutu: boşluk/ölçü sorunu için daha dengeli */
+  .slide{
+    position:relative;
+    width:100%;
+    height:clamp(320px, 34vw, 520px);
+    border-radius:26px;
+    overflow:hidden;
+    background:#0b0b0b;
+  }
+  
+  @media (max-width:768px){
+    .slide{
+      height:clamp(260px, 64vw, 420px);
+      border-radius:20px;
+    }
+  }
+  
+  /* full image layer */
+  .media{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+  }
+  
+  .media img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    display:block;
+    transform:scale(1.01);
+  }
+  
+  /* ok / nav pill'ler (opsiyonel) */
+  .promoNav{
+    position:absolute;
+    top:14px;
+    right:14px;
+    z-index:5;
+    display:flex;
+    gap:10px;
+  }
+  
+  .promoNavBtn{
+    width:44px;
+    height:44px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.18);
+    background:rgba(0,0,0,.35);
+    backdrop-filter:blur(10px);
+    color:#fff;
+    cursor:pointer;
+    font-weight:1000;
+    transition:transform 160ms ease, background 160ms ease;
+  }
+  
+  .promoNavBtn:hover{
+    transform:translateY(-1px);
+    background:rgba(0,0,0,.48);
+  }
+  
+  @media (max-width:520px){
+    .promoNav{ top:10px; right:10px; }
+    .promoNavBtn{ width:40px; height:40px; }
+  }

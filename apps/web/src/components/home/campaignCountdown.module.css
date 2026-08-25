@@ -1,0 +1,190 @@
+/* ═══════════════════════════════════════════
+   CampaignCountdown – Premium Sayaç
+   ═══════════════════════════════════════════ */
+
+.section {
+  width: 100%;
+  padding: 0 18px 56px;
+}
+
+.inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.card {
+  position: relative;
+  padding: 36px 32px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0b1430 0%, #132453 50%, #1e3a5f 100%);
+  box-shadow:
+    0 8px 32px rgba(11, 20, 48, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+  text-align: center;
+}
+
+/* Animated gradient glow */
+.bgGlow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(185, 151, 69, 0.15), transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(100, 149, 237, 0.1), transparent 50%);
+  animation: glowMove 6s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes glowMove {
+  0% { opacity: 0.6; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.15); }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 0 10px;
+  border: 1px solid rgba(185, 151, 69, 0.4);
+  background: rgba(185, 151, 69, 0.12);
+  color: #f5d67b;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  margin-bottom: 14px;
+}
+
+.h2 {
+  margin: 0 0 6px;
+  font-size: clamp(24px, 4vw, 38px);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  font-weight: 950;
+  color: #fff;
+}
+
+.sub {
+  margin: 0 0 20px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 600;
+}
+
+/* ── Timer ── */
+.timer {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.digit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.digitValue {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 28px;
+  font-weight: 950;
+  color: #fff;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.digitLabel {
+  font-size: 10px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.sep {
+  font-size: 24px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.3);
+  margin-bottom: 18px;
+}
+
+/* ── CTA Button ── */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 28px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #f5d67b, #c9a94e);
+  color: #0b1430;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 16px rgba(185, 151, 69, 0.25);
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(185, 151, 69, 0.35);
+}
+
+/* ── Mobile ── */
+@media (max-width: 640px) {
+  .section {
+    padding: 0 14px 40px;
+  }
+
+  .card {
+    padding: 24px 18px;
+  }
+
+  .timer {
+    gap: 4px;
+  }
+
+  .digitValue {
+    width: 52px;
+    height: 52px;
+    font-size: 22px;
+    border-radius: 10px;
+  }
+
+  .sep {
+    font-size: 18px;
+    margin-bottom: 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .digitValue {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+  }
+
+  .timer {
+    gap: 3px;
+  }
+}

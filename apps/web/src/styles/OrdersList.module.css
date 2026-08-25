@@ -1,0 +1,248 @@
+.wrap {
+  display: grid;
+  gap: 14px;
+}
+
+.head {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.title {
+  margin: 0;
+  font-weight: 950;
+  font-size: 28px;
+  letter-spacing: -0.04em;
+  color: #0f172a;
+  line-height: 1;
+}
+
+.desc {
+  margin: 0;
+  color: #6b7280;
+  font-weight: 700;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.stateCard,
+.emptyCard {
+  padding: 18px;
+  border-radius: 20px;
+  border: 1px solid rgba(15,23,42,.08);
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(15,23,42,.04);
+}
+
+.stateCard {
+  font-weight: 800;
+  color: #111827;
+}
+
+.stateError {
+  border-color: rgba(239,68,68,.18);
+  background: rgba(239,68,68,.06);
+  color: #991b1b;
+}
+
+.emptyCard {
+  display: grid;
+  gap: 10px;
+}
+
+.emptyTitle {
+  font-size: 20px;
+  color: #111827;
+  line-height: 1.1;
+}
+
+.emptyText {
+  color: #6b7280;
+  font-weight: 700;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  display: inline-flex;
+  min-height: 44px;
+  padding: 0 16px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 14px;
+  transition: transform .16s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.primaryBtn {
+  background: linear-gradient(135deg,#0f172a,#111827);
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(15,23,42,.12);
+}
+
+.primaryBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 30px rgba(15,23,42,.16);
+}
+
+.secondaryBtn {
+  border: 1px solid rgba(15,23,42,.10);
+  background: #fff;
+  color: #111827;
+}
+
+.secondaryBtn:hover {
+  transform: translateY(-1px);
+  background: #f8fafc;
+}
+
+.list {
+  display: grid;
+  gap: 12px;
+}
+
+.orderCard {
+  text-decoration: none;
+  color: inherit;
+  background: rgba(255,255,255,.98);
+  border: 1px solid rgba(15,23,42,.08);
+  border-radius: 22px;
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+  box-shadow: 0 14px 34px rgba(15,23,42,.04);
+  transition: transform .16s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.orderCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px rgba(15,23,42,.08);
+  border-color: rgba(79,70,229,.18);
+}
+
+.orderTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.orderHeadBlock {
+  display: grid;
+  gap: 8px;
+}
+
+.orderId {
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #0f172a;
+}
+
+.orderDate {
+  color: #6b7280;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.orderDate b {
+  color: #111827;
+}
+
+.orderBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.orderMeta {
+  color: #6b7280;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.orderTotal {
+  font-weight: 950;
+  font-size: 20px;
+  letter-spacing: -0.03em;
+  color: #0f172a;
+}
+
+.orderLink {
+  color: #4f46e5;
+  font-weight: 900;
+  font-size: 13px;
+}
+
+.orderStatus {
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.tone_ok {
+  color: #047857;
+  background: rgba(16,185,129,.12);
+  border: 1px solid rgba(16,185,129,.18);
+}
+
+.tone_bad {
+  color: #b91c1c;
+  background: rgba(239,68,68,.10);
+  border: 1px solid rgba(239,68,68,.16);
+}
+
+.tone_info {
+  color: #1d4ed8;
+  background: rgba(59,130,246,.10);
+  border: 1px solid rgba(59,130,246,.16);
+}
+
+.tone_warn {
+  color: #92400e;
+  background: rgba(245,158,11,.14);
+  border: 1px solid rgba(245,158,11,.18);
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .orderCard {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .orderId {
+    font-size: 18px;
+  }
+
+  .orderTotal {
+    font-size: 18px;
+  }
+
+  .orderTop,
+  .orderBottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+  }
+}

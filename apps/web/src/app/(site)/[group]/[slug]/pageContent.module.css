@@ -1,0 +1,26 @@
+.page{
+    padding: 22px 18px 56px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .card{
+    background:#fff;
+    border:1px solid rgba(0,0,0,.10);
+    border-radius: 18px;
+    padding: 18px;
+  }
+  .h1{
+    margin: 0 0 10px;
+    font-size: clamp(26px, 3.2vw, 40px);
+    letter-spacing: -0.02em;
+  }
+  .p{ opacity:.75; margin:0; }
+  .html{
+    margin-top: 12px;
+    line-height: 1.7;
+    font-size: 16px;
+  }
+  .html p{ margin: 10px 0; }
+  .html h2{ margin: 22px 0 8px; font-size: 22px; }
+  .html ul{ padding-left: 20px; }
+  .html a{ text-decoration: underline; }

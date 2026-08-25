@@ -1,0 +1,309 @@
+.root{
+    /* pointer glow follow */
+    --mx: 50%;
+    --my: 40%;
+  }
+  
+  /* premium noise */
+  .noise{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    opacity:.10;
+    background-image: radial-gradient(rgba(0,0,0,.12) 1px, transparent 1px);
+    background-size: 7px 7px;
+    mix-blend-mode: soft-light;
+  }
+  
+  /* dynamic glow that follows cursor */
+  .glow{
+    position:absolute;
+    inset:-80px;
+    pointer-events:none;
+    opacity:.85;
+    background:
+      radial-gradient(500px 320px at var(--mx) var(--my), rgba(255,255,255,.70), transparent 60%),
+      radial-gradient(420px 300px at 20% 20%, rgba(0,0,0,.10), transparent 60%),
+      radial-gradient(520px 360px at 80% 80%, rgba(0,0,0,.12), transparent 65%);
+    filter: blur(0px);
+  }
+  
+  /* subtle sheen sweep */
+  .sheen{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    opacity:.0;
+    transform: translateX(-35%);
+    background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.35) 45%, transparent 60%);
+    transition: opacity 220ms ease, transform 620ms ease;
+  }
+  .root:hover .sheen{
+    opacity:.55;
+    transform: translateX(35%);
+  }
+  
+  /* CTA micro shine */
+  .cta{
+    position:relative;
+    overflow:hidden;
+  }
+  .cta::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    opacity:.0;
+    transform: translateX(-40%);
+    background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,.25) 45%, transparent 60%);
+    transition: opacity 200ms ease, transform 600ms ease;
+  }
+  .cta:hover::after{
+    opacity:.75;
+    transform: translateX(40%);
+  }
+  
+  /* pulsing dot */
+  .pulseDot{
+    width:8px;
+    height:8px;
+    border-radius:999px;
+    background: rgba(0,0,0,.55);
+    box-shadow: 0 0 0 0 rgba(0,0,0,.20);
+    animation: pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%{ box-shadow: 0 0 0 0 rgba(0,0,0,.18); opacity:.8;}
+    70%{ box-shadow: 0 0 0 10px rgba(0,0,0,0); opacity:1;}
+    100%{ box-shadow: 0 0 0 0 rgba(0,0,0,0); opacity:.8;}
+  }
+  
+  /* card icon wrap */
+  .iconWrap{
+    width:42px;
+    height:42px;
+    border-radius:16px;
+    display:grid;
+    place-items:center;
+    background: rgba(0,0,0,.04);
+    border: 1px solid rgba(0,0,0,.06);
+    color: rgba(0,0,0,.75);
+  }
+  
+  /* card micro sheen */
+  .card{
+    position:relative;
+  }
+  .cardSheen{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    opacity:0;
+    transform: translateX(-30%);
+    background: linear-gradient(110deg, transparent 35%, rgba(255,255,255,.35) 50%, transparent 65%);
+    transition: opacity 200ms ease, transform 600ms ease;
+  }
+  .card:hover .cardSheen{
+    opacity:.75;
+    transform: translateX(35%);
+  }
+  
+  /* stat subtle shimmer */
+  .stat{
+    position:relative;
+    overflow:hidden;
+  }
+  .stat::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    opacity:.0;
+    transform: translateX(-35%);
+    background: linear-gradient(110deg, transparent 35%, rgba(255,255,255,.35) 50%, transparent 65%);
+    transition: opacity 200ms ease, transform 600ms ease;
+  }
+  .stat:hover::after{
+    opacity:.55;
+    transform: translateX(35%);
+  }
+  
+  /* mobile spacing tiny tune */
+  @media (max-width: 640px){
+    .glow{ inset:-110px; opacity:.8; }
+  }
+  /* =========================
+   MOBILE FIX PATCH
+   ========================= */
+
+@media (max-width: 900px) {
+  /* dış ana kapsayıcı */
+  .section,
+  .wrap,
+  .container,
+  .productsSection,
+  .popularProducts,
+  .shopSection {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  /* filtre / tab butonları */
+  .tabs,
+  .chips,
+  .filterTabs,
+  .categoryTabs {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    padding-bottom: 6px;
+    scrollbar-width: thin;
+  }
+
+  .tabs > *,
+  .chips > *,
+  .filterTabs > *,
+  .categoryTabs > * {
+    flex: 0 0 auto;
+    white-space: nowrap;
+  }
+
+  /* ürün grid */
+  .grid,
+  .productGrid,
+  .productsGrid,
+  .list,
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 14px;
+    min-width: 0;
+  }
+
+  /* kart */
+  .card,
+  .productCard,
+  .productItem {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  /* görsel alanı */
+  .cardImage,
+  .productImage,
+  .media,
+  .thumb {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+    min-width: 0;
+  }
+
+  .cardImage img,
+  .productImage img,
+  .media img,
+  .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* içerik taşmasın */
+  .cardBody,
+  .productBody,
+  .content {
+    min-width: 0;
+  }
+
+  .title,
+  .productTitle,
+  .name {
+    font-size: 15px;
+    line-height: 1.25;
+    word-break: break-word;
+  }
+
+  .price,
+  .productPrice {
+    font-size: 18px;
+    line-height: 1.1;
+  }
+
+  /* butonlar */
+  .actions,
+  .cardActions,
+  .productActions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .actions button,
+  .actions a,
+  .cardActions button,
+  .cardActions a,
+  .productActions button,
+  .productActions a {
+    width: 100%;
+  }
+
+  /* badge / sku / stok alanı */
+  .topRow,
+  .cardTop,
+  .metaRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid,
+  .productGrid,
+  .productsGrid,
+  .list,
+  .cards {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 12px;
+  }
+
+  .title,
+  .productTitle,
+  .name {
+    font-size: 14px;
+  }
+
+  .price,
+  .productPrice {
+    font-size: 16px;
+  }
+
+  .tabs,
+  .chips,
+  .filterTabs,
+  .categoryTabs {
+    gap: 8px;
+  }
+
+  .tabs > *,
+  .chips > *,
+  .filterTabs > *,
+  .categoryTabs > * {
+    padding-inline: 14px;
+    min-height: 42px;
+  }
+}
+
+@media (max-width: 420px) {
+  .grid,
+  .productGrid,
+  .productsGrid,
+  .list,
+  .cards {
+    grid-template-columns: 1fr !important;
+  }
+}

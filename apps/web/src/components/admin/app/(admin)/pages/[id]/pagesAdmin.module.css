@@ -1,0 +1,306 @@
+/* =========================
+   BUILDER ULTRA OVERRIDE
+   (add this to the END)
+========================= */
+
+.page{
+  padding: 22px 22px 54px;
+  background: #f6f7fb;
+}
+
+/* Toast daha premium */
+.toast{
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 9999;
+  background: rgba(17,17,17,.96);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 14px;
+  box-shadow: 0 18px 50px rgba(0,0,0,.28);
+  border: 1px solid rgba(255,255,255,.10);
+  backdrop-filter: blur(8px);
+}
+
+/* ---------- TOP BAR ---------- */
+.top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+  padding: 18px 18px;
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(255,255,255,.95), rgba(255,255,255,.85));
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 16px 40px rgba(0,0,0,.06);
+}
+
+.kicker{
+  opacity:.75;
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+
+.title{
+  font-size: 38px;
+  line-height: 1.06;
+  margin: 6px 0 6px;
+  letter-spacing: -0.03em;
+}
+
+.sub{
+  opacity: .75;
+  font-weight: 650;
+}
+
+.right{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+/* Buttons daha tutarlı */
+.softBtn{
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 14px;
+  cursor:pointer;
+  border: 1px solid rgba(0,0,0,.12);
+  background: rgba(255,255,255,.85);
+  font-weight: 900;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.softBtn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(0,0,0,.10);
+  background: #fff;
+}
+
+.primaryBtn{
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 14px;
+  border: 0;
+  cursor: pointer;
+  background: #111;
+  color: #fff;
+  font-weight: 950;
+  transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+}
+.primaryBtn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 16px 40px rgba(0,0,0,.18);
+}
+.primaryBtn:disabled{
+  opacity: .55;
+  cursor:not-allowed;
+}
+
+/* ---------- CARDS ---------- */
+.card{
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 18px;
+  padding: 14px;
+  box-shadow: 0 16px 40px rgba(0,0,0,.06);
+  backdrop-filter: blur(8px);
+}
+
+/* mini title hiyerarşi */
+.miniTitle{
+  font-weight: 950;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.hint{
+  opacity: .72;
+  font-size: 13px;
+  font-weight: 650;
+  margin-top: 6px;
+}
+
+.pill{
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 900;
+  background: rgba(15,23,42,.06);
+  border: 1px solid rgba(15,23,42,.10);
+}
+
+/* ---------- BUILDER GRID ---------- */
+.builderGrid{
+  display: grid;
+  grid-template-columns: 320px 1fr 380px;
+  gap: 14px;
+  align-items: start;
+}
+
+/* Sticky daha stabil: top bar yüksekliğiyle uyumlu */
+.builderSide{
+  position: sticky;
+  top: 110px;
+}
+
+.builderMid{
+  min-width: 0;
+}
+
+/* ---------- LIBRARY ---------- */
+.blockLib{
+  display:grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.libBtn{
+  height: 44px;
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,.10);
+  background: #fff;
+  font-weight: 950;
+  cursor:pointer;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.libBtn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 14px 34px rgba(0,0,0,.10);
+  background: rgba(0,0,0,.02);
+}
+
+/* ---------- BLOCK LIST ---------- */
+.blockList{
+  display:grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.blockRow{
+  width:100%;
+  text-align:left;
+  border: 1px solid rgba(0,0,0,.10);
+  border-radius: 16px;
+  padding: 12px;
+  background:#fff;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 12px;
+  transition: box-shadow .15s ease, transform .15s ease, border-color .15s ease;
+}
+.blockRow:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 14px 34px rgba(0,0,0,.10);
+  border-color: rgba(0,0,0,.14);
+}
+.blockRowOn{
+  border-color: rgba(17,17,17,.35);
+  box-shadow: 0 18px 44px rgba(0,0,0,.12);
+  outline: none;
+}
+
+.blockRowLeft{
+  display:grid;
+  gap: 4px;
+  min-width:0;
+}
+.blockType{
+  font-weight: 950;
+  letter-spacing: -0.2px;
+}
+.blockId{
+  font-size: 12px;
+  opacity: .65;
+  font-weight: 800;
+}
+
+/* mini actions daha “compact” */
+.blockRowRight{
+  display:flex;
+  gap: 6px;
+  align-items:center;
+}
+
+.miniBtn{
+  height: 34px;
+  min-width: 34px;
+  padding: 0 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,.12);
+  background: rgba(0,0,0,.02);
+  font-weight: 950;
+  cursor:pointer;
+  transition: transform .12s ease, background .12s ease;
+}
+.miniBtn:hover{ transform: translateY(-1px); }
+
+.okMini{ background: rgba(16,185,129,0.12); border-color: rgba(16,185,129,0.28); }
+.warnMini{ background: rgba(245,158,11,0.14); border-color: rgba(245,158,11,0.28); }
+.dangerMini{ background: rgba(239,68,68,0.12); border-color: rgba(239,68,68,0.28); }
+
+/* ---------- INPUTS ---------- */
+.input{
+  height: 42px;
+  padding: 0 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,.12);
+  background: #fff;
+  font-weight: 750;
+  transition: box-shadow .15s ease, border-color .15s ease;
+}
+.input:focus{
+  outline: none;
+  border-color: rgba(17,17,17,.35);
+  box-shadow: 0 0 0 4px rgba(17,17,17,.08);
+}
+
+.textarea{
+  min-height: 220px;
+  padding: 12px;
+  border-radius: 14px;
+  resize: vertical;
+  border: 1px solid rgba(0,0,0,.12);
+  background: #fff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+.textarea:focus{
+  outline: none;
+  border-color: rgba(17,17,17,.35);
+  box-shadow: 0 0 0 4px rgba(17,17,17,.08);
+}
+
+/* Inspector daha okunaklı */
+.inspector{
+  display:grid;
+  gap: 10px;
+}
+.label{
+  font-weight: 900;
+  opacity: .78;
+}
+
+/* Note box */
+.noteBox{
+  border: 1px solid rgba(0,0,0,0.10);
+  background: rgba(0,0,0,0.03);
+  border-radius: 16px;
+  padding: 12px;
+  display: grid;
+  gap: 8px;
+}
+
+/* Responsive */
+@media (max-width: 1200px){
+  .builderGrid{ grid-template-columns: 1fr; }
+  .builderSide{ position: static; top:auto; }
+  .top{ flex-direction:column; align-items:flex-start; }
+  .right{ justify-content:flex-start; }
+}

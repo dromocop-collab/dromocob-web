@@ -1,0 +1,166 @@
+.page{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at top left,rgba(199,168,97,.10) 0%,rgba(199,168,97,0) 24%),
+    linear-gradient(180deg,#fffdf9 0%,#fff8ef 42%,#fff 100%);
+  color:#0f172a;
+}
+
+/* ─── Hero ─── */
+.heroSection{padding:34px 18px 16px}
+.heroShell{max-width:1380px;margin:0 auto}
+.heroGrid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);gap:22px;align-items:stretch}
+
+.heroLeft{
+  position:relative;
+  padding:34px 32px;
+  border:1px solid rgba(15,23,42,.08);
+  background:linear-gradient(135deg,rgba(255,255,255,.92) 0%,rgba(255,248,237,.96) 100%);
+  box-shadow:0 20px 60px rgba(15,23,42,.08);
+  overflow:hidden;
+}
+.heroLeft::before{
+  content:"";position:absolute;inset:auto -60px -60px auto;
+  width:220px;height:220px;
+  background:radial-gradient(circle,rgba(201,165,87,.16) 0%,rgba(201,165,87,0) 72%);
+  pointer-events:none;
+}
+
+.heroRight{min-width:0}
+.heroPanel{
+  height:100%;display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:24px;
+  border:1px solid rgba(15,23,42,.08);
+  background:linear-gradient(180deg,rgba(255,255,255,.92) 0%,rgba(248,250,252,.94) 100%);
+  box-shadow:0 18px 50px rgba(15,23,42,.07);
+}
+
+.badge{
+  display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0 14px;
+  background:rgba(180,131,28,.10);color:#a16207;
+  border:1px solid rgba(180,131,28,.14);
+  font-size:12px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;
+}
+
+.heroTitle{
+  margin:18px 0 0;font-size:clamp(38px,6.6vw,76px);line-height:.95;
+  letter-spacing:-.06em;font-weight:950;color:#0f172a;
+}
+
+.heroText{
+  margin:18px 0 0;max-width:760px;font-size:18px;line-height:1.8;
+  color:#475569;font-weight:500;
+}
+
+.quickStat{padding:18px;border:1px solid rgba(15,23,42,.06);background:rgba(255,255,255,.76)}
+.quickStatTitle{font-size:12px;font-weight:900;letter-spacing:.10em;text-transform:uppercase;color:#64748b;margin-bottom:8px}
+.quickStatText{font-size:18px;line-height:1.35;font-weight:850;color:#0f172a;word-break:break-word}
+
+/* ─── Content ─── */
+.contentSection{padding:8px 18px 82px}
+.contentShell{max-width:1380px;margin:0 auto}
+
+.searchBox{
+  margin-bottom:28px;display:flex;gap:14px;
+}
+.searchInput{
+  flex:1;min-height:52px;padding:0 20px;
+  border:1px solid rgba(15,23,42,.12);background:#fff;
+  font-size:16px;font-weight:600;color:#0f172a;
+  transition:border-color .18s ease,box-shadow .18s ease;
+}
+.searchInput::placeholder{color:#94a3b8;font-weight:600}
+.searchInput:focus{outline:none;border-color:rgba(180,131,28,.36);box-shadow:0 8px 24px rgba(15,23,42,.06)}
+
+.categoryTabs{
+  display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px;
+}
+.categoryTab{
+  min-height:42px;padding:0 18px;border:1px solid rgba(15,23,42,.10);
+  background:#fff;color:#475569;font-size:13px;font-weight:800;
+  cursor:pointer;transition:all .18s ease;
+}
+.categoryTab:hover{border-color:rgba(180,131,28,.26);color:#0f172a}
+.categoryTabActive{
+  background:#0f172a;color:#fff;border-color:#0f172a;
+}
+
+/* ─── Accordion ─── */
+.faqSection{margin-bottom:36px}
+.faqSectionTitle{
+  margin:0 0 16px;font-size:22px;font-weight:950;letter-spacing:-.04em;color:#111827;
+  display:flex;align-items:center;gap:12px;
+}
+.faqSectionIcon{font-size:20px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:rgba(180,131,28,.10);border:1px solid rgba(180,131,28,.14)}
+
+.faqItem{
+  border:1px solid rgba(15,23,42,.08);margin-bottom:10px;
+  background:linear-gradient(180deg,rgba(255,255,255,.90) 0%,rgba(250,250,252,.92) 100%);
+  box-shadow:0 8px 24px rgba(15,23,42,.04);
+  transition:box-shadow .18s ease,border-color .18s ease;
+}
+.faqItem:hover{border-color:rgba(180,131,28,.18);box-shadow:0 12px 30px rgba(15,23,42,.07)}
+
+.faqQuestion{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 22px;cursor:pointer;gap:16px;
+  font-size:16px;font-weight:800;color:#111827;line-height:1.4;
+  transition:color .18s ease;width:100%;background:transparent;border:0;text-align:left;
+}
+.faqQuestion:hover{color:#7c5a17}
+
+.faqChevron{
+  font-size:18px;color:#94a3b8;transition:transform .24s ease,color .18s ease;flex-shrink:0;
+}
+.faqChevronOpen{transform:rotate(180deg);color:#7c5a17}
+
+.faqAnswer{
+  padding:0 22px 20px;font-size:15px;line-height:1.8;color:#475569;font-weight:600;
+  animation:fadeIn .2s ease;
+}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+
+.noResults{
+  padding:40px 20px;text-align:center;
+  font-size:16px;color:#94a3b8;font-weight:700;
+}
+
+/* ─── CTA ─── */
+.ctaSection{
+  margin-top:48px;padding:36px 32px;
+  border:1px solid rgba(15,23,42,.08);
+  background:linear-gradient(135deg,rgba(255,255,255,.92) 0%,rgba(255,248,237,.96) 100%);
+  box-shadow:0 20px 60px rgba(15,23,42,.06);text-align:center;
+}
+.ctaTitle{margin:0 0 12px;font-size:26px;font-weight:950;letter-spacing:-.04em;color:#111827}
+.ctaText{margin:0 0 22px;font-size:15px;color:#64748b;font-weight:600;line-height:1.7}
+.ctaActions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.btn{
+  min-height:50px;padding:0 18px;display:inline-flex;align-items:center;justify-content:center;
+  text-decoration:none;font-weight:850;font-size:14px;
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease,color .18s ease;
+}
+.btn:hover{transform:translateY(-2px)}
+.btnPrimary{background:#0f172a;color:#fff;box-shadow:0 14px 30px rgba(15,23,42,.16)}
+.btnPrimary:hover{background:#111c33}
+.btnSecondary{background:#fff;color:#0f172a;border:1px solid rgba(15,23,42,.12)}
+.btnSecondary:hover{border-color:rgba(180,131,28,.36);box-shadow:0 12px 24px rgba(15,23,42,.06)}
+
+/* ─── Responsive ─── */
+@media(max-width:1080px){
+  .heroGrid{grid-template-columns:1fr}
+}
+@media(max-width:720px){
+  .heroSection{padding:22px 14px 12px}
+  .contentSection{padding:8px 14px 62px}
+  .heroLeft{padding:24px 18px}
+  .heroPanel{grid-template-columns:1fr;padding:16px}
+  .faqQuestion{padding:14px 16px;font-size:15px}
+  .faqAnswer{padding:0 16px 16px;font-size:14px}
+  .ctaSection{padding:28px 18px}
+  .ctaTitle{font-size:22px}
+  .categoryTabs{gap:8px}
+  .categoryTab{min-height:38px;padding:0 14px;font-size:12px}
+  .btn{width:100%}
+  .ctaActions{display:grid;grid-template-columns:1fr}
+}

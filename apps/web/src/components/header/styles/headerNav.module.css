@@ -1,0 +1,185 @@
+/* =========================================================
+   HEADER NAV — PREMIUM BOX FINAL
+   İkon kutularıyla uyumlu, modern, animasyonlu nav
+   ========================================================= */
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-width: 0;
+  flex: 1 1 auto;
+
+  padding: 0 14px;
+}
+
+.navLink {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  min-height: 52px;
+  min-width: 128px;
+  padding: 0 22px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 0;
+
+  text-decoration: none;
+
+  color: rgba(15, 23, 42, 0.68);
+  font-size: 17px;
+  line-height: 1;
+  font-weight: 820;
+  letter-spacing: -0.035em;
+
+  border: 1px solid rgba(15, 23, 42, 0.09);
+
+  background:
+    radial-gradient(circle at 28% 14%, rgba(255, 255, 255, 0.92), transparent 34%),
+    linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+
+  box-shadow:
+    0 8px 20px rgba(15, 23, 42, 0.035),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+  transition:
+    transform 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.navLink::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background:
+    linear-gradient(
+      120deg,
+      transparent 0%,
+      transparent 34%,
+      rgba(255, 255, 255, 0.72) 49%,
+      transparent 64%,
+      transparent 100%
+    );
+
+  transform: translateX(-125%);
+  opacity: 0;
+
+  transition:
+    transform 520ms ease,
+    opacity 180ms ease;
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 8px;
+
+  height: 2px;
+  border-radius: 999px;
+
+  background: linear-gradient(90deg, #071126, #1b3570 55%, #d6ae37);
+
+  transform: scaleX(0);
+  transform-origin: center;
+  opacity: 0;
+
+  box-shadow: 0 0 14px rgba(214, 174, 55, 0.22);
+
+  transition:
+    transform 220ms ease,
+    opacity 180ms ease;
+}
+
+.navLink:hover {
+  transform: translateY(-2px);
+  color: #0b1530;
+  border-color: rgba(15, 23, 42, 0.16);
+
+  background:
+    radial-gradient(circle at 26% 12%, rgba(255, 255, 255, 0.98), transparent 34%),
+    radial-gradient(circle at 84% 88%, rgba(214, 174, 55, 0.10), transparent 42%),
+    linear-gradient(180deg, #ffffff 0%, #f6f7fb 100%);
+
+  box-shadow:
+    0 14px 30px rgba(15, 23, 42, 0.07),
+    0 8px 18px rgba(214, 174, 55, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.94);
+}
+
+.navLink:hover::before {
+  opacity: 1;
+  transform: translateX(125%);
+}
+
+.navLink:hover::after {
+  opacity: 0.75;
+  transform: scaleX(0.72);
+}
+
+.navActive {
+  color: #071126;
+  font-weight: 880;
+
+  border-color: rgba(214, 174, 55, 0.38);
+
+  background:
+    radial-gradient(circle at 26% 12%, rgba(255, 255, 255, 0.98), transparent 34%),
+    radial-gradient(circle at 86% 84%, rgba(214, 174, 55, 0.18), transparent 44%),
+    linear-gradient(180deg, #ffffff 0%, #f7f4ec 100%);
+
+  box-shadow:
+    0 14px 32px rgba(15, 23, 42, 0.075),
+    0 8px 22px rgba(214, 174, 55, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.96);
+}
+
+.navActive::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.navActive:hover {
+  color: #071126;
+  border-color: rgba(214, 174, 55, 0.52);
+}
+
+/* tablet */
+@media (max-width: 1100px) {
+  .nav {
+    gap: 8px;
+    padding: 0 10px;
+  }
+
+  .navLink {
+    min-height: 48px;
+    min-width: 112px;
+    padding: 0 18px;
+    font-size: 16px;
+  }
+
+  .navLink::after {
+    left: 16px;
+    right: 16px;
+    bottom: 7px;
+  }
+}
+
+/* mobilde desktop nav gizli */
+@media (max-width: 860px) {
+  .nav {
+    display: none;
+  }
+}

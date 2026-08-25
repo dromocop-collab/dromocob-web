@@ -1,0 +1,221 @@
+.footer{
+  position:relative;
+  background:linear-gradient(180deg,#06080d 0%,#0a0d14 50%,#080b12 100%);
+  color:#fff;
+  border-top:1px solid rgba(255,255,255,.06);
+  overflow:hidden;
+  margin-top:48px !important;
+}
+.footer::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 900px 500px at 0% 0%,rgba(185,151,69,.08),transparent),
+    radial-gradient(ellipse 600px 400px at 100% 100%,rgba(185,151,69,.05),transparent);
+  pointer-events:none;
+}
+
+.inner{
+  position:relative;z-index:1;
+  width:min(1440px,calc(100% - 48px));margin:0 auto;
+  padding:64px 0 0;
+}
+
+/* ─── Üst CTA band ─── */
+.ctaBand{
+  display:grid;grid-template-columns:1fr auto;align-items:center;gap:28px;
+  padding:32px 36px;margin-bottom:52px;
+  border:1px solid rgba(212,175,55,.20);
+  background:
+    radial-gradient(circle at 88% 12%,rgba(212,175,55,.14),transparent 40%),
+    linear-gradient(145deg,rgba(17,18,22,.96),rgba(5,7,12,.98));
+  box-shadow:0 24px 60px rgba(0,0,0,.30),inset 0 1px 0 rgba(255,255,255,.06);
+}
+.ctaLeft{min-width:0}
+.ctaTitle{margin:0 0 6px;font-size:22px;font-weight:950;letter-spacing:-.03em;color:#fff}
+.ctaDesc{margin:0;font-size:14px;line-height:1.7;color:rgba(255,255,255,.65);font-weight:600}
+.ctaActions{display:flex;flex-wrap:wrap;gap:12px}
+.ctaBtn{
+  min-height:48px;padding:0 22px;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  text-decoration:none;font-size:13px;font-weight:900;
+  transition:transform .18s ease,box-shadow .18s ease,filter .18s ease;
+}
+.ctaBtn:hover{transform:translateY(-2px)}
+.ctaBtnPrimary{
+  background:linear-gradient(135deg,#fff7df,#d9aa42);color:#0f172a;
+  border:1px solid rgba(255,231,166,.55);
+  box-shadow:0 16px 34px rgba(212,175,55,.18),inset 0 1px 0 rgba(255,255,255,.50);
+}
+.ctaBtnPrimary:hover{filter:brightness(1.06);box-shadow:0 22px 44px rgba(212,175,55,.26)}
+.ctaBtnSecondary{
+  background:transparent;color:rgba(255,255,255,.88);
+  border:1px solid rgba(255,255,255,.14);
+}
+.ctaBtnSecondary:hover{border-color:rgba(212,175,55,.36);color:#fff}
+
+/* ─── Main grid ─── */
+.topRow{
+  display:grid;
+  grid-template-columns:minmax(280px,1.1fr) minmax(0,1.8fr) 240px;
+  gap:48px;align-items:start;
+}
+
+/* ─── Brand ─── */
+.brandBlock{display:flex;flex-direction:column;gap:22px;min-width:0;width:100%}
+.brandLink{
+  display:grid;grid-template-columns:80px minmax(0,1fr);align-items:center;gap:28px;
+  text-decoration:none;color:#fff;min-width:0;
+}
+.logo{width:80px;height:80px;object-fit:contain;display:block;background:#fff;border:1px solid rgba(255,255,255,.12);padding:10px}
+.brandMark{
+  width:80px;height:80px;display:grid;place-items:center;
+  font-size:38px;font-weight:950;letter-spacing:-.04em;color:#0b0f17;
+  background:linear-gradient(135deg,#d9b86a 0%,#b99745 100%);border:1px solid rgba(255,255,255,.16);
+}
+.brandText{min-width:0;display:grid;gap:10px}
+.brandTitle{
+  font-family:'Playfair Display',Georgia,'Times New Roman',serif;
+  font-size:clamp(24px,3vw,34px);line-height:1.1;letter-spacing:-.02em;font-weight:800;color:#fff;
+}
+.tagline{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  font-size:14px;line-height:1.7;color:rgba(255,255,255,.55);font-weight:500;letter-spacing:.01em;
+}
+
+.brandChips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.brandChip{
+  min-height:32px;padding:0 12px;display:inline-flex;align-items:center;
+  border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.04);
+  color:rgba(255,255,255,.78);font-size:11px;font-weight:800;letter-spacing:.02em;
+}
+
+/* İletişim bilgileri */
+.contactInfo{display:grid;gap:12px;margin-top:4px}
+.contactRow{display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.6;color:rgba(255,255,255,.65);font-weight:600}
+.contactIcon{font-size:14px;flex-shrink:0;margin-top:2px;opacity:.7}
+.contactLink{color:rgba(255,255,255,.78);text-decoration:none;transition:color .18s ease}
+.contactLink:hover{color:#d2b06a}
+
+.socialRow{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.socialBtn{
+  width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;
+  border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.03);
+  color:#fff;text-decoration:none;
+  transition:background .18s ease,border-color .18s ease,transform .18s ease,color .18s ease;
+}
+.socialBtn:hover{background:#b99745;color:#0b0f17;border-color:#b99745;transform:translateY(-1px)}
+
+/* ─── Columns ─── */
+.cols{
+  display:grid;grid-template-columns:repeat(4,minmax(130px,1fr));
+  gap:28px;min-width:0;
+}
+.col{display:flex;flex-direction:column;gap:16px;min-width:0}
+.colTitle{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  font-size:11px;line-height:1;letter-spacing:.18em;text-transform:uppercase;
+  font-weight:800;color:#d2b06a;padding-bottom:12px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.links{display:flex;flex-direction:column;gap:10px}
+.link{
+  display:inline-flex;align-items:center;gap:6px;width:fit-content;
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  text-decoration:none;color:rgba(255,255,255,.65);font-size:13px;line-height:1.5;font-weight:500;
+  transition:color .18s ease,transform .18s ease;
+}
+.link:hover{color:#fff;transform:translateX(2px)}
+.linkDisabled{opacity:.35;pointer-events:none}
+.externalIcon{font-size:11px;opacity:.5}
+
+/* ─── ETBIS ─── */
+.etbis{min-width:220px;max-width:260px;display:grid;align-content:start;gap:12px}
+.etbisCard{
+  position:relative;overflow:hidden;display:grid;gap:14px;padding:20px;
+  border:1px solid rgba(212,175,55,.24);
+  background:
+    radial-gradient(circle at 88% 12%,rgba(212,175,55,.16),transparent 34%),
+    linear-gradient(145deg,rgba(17,18,22,.96),rgba(5,7,12,.98));
+  box-shadow:0 24px 60px rgba(0,0,0,.30),inset 0 1px 0 rgba(255,255,255,.06);
+}
+.etbisCard::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(212,175,55,.12),transparent 28%);opacity:.9;
+}
+.etbisBadge,.etbisNote,.etbisLink{position:relative;z-index:1}
+.etbisBadge{
+  width:fit-content;min-height:30px;padding:0 12px;display:inline-flex;align-items:center;
+  border:1px solid rgba(212,175,55,.30);background:rgba(212,175,55,.08);
+  color:#e7c66d;font-size:10px;font-weight:950;letter-spacing:.16em;text-transform:uppercase;
+}
+.etbisNote{max-width:240px;color:rgba(226,232,240,.78);font-size:12px;line-height:1.7;font-weight:700}
+.etbisLink{
+  min-height:42px;padding:0 14px;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  width:fit-content;text-decoration:none;color:#0f172a;font-size:12px;font-weight:950;
+  background:linear-gradient(135deg,#fff7df,#d9aa42);border:1px solid rgba(255,231,166,.55);
+  box-shadow:0 12px 28px rgba(212,175,55,.16),inset 0 1px 0 rgba(255,255,255,.50);
+  transition:transform .18s ease,box-shadow .18s ease,filter .18s ease;
+}
+.etbisLink:hover{transform:translateY(-2px);filter:brightness(1.04);box-shadow:0 18px 38px rgba(212,175,55,.22)}
+.etbisLink span{font-size:14px;transform:translateY(-1px)}
+
+/* ─── Ödeme & Güvenlik band ─── */
+.trustBand{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;
+  gap:24px;padding:24px 0;margin-top:48px;
+  border-top:1px solid rgba(255,255,255,.06);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.trustGroup{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.trustLabel{font-size:11px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.40)}
+.trustBadge{
+  min-height:32px;padding:0 14px;display:inline-flex;align-items:center;
+  border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);
+  color:rgba(255,255,255,.72);font-size:12px;font-weight:800;letter-spacing:.01em;
+}
+.trustDot{width:4px;height:4px;background:rgba(255,255,255,.16);border-radius:50%}
+
+/* ─── Bottom ─── */
+.bottom{
+  display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+  padding:22px 0 28px;
+}
+.bottomLeft,.bottomRight{font-size:12px;line-height:1.6;color:rgba(255,255,255,.45);font-weight:700}
+.bottomRight{text-align:right}
+
+/* ─── Responsive ─── */
+@media(max-width:1180px){
+  .topRow{grid-template-columns:1fr;gap:36px}
+  .cols{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .etbis{max-width:none}
+}
+
+@media(max-width:900px){
+  .topRow{grid-template-columns:1fr;gap:28px}
+  .cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 18px}
+  .etbis{width:100%;max-width:none}
+  .ctaBand{grid-template-columns:1fr;gap:18px}
+  .trustBand{gap:16px}
+}
+
+@media(max-width:720px){
+  .inner{width:min(100% - 24px,1440px);padding:44px 0 0}
+  .brandLink{gap:14px}
+  .logo,.brandMark{width:60px;height:60px}
+  .brandMark{font-size:28px}
+  .brandTitle{font-size:22px}
+  .tagline{font-size:13px}
+  .cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 14px}
+  .socialBtn{width:38px;height:38px}
+  .bottom{flex-direction:column;align-items:flex-start}
+  .bottomRight{text-align:left}
+  .ctaBand{padding:22px 18px}
+  .ctaTitle{font-size:18px}
+}
+
+@media(max-width:420px){
+  .cols{grid-template-columns:1fr 1fr;gap:16px 12px}
+  .brandTitle{font-size:18px}
+  .link{font-size:12px}
+  .colTitle{font-size:11px}
+  .bottom{display:grid;gap:8px;text-align:center}
+}
