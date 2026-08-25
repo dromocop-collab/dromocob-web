@@ -16,7 +16,7 @@ import {
   updateDoc,
   limit as qLimit,
 } from "firebase/firestore";
-import { onIdTokenChanged, signInWithCustomToken } from "firebase/auth";
+import { onIdTokenChanged, signInAnonymously } from "firebase/auth";
 import { getFirebaseDb, getFirebaseAuth } from "@/lib/firebase.client";
 import styles from "./ChatWidget.module.css";
 
@@ -425,36 +425,11 @@ useEffect(() => {
 
       if (u) {
         setUid(u.uid);
-        const tokenResult = await u.getIdTokenResult().catch(() => null);
-        setIsAnonymousUser(Boolean(u.isAnonymous || tokenResult?.claims?.guest));
+        setIsAnonymousUser(Boolean(u.isAnonymous));
         return;
       }
-
-      try {
-        const response = await fetch("/api/auth/guest-chat", { method: "POST" });
-        const data = await response.json();
-        if (!response.ok || !data.token) throw new Error(data.error || "guest-token-unavailable");
-        const cred = await signInWithCustomToken(auth, data.token);
-
-        if (!alive) return;
-
-        setUid(cred.user.uid);
-        setIsAnonymousUser(true);
-      } catch (e: any) {
-        console.warn("guest chat auth unavailable", e?.code || e?.message || e);
-
-        if (!alive) return;
-
-        setUid(null);
-        setIsAnonymousUser(true);
-
-        fireToast(
-          loc === "en"
-            ? "Chat is temporarily unavailable."
-            : "Canlı destek şu an kullanılamıyor.",
-          "err"
-        );
-      }
+      setUid(null);
+      setIsAnonymousUser(true);
     });
 
     return () => {
@@ -462,6 +437,20 @@ useEffect(() => {
       unsub();
     };
   }, [auth, loc]);
+
+  useEffect(() => {
+    if (!open || uid) return;
+    let alive = true;
+    signInAnonymously(auth).then((cred) => {
+      if (!alive) return;
+      setUid(cred.user.uid);
+      setIsAnonymousUser(true);
+    }).catch(() => {
+      if (!alive) return;
+      fireToast(loc === "en" ? "Chat is temporarily unavailable." : "Canlı destek şu an kullanılamıyor.", "err");
+    });
+    return () => { alive = false; };
+  }, [auth, loc, open, uid]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     let alive = true;
