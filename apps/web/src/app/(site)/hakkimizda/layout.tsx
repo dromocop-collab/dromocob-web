@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Dromocob Hakkında | Dromocob",
+  title: "Dromocob Dijital Deneyim Stüdyosu",
   description:
-    "Dromocob hakkında. Markamızın hikâyesi, vizyonumuz ve kalite kontrollü ürün anlayışımız.",
+    "Dromocob; strateji, deneyim tasarımı, web geliştirme ve SEO alanlarını birleştiren bağımsız dijital ürün stüdyosudur.",
   keywords: [
-    "Dromocob e-ticaret hakkında",
-    "Dromocob e-ticaret",
-    "Dromocob hikaye",
-    "mağaza fethiye",
+    "Dromocob dijital stüdyo",
+    "web tasarım ajansı İstanbul",
+    "dijital ürün stüdyosu",
+    "deneyim tasarımı ajansı",
   ],
   alternates: {
-    canonical: "https://demo.dromocob.com/hakkimizda",
+    canonical: "https://dromocob-web--dromocob-web-edit.europe-west4.hosted.app/hakkimizda",
   },
   openGraph: {
-    title: "Dromocob Hakkında | Dromocob",
+    title: "Dromocob Dijital Deneyim Stüdyosu",
     description:
-      "Markamızın hikâyesi, vizyonumuz ve kalite kontrollü ürün anlayışımız.",
-    url: "https://demo.dromocob.com/hakkimizda",
+      "Strateji, tasarım, teknoloji ve büyümeyi tek ekipte buluşturan bağımsız dijital ürün stüdyosu.",
+    url: "https://dromocob-web--dromocob-web-edit.europe-west4.hosted.app/hakkimizda",
     type: "website",
   },
 };

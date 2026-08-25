@@ -4,7 +4,9 @@ import { ArrowLeft, ArrowRight, CalendarDays, Check, Quote, ShieldCheck, Sparkle
 import StudioFooter from "@/components/studio/StudioFooter";
 import StudioHeader from "@/components/studio/StudioHeader";
 import DesignQuoteButton from "@/components/studio/DesignQuoteButton";
+import DemoExperienceLab from "./DemoExperienceLab";
 import s from "./demo.module.css";
+import lab from "./DemoExperienceLab.module.css";
 
 const demos: Record<string, any> = {
   "bogaz-premium-arac-kiralama": { brand: "BOĞAZ PREMİUM", type: "rent", theme: "velocity", eyebrow: "SEÇKİN ARAÇ KİRALAMA", title: "Yolculuğunuz,\nstandartların üzerinde.", text: "Seçkin araç filosu, kusursuz rezervasyon deneyimi ve ayrıcalıklı hizmet.", cta: "Aracını seç", stats: [["120+", "Premium araç"], ["7/24", "Özel destek"], ["18", "Lokasyon"]], works: ["Uzun Yol", "Yönetici Sınıfı", "Şehir Performansı"] },
@@ -31,10 +33,11 @@ export default function DemoPage({ params }: { params: { slug: string } }) {
         <div className={s.demoBar}><b>{d.brand}</b><span>SEÇKİN DENEYİM / 2026</span><small>SCROLL TO DISCOVER ↓</small></div>
         <section className={s.hero}>
           <div className={s.orb} />
-          <div className={s.copy}><span><Sparkles /> {d.eyebrow}</span><h1>{d.title.split("\n").map((line: string, index: number) => <span key={line}>{line}{index === 0 && <br />}</span>)}</h1><p>{d.text}</p><button>{d.cta}<ArrowRight /></button></div>
+          <div className={s.copy}><span><Sparkles /> {d.eyebrow}</span><h1>{d.title.split("\n").map((line: string, index: number) => <span key={line}>{line}{index === 0 && <br />}</span>)}</h1><p>{d.text}</p><a className={lab.heroCta} href="#deneyim-lab">{d.cta}<ArrowRight /></a></div>
           <div className={s.art}><div className={s.artFrame}><div className={s.artNav}><i /><i /><i /><span>LIVE / 01</span></div><div className={s.artSubject}>{subject}<small>{d.eyebrow}</small></div><div className={s.artLines}><i /><i /><i /></div></div></div>
         </section>
         <section className={s.stats}>{d.stats.map((item: string[]) => <div key={item[0]}><b>{item[0]}</b><span>{item[1]}</span></div>)}</section>
+        <DemoExperienceLab type={d.type} brand={d.brand} />
         <section className={s.showcase}>
           <div className={s.sectionHead}><span>SELECTED / EXPERIENCES</span><h2>Her detayda<br /><em>kendine özgü.</em></h2><p>Sadece güzel görünen değil; markanın karakterini hissettiren, keşfetmesi keyifli ve dönüşüm odaklı dijital deneyimler.</p></div>
           <div className={s.workGrid}>{d.works.map((work: string, index: number) => <article key={work} className={index === 1 ? s.featuredWork : ""}><div><span>0{index + 1}</span><b>{subject}</b><i /></div><small>{d.eyebrow}</small><h3>{work}</h3><button aria-label={`${work} detayları`}><ArrowRight /></button></article>)}</div>
