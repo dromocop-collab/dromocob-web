@@ -10,7 +10,7 @@ export const currentYear = new Date().getFullYear();
 // Branding
 export const developedByLink = "https://techzaa.getappui.com/";
 export const developedBy = "Cihat Erdem";
-export const contactUs = "hello@dromocob.com";
+export const contactUs = "info@dromocob.tr";
 
 // UI / App
 export const buyLink = "";

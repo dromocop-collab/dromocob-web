@@ -151,8 +151,8 @@ export async function getAboutPage(): Promise<AboutPageDoc> {
         cards: Array.isArray(x.cta?.cards) && x.cta?.cards.length
           ? x.cta?.cards
           : [
-              { title: "Telefon", text: "+90 555 000 00 00" },
-              { title: "E-posta", text: "hello@dromocob.com" },
+              { title: "Telefon", text: "+90 530 478 82 98" },
+              { title: "E-posta", text: "info@dromocob.tr" },
               { title: "Adres", text: "İstanbul · Demo Showroom" },
               { title: "Çalışma Saatleri", text: "Her gün 09:00 – 22:00" },
             ],

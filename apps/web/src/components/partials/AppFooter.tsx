@@ -335,10 +335,10 @@ const DEFAULT_ETBIS_LINK =
   "https://etbis.ticaret.gov.tr/tr/SiteSorgulamaSonuc?siteId=c8bc0d26-be30-4592-9f26-4cd94b475a40";
 
 const DEFAULT_CONTACT: ContactSettings = {
-  phone: "+90 555 000 00 00",
-  email: "hello@dromocob.com",
+  phone: "+90 530 478 82 98",
+  email: "info@dromocob.tr",
   address: "İstanbul · Demo Showroom",
-  whatsapp: "905078482448",
+  whatsapp: "905304788298",
 };
 
 const DEFAULT_CHIPS: LocaleText[] = [

@@ -92,7 +92,7 @@ const DEFAULTS: SeoSettings = {
 
       "Altın ve özel ürün ürünleri. Güncel kurla hesaplanan fiyatlar, hızlı teslimat, güvenli alışveriş.",
 
-    defaultOgImage: "https://demo.dromocob.com/og-default.jpg",
+    defaultOgImage: "https://dromocob.tr/og-default.jpg",
 
     twitterHandle: "",
 
@@ -138,7 +138,7 @@ const DEFAULTS: SeoSettings = {
 
   site: {
 
-    primaryUrl: "https://demo.dromocob.com",
+    primaryUrl: "https://dromocob.tr",
 
     fallbackUrl: "https://dromocob-web--dromocob-demo.europe-west4.hosted.app",
 
@@ -160,7 +160,7 @@ const DEFAULTS: SeoSettings = {
 
     organizationName: "Dromocob",
 
-    organizationLogo: "https://demo.dromocob.com/dromocob-mark.svg",
+    organizationLogo: "https://dromocob.tr/dromocob-mark.svg",
 
     sameAs: [],
 

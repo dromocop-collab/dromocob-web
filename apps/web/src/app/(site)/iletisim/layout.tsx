@@ -12,13 +12,13 @@ export const metadata: Metadata = {
     "Dromocob iletişim",
   ],
   alternates: {
-    canonical: "https://dromocob-web--dromocob-web-edit.europe-west4.hosted.app/iletisim",
+    canonical: "https://dromocob.tr/iletisim",
   },
   openGraph: {
     title: "Web Projenizi Dromocob ile Başlatın",
     description:
       "Fikrinizi paylaşın; strateji, tasarım ve teknoloji ekibimiz size özel yol haritası hazırlasın.",
-    url: "https://dromocob-web--dromocob-web-edit.europe-west4.hosted.app/iletisim",
+    url: "https://dromocob.tr/iletisim",
     type: "website",
   },
 };

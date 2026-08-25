@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Dromocob gizlilik politikası. Kişisel verilerin işlenmesi, saklanması ve korunmasına ilişkin bilgilendirme metni.",
   alternates: {
-    canonical: "https://demo.dromocob.com/gizlilik-politikasi",
+    canonical: "https://dromocob.tr/gizlilik-politikasi",
   },
 };
 
@@ -48,7 +48,7 @@ export default function PrivacyPolicyPage() {
         },
         {
           title: "Kullanıcı Hakları",
-          body: "Kullanıcılar; verilerine erişme, düzeltme, silme, güncelleme ve işlenmesine dair bilgi talep etme hakkına sahiptir. Talepler için hello@dromocob.com adresi veya destek alanı kullanılabilir.",
+          body: "Kullanıcılar; verilerine erişme, düzeltme, silme, güncelleme ve işlenmesine dair bilgi talep etme hakkına sahiptir. Talepler için info@dromocob.tr adresi veya destek alanı kullanılabilir.",
         },
       ]}
     />

@@ -66,7 +66,7 @@ const DEFAULT_SETTINGS: RefundSettings = {
     companyName: "DROMOCOB",
     fullName: "DROMOCOB",
     phone: "05304788298",
-    email: "hello@dromocob.com",
+    email: "info@dromocob.tr",
     city: "İSTANBUL",
     district: "FETHİYE",
     postalCode: "48303",
@@ -667,7 +667,7 @@ async function deleteAllRefundRequests() {
             <input
               value={settings.returnReceiver.email}
               onChange={(e) => updateReceiver("email", e.target.value)}
-              placeholder="hello@dromocob.com"
+              placeholder="info@dromocob.tr"
             />
           </label>
 

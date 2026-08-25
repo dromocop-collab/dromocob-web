@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "KVKK aydınlatma metni. Kişisel verilerin korunmasına ilişkin yasal bilgilendirme.",
   alternates: {
-    canonical: "https://demo.dromocob.com/kvkk-aydinlatma-metni",
+    canonical: "https://dromocob.tr/kvkk-aydinlatma-metni",
   },
 };
 
@@ -44,7 +44,7 @@ export default function KvkkPage() {
         },
         {
           title: "Haklarınız",
-          body: "KVKK'nın 11. maddesi kapsamında verilerinizin işlenip işlenmediğini öğrenme, düzeltilmesini isteme, silme talebinde bulunma ve bilgi talep etme hakkına sahipsiniz. Taleplerinizi hello@dromocob.com adresine iletebilirsiniz.",
+          body: "KVKK'nın 11. maddesi kapsamında verilerinizin işlenip işlenmediğini öğrenme, düzeltilmesini isteme, silme talebinde bulunma ve bilgi talep etme hakkına sahipsiniz. Taleplerinizi info@dromocob.tr adresine iletebilirsiniz.",
         },
       ]}
     />

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Dromocob çerez politikası. Çerezlerin kullanım amaçları, üçüncü taraf araçlar ve tercih yönetimi hakkında bilgilendirme.",
   alternates: {
-    canonical: "https://demo.dromocob.com/cerez-politikasi",
+    canonical: "https://dromocob.tr/cerez-politikasi",
   },
 };
 
@@ -40,7 +40,7 @@ export default function CookiePolicyPage() {
         },
         {
           title: "İletişim",
-          body: "Çerez politikamız hakkında sorularınız için hello@dromocob.com adresine e-posta gönderebilirsiniz.",
+          body: "Çerez politikamız hakkında sorularınız için info@dromocob.tr adresine e-posta gönderebilirsiniz.",
         },
       ]}
     />

@@ -48,7 +48,7 @@ function buildNewsletterMailHtml(fullName: string, couponCode: string): string {
       </div>
 
       <div style="text-align:center;margin:0 0 20px;">
-        <a href="https://demo.dromocob.com" style="display:inline-block;padding:14px 32px;background:linear-gradient(135deg,#d9aa42,#b98c3c);color:#fff;font-size:15px;font-weight:700;text-decoration:none;border-radius:12px;">
+        <a href="https://dromocob.tr" style="display:inline-block;padding:14px 32px;background:linear-gradient(135deg,#d9aa42,#b98c3c);color:#fff;font-size:15px;font-weight:700;text-decoration:none;border-radius:12px;">
           Alışverişe Başla →
         </a>
       </div>

@@ -9,6 +9,7 @@ import { getTrackingSettings } from "@/lib/trackingSettings.server";
 import CookieConsent from "@/components/CookieConsent";
 import MetaPixelRouteEvents from "@/components/meta/MetaPixelRouteEvents";
 import AnalyticsTracker from "@/components/AnalyticsTracker";
+import PublicFloatingLayer from "@/components/PublicFloatingLayer";
 
 export const dynamic = "force-dynamic";
 
@@ -307,7 +308,7 @@ export default async function RootLayout({
           />
         ) : null}
 
-        {/* LocalBusiness (lifestyleStore) JSON-LD — Yerel arama ve Google Maps */}
+        {/* ProfessionalService JSON-LD — Dromocob marka ve yerel arama sinyalleri */}
         {seo.jsonld.enabled ? (
           <Script
             id="jsonld-local-business"
@@ -316,26 +317,20 @@ export default async function RootLayout({
             dangerouslySetInnerHTML={{
               __html: JSON.stringify({
                 "@context": "https://schema.org",
-                "@type": "lifestyleStore",
-                name: "Bizim Dromocob",
+                "@type": "ProfessionalService",
+                name: "Dromocob Digital Experience Studio",
                 image: seo.jsonld.organizationLogo || undefined,
                 url: baseUrl || undefined,
-                telephone: seo.jsonld.phone || "+90 555 000 00 00",
-                email: seo.jsonld.email || "hello@dromocob.com",
-                priceRange: seo.jsonld.priceRange || "₺₺₺",
+                telephone: seo.jsonld.phone || "+90 530 478 82 98",
+                email: seo.jsonld.email || "info@dromocob.tr",
+                priceRange: seo.jsonld.priceRange || "₺₺",
                 address: {
                   "@type": "PostalAddress",
-                  streetAddress: "Demo Showroom",
                   addressLocality: "İstanbul",
                   addressRegion: "İstanbul",
-                  postalCode: "48303",
                   addressCountry: "TR",
                 },
-                geo: {
-                  "@type": "GeoCoordinates",
-                  latitude: 36.621195,
-                  longitude: 29.110598,
-                },
+                areaServed: { "@type": "Country", name: "Türkiye" },
                 openingHoursSpecification: [
                   {
                     "@type": "OpeningHoursSpecification",
@@ -345,10 +340,9 @@ export default async function RootLayout({
                       "Wednesday",
                       "Thursday",
                       "Friday",
-                      "Saturday",
                     ],
                     opens: "09:00",
-                    closes: "20:00",
+                    closes: "18:00",
                   },
                 ],
                 sameAs: Array.isArray(seo.jsonld.sameAs)
@@ -359,7 +353,12 @@ export default async function RootLayout({
           />
         ) : null}
 
-        <ControlGate>{children}</ControlGate>
+        <ControlGate>
+          <>
+            {children}
+            <PublicFloatingLayer />
+          </>
+        </ControlGate>
 
         <CookieConsent />
 

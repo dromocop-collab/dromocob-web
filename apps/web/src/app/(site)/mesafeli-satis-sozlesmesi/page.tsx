@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Mesafeli satış sözleşmesi. Sipariş, teslimat ve satış sürecine ilişkin genel hükümler.",
   alternates: {
-    canonical: "https://demo.dromocob.com/mesafeli-satis-sozlesmesi",
+    canonical: "https://dromocob.tr/mesafeli-satis-sozlesmesi",
   },
 };
 

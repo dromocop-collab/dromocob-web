@@ -156,6 +156,14 @@ function s(v: any) {
   return String(v ?? "").trim();
 }
 
+function normalizeWhatsAppHref(value: any) {
+  const raw = s(value);
+  if (!raw) return "https://wa.me/905304788298";
+  if (/^https?:\/\//i.test(raw)) return raw;
+  const digits = raw.replace(/\D/g, "");
+  return digits ? `https://wa.me/${digits}` : "https://wa.me/905304788298";
+}
+
 function pickLT(loc: "tr" | "en", v: any, fbTR = "", fbEN = ""): string {
   if (typeof v === "string") return v.trim();
 
@@ -225,18 +233,18 @@ export default function ChatWidget({ loc = "tr" }: { loc?: "tr" | "en" }) {
   const [enabled, setEnabled] = useState(true);
 
   const [cfgTitle, setCfgTitle] = useState<LT>({
-    tr: "İletişim",
-    en: "Support",
+    tr: "Dromocob Canlı Stüdyo",
+    en: "Dromocob Live Studio",
   });
 
   const [cfgSub, setCfgSub] = useState<LT>({
-    tr: "Hızlıca yaz, hemen dönüş yapalım.",
-    en: "Message us anytime.",
+    tr: "Projenizi birlikte netleştirelim.",
+    en: "Let's shape your project together.",
   });
 
   const [cfgPh, setCfgPh] = useState<LT>({
-    tr: "Mesajını yaz…",
-    en: "Type your message…",
+    tr: "Nasıl bir web deneyimi arıyorsunuz?",
+    en: "What kind of web experience do you need?",
   });
 
   const [wa, setWa] = useState("");
@@ -354,10 +362,10 @@ useEffect(() => {
   const subtitle = pickLT(
     loc,
     cfgSub,
-    "Hızlıca yaz, hemen dönüş yapalım.",
-    "Message us anytime."
+    "Projenizi birlikte netleştirelim.",
+    "Let's shape your project together."
   );
-  const placeholder = pickLT(loc, cfgPh, "Mesajını yaz…", "Type your message…");
+  const placeholder = pickLT(loc, cfgPh, "Nasıl bir web deneyimi arıyorsunuz?", "What kind of web experience do you need?");
 
   const sessionId = useMemo(() => getOrCreateSessionId(), []);
 
@@ -429,7 +437,7 @@ useEffect(() => {
         setUid(cred.user.uid);
         setIsAnonymousUser(true);
       } catch (e: any) {
-        console.error("anon auth failed", e);
+        console.warn("anon auth unavailable", e?.code || e?.message || e);
 
         if (!alive) return;
 
@@ -463,21 +471,25 @@ useEffect(() => {
         const d: any = snap.exists() ? snap.data() : null;
 
         setEnabled(d?.enabled !== false);
-        setCfgTitle(d?.title || { tr: "İletişim", en: "Support" });
+        const legacyTitle = s(d?.title?.tr) === "İletişim";
+        const legacySubtitle = s(d?.subtitle?.tr) === "Hızlıca yaz, hemen dönüş yapalım.";
+        const legacyPlaceholder = s(d?.placeholder?.tr) === "Mesajını yaz…";
+
+        setCfgTitle(!legacyTitle && d?.title ? d.title : { tr: "Dromocob Canlı Stüdyo", en: "Dromocob Live Studio" });
         setCfgSub(
-          d?.subtitle || {
-            tr: "Hızlıca yaz, hemen dönüş yapalım.",
-            en: "Message us anytime.",
+          !legacySubtitle && d?.subtitle ? d.subtitle : {
+            tr: "Projenizi birlikte netleştirelim.",
+            en: "Let's shape your project together.",
           }
         );
         setCfgPh(
-          d?.placeholder || {
-            tr: "Mesajını yaz…",
-            en: "Type your message…",
+          !legacyPlaceholder && d?.placeholder ? d.placeholder : {
+            tr: "Nasıl bir web deneyimi arıyorsunuz?",
+            en: "What kind of web experience do you need?",
           }
         );
 
-        setWa(String(d?.quick?.whatsapp || "").trim());
+        setWa(normalizeWhatsAppHref(d?.quick?.whatsapp));
         setIg(String(d?.quick?.instagram || "").trim());
 
         setIsOnline(d?.isOnline !== false);
@@ -881,7 +893,12 @@ email: isAnonymousUser
   onClick={() => setOpen((v) => !v)}
   aria-label={loc === "en" ? "Open support chat" : "Canlı desteği aç"}
 >
+  <span className={styles.bubbleAura} aria-hidden="true" />
   <span className={styles.bubbleIcon} aria-hidden="true" />
+  <span className={styles.bubbleCopy} aria-hidden="true">
+    <b>Canlı stüdyo</b>
+    <small>Birlikte tasarlayalım</small>
+  </span>
 
   <span className={styles.onlineDot} aria-hidden="true" />
 
@@ -898,9 +915,12 @@ email: isAnonymousUser
   aria-modal="true"
 >
           <div className={styles.panelTop}>
-            <div>
-              <div className={styles.panelTitle}>{title}</div>
-              <div className={styles.panelSub}>{subtitle}</div>
+            <div className={styles.panelIdentity}>
+              <span className={styles.panelBrandMark}>D</span>
+              <div>
+                <div className={styles.panelTitle}>{title}</div>
+                <div className={styles.panelSub}>{subtitle}</div>
+              </div>
             </div>
 
             <button
@@ -977,11 +997,11 @@ email: isAnonymousUser
               {!hasChat ? (
                 <div className={styles.welcome}>
                   <div className={styles.welcomeBubble}>
-                    <b>Merhaba 👋</b>
+                    <b>Merhaba, Dromocob&apos;a hoş geldiniz 👋</b>
                     <br />
                     {isAnonymousUser
-                      ? "İstersen yaz, hemen yardımcı olayım. İlk mesajdan sonra canlı sohbet başlar."
-                      : "Mesajını yaz, canlı destek hemen devam etsin."}
+                      ? "Sektörünüzü ve hedefinizi birkaç cümleyle anlatın; doğru demo ve çözümle başlayalım."
+                      : "Projenizi yazın, stüdyo ekibimiz konuşmaya kaldığı yerden devam etsin."}
                   </div>
                 </div>
               ) : null}

@@ -12,13 +12,13 @@ export const metadata: Metadata = {
     "sigortalı kargo",
   ],
   alternates: {
-    canonical: "https://demo.dromocob.com/kargo-teslimat",
+    canonical: "https://dromocob.tr/kargo-teslimat",
   },
   openGraph: {
     title: "Kargo ve Teslimat | Dromocob",
     description:
       "Sigortalı kargo, teslimat süreleri ve ücretsiz kargo koşulları.",
-    url: "https://demo.dromocob.com/kargo-teslimat",
+    url: "https://dromocob.tr/kargo-teslimat",
     type: "website",
   },
 };

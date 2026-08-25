@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Dromocob web sitesi ve uygulama kullanım koşulları. Hizmet kullanımına ilişkin genel hükümler.",
   alternates: {
-    canonical: "https://demo.dromocob.com/kullanim-kosullari",
+    canonical: "https://dromocob.tr/kullanim-kosullari",
   },
 };
 
@@ -36,7 +36,7 @@ export default function TermsPage() {
         },
         {
           title: "İletişim ve Uyuşmazlık",
-          body: "Kullanıma ilişkin talepler ve bildirimler için hello@dromocob.com üzerinden veya iletişim kanalları üzerinden bize ulaşılabilir. Tüketici işlemlerinde yürürlükteki mevzuat esas alınır.",
+          body: "Kullanıma ilişkin talepler ve bildirimler için info@dromocob.tr üzerinden veya iletişim kanalları üzerinden bize ulaşılabilir. Tüketici işlemlerinde yürürlükteki mevzuat esas alınır.",
         },
       ]}
     />

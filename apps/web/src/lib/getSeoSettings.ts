@@ -69,7 +69,7 @@ const DEFAULTS: SeoSettings = {
     defaultTitle: "Dromocob",
     defaultDescription:
       "Dromocob; sektörünüze özel, SEO uyumlu, yüksek performanslı ve yönetim panelli web siteleri tasarlar ve geliştirir.",
-    defaultOgImage: "https://dromocob-web--dromocob-web-edit.europe-west4.hosted.app/home/dromocob-studio-hero-v1.jpg",
+    defaultOgImage: "https://dromocob.tr/home/dromocob-studio-hero-v1.jpg",
     twitterHandle: "",
     themeColor: "#0b0b0b",
     defaultKeywords: "web tasarım, kurumsal web sitesi, e-ticaret sitesi, SEO uyumlu web sitesi, İstanbul web tasarım ajansı",
@@ -93,8 +93,8 @@ const DEFAULTS: SeoSettings = {
     googlebot: "",
   },
   site: {
-    primaryUrl: "https://dromocob-web--dromocob-web-edit.europe-west4.hosted.app",
-    fallbackUrl: "https://dromocob-web--dromocob-web-edit.europe-west4.hosted.app",
+    primaryUrl: "https://dromocob.tr",
+    fallbackUrl: "https://dromocob.tr",
     canonicalMode: "auto",
   },
   openGraph: {
@@ -104,10 +104,10 @@ const DEFAULTS: SeoSettings = {
   jsonld: {
     enabled: true,
     organizationName: "Dromocob",
-    organizationLogo: "https://dromocob-web--dromocob-web-edit.europe-west4.hosted.app/dromocob-mark.svg",
+    organizationLogo: "https://dromocob.tr/dromocob-mark.svg",
     sameAs: [],
-    phone: "",
-    email: "",
+    phone: "+90 530 478 82 98",
+    email: "info@dromocob.tr",
     addressLocality: "İstanbul",
     addressCountry: "TR",
     priceRange: "₺₺₺",
@@ -271,8 +271,8 @@ export async function getSeoSettings(): Promise<SeoSettings> {
 export function resolveBaseUrl(seo: SeoSettings): string {
   const primary = cleanUrl(ensureHttps(seo.site.primaryUrl));
   const fallback = cleanUrl(ensureHttps(seo.site.fallbackUrl));
-  const liveApp = "https://dromocob-web--dromocob-web-edit.europe-west4.hosted.app";
-  const legacyHosts = ["demo.dromocob.com", "dromocob-web--dromocob-demo.europe-west4.hosted.app"];
+  const liveApp = "https://dromocob.tr";
+  const legacyHosts = ["demo.dromocob.com", "dromocob-web--dromocob-demo.europe-west4.hosted.app", "dromocob-web--dromocob-web-edit.europe-west4.hosted.app"];
   const usable = (value: string) => value && !legacyHosts.some((host) => value.includes(host));
 
   if (seo.site.canonicalMode === "primary" && usable(primary)) return primary;

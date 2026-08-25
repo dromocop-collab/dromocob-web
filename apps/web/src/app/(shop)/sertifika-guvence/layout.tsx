@@ -12,13 +12,13 @@ export const metadata: Metadata = {
     "güvenli alışveriş",
   ],
   alternates: {
-    canonical: "https://demo.dromocob.com/sertifika-guvence",
+    canonical: "https://dromocob.tr/sertifika-guvence",
   },
   openGraph: {
     title: "Sertifika ve Güvence | Dromocob",
     description:
       "Kalite belgeli ürünler, garanti kapsamı ve güvenli alışveriş ilkeleri.",
-    url: "https://demo.dromocob.com/sertifika-guvence",
+    url: "https://dromocob.tr/sertifika-guvence",
     type: "website",
   },
 };

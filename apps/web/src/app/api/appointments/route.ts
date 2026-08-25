@@ -95,7 +95,7 @@ export async function POST(req: NextRequest) {
     });
 
     await db.collection("mail").add({
-      to: process.env.APPOINTMENT_NOTIFICATION_EMAIL || "hello@dromocob.com",
+      to: process.env.APPOINTMENT_NOTIFICATION_EMAIL || "info@dromocob.tr",
       message: {
         subject: `Yeni özel randevu talebi • ${fullName}`,
         html: `<h2>Yeni özel randevu talebi</h2><p><strong>Müşteri:</strong> ${html(fullName)}</p><p><strong>İletişim:</strong> ${html(email)} • ${html(phone)}</p><p><strong>Tarih:</strong> ${html(appointmentDate)} ${html(timeSlot)}</p><p><strong>Görüşme:</strong> ${meetingType === "online" ? "Online" : "Mağaza"}</p><p><strong>İlgi:</strong> ${html(interest || "Belirtilmedi")}</p><p><strong>Bütçe:</strong> ${html(budget || "Belirtilmedi")}</p><p><strong>Not:</strong> ${html(note || "—")}</p>`,

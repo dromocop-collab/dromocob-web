@@ -150,7 +150,7 @@ function pickStoreReturnAddress(settingsData: any) {
     mngReturnAddress?.email,
     mng?.senderEmail,
     process.env.RETURN_STORE_EMAIL,
-    "hello@dromocob.com"
+    "info@dromocob.tr"
   );
 
   const city = firstFilled(
@@ -447,7 +447,7 @@ export function buildReturnShipmentInputFromRefund(
   }
 
   if (!safeStr(input.recipient.email)) {
-    input.recipient.email = "hello@dromocob.com";
+    input.recipient.email = "info@dromocob.tr";
   }
 
   if (!safeStr(input.address.city)) {

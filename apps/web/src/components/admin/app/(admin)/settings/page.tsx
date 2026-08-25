@@ -1048,7 +1048,7 @@ function SiteSettingsAdminPageInner() {
                   className={s.input}
                   value={cfg.contact?.phone || ""}
                   onChange={(e) => setField("contact.phone", e.target.value)}
-                  placeholder="+90 555 000 00 00"
+                  placeholder="+90 530 478 82 98"
                 />
                 <div className={s.inputHint}>
                   Footer ve iletişim sayfasında görünür.
@@ -1061,10 +1061,10 @@ function SiteSettingsAdminPageInner() {
                   className={s.input}
                   value={cfg.contact?.whatsapp || ""}
                   onChange={(e) => setField("contact.whatsapp", e.target.value)}
-                  placeholder="905078482448"
+                  placeholder="905304788298"
                 />
                 <div className={s.inputHint}>
-                  Ülke kodu ile, boşluksuz. Örn: 905078482448
+                  Ülke kodu ile, boşluksuz. Örn: 905304788298
                 </div>
               </div>
             </div>
@@ -1088,7 +1088,7 @@ function SiteSettingsAdminPageInner() {
                   className={s.input}
                   value={cfg.contact?.email || ""}
                   onChange={(e) => setField("contact.email", e.target.value)}
-                  placeholder="hello@dromocob.com"
+                  placeholder="info@dromocob.tr"
                 />
               </div>
 

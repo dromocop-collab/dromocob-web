@@ -14,7 +14,7 @@ export function generateStaticParams() { return sectors.map((sector) => ({ slug:
 export function generateMetadata({ params }: Props): Metadata {
   const sector = getSector(params.slug);
   if (!sector) return {};
-  const url = `https://dromocob-web--dromocob-web-edit.europe-west4.hosted.app/sektorler/${sector.slug}`;
+  const url = `https://dromocob.tr/sektorler/${sector.slug}`;
   return {
     title: `${sector.name} Tasarımı ve Yazılımı`,
     description: sector.description,
@@ -29,11 +29,11 @@ export default function SectorDetailPage({ params }: Props) {
   const sector = getSector(params.slug);
   if (!sector) notFound();
   const related = studioTemplates.filter((item) => item.sector === sector.slug).slice(0, 3);
-  const url = `https://dromocob-web--dromocob-web-edit.europe-west4.hosted.app/sektorler/${sector.slug}`;
+  const url = `https://dromocob.tr/sektorler/${sector.slug}`;
   const jsonLd = [
-    { "@context": "https://schema.org", "@type": "Service", name: sector.name, serviceType: sector.name, provider: { "@type": "Organization", name: "Dromocob", url: "https://dromocob-web--dromocob-web-edit.europe-west4.hosted.app" }, areaServed: { "@type": "Country", name: "Türkiye" }, url, description: sector.description },
+    { "@context": "https://schema.org", "@type": "Service", name: sector.name, serviceType: sector.name, provider: { "@type": "Organization", name: "Dromocob", url: "https://dromocob.tr" }, areaServed: { "@type": "Country", name: "Türkiye" }, url, description: sector.description },
     { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: sector.faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } })) },
-    { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Ana Sayfa", item: "https://dromocob-web--dromocob-web-edit.europe-west4.hosted.app" }, { "@type": "ListItem", position: 2, name: "Sektörler", item: "https://dromocob-web--dromocob-web-edit.europe-west4.hosted.app/sektorler" }, { "@type": "ListItem", position: 3, name: sector.name, item: url }] },
+    { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Ana Sayfa", item: "https://dromocob.tr" }, { "@type": "ListItem", position: 2, name: "Sektörler", item: "https://dromocob.tr/sektorler" }, { "@type": "ListItem", position: 3, name: sector.name, item: url }] },
   ];
 
   return (

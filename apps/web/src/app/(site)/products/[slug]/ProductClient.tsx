@@ -2492,13 +2492,13 @@ export default function ProductClient({ slug }: { slug: string }) {
                     "@type": "ListItem",
                     position: 1,
                     name: "Ana Sayfa",
-                    item: "https://demo.dromocob.com",
+                    item: "https://dromocob.tr",
                   },
                   {
                     "@type": "ListItem",
                     position: 2,
                     name: "Magaza",
-                    item: "https://demo.dromocob.com/shop",
+                    item: "https://dromocob.tr/shop",
                   },
                   ...(cats.length
                     ? [
@@ -2506,7 +2506,7 @@ export default function ProductClient({ slug }: { slug: string }) {
                         "@type": "ListItem",
                         position: 3,
                         name: pickText(cats[0].name, loc),
-                        item: `https://demo.dromocob.com/shop?cat=${encodeURIComponent(cats[0].slug)}`,
+                        item: `https://dromocob.tr/shop?cat=${encodeURIComponent(cats[0].slug)}`,
                       },
                       {
                         "@type": "ListItem",

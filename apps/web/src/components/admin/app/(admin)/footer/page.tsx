@@ -900,7 +900,7 @@ function AdminFooterPageInner() {
                 style={inputStyle}
                 value={contactPhone}
                 onChange={(e) => setContactPhone(e.target.value)}
-                placeholder="+90 555 000 00 00"
+                placeholder="+90 530 478 82 98"
               />
             </div>
             <div>
@@ -909,7 +909,7 @@ function AdminFooterPageInner() {
                 style={inputStyle}
                 value={contactEmail}
                 onChange={(e) => setContactEmail(e.target.value)}
-                placeholder="hello@dromocob.com"
+                placeholder="info@dromocob.tr"
               />
             </div>
             <div style={{ gridColumn: "1 / -1" }}>
@@ -927,7 +927,7 @@ function AdminFooterPageInner() {
                 style={inputStyle}
                 value={contactWhatsapp}
                 onChange={(e) => setContactWhatsapp(e.target.value)}
-                placeholder="905078482448"
+                placeholder="905304788298"
               />
             </div>
           </div>
@@ -935,7 +935,7 @@ function AdminFooterPageInner() {
           <div className={s.noteBox}>
             <div className={s.noteTitle}>💡 İpucu</div>
             <div className={s.noteText}>
-              WhatsApp numarasını başında 0 olmadan, ülke koduyla birlikte yazın. Örneğin: 905078482448
+              WhatsApp numarasını başında 0 olmadan, ülke koduyla birlikte yazın. Örneğin: 905304788298
             </div>
           </div>
         </div>

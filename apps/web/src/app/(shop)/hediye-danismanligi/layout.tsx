@@ -12,13 +12,13 @@ export const metadata: Metadata = {
     "aksesuar hediye",
   ],
   alternates: {
-    canonical: "https://demo.dromocob.com/hediye-danismanligi",
+    canonical: "https://dromocob.tr/hediye-danismanligi",
   },
   openGraph: {
     title: "Hediye Danışmanlığı | Dromocob",
     description:
       "Sevdiklerinize en doğru hediyeyi seçmeniz için kişisel danışmanlık hizmeti.",
-    url: "https://demo.dromocob.com/hediye-danismanligi",
+    url: "https://dromocob.tr/hediye-danismanligi",
     type: "website",
   },
 };

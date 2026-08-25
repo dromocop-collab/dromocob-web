@@ -165,7 +165,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const product = await getProduct(slug);
 
   const seo = await getSeoSettings();
-  const baseUrl = resolveBaseUrl(seo) || "https://demo.dromocob.com";
+  const baseUrl = resolveBaseUrl(seo) || "https://dromocob.tr";
 
   const jsonLd = product ? buildProductJsonLd(product, baseUrl) : null;
 

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "İade ve iptal koşulları. Sipariş iptali, iade ve geri ödeme süreçlerine ilişkin genel esaslar.",
   alternates: {
-    canonical: "https://demo.dromocob.com/iade-ve-iptal-kosullari",
+    canonical: "https://dromocob.tr/iade-ve-iptal-kosullari",
   },
 };
 
@@ -36,7 +36,7 @@ export default function ReturnPolicyPage() {
         },
         {
           title: "İletişim",
-          body: "İptal ve iade talepleriniz için hello@dromocob.com adresi veya iletişim kanalları üzerinden bizimle iletişime geçebilirsiniz.",
+          body: "İptal ve iade talepleriniz için info@dromocob.tr adresi veya iletişim kanalları üzerinden bizimle iletişime geçebilirsiniz.",
         },
       ]}
     />

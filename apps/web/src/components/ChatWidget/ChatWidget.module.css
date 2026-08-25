@@ -701,6 +701,99 @@
   }
 }
 
+/* Dromocob Live Studio — 2026 visual layer */
+.bubble {
+  width: auto;
+  min-width: 68px;
+  padding: 8px 10px;
+  grid-template-columns: 48px auto;
+  gap: 10px;
+  background: linear-gradient(135deg, rgba(13, 20, 43, .98), rgba(29, 38, 73, .97));
+  border: 1px solid rgba(120, 145, 255, .38);
+  border-radius: 22px;
+  overflow: visible;
+}
+
+.bubbleAura {
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(110deg, rgba(103, 118, 255, .22), transparent 45%, rgba(74, 211, 238, .18));
+  filter: blur(12px);
+  animation: dromocobAura 3s ease-in-out infinite;
+}
+
+.bubbleIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #7180ff, #55d6ee);
+  box-shadow: 0 14px 28px rgba(79, 112, 255, .34), inset 0 1px 0 rgba(255,255,255,.42);
+}
+
+.bubbleIcon::before {
+  left: 13px;
+  top: 14px;
+  width: 22px;
+  background: #fff;
+  box-shadow: 0 7px 0 #fff, 0 14px 0 #fff;
+}
+
+.bubbleIcon::after { background: #62c8ed; }
+
+.bubbleCopy {
+  display: grid;
+  gap: 2px;
+  padding-right: 7px;
+  color: #fff;
+  text-align: left;
+}
+
+.bubbleCopy b { font-size: 13px; letter-spacing: -.01em; }
+.bubbleCopy small { color: #9ba9ca; font-size: 8px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.onlineDot { right: 5px; top: 5px; }
+
+.panel {
+  border-radius: 26px;
+  border-color: rgba(117, 139, 255, .22);
+  background: linear-gradient(180deg, rgba(9, 15, 32, .985), rgba(12, 20, 40, .98));
+  box-shadow: 0 40px 120px rgba(0,0,0,.46), 0 18px 46px rgba(71,91,220,.2);
+}
+
+.panelTop {
+  min-height: 92px;
+  align-items: center;
+  background: radial-gradient(circle at 10% 0%, rgba(104, 123, 255, .42), transparent 36%), linear-gradient(135deg, #101a38, #17234a);
+}
+
+.panelIdentity { display: flex; align-items: center; gap: 12px; }
+.panelBrandMark { width: 43px; height: 43px; flex: 0 0 43px; border-radius: 15px; display: grid; place-items: center; background: linear-gradient(135deg,#7885ff,#4fd3ec); color:#fff; font-size:19px; font-weight:950; box-shadow:0 12px 28px rgba(80,107,255,.34); }
+.panelTitle { font-size: 17px; }
+.panelSub { color: #aab8dc; }
+.msgList { background: radial-gradient(circle at 100% 0%, rgba(92,112,255,.1), transparent 38%), linear-gradient(180deg,#0c142a,#101a33); }
+.leadHint { color:#bcc8e8; background:rgba(110,129,255,.1); border-color:rgba(110,129,255,.2); }
+.composer { background:#0d162c; border-top-color:rgba(123,142,220,.16); }
+.welcomeBubble { color:#dce5ff; background:rgba(104,124,255,.1); border-color:rgba(104,124,255,.18); }
+.field > span,.fieldLabelRow { color:#aab7d7; }
+.field input,.field textarea,.orderSelect { color:#edf2ff; background:#111d38; border-color:rgba(127,146,220,.18); }
+.field input::placeholder,.field textarea::placeholder { color:#7584aa; }
+.sendBtn { background:linear-gradient(135deg,#6876ff,#4dcced); box-shadow:0 14px 30px rgba(77,104,236,.28); }
+.quick { color:#c8d3f3; background:#111d38; border-color:rgba(127,146,220,.18); }
+.supportStatus { color:#93a3c8; }
+
+@keyframes dromocobAura { 50% { opacity:.55; transform:scale(1.06); } }
+
+@media (max-width: 768px) {
+  .bubble { width: 54px !important; min-width: 54px !important; height: 54px !important; padding:5px !important; border-radius:18px !important; grid-template-columns:44px !important; }
+  .bubbleIcon { width:44px !important; height:44px !important; border-radius:14px !important; }
+  .bubbleIcon::before { left:12px !important; top:13px !important; width:20px !important; background:#fff !important; box-shadow:0 6px 0 #fff,0 12px 0 #fff !important; }
+  .bubbleCopy { display:none; }
+  .panelBrandMark { width:38px; height:38px; flex-basis:38px; border-radius:13px; }
+}
+
+@media (prefers-reduced-motion: reduce) { .bubbleAura { animation:none; } }
+
 @media (max-width: 420px) {
   .panel {
     top: max(10px, env(safe-area-inset-top)) !important;
@@ -1743,3 +1836,67 @@
     touch-action: pan-y !important;
   }
 }
+
+/* Keep the new Dromocob launcher above legacy mobile patches. */
+@media (max-width: 768px) {
+  .bubble {
+    width: 54px !important;
+    min-width: 54px !important;
+    height: 54px !important;
+    padding: 5px !important;
+    border-radius: 18px !important;
+    background: linear-gradient(135deg, #111a38, #263765) !important;
+    border: 1px solid rgba(120,145,255,.42) !important;
+  }
+  .bubbleIcon {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 14px !important;
+    background: linear-gradient(135deg,#7180ff,#55d6ee) !important;
+  }
+  .bubbleIcon::before {
+    left: 12px !important;
+    top: 13px !important;
+    width: 20px !important;
+    background: #fff !important;
+    box-shadow: 0 6px 0 #fff, 0 12px 0 #fff !important;
+  }
+  .bubbleCopy { display: none !important; }
+}
+
+@media (max-width: 430px) {
+  .panel {
+    top: max(74px, calc(env(safe-area-inset-top) + 66px)) !important;
+    bottom: max(8px, env(safe-area-inset-bottom)) !important;
+  }
+  .chatShell {
+    height: 100% !important;
+    min-height: 0 !important;
+    grid-template-rows: minmax(92px, .22fr) minmax(0, .78fr) !important;
+  }
+  .msgList {
+    min-height: 92px !important;
+    max-height: none !important;
+    padding: 10px !important;
+  }
+  .composer {
+    min-height: 0 !important;
+    max-height: none !important;
+    padding: 10px !important;
+    overflow-y: auto !important;
+  }
+  .field input { min-height: 43px !important; }
+  .field textarea { min-height: 70px !important; max-height: 82px !important; }
+  .welcomeBubble { padding: 10px 12px !important; }
+}
+
+.form {
+  background: rgba(17, 29, 56, .72);
+  border-color: rgba(127, 146, 220, .18);
+}
+.orderPicker {
+  background: rgba(17, 29, 56, .72);
+  border-color: rgba(127, 146, 220, .18);
+}
+.orderPickerHead b { color: #edf2ff; }
+.orderPickerHead span, .orderEmpty { color: #93a3c8; }

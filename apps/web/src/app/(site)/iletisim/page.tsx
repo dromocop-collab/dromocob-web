@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Clock3, Mail, MapPin, MessageCircle, ShieldCheck, Sparkles, Workflow } from "lucide-react";
+import { ArrowRight, CheckCircle2, Clock3, Mail, MessageCircle, PhoneCall, ShieldCheck, Sparkles, Workflow } from "lucide-react";
 import { useEffect, useState } from "react";
 import ProjectStartButton from "@/components/studio/ProjectStartButton";
 import { getWhatsAppNumber, onWhatsAppNumberChange } from "@/lib/whatsapp";
@@ -28,9 +28,9 @@ export default function IletisimPage() {
       <section className={s.contactSection}>
         <div className={s.sectionHead}><span>İLETİŞİM KANALLARI</span><h2>Size en uygun yolu seçin.</h2><p>Projenizin kapsamı ne olursa olsun doğru uzmanla hızlıca eşleşin.</p></div>
         <div className={s.contactGrid}>
-          <a href="mailto:hello@dromocob.com?subject=Yeni%20proje%20talebi" className={s.contactCard}><div><Mail /></div><small>E-POSTA</small><h3>hello@dromocob.com</h3><p>Dosya, kapsam veya referanslarınızı gönderin. Proje ekibimiz inceleyip yanıtlasın.</p><b>E-posta gönder <ArrowRight /></b></a>
+          <a href="mailto:info@dromocob.tr?subject=Yeni%20proje%20talebi" className={s.contactCard}><div><Mail /></div><small>E-POSTA</small><h3>info@dromocob.tr</h3><p>Dosya, kapsam veya referanslarınızı gönderin. Proje ekibimiz inceleyip yanıtlasın.</p><b>E-posta gönder <ArrowRight /></b></a>
           <a href={whatsappUrl} target="_blank" rel="noreferrer" className={s.contactCard}><div><MessageCircle /></div><small>HIZLI İLETİŞİM</small><h3>WhatsApp görüşmesi</h3><p>Kısa bir mesaj bırakın; ihtiyacınızı anlayıp doğru sonraki adımı birlikte belirleyelim.</p><b>Görüşmeyi başlat <ArrowRight /></b></a>
-          <article className={s.contactCard}><div><MapPin /></div><small>PROJE OFİSİ</small><h3>İstanbul · Türkiye</h3><p>Türkiye’nin her yerine ve global markalara uzaktan strateji, tasarım ve geliştirme hizmeti.</p><b>Türkiye ve dünya çapında</b></article>
+          <a href="tel:+905304788298" className={s.contactCard}><div><PhoneCall /></div><small>DOĞRUDAN ARAYIN</small><h3>0530 478 82 98</h3><p>Projenizi kısa bir görüşmeyle anlatın; kapsam, tasarım ve doğru başlangıç adımını birlikte netleştirelim.</p><b>Telefon görüşmesini başlat <ArrowRight /></b></a>
         </div>
       </section>
 

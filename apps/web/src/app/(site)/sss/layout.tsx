@@ -12,13 +12,13 @@ export const metadata: Metadata = {
     "mağaza kargo",
   ],
   alternates: {
-    canonical: "https://demo.dromocob.com/sss",
+    canonical: "https://dromocob.tr/sss",
   },
   openGraph: {
     title: "Sıkça Sorulan Sorular | Dromocob",
     description:
       "Sipariş, ödeme, kargo, iade ve ürün bilgisi hakkında tüm cevaplar.",
-    url: "https://demo.dromocob.com/sss",
+    url: "https://dromocob.tr/sss",
     type: "website",
   },
 };

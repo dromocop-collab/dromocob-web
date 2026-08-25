@@ -12,7 +12,7 @@ import { doc, onSnapshot } from "firebase/firestore";
 import { getFirebaseDb } from "@/lib/firebase.client";
 
 /** Firestore henüz yüklenmediyse kullanılacak varsayılan numara */
-const DEFAULT_WA_NUMBER = "905078482448";
+const DEFAULT_WA_NUMBER = "905304788298";
 
 /** Hafızada tutulan güncel numara */
 let _currentNumber = DEFAULT_WA_NUMBER;

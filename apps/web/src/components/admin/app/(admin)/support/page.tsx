@@ -11,6 +11,7 @@ import {
   orderBy,
   query,
   serverTimestamp,
+  setDoc,
   updateDoc,
 } from "firebase/firestore";
 import { getFirebaseDb } from "@/lib/firebase.client";
@@ -39,6 +40,24 @@ type QuickReply = {
   id: string;
   label: string;
   text: string;
+};
+
+type ChatWidgetConfig = {
+  enabled: boolean;
+  isOnline: boolean;
+  title: string;
+  subtitle: string;
+  placeholder: string;
+  whatsapp: string;
+};
+
+const DEFAULT_CHAT_CONFIG: ChatWidgetConfig = {
+  enabled: true,
+  isOnline: true,
+  title: "Dromocob Canlı Stüdyo",
+  subtitle: "Projenizi birlikte netleştirelim.",
+  placeholder: "Nasıl bir web deneyimi arıyorsunuz?",
+  whatsapp: "https://wa.me/905304788298",
 };
 
 const QUICK_REPLIES: QuickReply[] = [
@@ -161,6 +180,8 @@ function AdminSupportPageInner() {
   const [statusFilter, setStatusFilter] = useState<"all" | "open" | "closed" | "unread">("all");
   const [busyId, setBusyId] = useState("");
   const [note, setNote] = useState("");
+  const [chatConfig, setChatConfig] = useState<ChatWidgetConfig>(DEFAULT_CHAT_CONFIG);
+  const [settingsBusy, setSettingsBusy] = useState(false);
 
   useEffect(() => {
     const qy = query(collection(db, "support_threads"), orderBy("lastMessageAt", "desc"));
@@ -176,6 +197,44 @@ function AdminSupportPageInner() {
       () => setRows([])
     );
   }, [db]);
+
+  useEffect(() => {
+    return onSnapshot(doc(db, "site_options", "chat_widget"), (snap) => {
+      const data = snap.data() as any;
+      setChatConfig({
+        enabled: data?.enabled !== false,
+        isOnline: data?.isOnline !== false,
+        title: s(data?.title?.tr) || DEFAULT_CHAT_CONFIG.title,
+        subtitle: s(data?.subtitle?.tr) || DEFAULT_CHAT_CONFIG.subtitle,
+        placeholder: s(data?.placeholder?.tr) || DEFAULT_CHAT_CONFIG.placeholder,
+        whatsapp: s(data?.quick?.whatsapp) || DEFAULT_CHAT_CONFIG.whatsapp,
+      });
+    });
+  }, [db]);
+
+  async function saveChatConfig() {
+    setSettingsBusy(true);
+    setNote("");
+    try {
+      await setDoc(doc(db, "site_options", "chat_widget"), {
+        enabled: chatConfig.enabled,
+        isOnline: chatConfig.isOnline,
+        title: { tr: chatConfig.title, en: "Dromocob Live Studio" },
+        subtitle: { tr: chatConfig.subtitle, en: "Let's shape your project together." },
+        placeholder: { tr: chatConfig.placeholder, en: "What kind of web experience do you need?" },
+        onlineLabel: { tr: "Stüdyo çevrimiçi", en: "Studio online" },
+        offlineLabel: { tr: "Mesaj bırakın", en: "Leave a message" },
+        quick: { whatsapp: chatConfig.whatsapp, email: "mailto:info@dromocob.tr" },
+        updatedAt: serverTimestamp(),
+      }, { merge: true });
+      setNote("Canlı destek ayarları yayınlandı.");
+    } catch (error) {
+      console.error("chat widget config save error:", error);
+      setNote("Canlı destek ayarları kaydedilemedi. Admin yetkisini kontrol edin.");
+    } finally {
+      setSettingsBusy(false);
+    }
+  }
 
   const stats = useMemo(() => {
     const total = rows.length;
@@ -354,6 +413,37 @@ function AdminSupportPageInner() {
               Okunmamış
             </button>
           </div>
+        </div>
+      </section>
+
+      <section className={styles.controlCenter}>
+        <div className={styles.controlIntro}>
+          <span className={styles.controlKicker}>DROMOCOB LIVE / CONTROL</span>
+          <h2>Chat deneyimini buradan yönetin.</h2>
+          <p>Sağ alttaki canlı stüdyoyu açıp kapatın, çevrimiçi durumunu ve ziyaretçinin gördüğü metinleri anında güncelleyin.</p>
+          <div className={styles.identityStrip}>
+            <span><small>Telefon</small><b>0530 478 82 98</b></span>
+            <span><small>E-posta</small><b>info@dromocob.tr</b></span>
+            <span><small>Web</small><b>dromocob.tr</b></span>
+          </div>
+        </div>
+
+        <div className={styles.controlForm}>
+          <div className={styles.toggleRow}>
+            <button type="button" className={chatConfig.enabled ? styles.toggleOn : styles.toggleOff} onClick={() => setChatConfig((v) => ({ ...v, enabled: !v.enabled }))}>
+              <i /> Chat {chatConfig.enabled ? "aktif" : "kapalı"}
+            </button>
+            <button type="button" className={chatConfig.isOnline ? styles.toggleOn : styles.toggleOff} onClick={() => setChatConfig((v) => ({ ...v, isOnline: !v.isOnline }))}>
+              <i /> {chatConfig.isOnline ? "Çevrimiçi" : "Mesaj modu"}
+            </button>
+          </div>
+          <label><span>Panel başlığı</span><input value={chatConfig.title} onChange={(e) => setChatConfig((v) => ({ ...v, title: e.target.value }))} /></label>
+          <label><span>Karşılama alt metni</span><input value={chatConfig.subtitle} onChange={(e) => setChatConfig((v) => ({ ...v, subtitle: e.target.value }))} /></label>
+          <label><span>Mesaj alanı yönlendirmesi</span><input value={chatConfig.placeholder} onChange={(e) => setChatConfig((v) => ({ ...v, placeholder: e.target.value }))} /></label>
+          <label><span>WhatsApp hızlı bağlantısı</span><input value={chatConfig.whatsapp} onChange={(e) => setChatConfig((v) => ({ ...v, whatsapp: e.target.value }))} /></label>
+          <button type="button" className={styles.saveControl} onClick={saveChatConfig} disabled={settingsBusy}>
+            {settingsBusy ? "Yayınlanıyor…" : "Chat ayarlarını yayınla"}
+          </button>
         </div>
       </section>
 

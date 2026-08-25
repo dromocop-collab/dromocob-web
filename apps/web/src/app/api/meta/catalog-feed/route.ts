@@ -33,7 +33,7 @@ type ProductDoc = {
 const SITE_URL =
     process.env.NEXT_PUBLIC_SITE_URL ||
     process.env.NEXT_PUBLIC_APP_URL ||
-    "https://demo.dromocob.com";
+    "https://dromocob.tr";
 
 const BRAND_NAME = "Dromocob";
 

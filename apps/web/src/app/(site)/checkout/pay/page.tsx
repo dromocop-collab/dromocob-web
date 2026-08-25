@@ -1892,7 +1892,7 @@ function AgreementModal({
 
         ŞİRKETİ. Adres: İstanbul · Demo Showroom.
 
-        E-posta: hello@dromocob.com.
+        E-posta: info@dromocob.tr.
 
       </p>
 
@@ -2022,7 +2022,7 @@ function AgreementModal({
 
         ŞİRKETİ. Adres: İstanbul · Demo Showroom.
 
-        E-posta: hello@dromocob.com.
+        E-posta: info@dromocob.tr.
 
       </p>
 

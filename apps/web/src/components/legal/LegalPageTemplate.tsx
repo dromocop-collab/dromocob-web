@@ -17,7 +17,7 @@ const COMPANY_NAME =
   "DROMOCOB DEMO MAĞAZACILIK A.Ş.";
 const COMPANY_ADDRESS =
   "İstanbul · Demo Showroom";
-const COMPANY_EMAIL = "hello@dromocob.com";
+const COMPANY_EMAIL = "info@dromocob.tr";
 
 export default function LegalPageTemplate({
   eyebrow,

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Sipariş öncesi ön bilgilendirme formu. Ürün, ödeme, teslimat ve iade süreçlerine ilişkin özet bilgilendirme.",
   alternates: {
-    canonical: "https://demo.dromocob.com/on-bilgilendirme-formu",
+    canonical: "https://dromocob.tr/on-bilgilendirme-formu",
   },
 };
 
@@ -20,7 +20,7 @@ export default function PreInformationFormPage() {
       sections={[
         {
           title: "Satıcı Bilgisi",
-          body: "Satıcı unvanı: DROMOCOB DEMO MAĞAZACILIK A.Ş.. Adres: İstanbul · Demo Showroom. E-posta: hello@dromocob.com.",
+          body: "Satıcı unvanı: DROMOCOB DEMO MAĞAZACILIK A.Ş.. Adres: İstanbul · Demo Showroom. E-posta: info@dromocob.tr.",
         },
         {
           title: "Ürün ve Fiyat",
@@ -36,7 +36,7 @@ export default function PreInformationFormPage() {
         },
         {
           title: "İade ve Destek",
-          body: "İade, iptal ve destek süreçleri için platform içi destek alanı veya hello@dromocob.com adresi üzerinden iletişim kurulabilir.",
+          body: "İade, iptal ve destek süreçleri için platform içi destek alanı veya info@dromocob.tr adresi üzerinden iletişim kurulabilir.",
         },
       ]}
     />
