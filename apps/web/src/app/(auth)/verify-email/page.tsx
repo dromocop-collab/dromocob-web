@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { sendVerifyCodeClient, verifyCodeClient } from "@/lib/emailVerifyClient";
 import { getFirebaseAuth } from "@/lib/firebase.client";
+import { onAuthStateChanged, type User } from "firebase/auth";
 import s from "./verify.module.css";
 
 const CODE_LENGTH = 6;
@@ -12,6 +13,7 @@ const CODE_LENGTH = 6;
 export default function VerifyEmailPage() {
   const router = useRouter();
   const auth = useMemo(() => getFirebaseAuth(), []);
+  const [user, setUser] = useState<User | null>(auth.currentUser);
 
   const [digits, setDigits] = useState<string[]>(Array(CODE_LENGTH).fill(""));
   const [busy, setBusy] = useState(false);
@@ -21,8 +23,10 @@ export default function VerifyEmailPage() {
   const [shake, setShake] = useState(false);
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
 
-  const canUse = !!auth.currentUser;
-  const email = auth.currentUser?.email || "";
+  const canUse = !!user;
+  const email = user?.email || "";
+
+  useEffect(() => onAuthStateChanged(auth, setUser), [auth]);
 
   // Cooldown timer
   useEffect(() => {
@@ -111,9 +115,9 @@ export default function VerifyEmailPage() {
     try {
       await verifyCodeClient(code);
       await new Promise((r) => setTimeout(r, 800));
-      await auth.currentUser?.reload();
-      await auth.currentUser?.getIdToken(true);
-      if (!auth.currentUser?.emailVerified) {
+      await user?.reload();
+      await user?.getIdToken(true);
+      if (!user?.emailVerified) {
         setMsg({ text: "Doğrulandı fakat hesap güncellenmedi. Birkaç saniye bekleyip tekrar deneyin.", ok: false });
         return;
       }

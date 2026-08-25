@@ -102,21 +102,21 @@ export default function LoginPage() {
       <section className={styles.shell}>
         <aside className={styles.left}>
           <div className={styles.brandRow}>
-            <div className={styles.mark}>6</div>
+            <div className={styles.mark}>D</div>
             <div>
               <div className={styles.brandTitle}>Dromocob</div>
               <div className={styles.brandSub}>
-                {loc === "en" ? "Premium customer panel" : "Premium müşteri paneli"}
+                {loc === "en" ? "Digital experience studio" : "Digital experience studio"}
               </div>
             </div>
           </div>
 
           <div className={styles.kicker}>
-            {loc === "en" ? "Account Center" : "Hesap Merkezi"}
+            {loc === "en" ? "Secure Studio Access" : "Güvenli Stüdyo Erişimi"}
           </div>
 
           <h1 className={styles.heroTitle}>
-            {loc === "en" ? "My Account" : "Hesabım"}
+            {loc === "en" ? "Enter your digital space" : "Dijital alanına giriş yap"}
           </h1>
 
           <div className={styles.breadcrumb}>
@@ -128,24 +128,24 @@ export default function LoginPage() {
           <div className={styles.infoStack}>
             <div className={styles.infoCard}>
               <div className={styles.infoCardTitle}>
-                {loc === "en" ? "Secure access" : "Güvenli erişim"}
+                {loc === "en" ? "One secure identity" : "Tek ve güvenli kimlik"}
               </div>
               <div className={styles.infoCardText}>
                 {loc === "en"
-                  ? "Manage profile, addresses and orders from one premium panel."
-                  : "Profilini, adreslerini ve siparişlerini tek panelden yönet."}
+                  ? "Manage project requests, saved designs and studio communication from one place."
+                  : "Proje taleplerini, seçtiğin tasarımları ve stüdyo iletişimini tek yerden yönet."}
               </div>
             </div>
 
             <div className={styles.infoMiniGrid}>
               <div className={styles.infoMini}>
-                <strong>{loc === "en" ? "Orders" : "Siparişler"}</strong>
-                <span>{loc === "en" ? "Track easily" : "Kolay takip"}</span>
+                <strong>{loc === "en" ? "Projects" : "Projeler"}</strong>
+                <span>{loc === "en" ? "Live progress" : "Canlı süreç"}</span>
               </div>
 
               <div className={styles.infoMini}>
-                <strong>{loc === "en" ? "Addresses" : "Adresler"}</strong>
-                <span>{loc === "en" ? "Fast checkout" : "Hızlı ödeme"}</span>
+                <strong>{loc === "en" ? "Designs" : "Tasarımlar"}</strong>
+                <span>{loc === "en" ? "Your selections" : "Seçimlerin"}</span>
               </div>
             </div>
           </div>
@@ -164,8 +164,8 @@ export default function LoginPage() {
 
               <p className={styles.cardDesc}>
                 {loc === "en"
-                  ? "Secure access to your profile, addresses and orders."
-                  : "Profil, adres ve siparişlerini güvenle yönet."}
+                  ? "Secure access to your designs, requests and studio workspace."
+                  : "Tasarımlarına, taleplerine ve stüdyo çalışma alanına güvenle eriş."}
               </p>
             </header>
 

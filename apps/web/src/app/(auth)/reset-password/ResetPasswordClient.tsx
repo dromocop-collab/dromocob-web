@@ -12,11 +12,11 @@ import styles from "@/styles/authPage.module.css";
 function humanizeError(err: any) {
   const raw = String(err?.message || err || "").toLowerCase();
 
-  if (raw.includes("kod yanlış")) return "Kod yanlış.";
+  if (raw.includes("kod yanlış") || raw.includes("kod hatalı")) return "Kod hatalı.";
   if (raw.includes("süresi dolmuş")) return "Kodun süresi dolmuş. Yeni kod iste.";
   if (raw.includes("zaten kullanılmış")) return "Bu kod zaten kullanılmış. Yeni kod iste.";
-  if (raw.includes("en az 6")) return "Yeni şifre en az 6 karakter olmalı.";
-  if (raw.includes("45")) return "Yeni kod istemek için biraz bekle.";
+  if (raw.includes("en az 8")) return "Yeni şifre en az 8 karakter olmalı.";
+  if (raw.includes("60")) return "Yeni kod istemek için 60 saniye bekle.";
   return "Şifre sıfırlanamadı. Bilgileri kontrol et.";
 }
 
@@ -44,8 +44,8 @@ export default function ResetPasswordClient() {
   const canSubmit =
     !!email &&
     code.trim().length >= 6 &&
-    newPassword.trim().length >= 6 &&
-    newPassword2.trim().length >= 6 &&
+    newPassword.trim().length >= 8 &&
+    newPassword2.trim().length >= 8 &&
     !busy;
 
   async function onSubmit(e: React.FormEvent) {
@@ -56,8 +56,8 @@ export default function ResetPasswordClient() {
       return;
     }
 
-    if (newPassword.trim().length < 6) {
-      setMsg("Yeni şifre en az 6 karakter olmalı.");
+    if (newPassword.trim().length < 8) {
+      setMsg("Yeni şifre en az 8 karakter olmalı.");
       return;
     }
 
@@ -101,11 +101,21 @@ export default function ResetPasswordClient() {
   return (
     <main className={styles.wrap}>
       <section className={styles.shell}>
-        <section className={styles.right} style={{ maxWidth: 560, margin: "0 auto" }}>
+        <aside className={styles.left}>
+          <div className={styles.brandRow}><div className={styles.mark}>D</div><div><div className={styles.brandTitle}>DROMOCOB</div><div className={styles.brandSub}>Digital experience studio</div></div></div>
+          <div className={styles.kicker}>YENİ GÜVENLİK ANAHTARI</div>
+          <h1 className={styles.heroTitle}>Hesabının kontrolünü yenile.</h1>
+          <div className={styles.breadcrumb}><Link href="/">Anasayfa</Link><span>›</span><span>Yeni şifre</span></div>
+          <div className={styles.infoStack}>
+            <div className={styles.infoCard}><div className={styles.infoCardTitle}>Güçlü bir şifre oluştur</div><div className={styles.infoCardText}>En az 8 karakter kullan. Tahmin edilmesi kolay bilgilerden ve başka sitelerde kullandığın şifrelerden kaçın.</div></div>
+            <div className={styles.infoMiniGrid}><div className={styles.infoMini}><strong>10 dakika</strong><span>Kod geçerliliği</span></div><div className={styles.infoMini}><strong>Tek kullanım</strong><span>Otomatik kapanır</span></div></div>
+          </div>
+        </aside>
+        <section className={styles.right}>
           <div className={styles.card}>
             <header className={styles.cardHead}>
               <div className={styles.cardBadge}>Şifre Yenile</div>
-              <h1 className={styles.cardTitle}>Kod ile Sıfırla</h1>
+              <h1 className={styles.cardTitle}>Yeni şifreni belirle</h1>
               <p className={styles.cardDesc}>Doğrulama kodunu ve yeni şifreni gir.</p>
             </header>
 
@@ -142,7 +152,7 @@ export default function ResetPasswordClient() {
                   type="password"
                   value={newPassword}
                   onChange={(e) => setNewPassword(e.target.value)}
-                  placeholder="••••••••"
+                  placeholder="En az 8 karakter"
                   required
                 />
               </label>
@@ -154,7 +164,7 @@ export default function ResetPasswordClient() {
                   type="password"
                   value={newPassword2}
                   onChange={(e) => setNewPassword2(e.target.value)}
-                  placeholder="••••••••"
+                  placeholder="Yeni şifreni tekrar yaz"
                   required
                 />
               </label>

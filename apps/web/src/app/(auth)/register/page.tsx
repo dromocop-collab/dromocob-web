@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useMemo, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { register, loginWithGoogle, loginWithApple } from "@/lib/authClient";
+import { sendVerifyCodeClient } from "@/lib/emailVerifyClient";
 
 import { getLocale, type Locale } from "@/lib/i18n";
 import styles from "@/styles/authPage.module.css";
@@ -13,7 +14,7 @@ function humanizeRegisterError(err: any) {
   const m = raw.toLowerCase();
 
   if (m.includes("auth/email-already-in-use")) return "Bu e-posta zaten kayıtlı.";
-  if (m.includes("auth/weak-password")) return "Şifre çok zayıf (en az 6 karakter).";
+  if (m.includes("auth/weak-password")) return "Şifre çok zayıf (en az 8 karakter).";
   if (m.includes("auth/invalid-email")) return "Geçersiz e-posta.";
   if (m.includes("auth/account-exists-with-different-credential"))
     return "Bu e-posta farklı bir yöntemle kayıtlı. O yöntemle giriş yap.";
@@ -46,7 +47,7 @@ export default function RegisterPage() {
   const [ok, setOk] = useState<string | null>(null);
 
   const canSubmit = useMemo(() => {
-    return email.trim().length > 3 && p1.trim().length >= 6 && p2.trim().length >= 6 && !busy;
+    return email.trim().length > 3 && p1.trim().length >= 8 && p2.trim().length >= 8 && !busy;
   }, [email, p1, p2, busy]);
 
   async function onSubmit(e: React.FormEvent) {
@@ -64,13 +65,13 @@ export default function RegisterPage() {
     setBusy(true);
     try {
       await register(email.trim(), p1);
+      await sendVerifyCodeClient();
       setOk(
         loc === "en"
           ? "Account created. Verification email sent. Please verify to unlock full features."
           : "Hesap oluşturuldu. Doğrulama e-postası gönderildi. Tüm özellikler için doğrula."
       );
-      // Hesabım’a gönder; orada doğrulama bannerı + resend var
-      router.push("/hesabim");
+      router.push("/verify-email?sent=1");
     } catch (e: any) {
       setErr(humanizeRegisterError(e));
     } finally {
@@ -111,21 +112,21 @@ export default function RegisterPage() {
       <section className={styles.shell}>
        <aside className={styles.left}>
   <div className={styles.brandRow}>
-    <div className={styles.mark}>6</div>
+    <div className={styles.mark}>D</div>
     <div>
       <div className={styles.brandTitle}>Dromocob</div>
       <div className={styles.brandSub}>
-        {loc === "en" ? "Premium customer panel" : "Premium müşteri paneli"}
+        Digital experience studio
       </div>
     </div>
   </div>
 
   <div className={styles.kicker}>
-    {loc === "en" ? "Account Center" : "Hesap Merkezi"}
+    {loc === "en" ? "Studio Membership" : "Stüdyo Üyeliği"}
   </div>
 
   <h1 className={styles.heroTitle}>
-    {loc === "en" ? "Create account" : "Hesap Oluştur"}
+    {loc === "en" ? "Build your digital identity" : "Dijital kimliğini oluştur"}
   </h1>
 
   <div className={styles.breadcrumb}>
@@ -137,24 +138,24 @@ export default function RegisterPage() {
   <div className={styles.infoStack}>
     <div className={styles.infoCard}>
       <div className={styles.infoCardTitle}>
-        {loc === "en" ? "Fast start" : "Hızlı başlangıç"}
+        {loc === "en" ? "Start with confidence" : "Güvenle başla"}
       </div>
       <div className={styles.infoCardText}>
         {loc === "en"
-          ? "Create your account to manage orders, addresses and favorites."
-          : "Hesabını oluştur, siparişlerini, adreslerini ve favorilerini yönet."}
+          ? "Save designs, follow project requests and collaborate with the studio."
+          : "Tasarımlarını kaydet, proje taleplerini takip et ve stüdyoyla birlikte ilerle."}
       </div>
     </div>
 
     <div className={styles.infoMiniGrid}>
       <div className={styles.infoMini}>
-        <strong>{loc === "en" ? "Orders" : "Siparişler"}</strong>
-        <span>{loc === "en" ? "Track easily" : "Kolay takip"}</span>
+        <strong>{loc === "en" ? "Protected" : "Korumalı"}</strong>
+        <span>{loc === "en" ? "Verified access" : "Doğrulanmış erişim"}</span>
       </div>
 
       <div className={styles.infoMini}>
-        <strong>{loc === "en" ? "Favorites" : "Favoriler"}</strong>
-        <span>{loc === "en" ? "Save items" : "Ürün kaydet"}</span>
+        <strong>{loc === "en" ? "Connected" : "Bağlantılı"}</strong>
+        <span>{loc === "en" ? "Studio workflow" : "Stüdyo akışı"}</span>
       </div>
     </div>
   </div>
@@ -213,7 +214,7 @@ export default function RegisterPage() {
                   type="password"
                   value={p1}
                   onChange={(e) => setP1(e.target.value)}
-                  placeholder={loc === "en" ? "At least 6 characters" : "En az 6 karakter"}
+                  placeholder={loc === "en" ? "At least 8 characters" : "En az 8 karakter"}
                   autoComplete="new-password"
                   required
                 />
@@ -242,7 +243,7 @@ export default function RegisterPage() {
                 </Link>
               </div>
 
-              <p className={styles.note}>Kayıt sonrası e-posta doğrulaması zorunlu. Güvenlik için.</p>
+              <p className={styles.note}>Kayıt sonrası 6 haneli güvenlik kodu e-posta adresine gönderilir.</p>
             </form>
           </div>
         </section>
