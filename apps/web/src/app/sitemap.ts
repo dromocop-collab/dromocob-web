@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { adminDb } from "@/lib/firebase.admin";
 import { getSeoSettings, resolveBaseUrl } from "@/lib/getSeoSettings";
 import { sectors } from "@/data/studioCatalog";
+import { mobileApps } from "@/data/mobileApps";
 
 type AnyMap = Record<string, unknown>;
 
@@ -240,6 +241,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { path: "/iletisim", changeFrequency: "monthly", priority: 0.75 },
     { path: "/sektorler", changeFrequency: "weekly", priority: 0.92 },
     ...sectors.map((sector) => ({ path: `/sektorler/${sector.slug}`, changeFrequency: "weekly" as const, priority: 0.88 })),
+    { path: "/mobil-uygulama-gelistirme", changeFrequency: "weekly", priority: 0.94 },
+    ...mobileApps.map((app) => ({ path: `/mobil-uygulama/${app.slug}`, changeFrequency: "weekly" as const, priority: 0.90 })),
     { path: "/sss", changeFrequency: "monthly", priority: 0.70 },
     { path: "/hakkimizda", changeFrequency: "monthly", priority: 0.72 },
     // Yasal sayfalar

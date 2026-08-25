@@ -12,6 +12,7 @@ import ProjectStartButton from "@/components/studio/ProjectStartButton";
 import { sectors, studioTemplates } from "@/data/studioCatalog";
 import styles from "./HomeClient.module.css";
 import cardStyles from "./HomeClientCards.module.css";
+import MobileAppShowcase from "@/components/studio/MobileAppShowcase";
 
 const iconBySector = {
   "rent-a-car-web-sitesi": CarFront,
@@ -107,6 +108,8 @@ export default function HomeClient() {
           </div>
         ) : <div className={styles.empty}><Search /><h3>Uygun tasarım bulunamadı.</h3><button onClick={() => { setQuery(""); setCategory("all"); setStyle("all"); setBudget("all"); }}>Filtreleri temizle</button></div>}
       </section>
+
+      <MobileAppShowcase />
 
       <section className={styles.cta}>
         <div><span><WandSparkles /> TAMAMEN SİZE ÖZEL</span><h2>Aklınızdaki site burada yoksa,<br />birlikte sıfırdan tasarlayalım.</h2></div>
