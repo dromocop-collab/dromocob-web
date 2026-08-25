@@ -57,10 +57,11 @@ export default function StudioHeader() {
               <button type="button" onClick={closeMenu} aria-label="Menüyü kapat"><X /></button>
             </div>
             <Link href="/#tasarimlar" onClick={closeMenu}>Tasarımlar <span>01</span></Link>
-            <Link href="/sektorler" onClick={closeMenu}>Sektörler <ChevronDown /><span>02</span></Link>
-            <Link href="/mobil-uygulama-gelistirme" onClick={closeMenu}>Mobil Uygulamalar <span>03</span></Link>
-            <Link href="/hakkimizda" onClick={closeMenu}>Stüdyo <span>04</span></Link>
-            <Link href="/iletisim" onClick={closeMenu}>İletişim <span>05</span></Link>
+            <Link href="/projelerimiz" onClick={closeMenu}>Gerçek Projeler <span>02</span></Link>
+            <Link href="/sektorler" onClick={closeMenu}>Sektörler <ChevronDown /><span>03</span></Link>
+            <Link href="/mobil-uygulama-gelistirme" onClick={closeMenu}>Mobil Uygulamalar <span>04</span></Link>
+            <Link href="/hakkimizda" onClick={closeMenu}>Stüdyo <span>05</span></Link>
+            <Link href="/iletisim" onClick={closeMenu}>İletişim <span>06</span></Link>
             <div className={s.mobileAuth}>
               <Link href="/login" onClick={closeMenu}><LogIn /> Giriş yap</Link>
               <Link href="/register" onClick={closeMenu}><UserPlus /> Kayıt ol</Link>
