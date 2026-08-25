@@ -10,32 +10,29 @@ export async function generateMetadata(): Promise<Metadata> {
   const baseUrl = resolveBaseUrl(seo);
 
   return {
-    title: "Dromocob",
+    title: "Dromocob | Sektörünüze Özel Ultra Web Tasarımları",
     description:
-      "Dromocob, demo.dromocob.com ve Dromocob aramalarında öne çıkan; ev, yaşam, aksesuar ve teknoloji modellerini güvenli ödeme ve hızlı kargo ile sunan online mağaza.",
+      "Rent a car, e-ticaret, emlak, restoran, otel, sağlık ve kurumsal markalar için gelişmiş, yönetim panelli web sitesi tasarımları.",
     keywords: [
-      "Dromocob e-ticaret",
+      "Dromocob web tasarım",
       "Dromocob",
       "Dromocob",
       "Dromocob",
       "Dromocob tr",
       "Dromocob e-ticaret",
-      "tasarım aksesuar",
-      "yaşam ürünü",
-      "aksesuar",
-      "özel tasarım",
-      "online mağaza",
-      "istanbul mağaza",
-      "kalite kontrollü ürün",
-      "güvenli online mağaza",
+      "rent a car web sitesi",
+      "e-ticaret web sitesi",
+      "emlak web sitesi",
+      "kurumsal web tasarım",
+      "hazır web sitesi tasarımları",
     ],
     alternates: {
       canonical: baseUrl || undefined,
     },
     openGraph: {
-      title: "Dromocob",
+      title: "Dromocob | Ultra Web Tasarımları",
       description:
-        "ev, yaşam, aksesuar ve teknoloji modellerinde güvenli ödeme, sertifikalı ürün ve hızlı kargo.",
+        "Her sektör için birbirinden farklı, gelişmiş ve satış odaklı web sitesi deneyimleri.",
       url: baseUrl || undefined,
       siteName: "Dromocob",
       type: "website",
@@ -50,9 +47,9 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: "Dromocob",
+      title: "Dromocob | Ultra Web Tasarımları",
       description:
-        "Ev, yaşam, aksesuar ve teknoloji ürünlerinde güvenli ödeme ve hızlı kargo.",
+        "Sektörünüze göre gelişmiş web sitesi tasarımlarını keşfedin.",
       images: seo.meta.defaultOgImage ? [seo.meta.defaultOgImage] : undefined,
     },
   };
