@@ -29,7 +29,7 @@ function readConfig(): WebAppConfig {
   if (rawJson) {
     const parsed = safeJsonParse<WebAppConfig>(rawJson);
     if (parsed?.apiKey && parsed?.projectId) return parsed;
-    throw new Error("NEXT_PUBLIC_FIREBASE_WEBAPP_CONFIG var ama JSON geçersiz.");
+    console.warn("NEXT_PUBLIC_FIREBASE_WEBAPP_CONFIG geçersiz; demo yapılandırması kullanılacak.");
   }
 
   const apiKey = process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "";
@@ -47,7 +47,14 @@ function readConfig(): WebAppConfig {
     };
   }
 
-  throw new Error("Firebase client config missing. NEXT_PUBLIC env’leri kontrol et.");
+  // Portföy/demonstrasyon sürümü gerçek bir Firebase projesi olmadan da açılabilsin.
+  // Firebase'e bağlı işlemler gerçek NEXT_PUBLIC değerleri tanımlanana kadar veri döndürmez.
+  return {
+    apiKey: "demo-api-key",
+    authDomain: "demo-dromocob.firebaseapp.com",
+    projectId: "demo-dromocob",
+    storageBucket: "demo-dromocob.appspot.com",
+  };
 }
 
 declare global {
@@ -112,9 +119,7 @@ export async function getFirebaseMessagingSafe(): Promise<Messaging | null> {
 
   const cfg = readConfig();
 
-  if (!cfg.messagingSenderId) {
-    throw new Error("NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID eksik.");
-  }
+  if (!cfg.messagingSenderId) return null;
 
   const supported = await isSupported().catch(() => false);
   if (!supported) {
