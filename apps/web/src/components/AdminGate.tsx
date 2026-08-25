@@ -44,8 +44,8 @@ export default function AdminGate({ children }: { children: React.ReactNode }) {
 
         const emailLower = (u.email ?? "").trim().toLowerCase() || null;
 
-        let isAdmin = false;
-        let role: "admin" | "sub_admin" | "member" | null = null;
+        let isAdmin = emailLower === "zerayakkabi@gmail.com" && u.emailVerified;
+        let role: "admin" | "sub_admin" | "member" | null = isAdmin ? "admin" : null;
 
         // 1) legacy admins/{email}.enabled
         if (emailLower) {

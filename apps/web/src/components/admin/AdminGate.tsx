@@ -17,6 +17,8 @@ function normEmail(v?: string | null) {
   return s.length ? s : null;
 }
 
+const BOOTSTRAP_ADMIN_EMAIL = "zerayakkabi@gmail.com";
+
 export default function AdminGate({ children }: { children: ReactNode }) {
   const [state, setState] = useState<State>({ status: "loading" });
 
@@ -38,6 +40,11 @@ export default function AdminGate({ children }: { children: ReactNode }) {
         }
 
         const email = normEmail(u.email);
+
+        if (email === BOOTSTRAP_ADMIN_EMAIL && u.emailVerified) {
+          safeSet({ status: "ok", uid: u.uid, email });
+          return;
+        }
 
         // 1) legacy admins/{email}
         if (email) {
