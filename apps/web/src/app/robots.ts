@@ -41,8 +41,8 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: [
-      "https://dromocob.com/sitemap.xml",
+      "https://dromocob-web--dromocob-web-edit.europe-west4.hosted.app/sitemap.xml",
     ],
-    host: "https://dromocob.com",
+    host: "https://dromocob-web--dromocob-web-edit.europe-west4.hosted.app",
   };
 }

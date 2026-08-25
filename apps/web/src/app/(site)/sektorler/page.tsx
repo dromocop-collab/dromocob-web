@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   title: "Sektörel Web Tasarım Çözümleri",
   description: "Rent a car, e-ticaret, emlak, restoran, otel, klinik ve kurumsal firmalar için SEO uyumlu, yönetim panelli web sitesi çözümleri.",
   keywords: ["sektörel web tasarım", "profesyonel web sitesi", "SEO uyumlu web sitesi", "web tasarım ajansı", "İstanbul web tasarım"],
-  alternates: { canonical: "https://dromocob.com/sektorler" },
-  openGraph: { title: "Sektörünüze Özel Web Tasarım Çözümleri", description: "Her sektörün satış ve iletişim modeline göre kurgulanan modern web deneyimleri.", url: "https://dromocob.com/sektorler", type: "website" },
+  alternates: { canonical: "https://dromocob-web--dromocob-web-edit.europe-west4.hosted.app/sektorler" },
+  openGraph: { title: "Sektörünüze Özel Web Tasarım Çözümleri", description: "Her sektörün satış ve iletişim modeline göre kurgulanan modern web deneyimleri.", url: "https://dromocob-web--dromocob-web-edit.europe-west4.hosted.app/sektorler", type: "website" },
 };
 
 export default function SectorsPage() {
@@ -19,8 +19,8 @@ export default function SectorsPage() {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Dromocob Sektörel Web Tasarım Çözümleri",
-    url: "https://dromocob.com/sektorler",
-    hasPart: sectors.map((sector) => ({ "@type": "Service", name: sector.name, url: `https://dromocob.com/sektorler/${sector.slug}`, description: sector.description })),
+    url: "https://dromocob-web--dromocob-web-edit.europe-west4.hosted.app/sektorler",
+    hasPart: sectors.map((sector) => ({ "@type": "Service", name: sector.name, url: `https://dromocob-web--dromocob-web-edit.europe-west4.hosted.app/sektorler/${sector.slug}`, description: sector.description })),
   };
 
   return (

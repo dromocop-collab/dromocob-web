@@ -68,15 +68,15 @@ const DEFAULTS: SeoSettings = {
     titleTemplate: "%s | Dromocob",
     defaultTitle: "Dromocob",
     defaultDescription:
-      "tasarım ve yaşam ürünleri. Güncel kurla hesaplanan fiyatlar, hızlı teslimat, güvenli alışveriş.",
-    defaultOgImage: "https://demo.dromocob.com/og-default.jpg",
+      "Dromocob; sektörünüze özel, SEO uyumlu, yüksek performanslı ve yönetim panelli web siteleri tasarlar ve geliştirir.",
+    defaultOgImage: "https://dromocob-web--dromocob-web-edit.europe-west4.hosted.app/home/dromocob-studio-hero-v1.jpg",
     twitterHandle: "",
     themeColor: "#0b0b0b",
-    defaultKeywords: "e-ticaret, yaşam, aksesuar, teknoloji, tasarım",
+    defaultKeywords: "web tasarım, kurumsal web sitesi, e-ticaret sitesi, SEO uyumlu web sitesi, İstanbul web tasarım ajansı",
     author: "Dromocob",
     publisher: "Dromocob",
     appName: "Dromocob",
-    brandAliases: "Dromocob, Dromocob, Dromocob, Dromocob, demo.dromocob.com",
+    brandAliases: "Dromocob, Dromocob Studio",
   },
   google: {
     searchConsoleVerification: "",
@@ -93,8 +93,8 @@ const DEFAULTS: SeoSettings = {
     googlebot: "",
   },
   site: {
-    primaryUrl: "https://demo.dromocob.com",
-    fallbackUrl: "https://dromocob-web--dromocob-demo.europe-west4.hosted.app",
+    primaryUrl: "https://dromocob-web--dromocob-web-edit.europe-west4.hosted.app",
+    fallbackUrl: "https://dromocob-web--dromocob-web-edit.europe-west4.hosted.app",
     canonicalMode: "auto",
   },
   openGraph: {
@@ -104,7 +104,7 @@ const DEFAULTS: SeoSettings = {
   jsonld: {
     enabled: true,
     organizationName: "Dromocob",
-    organizationLogo: "https://demo.dromocob.com/dromocob-mark.svg",
+    organizationLogo: "https://dromocob-web--dromocob-web-edit.europe-west4.hosted.app/dromocob-mark.svg",
     sameAs: [],
     phone: "",
     email: "",
@@ -271,9 +271,12 @@ export async function getSeoSettings(): Promise<SeoSettings> {
 export function resolveBaseUrl(seo: SeoSettings): string {
   const primary = cleanUrl(ensureHttps(seo.site.primaryUrl));
   const fallback = cleanUrl(ensureHttps(seo.site.fallbackUrl));
+  const liveApp = "https://dromocob-web--dromocob-web-edit.europe-west4.hosted.app";
+  const legacyHosts = ["demo.dromocob.com", "dromocob-web--dromocob-demo.europe-west4.hosted.app"];
+  const usable = (value: string) => value && !legacyHosts.some((host) => value.includes(host));
 
-  if (seo.site.canonicalMode === "primary" && primary) return primary;
-  return primary || fallback || "";
+  if (seo.site.canonicalMode === "primary" && usable(primary)) return primary;
+  return (usable(primary) && primary) || (usable(fallback) && fallback) || liveApp;
 }
 
 export function absUrl(base: string, path: string): string {
