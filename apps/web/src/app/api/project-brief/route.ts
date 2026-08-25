@@ -6,7 +6,7 @@ import { adminDb } from "@/lib/firebase.admin";
 export const dynamic = "force-dynamic";
 
 const text = (value: unknown, max = 300) => String(value || "").trim().slice(0, max);
-const allowedTypes = new Set(["E-Ticaret", "Rent a Car", "Kurumsal", "Gayrimenkul", "Otel & Turizm", "Restoran", "Sağlık", "Özel Proje"]);
+const allowedTypes = new Set(["E-Ticaret", "Araç Kiralama", "Rent a Car", "Kurumsal", "Gayrimenkul", "Otel & Turizm", "Restoran", "Sağlık", "Özel Proje", "E-Ticaret Uygulaması", "Rezervasyon & Filo", "Randevu & Hizmet", "Pazar Yeri", "Kurumsal Uygulama", "Özel Mobil Ürün"]);
 
 export async function POST(request: NextRequest) {
   try {
@@ -38,6 +38,7 @@ export async function POST(request: NextRequest) {
     const reference = `DRM-${day.replace(/-/g, "").slice(2)}-${randomBytes(2).toString("hex").toUpperCase()}`;
     const features = Array.isArray(body.features) ? body.features.slice(0, 12).map((item: unknown) => text(item, 60)) : [];
     const source = text(body.source, 80) || "website-project-builder";
+    const projectKind = body.projectKind === "mobile" ? "mobile" : "website";
     const briefRef = await db.collection("project_briefs").add({
       reference,
       siteType,
@@ -49,6 +50,7 @@ export async function POST(request: NextRequest) {
       contact: { name, company: text(body.company, 140), email, phone },
       status: "new",
       source,
+      projectKind,
       createdAt: FieldValue.serverTimestamp(),
     });
 
@@ -61,7 +63,8 @@ export async function POST(request: NextRequest) {
         text: [
           `Talep: ${reference}`,
           `Tasarım: ${text(body.design, 100)}`,
-          `Site türü: ${siteType}`,
+          `Proje türü: ${projectKind === "mobile" ? "Mobil uygulama" : "Web sitesi"}`,
+          `Kategori: ${siteType}`,
           `Ad: ${name}`,
           `Şirket: ${text(body.company, 140) || "-"}`,
           `E-posta: ${email}`,

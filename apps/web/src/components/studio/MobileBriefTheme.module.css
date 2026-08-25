@@ -1,0 +1,6 @@
+.modal{border-color:rgba(124,92,255,.38);box-shadow:0 34px 110px rgba(34,16,92,.42),0 0 0 1px rgba(88,213,255,.12)}
+.aside{background:radial-gradient(circle at 24% 18%,rgba(81,211,255,.26),transparent 30%),radial-gradient(circle at 82% 74%,rgba(142,76,255,.32),transparent 42%),linear-gradient(145deg,#070b2c 0%,#121151 56%,#07182e 100%)}
+.aside:after{content:"";position:absolute;inset:auto -14% -22% 28%;aspect-ratio:1;border:1px solid rgba(97,211,255,.22);border-radius:42%;transform:rotate(24deg);box-shadow:0 0 0 54px rgba(112,78,255,.05),0 0 0 110px rgba(46,197,255,.035)}
+.typeCard{position:relative;overflow:hidden}.typeCard:before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent,rgba(104,195,255,.1),transparent);transform:translateX(-120%);transition:transform .5s ease}.typeCard:hover:before{transform:translateX(120%)}
+.chip{border-color:rgba(111,106,255,.2)!important}.submit{background:linear-gradient(100deg,#6547ff,#2ab8ff)!important;box-shadow:0 14px 34px rgba(91,74,255,.3)!important}
+@media(max-width:720px){.modal{border-radius:26px 26px 0 0}.aside{min-height:210px}}

@@ -9,12 +9,14 @@ type Props = {
   label?: string;
   className?: string;
   variant?: "light" | "gradient" | "outline";
+  mode?: "website" | "mobile";
 };
 
 export default function ProjectStartButton({
   label = "Proje başlat",
   className = "",
   variant = "gradient",
+  mode = "website",
 }: Props) {
   const [open, setOpen] = useState(false);
 
@@ -29,7 +31,7 @@ export default function ProjectStartButton({
         <span>{label}</span>
         <ArrowUpRight />
       </button>
-      <ProjectBriefModal open={open} onClose={() => setOpen(false)} />
+      <ProjectBriefModal open={open} onClose={() => setOpen(false)} mode={mode} />
     </>
   );
 }

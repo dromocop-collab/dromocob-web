@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import ChatWidget from "@/components/ChatWidget/ChatWidget";
 import FloatingButtons from "@/components/FloatingButtons";
+import OpeningPopup from "@/components/OpeningPopup";
 
 export default function PublicFloatingLayer() {
   const pathname = usePathname();
@@ -11,6 +12,7 @@ export default function PublicFloatingLayer() {
 
   return (
     <>
+      <OpeningPopup />
       <FloatingButtons />
       <ChatWidget loc="tr" />
     </>

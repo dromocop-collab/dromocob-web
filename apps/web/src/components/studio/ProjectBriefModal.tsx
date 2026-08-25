@@ -11,15 +11,18 @@ import {
   Clock3,
   Layers3,
   Loader2,
+  Smartphone,
   Send,
   Sparkles,
   X,
 } from "lucide-react";
 import s from "./ProjectBriefModal.module.css";
+import mobileTheme from "./MobileBriefTheme.module.css";
 import brandAssets from "./BrandLogo.module.css";
 import { studioTemplates } from "@/data/studioCatalog";
+import { mobileApps } from "@/data/mobileApps";
 
-type Props = { open: boolean; onClose: () => void };
+type Props = { open: boolean; onClose: () => void; mode?: "website" | "mobile" };
 type FormState = {
   siteType: string;
   design: string;
@@ -46,11 +49,27 @@ const siteTypes = [
   ["Özel Proje", "İhtiyacınıza göre sıfırdan", "SP"],
 ];
 
-const designs = ["Kararı Dromocob versin", ...studioTemplates.map((item) => item.name)];
+const designs = ["Kararı Cihat Erdem Studio versin", ...studioTemplates.map((item) => item.name)];
+
+const mobileTypes = [
+  ["E-Ticaret Uygulaması", "Mobil satış, ödeme ve sipariş yönetimi", "EC"],
+  ["Rezervasyon & Filo", "Araç, tarih, konum ve müsaitlik akışı", "RF"],
+  ["Randevu & Hizmet", "Takvim, uzman, bildirim ve ödeme", "RH"],
+  ["Pazar Yeri", "Satıcı, ürün, komisyon ve operasyon", "PZ"],
+  ["Kurumsal Uygulama", "Müşteri, ekip ve saha deneyimi", "KU"],
+  ["Özel Mobil Ürün", "Fikrinize göre sıfırdan ürün tasarımı", "MP"],
+];
+
+const mobileDesigns = ["Ürün yönünü Cihat Erdem Studio belirlesin", ...mobileApps.map((item) => item.name)];
 
 const featureOptions = [
   "Yönetim paneli", "Online ödeme", "Rezervasyon", "Çoklu dil",
   "Üyelik sistemi", "Mobil uygulama", "SEO altyapısı", "CRM entegrasyonu",
+];
+
+const mobileFeatureOptions = [
+  "iOS uygulaması", "Android uygulaması", "Yönetim paneli", "Online ödeme",
+  "Push bildirim", "Harita & konum", "Canlı mesajlaşma", "App Store & Google Play yayını",
 ];
 
 const initialForm: FormState = {
@@ -58,12 +77,21 @@ const initialForm: FormState = {
   name: "", company: "", email: "", phone: "", message: "", website: "", consent: false,
 };
 
-export default function ProjectBriefModal({ open, onClose }: Props) {
+export default function ProjectBriefModal({ open, onClose, mode = "website" }: Props) {
+  const isMobile = mode === "mobile";
+  const projectTypes = isMobile ? mobileTypes : siteTypes;
+  const projectDesigns = isMobile ? mobileDesigns : designs;
+  const projectFeatures = isMobile ? mobileFeatureOptions : featureOptions;
   const [step, setStep] = useState(1);
   const [form, setForm] = useState<FormState>(initialForm);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState("");
   const [reference, setReference] = useState("");
+
+  useEffect(() => {
+    if (!open) return;
+    setForm((current) => projectDesigns.includes(current.design) ? current : { ...current, design: projectDesigns[0] });
+  }, [open, isMobile]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     if (!open) return;
@@ -89,7 +117,7 @@ export default function ProjectBriefModal({ open, onClose }: Props) {
       : [...form.features, feature]);
 
   const next = () => {
-    if (step === 1 && !form.siteType) return setError("Devam etmek için bir site türü seçin.");
+    if (step === 1 && !form.siteType) return setError(`Devam etmek için bir ${isMobile ? "uygulama" : "site"} türü seçin.`);
     setError("");
     setStep((current) => Math.min(3, current + 1));
   };
@@ -106,11 +134,11 @@ export default function ProjectBriefModal({ open, onClose }: Props) {
       const response = await fetch("/api/project-brief", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, projectKind: mode, source: isMobile ? "mobile-app-project-builder" : "website-project-builder" }),
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || "Talep gönderilemedi.");
-      setReference(data.reference || "DROMOCOB");
+      setReference(data.reference || "CES");
       setStep(4);
     } catch (reason) {
       setError(reason instanceof Error ? reason.message : "Talep gönderilemedi.");
@@ -121,19 +149,19 @@ export default function ProjectBriefModal({ open, onClose }: Props) {
 
   const closeAndReset = () => {
     onClose();
-    window.setTimeout(() => { setStep(1); setForm(initialForm); setReference(""); setError(""); }, 250);
+    window.setTimeout(() => { setStep(1); setForm({ ...initialForm, design: projectDesigns[0] }); setReference(""); setError(""); }, 250);
   };
 
   return (
     <div className={s.backdrop} role="presentation" onMouseDown={(e) => e.target === e.currentTarget && closeAndReset()}>
-      <section className={s.modal} role="dialog" aria-modal="true" aria-labelledby="brief-title">
-        <aside className={s.aside}>
+      <section className={`${s.modal} ${isMobile ? mobileTheme.modal : ""}`} role="dialog" aria-modal="true" aria-labelledby="brief-title">
+        <aside className={`${s.aside} ${isMobile ? mobileTheme.aside : ""}`}>
           <div className={s.asideGlow} />
           <div className={s.asideBrand}><span className={brandAssets.logoBox}><img className={brandAssets.logoImg} src="/dromocob-app-icon-192.png" alt="" /></span><b>CIHAT ERDEM STUDIO</b></div>
           <div className={s.asideCopy}>
-            <span><Sparkles /> PROJECT BUILDER / 01</span>
-            <h2>Fikrinizi,<br /><em>etkileyici bir</em><br />deneyime çevirelim.</h2>
-            <p>İhtiyacınızı birkaç adımda anlatın. Ekibimiz seçiminizi inceleyip size özel yol haritasıyla ulaşsın.</p>
+            <span>{isMobile ? <Smartphone /> : <Sparkles />} {isMobile ? "MOBILE PRODUCT LAB / 01" : "PROJECT BUILDER / 01"}</span>
+            <h2>{isMobile ? <>Fikrinizi,<br /><em>cepte yaşayan</em><br />bir ürüne çevirelim.</> : <>Fikrinizi,<br /><em>etkileyici bir</em><br />deneyime çevirelim.</>}</h2>
+            <p>{isMobile ? "Platformu, temel işlevleri ve ürün hedefinizi seçin. iOS ve Android yol haritanızı birlikte oluşturalım." : "İhtiyacınızı birkaç adımda anlatın. Ekibimiz seçiminizi inceleyip size özel yol haritasıyla ulaşsın."}</p>
           </div>
           <div className={s.asideMetrics}>
             <div><b>48h</b><span>İlk dönüş</span></div>
@@ -146,30 +174,30 @@ export default function ProjectBriefModal({ open, onClose }: Props) {
           <button className={s.close} type="button" onClick={closeAndReset} aria-label="Pencereyi kapat"><X /></button>
           {step < 4 && (
             <>
-              <div className={s.progressMeta}><span>PROJE OLUŞTURUCU</span><b>0{step} / 03</b></div>
+              <div className={s.progressMeta}><span>{isMobile ? "MOBİL ÜRÜN OLUŞTURUCU" : "PROJE OLUŞTURUCU"}</span><b>0{step} / 03</b></div>
               <div className={s.progress}><i style={{ width: progress }} /></div>
             </>
           )}
 
           {step === 1 && (
             <div className={s.step}>
-              <div className={s.stepTitle}><Layers3 /><div><span>ADIM 01</span><h1 id="brief-title">Nasıl bir site istiyorsunuz?</h1><p>Size en yakın proje türünü ve beğendiğiniz tasarımı seçin.</p></div></div>
+              <div className={s.stepTitle}>{isMobile ? <Smartphone /> : <Layers3 />}<div><span>ADIM 01</span><h1 id="brief-title">{isMobile ? "Nasıl bir mobil ürün istiyorsunuz?" : "Nasıl bir site istiyorsunuz?"}</h1><p>{isMobile ? "İş modelinizi ve size en yakın uygulama deneyimini seçin." : "Size en yakın proje türünü ve beğendiğiniz tasarımı seçin."}</p></div></div>
               <div className={s.typeGrid}>
-                {siteTypes.map(([name, description, code]) => (
-                  <button key={name} type="button" className={form.siteType === name ? s.selected : ""} onClick={() => update("siteType", name)}>
+                {projectTypes.map(([name, description, code]) => (
+                  <button key={name} type="button" className={`${form.siteType === name ? s.selected : ""} ${isMobile ? mobileTheme.typeCard : ""}`} onClick={() => update("siteType", name)}>
                     <i>{code}</i><span><b>{name}</b><small>{description}</small></span><CheckCircle2 />
                   </button>
                 ))}
               </div>
-              <label className={s.field}><span>Beğendiğiniz demo tasarımı</span><select value={form.design} onChange={(e) => update("design", e.target.value)}>{designs.map((item) => <option key={item}>{item}</option>)}</select></label>
+              <label className={s.field}><span>{isMobile ? "Beğendiğiniz uygulama yönü" : "Beğendiğiniz demo tasarımı"}</span><select value={projectDesigns.includes(form.design) ? form.design : projectDesigns[0]} onChange={(e) => update("design", e.target.value)}>{projectDesigns.map((item) => <option key={item}>{item}</option>)}</select></label>
             </div>
           )}
 
           {step === 2 && (
             <div className={s.step}>
-              <div className={s.stepTitle}><Sparkles /><div><span>ADIM 02</span><h1>Projenizi şekillendirelim.</h1><p>İhtiyaçlarınızı seçin; daha sonra birlikte detaylandırabiliriz.</p></div></div>
+              <div className={s.stepTitle}>{isMobile ? <Smartphone /> : <Sparkles />}<div><span>ADIM 02</span><h1>{isMobile ? "Uygulamanızı şekillendirelim." : "Projenizi şekillendirelim."}</h1><p>İhtiyaçlarınızı seçin; daha sonra birlikte detaylandırabiliriz.</p></div></div>
               <div className={s.sectionLabel}>İSTEDİĞİNİZ ÖZELLİKLER</div>
-              <div className={s.chips}>{featureOptions.map((feature) => <button type="button" key={feature} className={form.features.includes(feature) ? s.chipSelected : ""} onClick={() => toggleFeature(feature)}><Check />{feature}</button>)}</div>
+              <div className={s.chips}>{projectFeatures.map((feature) => <button type="button" key={feature} className={`${form.features.includes(feature) ? s.chipSelected : ""} ${isMobile ? mobileTheme.chip : ""}`} onClick={() => toggleFeature(feature)}><Check />{feature}</button>)}</div>
               <div className={s.twoCols}>
                 <label className={s.field}><span><CircleDollarSign /> Yaklaşık bütçe</span><select value={form.budget} onChange={(e) => update("budget", e.target.value)}><option value="">Henüz karar vermedim</option><option>50.000 — 100.000 TL</option><option>100.000 — 250.000 TL</option><option>250.000 — 500.000 TL</option><option>500.000 TL ve üzeri</option></select></label>
                 <label className={s.field}><span><Clock3 /> Hedef zaman</span><select value={form.timeline} onChange={(e) => update("timeline", e.target.value)}><option value="">Esnek</option><option>2 — 4 hafta</option><option>1 — 2 ay</option><option>2 — 4 ay</option><option>Uzun dönem</option></select></label>
@@ -190,13 +218,13 @@ export default function ProjectBriefModal({ open, onClose }: Props) {
               <input className={s.honeypot} tabIndex={-1} value={form.website} onChange={(e) => update("website", e.target.value)} aria-hidden="true" />
               <label className={s.consent}><input type="checkbox" checked={form.consent} onChange={(e) => update("consent", e.target.checked)} /><i><Check /></i><span>İletişim bilgilerimin proje talebim için kullanılmasını kabul ediyorum.</span></label>
               <div className={s.summary}><span>SEÇİMİNİZ</span><b>{form.siteType}</b><small>{form.design} · {form.features.length || 0} özellik</small></div>
-              <button className={s.submit} type="submit" disabled={sending}>{sending ? <Loader2 className={s.spin} /> : <Send />} Talebi Dromocob’a gönder <ArrowRight /></button>
+              <button className={`${s.submit} ${isMobile ? mobileTheme.submit : ""}`} type="submit" disabled={sending}>{sending ? <Loader2 className={s.spin} /> : <Send />} Talebi Cihat Erdem Studio’ya gönder <ArrowRight /></button>
             </form>
           )}
 
           {step === 4 && (
             <div className={s.success}>
-              <div><Check /></div><span>TALEBİNİZ ALINDI</span><h1>Harika bir başlangıç yaptık.</h1><p>Proje özetiniz Dromocob ekibine ulaştı. En geç 48 saat içinde sizinle iletişime geçeceğiz.</p><small>TALEP KODU <b>{reference}</b></small><button type="button" onClick={closeAndReset}>Ana sayfaya dön <ArrowRight /></button>
+              <div><Check /></div><span>TALEBİNİZ ALINDI</span><h1>Harika bir başlangıç yaptık.</h1><p>Proje özetiniz Cihat Erdem Studio ekibine ulaştı. En geç 48 saat içinde sizinle iletişime geçeceğiz.</p><small>TALEP KODU <b>{reference}</b></small><button type="button" onClick={closeAndReset}>Ana sayfaya dön <ArrowRight /></button>
             </div>
           )}
 

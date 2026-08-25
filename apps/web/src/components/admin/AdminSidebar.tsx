@@ -106,6 +106,7 @@ const items: NavItem[] = [
   { section: "Pazarlama", href: "/admin/reviews", label: "Yorumlar", icon: "★", permission: "products", badgeKey: "reviews", tone: "amber" },
   { section: "Pazarlama", href: "/admin/testimonials", label: "Vitrin Yorumları", icon: "❝", permission: "home_settings", tone: "blue" },
   { section: "Pazarlama", href: "/admin/home-promo", label: "Promo Slider", icon: "♥", permission: "home_settings", tone: "rose" },
+  { section: "Pazarlama", href: "/admin/opening-popup", label: "Açılış Popup", icon: "◫", permission: "home_settings", tone: "violet" },
   { section: "Pazarlama", href: "/admin/analytics", label: "Analitik", icon: "📊", permission: "dashboard", tone: "blue" },
   { section: "Pazarlama", href: "/admin/tracking", label: "Reklam Kodları", icon: "📡", permission: "settings_admin", tone: "cyan" },
   { section: "Pazarlama", href: "/admin/marketing-checklist", label: "Reklam Hazırlığı", icon: "✅", permission: "dashboard", tone: "emerald" },
