@@ -1,8 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  turbopack: {
-    root: process.cwd(),
-  },
+  output: "export",
+  images: { unoptimized: true },
+  turbopack: { root: process.cwd() },
 };
-
 export default nextConfig;

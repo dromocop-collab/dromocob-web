@@ -1,6 +1,47 @@
+# dependencies
 node_modules/
-.next/
-.env*
-!.env.example
+**/node_modules/
+
+# logs
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# next / builds
+.next/
+out/
+dist/
+**/.next/
+**/out/
+**/dist/
+
+# env
+.env
+.env.*
+apps/web/.env.local
+functions/.env
+
+# firebase
+.firebase/
+
+# OS
 .DS_Store
+
+# Eski kaynak kopyasi: yalnızca yerel geçiş referansı, yayımlanmaz
+apps/web/
+functions/
+docs/
+scripts/
+public/
+.gemini/
+.idx/
+.vscode/
+GEMINI.md
+SATIS_ONCESI_RAPOR.md
+firestore.rules
+firestore.indexes.json
+storage.rules
+.pnpm-store/
+outputs/
