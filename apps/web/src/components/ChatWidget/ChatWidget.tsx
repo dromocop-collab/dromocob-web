@@ -16,7 +16,7 @@ import {
   updateDoc,
   limit as qLimit,
 } from "firebase/firestore";
-import { onIdTokenChanged, signInAnonymously } from "firebase/auth";
+import { onIdTokenChanged, signInWithCustomToken } from "firebase/auth";
 import { getFirebaseDb, getFirebaseAuth } from "@/lib/firebase.client";
 import styles from "./ChatWidget.module.css";
 
@@ -425,19 +425,23 @@ useEffect(() => {
 
       if (u) {
         setUid(u.uid);
-        setIsAnonymousUser(Boolean(u.isAnonymous));
+        const tokenResult = await u.getIdTokenResult().catch(() => null);
+        setIsAnonymousUser(Boolean(u.isAnonymous || tokenResult?.claims?.guest));
         return;
       }
 
       try {
-        const cred = await signInAnonymously(auth);
+        const response = await fetch("/api/auth/guest-chat", { method: "POST" });
+        const data = await response.json();
+        if (!response.ok || !data.token) throw new Error(data.error || "guest-token-unavailable");
+        const cred = await signInWithCustomToken(auth, data.token);
 
         if (!alive) return;
 
         setUid(cred.user.uid);
         setIsAnonymousUser(true);
       } catch (e: any) {
-        console.warn("anon auth unavailable", e?.code || e?.message || e);
+        console.warn("guest chat auth unavailable", e?.code || e?.message || e);
 
         if (!alive) return;
 
