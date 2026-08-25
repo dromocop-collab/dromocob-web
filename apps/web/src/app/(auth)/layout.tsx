@@ -1,12 +1,13 @@
 import type { ReactNode } from "react";
-import AppHeader from "@/components/header/AppHeader";
-import "@/components/admin/ui/toast.css";
+import StudioFooter from "@/components/studio/StudioFooter";
+import StudioHeader from "@/components/studio/StudioHeader";
 
 export default function AuthLayout({ children }: { children: ReactNode }) {
   return (
     <>
-      <AppHeader />
-      <main style={{ minHeight: "100vh" }}>{children}</main>
+      <StudioHeader />
+      <main style={{ minHeight: "80vh" }}>{children}</main>
+      <StudioFooter />
     </>
   );
 }

@@ -3,11 +3,9 @@ import { Suspense } from "react";
 import Script from "next/script";
 import "@/styles/globals.css";
 import "@/components/admin/ui/toast.css";
-import MaintenanceGate from "@/components/system/MaintenanceGate";
 import ControlGate from "@/components/dromocob-control/control-gate";
 import { getSeoSettings, resolveBaseUrl } from "@/lib/getSeoSettings";
 import { getTrackingSettings } from "@/lib/trackingSettings.server";
-import WheelBoot from "@/components/wheel/WheelBoot";
 import CookieConsent from "@/components/CookieConsent";
 import MetaPixelRouteEvents from "@/components/meta/MetaPixelRouteEvents";
 import AnalyticsTracker from "@/components/AnalyticsTracker";
@@ -361,13 +359,7 @@ export default async function RootLayout({
           />
         ) : null}
 
-        <ControlGate>
-          <MaintenanceGate>
-            {children}
-          </MaintenanceGate>
-        </ControlGate>
-
-        <WheelBoot />
+        <ControlGate>{children}</ControlGate>
 
         <CookieConsent />
 

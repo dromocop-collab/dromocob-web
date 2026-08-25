@@ -1,5 +1,5 @@
 import "server-only";
-import { cert, getApps, initializeApp } from "firebase-admin/app";
+import { applicationDefault, cert, getApps, initializeApp } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
 import { getAuth } from "firebase-admin/auth";
 
@@ -25,6 +25,7 @@ export function initAdmin() {
 
   const projectId =
     process.env.GCLOUD_PROJECT ||
+    process.env.GOOGLE_CLOUD_PROJECT ||
     process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID ||
     "dromocob-demo";
 
@@ -42,6 +43,18 @@ export function initAdmin() {
       credential: cert(serviceAccount),
       projectId: serviceAccount.project_id || projectId,
     });
+  }
+
+  // Firebase App Hosting / Cloud Run, varsayılan servis hesabını otomatik sağlar.
+  if (process.env.FIREBASE_CONFIG || process.env.K_SERVICE || process.env.GOOGLE_APPLICATION_CREDENTIALS) {
+    let runtimeProjectId = projectId;
+    try {
+      const runtimeConfig = JSON.parse(process.env.FIREBASE_CONFIG || "{}");
+      runtimeProjectId = runtimeConfig.projectId || runtimeProjectId;
+    } catch {
+      // FIREBASE_CONFIG biçimsizse bilinen proje kimliğiyle devam et.
+    }
+    return initializeApp({ credential: applicationDefault(), projectId: runtimeProjectId });
   }
 
   throw new Error(
