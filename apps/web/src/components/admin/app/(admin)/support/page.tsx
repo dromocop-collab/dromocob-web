@@ -432,8 +432,8 @@ function AdminSupportPageInner() {
 
         <div className={styles.controlForm}>
           <div className={styles.toggleRow}>
-            <button type="button" className={chatConfig.enabled ? styles.toggleOn : styles.toggleOff} onClick={() => setChatConfig((v) => ({ ...v, enabled: !v.enabled }))}>
-              <i /> Chat {chatConfig.enabled ? "aktif" : "kapalı"}
+            <button type="button" className={styles.toggleOn} disabled title="Public sitede daima aktif">
+              <i /> Chat daima aktif
             </button>
             <button type="button" className={chatConfig.isOnline ? styles.toggleOn : styles.toggleOff} onClick={() => setChatConfig((v) => ({ ...v, isOnline: !v.isOnline }))}>
               <i /> {chatConfig.isOnline ? "Çevrimiçi" : "Mesaj modu"}
