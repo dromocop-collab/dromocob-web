@@ -473,11 +473,11 @@ export default function AppFooter() {
   const brandTagline = localeText(
     loc,
     cfg?.brand?.tagline,
-    "Sertifikalı ürün • Güvenli ödeme • Hızlı kargo",
-    "Certified products • Secure payment • Fast shipping"
+    "Cihat Erdem tarafından kurulan dijital deneyim stüdyosu",
+    "Digital experience studio founded by Cihat Erdem"
   );
 
-  const logoUrl = safeStr(cfg?.brand?.logoUrl);
+  const logoUrl = safeStr(cfg?.brand?.logoUrl) || "/dromocob-app-icon-192.png";
   const logoLink = safeUrl(cfg?.brand?.logoLink || "/");
 
   // Firestore'dan geliyorsa onu kullan, yoksa hardcoded fallback
@@ -601,7 +601,7 @@ export default function AppFooter() {
                 <img className={f.logo} src={logoUrl} alt={brandTitle} />
               ) : (
                 <div className={f.brandMark} aria-hidden="true">
-                  6
+                  D
                 </div>
               )}
 

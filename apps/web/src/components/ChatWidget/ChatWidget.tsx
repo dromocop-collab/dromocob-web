@@ -894,7 +894,10 @@ email: isAnonymousUser
   aria-label={loc === "en" ? "Open support chat" : "Canlı desteği aç"}
 >
   <span className={styles.bubbleAura} aria-hidden="true" />
-  <span className={styles.bubbleIcon} aria-hidden="true" />
+  <span className={styles.bubbleIcon} aria-hidden="true">
+    {/* eslint-disable-next-line @next/next/no-img-element */}
+    <img src="/dromocob-app-icon-192.png" alt="" />
+  </span>
   <span className={styles.bubbleCopy} aria-hidden="true">
     <b>Canlı stüdyo</b>
     <small>Birlikte tasarlayalım</small>
@@ -916,7 +919,10 @@ email: isAnonymousUser
 >
           <div className={styles.panelTop}>
             <div className={styles.panelIdentity}>
-              <span className={styles.panelBrandMark}>D</span>
+              <span className={styles.panelBrandMark}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/dromocob-app-icon-192.png" alt="" />
+              </span>
               <div>
                 <div className={styles.panelTitle}>{title}</div>
                 <div className={styles.panelSub}>{subtitle}</div>

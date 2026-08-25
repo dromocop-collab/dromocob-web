@@ -104,11 +104,12 @@ export async function generateMetadata(): Promise<Metadata> {
 
     icons: {
       icon: [
-        { url: "/dromocob-mark.svg", type: "image/svg+xml", sizes: "any" },
+        { url: "/dromocob-favicon-64.png", type: "image/png", sizes: "64x64" },
+        { url: "/dromocob-app-icon-192.png", type: "image/png", sizes: "192x192" },
       ],
-      shortcut: "/dromocob-mark.svg",
+      shortcut: "/dromocob-favicon-64.png",
       apple: [
-        { url: "/dromocob-mark.svg", type: "image/svg+xml", sizes: "any" },
+        { url: "/dromocob-app-icon-512.png", type: "image/png", sizes: "512x512" },
       ],
     },
   };
@@ -145,13 +146,17 @@ export default async function RootLayout({
         "@context": "https://schema.org",
         "@type": "Organization",
         name: seo.jsonld.organizationName || "Dromocob",
-        alternateName: (seo.meta.brandAliases || "")
-          .split(",")
-          .map((x) => x.trim())
-          .filter(Boolean),
+        alternateName: Array.from(new Set([
+          ...(seo.meta.brandAliases || "").split(",").map((x) => x.trim()).filter(Boolean),
+          "Cihat Erdem Digital Studio",
+          "cihaterdem.com",
+        ])),
         url: baseUrl || undefined,
-        logo: seo.jsonld.organizationLogo || undefined,
-        sameAs: Array.isArray(seo.jsonld.sameAs) ? seo.jsonld.sameAs : [],
+        logo: seo.jsonld.organizationLogo || (baseUrl ? `${baseUrl}/dromocob-app-icon-512.png` : undefined),
+        sameAs: Array.from(new Set([
+          ...(Array.isArray(seo.jsonld.sameAs) ? seo.jsonld.sameAs : []),
+          "https://cihaterdem.com",
+        ])),
         contactPoint: seo.jsonld.phone
           ? [
             {
@@ -164,6 +169,11 @@ export default async function RootLayout({
           ]
           : undefined,
         email: seo.jsonld.email || undefined,
+        founder: {
+          "@type": "Person",
+          name: "Cihat Erdem",
+          url: "https://cihaterdem.com",
+        },
         address:
           seo.jsonld.addressLocality || seo.jsonld.addressCountry
             ? {
@@ -293,10 +303,11 @@ export default async function RootLayout({
                 "@context": "https://schema.org",
                 "@type": "WebSite",
                 name: seo.jsonld.organizationName || "Dromocob",
-                alternateName: (seo.meta.brandAliases || "")
-                  .split(",")
-                  .map((x) => x.trim())
-                  .filter(Boolean),
+                alternateName: Array.from(new Set([
+                  ...(seo.meta.brandAliases || "").split(",").map((x) => x.trim()).filter(Boolean),
+                  "Cihat Erdem Digital Studio",
+                  "cihaterdem.com",
+                ])),
                 url: baseUrl,
                 potentialAction: {
                   "@type": "SearchAction",
@@ -319,10 +330,15 @@ export default async function RootLayout({
                 "@context": "https://schema.org",
                 "@type": "ProfessionalService",
                 name: "Dromocob Digital Experience Studio",
-                image: seo.jsonld.organizationLogo || undefined,
+                image: seo.jsonld.organizationLogo || (baseUrl ? `${baseUrl}/dromocob-app-icon-512.png` : undefined),
                 url: baseUrl || undefined,
                 telephone: seo.jsonld.phone || "+90 530 478 82 98",
                 email: seo.jsonld.email || "info@dromocob.tr",
+                founder: {
+                  "@type": "Person",
+                  name: "Cihat Erdem",
+                  url: "https://cihaterdem.com",
+                },
                 priceRange: seo.jsonld.priceRange || "₺₺",
                 address: {
                   "@type": "PostalAddress",

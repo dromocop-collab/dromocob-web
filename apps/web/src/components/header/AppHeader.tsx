@@ -696,10 +696,10 @@ useEffect(() => {
 
   const L = (x: LocaleText) => (loc === "en" ? x.en : x.tr);
 
-  const brandLogoUrl = seg(brand?.logoUrl);
+  const brandLogoUrl = seg(brand?.logoUrl) || "/dromocob-app-icon-192.png";
   const brandLink = safeUrl(brand?.logoLink || "/");
   const brandTitle = pickLocaleText(brand?.title, "Dromocob", "Dromocob");
-  const brandMark = seg(hdr?.brand?.markText || "6");
+  const brandMark = seg(hdr?.brand?.markText || "D");
 
   function closeAll() {
     setMenuOpen(false);

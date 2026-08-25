@@ -73,10 +73,10 @@ const DEFAULTS: SeoSettings = {
     twitterHandle: "",
     themeColor: "#0b0b0b",
     defaultKeywords: "web tasarım, kurumsal web sitesi, e-ticaret sitesi, SEO uyumlu web sitesi, İstanbul web tasarım ajansı",
-    author: "Dromocob",
+    author: "Cihat Erdem",
     publisher: "Dromocob",
     appName: "Dromocob",
-    brandAliases: "Dromocob, Dromocob Studio",
+    brandAliases: "Dromocob, Dromocob Studio, Cihat Erdem Digital Studio, cihaterdem.com",
   },
   google: {
     searchConsoleVerification: "",

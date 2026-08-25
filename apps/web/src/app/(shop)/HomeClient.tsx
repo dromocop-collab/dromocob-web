@@ -11,6 +11,7 @@ import {
 import ProjectStartButton from "@/components/studio/ProjectStartButton";
 import { sectors, studioTemplates } from "@/data/studioCatalog";
 import styles from "./HomeClient.module.css";
+import cardStyles from "./HomeClientCards.module.css";
 
 const iconBySector = {
   "rent-a-car-web-sitesi": CarFront,
@@ -84,20 +85,22 @@ export default function HomeClient() {
         <nav className={styles.chips} aria-label="Tasarım kategorileri"><button className={category === "all" ? styles.active : ""} onClick={() => setCategory("all")}>Tümü</button>{sectors.map((sector) => <button key={sector.slug} className={category === sector.slug ? styles.active : ""} onClick={() => setCategory(sector.slug)}>{sector.shortName}</button>)}</nav>
         {results.length ? (
           <div className={styles.grid}>
-            {results.map((item) => (
-              <article key={item.id} className={styles.card} style={{ "--accent": item.accent } as React.CSSProperties}>
-                <Link href={`/demo/${item.slug}`} className={styles.mock} aria-label={`${item.name} canlı demosunu aç`}>
+            {results.map((item, index) => (
+              <article key={item.id} className={`${styles.card} ${cardStyles.card}`} style={{ "--accent": item.accent } as React.CSSProperties}>
+                <Link href={`/demo/${item.slug}`} className={`${styles.mock} ${cardStyles.mock}`} aria-label={`${item.name} sitesini incele`}>
                   <Image src={item.image} alt={`${item.name} web sitesi küçük resmi`} fill sizes="(max-width: 640px) 100vw, (max-width: 980px) 50vw, 33vw" />
-                  <span className={styles.mockShade} />
-                  <span className={styles.mockBadge}>{item.category}</span>
+                  <span className={`${styles.mockShade} ${cardStyles.mockShade}`} />
+                  <span className={cardStyles.cardNumber}>{String(index + 1).padStart(2, "0")}</span>
+                  <span className={`${styles.mockBadge} ${cardStyles.mockBadge}`}><i /> {item.category}</span>
                   <strong>{item.name}</strong>
-                  <span className={styles.previewCta}>Canlı önizleme <ArrowRight /></span>
+                  <span className={`${styles.previewCta} ${cardStyles.previewCta}`}><span>Siteyi incele</span><i><ArrowRight /></i></span>
                 </Link>
-                <div className={styles.info}>
-                  <div className={styles.meta}><span>{item.category}</span><span>{item.style}</span></div>
+                <div className={`${styles.info} ${cardStyles.info}`}>
+                  <div className={`${styles.meta} ${cardStyles.meta}`}><span>{item.category}</span><span>{item.style}</span></div>
                   <h3>{item.name}</h3>
-                  <div className={styles.tags}>{item.features.map((feature) => <small key={feature}><Check />{feature}</small>)}</div>
-                  <footer><div><small>Başlangıç</small><b>{money.format(item.price)} TL</b></div><Link href={`/demo/${item.slug}`}>Canlı demoyu aç <ArrowRight /></Link></footer>
+                  <p className={cardStyles.cardSummary}>{sectors.find((sector) => sector.slug === item.sector)?.summary}</p>
+                  <div className={`${styles.tags} ${cardStyles.tags}`}>{item.features.map((feature) => <small key={feature}><Check />{feature}</small>)}</div>
+                  <footer className={cardStyles.footer}><div><small>Proje başlangıç bütçesi</small><b>{money.format(item.price)} TL</b></div><Link href={`/demo/${item.slug}`} aria-label={`${item.name} sitesini incele`}><span>Siteyi incele</span><i><ArrowRight /></i></Link></footer>
                 </div>
               </article>
             ))}

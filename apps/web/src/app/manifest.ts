@@ -2,31 +2,31 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Dromocob — tasarım ürünleri",
+    name: "Dromocob — Dijital Deneyim Stüdyosu",
     short_name: "Dromocob",
     description:
-      "kalite kontrollü ürün, özel ürün ve aksesuar. Güvenli online alışveriş.",
+      "Cihat Erdem tarafından kurulan; web tasarım, e-ticaret ve dijital ürün stüdyosu.",
     start_url: "/",
     display: "standalone",
     background_color: "#faf9f6",
     theme_color: "#1a1a2e",
     orientation: "portrait-primary",
-    categories: ["shopping", "lifestyle"],
+    categories: ["business", "design", "productivity"],
     icons: [
       {
-        src: "/dromocob-mark.svg",
-        sizes: "any",
-        type: "image/svg+xml",
+        src: "/dromocob-app-icon-192.png",
+        sizes: "192x192",
+        type: "image/png",
       },
       {
-        src: "/dromocob-mark.svg",
-        sizes: "any",
-        type: "image/svg+xml",
+        src: "/dromocob-app-icon-512.png",
+        sizes: "512x512",
+        type: "image/png",
       },
       {
-        src: "/dromocob-mark.svg",
-        sizes: "any",
-        type: "image/svg+xml",
+        src: "/dromocob-app-icon-512.png",
+        sizes: "512x512",
+        type: "image/png",
         purpose: "maskable",
       },
     ],

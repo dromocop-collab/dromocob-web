@@ -53,6 +53,7 @@ export default function HeaderBrand({
   const logo = safeText(brandLogoUrl);
 
   const showLogo = !!logo && !logoBroken;
+  const isStudioLogo = logo === "/dromocob-app-icon-192.png";
 
   return (
     <div className={styles.wrap}>
@@ -83,6 +84,12 @@ export default function HeaderBrand({
             {mark}
           </div>
         )}
+        {showLogo && isStudioLogo ? (
+          <span className={styles.brandWord}>
+            <b>DROMOCOB</b>
+            <small>CIHAT ERDEM STUDIO</small>
+          </span>
+        ) : null}
       </Link>
     </div>
   );

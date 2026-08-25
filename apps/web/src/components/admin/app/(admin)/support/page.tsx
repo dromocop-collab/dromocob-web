@@ -64,22 +64,22 @@ const QUICK_REPLIES: QuickReply[] = [
   {
     id: "qr_1",
     label: "Hoş geldiniz",
-    text: "Merhaba, hoş geldiniz. Size nasıl yardımcı olabilirim?",
+    text: "Merhaba, Dromocob Canlı Stüdyo'ya hoş geldiniz. Sektörünüzü ve hedefinizi paylaşırsanız size en doğru deneyimi önerebilirim.",
   },
   {
     id: "qr_2",
-    label: "Ürün bilgisi",
-    text: "Merhaba, ürünle ilgili detaylı bilgi verebilirim. Hangi model için bilgi istersiniz?",
+    label: "İhtiyaç analizi",
+    text: "Projenizi doğru planlamak için mevcut sitenizi, hedef kitlenizi ve ihtiyaç duyduğunuz temel özellikleri paylaşabilir misiniz?",
   },
   {
     id: "qr_3",
-    label: "Fiyat bilgisi",
-    text: "Merhaba, güncel fiyat bilgisi ürün gramı ve kura göre değişebilir. İlgilendiğiniz modeli paylaşabilir misiniz?",
+    label: "Bütçe ve takvim",
+    text: "Bütçe ve teslim süresi; sayfa sayısı, özel tasarım seviyesi ve entegrasyonlara göre netleşiyor. Hedef bütçenizi ve yayın tarihini paylaşabilirsiniz.",
   },
   {
     id: "qr_4",
-    label: "Stok kontrol",
-    text: "Merhaba, sizin için stok durumunu kontrol ediyorum. Kısa süre içinde net bilgi paylaşacağım.",
+    label: "Demo yönlendirme",
+    text: "Sektörünüze en yakın canlı site deneyimini seçiyorum. Beğendiğiniz tasarımın adını da yazarsanız onun üzerinden ilerleyebiliriz.",
   },
   {
     id: "qr_5",
@@ -426,7 +426,7 @@ function AdminSupportPageInner() {
           <div className={styles.identityStrip}>
             <span><small>Telefon</small><b>0530 478 82 98</b></span>
             <span><small>E-posta</small><b>info@dromocob.tr</b></span>
-            <span><small>Web</small><b>dromocob.tr</b></span>
+            <span><small>Marka alanları</small><b>dromocob.tr · cihaterdem.com</b></span>
           </div>
         </div>
 

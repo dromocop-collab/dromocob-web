@@ -1900,3 +1900,119 @@
 }
 .orderPickerHead b { color: #edf2ff; }
 .orderPickerHead span, .orderEmpty { color: #93a3c8; }
+
+/* Brand asset + final mobile viewport contract. Keep this last so old theme
+   compatibility patches cannot push the composer behind the launcher. */
+.bubbleIcon,
+.panelBrandMark {
+  overflow: hidden;
+  padding: 0;
+  background: #0b1424;
+}
+
+.bubbleIcon::before,
+.bubbleIcon::after {
+  display: none !important;
+}
+
+.bubbleIcon img,
+.panelBrandMark img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .panel {
+    position: fixed !important;
+    top: max(10px, env(safe-area-inset-top)) !important;
+    right: 10px !important;
+    bottom: max(82px, calc(env(safe-area-inset-bottom) + 76px)) !important;
+    left: 10px !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: none !important;
+    max-height: none !important;
+    display: grid !important;
+    grid-template-rows: auto minmax(0, 1fr) !important;
+    overflow: hidden !important;
+    border-radius: 22px !important;
+  }
+
+  .panelTop {
+    min-height: 70px !important;
+    padding: 12px 14px !important;
+  }
+
+  .panelTitle {
+    font-size: 17px !important;
+  }
+
+  .panelSub {
+    font-size: 11px !important;
+  }
+
+  .chatShell {
+    min-height: 0 !important;
+    height: auto !important;
+    display: grid !important;
+    grid-template-rows: minmax(74px, 1fr) minmax(0, auto) !important;
+    overflow: hidden !important;
+  }
+
+  .msgList {
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow-y: auto !important;
+  }
+
+  .composer {
+    min-height: 0 !important;
+    max-height: min(56dvh, 490px) !important;
+    overflow-y: auto !important;
+    padding-bottom: max(12px, env(safe-area-inset-bottom)) !important;
+  }
+
+  .grid2 {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .form,
+  .welcome,
+  .welcomeBubble {
+    margin-bottom: 8px !important;
+  }
+
+  .field input {
+    min-height: 40px !important;
+  }
+
+  .field textarea {
+    min-height: 64px !important;
+    max-height: 82px !important;
+  }
+
+  .sendBtn {
+    min-height: 42px !important;
+  }
+}
+
+@media (max-width: 380px), (max-height: 720px) {
+  .grid2 {
+    gap: 7px !important;
+  }
+
+  .form {
+    padding: 9px !important;
+  }
+
+  .welcomeBubble {
+    font-size: 12px !important;
+    line-height: 1.34 !important;
+  }
+
+  .composer {
+    max-height: min(60dvh, 460px) !important;
+  }
+}
