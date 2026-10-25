@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tez Reklam — Jandarma Kıyafet Teferruatı & YDS Ana Bayi</title>
+<meta name="description" content="2002'den beri Jandarma Genel Komutanlığı yönergelerine uygun rütbe, bröve, apolet, metal rozet ve YDS taktik ürünleri. Ankara.">
+<link rel="icon" href="assets/cropped-Tez-Reklam-Logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d0e0b;
+  --bg-2:#141611;
+  --surface:#1a1c17;
+  --line:rgba(236,233,225,.10);
+  --line-2:rgba(236,233,225,.18);
+  --text:#ece9e1;
+  --muted:#a3a59a;
+  --dim:#6f7168;
+  --red:#e3262d;
+  --red-ink:#ff4a50;
+  --brass:#c9a45c;
+  --paper:#f1efe9;
+  --paper-ink:#1a1c17;
+  --wa:#25d366;
+  --radius:14px;
+  --max:1240px;
+  --display:"Barlow Condensed",system-ui,sans-serif;
+  --body:"Barlow",system-ui,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:var(--red);color:#fff}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--brass)}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--red)}
+h1,h2,h3{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.01em;line-height:.95}
+h2{font-size:clamp(40px,5.4vw,72px)}
+h3{font-size:26px;line-height:1.05}
+.lead{color:var(--muted);font-size:19px;max-width:56ch}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 24px;border-radius:999px;font:600 16px/1 var(--body);transition:transform .2s cubic-bezier(.2,.8,.2,1),background .2s,border-color .2s}
+.btn:active{transform:scale(.97)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-wa{background:var(--wa);color:#06230f}
+.btn-wa:hover{background:#3be07a}
+.btn-ghost{border:1px solid var(--line-2)}
+.btn-ghost:hover{border-color:var(--text)}
+
+/* header */
+.hdr{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,border-color .3s;border-bottom:1px solid transparent}
+.hdr.scrolled{background:rgba(13,14,11,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:76px;gap:24px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:44px;height:44px;border-radius:50%}
+.brand b{font:700 22px/1 var(--display);text-transform:uppercase;letter-spacing:.04em}
+.brand small{display:block;font:500 11px/1.2 var(--mono);color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:3px}
+.nav{display:flex;gap:30px;font-weight:500;font-size:15px;color:var(--muted)}
+.nav a{transition:color .2s}
+.nav a:hover{color:var(--text)}
+.hdr .btn{height:44px;padding:0 18px;font-size:15px}
+.burger{display:none;width:44px;height:44px;border:1px solid var(--line-2);border-radius:50%;align-items:center;justify-content:center}
+.burger span{display:block;width:16px;height:2px;background:var(--text);box-shadow:0 5px 0 var(--text),0 -5px 0 var(--text)}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;padding:140px 0 56px;overflow:hidden;isolation:isolate}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:70% 30%;filter:grayscale(.3) contrast(1.05);transform:scale(1.06);animation:heroZoom 14s ease-out forwards}
+@keyframes heroZoom{to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:
+  linear-gradient(90deg,rgba(13,14,11,.96) 0%,rgba(13,14,11,.82) 38%,rgba(13,14,11,.25) 75%,rgba(13,14,11,.5) 100%),
+  linear-gradient(0deg,var(--bg) 0%,rgba(13,14,11,0) 40%)}
+.hero .wrap{width:100%}
+.hero h1{font-size:clamp(52px,7.4vw,112px);margin:22px 0 26px}
+.hero h1 em{font-style:normal;color:var(--red)}
+.hero .lead{margin-bottom:36px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px}
+.hero-meta{display:grid;grid-template-columns:repeat(4,1fr);margin-top:72px;border-top:1px solid var(--line-2)}
+.hero-meta div{padding:22px 24px 0 0}
+.hero-meta strong{display:block;font:700 40px/1 var(--display);margin-bottom:6px}
+.hero-meta span{color:var(--muted);font-size:15px}
+
+/* brand strip */
+.strip{border-block:1px solid var(--line);background:var(--bg-2);overflow:hidden}
+.marquee{display:flex;width:max-content;animation:scroll 34s linear infinite}
+.strip:hover .marquee{animation-play-state:paused}
+.marquee ul{display:flex;align-items:center;list-style:none}
+.marquee li{display:flex;align-items:center;gap:14px;padding:26px 44px;font:700 26px/1 var(--display);text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.marquee li::after{content:"✦";color:var(--red);font-size:14px;margin-left:44px}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+section{padding:130px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:56px}
+.sec-head .lead{max-width:44ch}
+
+/* categories bento */
+.bento{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:240px;gap:16px}
+.tile{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--paper);color:var(--paper-ink);display:flex;flex-direction:column;justify-content:flex-end;padding:26px;isolation:isolate}
+.tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;padding:28px 28px 92px;z-index:-1;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.tile:hover img{transform:scale(1.04)}
+.tile .code{position:absolute;top:22px;left:26px;color:#7a7c72}
+.tile .arrow{position:absolute;top:18px;right:18px;width:42px;height:42px;border-radius:50%;background:var(--paper-ink);color:var(--paper);display:grid;place-items:center;transition:transform .3s,background .3s}
+.tile:hover .arrow{background:var(--red);transform:rotate(-45deg)}
+.tile p{color:#5a5c53;font-size:15px;margin-top:6px}
+.tile.dark{background:var(--surface);color:var(--text)}
+.tile.dark p{color:var(--muted)}
+.tile.dark.t2::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(13,14,11,.96) 18%,rgba(13,14,11,.2) 70%)}
+.tile.dark .arrow{background:var(--text);color:var(--bg)}
+.tile.photo img{object-fit:cover;padding:0}
+.tile.photo::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(13,14,11,.92),rgba(13,14,11,0) 60%)}
+.tile.photo{color:var(--text)}
+.tile.photo p{color:#cfccc3}
+.t1{grid-column:span 7;grid-row:span 2}
+.t2{grid-column:span 5;grid-row:span 2}
+.t3,.t4,.t5{grid-column:span 4}
+.t3 img,.t4 img{left:auto;width:52%;padding:22px 22px 22px 0;object-position:right center}
+.t3 h3,.t4 h3,.t3 p,.t4 p{max-width:50%}
+
+/* YDS feature */
+.yds{position:relative;background:var(--bg-2);border-block:1px solid var(--line)}
+.yds-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:center}
+.yds-media{position:relative;border-radius:var(--radius);overflow:hidden;aspect-ratio:4/3.3}
+.yds-media img{width:100%;height:100%;object-fit:cover;object-position:28% 50%}
+.yds-badge{position:absolute;left:20px;bottom:20px;display:flex;align-items:center;gap:12px;background:rgba(13,14,11,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:10px 16px 10px 10px;border-radius:999px;border:1px solid var(--line-2)}
+.yds-badge img{height:30px;border-radius:6px}
+.yds h2 em{font-style:normal;color:#f5a623}
+.yds .lead{margin:24px 0 34px}
+.feats{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-bottom:34px}
+.feats li{background:var(--bg-2);padding:20px}
+.feats b{display:block;font:700 20px/1.1 var(--display);text-transform:uppercase;margin-bottom:4px}
+.feats span{color:var(--muted);font-size:15px}
+.boots{margin-top:80px;background:var(--paper);border-radius:var(--radius);padding:40px}
+.boots img{width:100%}
+.boots figcaption{display:flex;justify-content:space-between;color:#5a5c53;margin-top:18px;font-size:15px;gap:16px;flex-wrap:wrap}
+
+/* TPU */
+.tpu-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:start}
+.tpu-sticky{position:sticky;top:120px}
+.tpu-list{counter-reset:n;list-style:none;margin-top:40px;border-top:1px solid var(--line-2)}
+.tpu-list li{counter-increment:n;display:grid;grid-template-columns:56px 1fr;padding:24px 0;border-bottom:1px solid var(--line-2)}
+.tpu-list li::before{content:"0" counter(n);font:500 13px/1.9 var(--mono);color:var(--red-ink)}
+.tpu-list b{display:block;font:700 24px/1.1 var(--display);text-transform:uppercase;margin-bottom:4px}
+.tpu-list span{color:var(--muted)}
+.tpu-media{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tpu-media figure{border-radius:var(--radius);overflow:hidden;background:#0a0a0a;border:1px solid var(--line)}
+.tpu-media figure.paper{background:var(--paper)}
+.tpu-media figure.wide{grid-column:span 2}
+.tpu-media img{width:100%;height:100%;object-fit:cover}
+.tpu-media figure.paper img{object-fit:contain;padding:18px}
+.tpu-media figure.white{background:#fff}
+
+/* catalog */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+.tab{height:42px;padding:0 18px;border-radius:999px;border:1px solid var(--line-2);color:var(--muted);font-weight:500;font-size:15px;transition:all .2s}
+.tab:hover{color:var(--text);border-color:var(--text)}
+.tab[aria-selected="true"]{background:var(--text);color:var(--bg);border-color:var(--text)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;cursor:zoom-in;transition:border-color .25s,transform .35s cubic-bezier(.2,.8,.2,1)}
+.card:hover{border-color:var(--line-2);transform:translateY(-4px)}
+.card .ph{aspect-ratio:1;background:var(--paper);display:grid;place-items:center;overflow:hidden}
+.card .ph img{width:100%;height:100%;object-fit:contain;padding:14px;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.card:hover .ph img{transform:scale(1.05)}
+.card .meta{padding:16px 18px 18px}
+.card .meta b{display:block;font:700 19px/1.15 var(--display);text-transform:uppercase}
+.card .meta span{color:var(--dim);font-size:12px}
+.card[hidden]{display:none}
+
+/* compliance */
+.comply{background:var(--paper);color:var(--paper-ink)}
+.comply .eyebrow{color:#8b6a2b}
+.comply .lead{color:#55574e}
+.comply-grid{display:grid;grid-template-columns:repeat(5,1fr);border-top:2px solid var(--paper-ink)}
+.comply-grid div{padding:28px 22px 8px 0;border-right:1px solid rgba(26,28,23,.14)}
+.comply-grid div:last-child{border-right:0}
+.comply-grid div+div{padding-left:22px}
+.comply-grid .mono{color:var(--red)}
+.comply-grid b{display:block;font:700 24px/1.05 var(--display);text-transform:uppercase;margin:14px 0 8px}
+.comply-grid p{font-size:15px;color:#55574e}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px}
+.about blockquote{font:600 clamp(28px,3.2vw,40px)/1.15 var(--display);text-transform:uppercase}
+.about blockquote em{font-style:normal;color:var(--brass)}
+.about p{color:var(--muted);margin-bottom:18px}
+.dealers{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.dealers span{padding:8px 14px;border:1px solid var(--line-2);border-radius:999px;font-size:14px}
+.dealers span.main{border-color:#f5a623;color:#f5a623}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+.step .num{font:800 64px/1 var(--display);color:transparent;-webkit-text-stroke:1px var(--line-2)}
+.step b{display:block;font:700 26px/1.05 var(--display);text-transform:uppercase;margin:28px 0 10px}
+.step p{color:var(--muted)}
+
+/* contact */
+.contact{padding-bottom:60px}
+.contact-card{display:grid;grid-template-columns:1.1fr .9fr;border-radius:22px;overflow:hidden;border:1px solid var(--line-2)}
+.contact-l{padding:56px;background:linear-gradient(160deg,#1c1e18,#121410)}
+.contact-l h2{margin:18px 0 22px}
+.lines{list-style:none;margin:36px 0;display:grid;gap:2px}
+.lines a,.lines div{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;border-bottom:1px solid var(--line)}
+.lines a:hover b{color:var(--red-ink)}
+.lines .mono{color:var(--dim)}
+.lines b{font:600 22px/1.2 var(--display);letter-spacing:.02em;transition:color .2s;text-align:right}
+.contact-r{position:relative;min-height:440px;background:#222}
+.contact-r iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(1) invert(.92) contrast(.9)}
+
+/* footer */
+footer{border-top:1px solid var(--line);padding:40px 0 48px;color:var(--dim);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+/* floating wa */
+.fab{position:fixed;right:22px;bottom:22px;z-index:60;width:60px;height:60px;border-radius:50%;background:var(--wa);display:grid;place-items:center;box-shadow:0 10px 30px rgba(37,211,102,.35);transition:transform .2s}
+.fab:hover{transform:scale(1.07)}
+.fab svg{width:30px;height:30px;color:#06230f}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:80;background:rgba(8,9,7,.92);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:28px;flex-direction:column;gap:16px}
+.lb.open{display:flex;animation:fade .2s ease-out}
+.lb img{max-height:80vh;max-width:min(1000px,100%);border-radius:12px;background:var(--paper)}
+.lb p{font:700 22px/1 var(--display);text-transform:uppercase}
+.lb button{position:absolute;top:20px;right:20px;width:48px;height:48px;border-radius:50%;border:1px solid var(--line-2);font-size:22px}
+@keyframes fade{from{opacity:0}}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+}
+
+/* responsive */
+@media (max-width:1024px){
+  .nav{display:none}
+  .burger{display:inline-flex}
+  .hdr .btn{display:none}
+  .nav.open{display:flex;position:absolute;top:76px;left:0;right:0;flex-direction:column;gap:0;background:rgba(13,14,11,.97);border-bottom:1px solid var(--line);padding:8px 28px 20px}
+  .nav.open a{padding:14px 0;border-bottom:1px solid var(--line);font-size:18px;color:var(--text)}
+  .yds-grid,.tpu-grid,.about-grid,.contact-card{grid-template-columns:1fr;gap:48px}
+  .tpu-sticky{position:static}
+  .grid{grid-template-columns:repeat(3,1fr)}
+  .comply-grid{grid-template-columns:1fr 1fr}
+  .comply-grid div,.comply-grid div+div{padding:24px 16px 20px 0;border-right:0;border-bottom:1px solid rgba(26,28,23,.14)}
+  .t1,.t2{grid-column:span 12}
+  .t3,.t4,.t5{grid-column:span 6}
+  .t5{grid-column:span 12}
+}
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  section{padding:88px 0}
+  .hero{padding-top:120px}
+  .hero::after{background:linear-gradient(0deg,var(--bg) 8%,rgba(13,14,11,.72) 60%,rgba(13,14,11,.55) 100%)}
+  .hero-meta{grid-template-columns:1fr 1fr;margin-top:48px}
+  .hero-meta strong{font-size:32px}
+  .hero-ctas .btn{flex:1 1 100%;justify-content:center}
+  .sec-head{flex-direction:column;align-items:start;gap:18px;margin-bottom:36px}
+  .bento{grid-auto-rows:220px}
+  .t3,.t4,.t5{grid-column:span 12}
+  .t3 img,.t4 img{width:46%}
+  .t3 h3,.t4 h3,.t3 p,.t4 p{max-width:54%}
+  .grid{grid-template-columns:1fr 1fr;gap:10px}
+  .card .meta{padding:12px}
+  .card .meta b{font-size:16px}
+  .feats{grid-template-columns:1fr}
+  .boots{padding:18px;margin-top:48px}
+  .steps{grid-template-columns:1fr}
+  .comply-grid{grid-template-columns:1fr}
+  .contact-l{padding:32px 20px}
+  .lines b{font-size:19px}
+  .contact-r{min-height:320px}
+  .brand small{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hdr" id="hdr">
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="Tez Reklam ana sayfa">
+      <img src="assets/cropped-Tez-Reklam-Logo.png" alt="">
+      <div><b>Tez Reklam</b><small>Ankara · 2002'den beri</small></div>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#urunler">Ürünler</a>
+      <a href="#yds">YDS Bot & Tekstil</a>
+      <a href="#tpu">TPU Teferruat</a>
+      <a href="#katalog">Katalog</a>
+      <a href="#hakkimizda">Hakkımızda</a>
+      <a href="#iletisim">İletişim</a>
+    </nav>
+    <a class="btn btn-wa" href="https://wa.me/905318405590?text=Merhaba%2C%20%C3%BCr%C3%BCnleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.6-4.1-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.2 1.3Z"/></svg>
+      WhatsApp Sipariş
+    </a>
+    <button class="burger" id="burger" aria-label="Menüyü aç" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-bg"><img src="assets/cropped-Tactical-Gears.png" alt=""></div>
+    <div class="wrap">
+      <span class="eyebrow mono rv">Jandarma Kıyafet Teferruatı · YDS Türkiye Ana Bayi</span>
+      <h1 class="rv">Yönergeye uygun.<br><em>Yıllarca</em> dayanır.</h1>
+      <p class="lead rv">Rütbe, apolet, bröve, metal rozet ve taktik ekipman. 2002'den beri Jandarma Genel Komutanlığı yönergelerine uygun üretim ve satış, Ankara'dan tüm Türkiye'ye.</p>
+      <div class="hero-ctas rv">
+        <a class="btn btn-wa" href="https://wa.me/905318405590?text=Merhaba%2C%20sipari%C5%9F%20vermek%20istiyorum." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.6-4.1-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.2 1.3Z"/></svg>
+          WhatsApp'tan sipariş ver
+        </a>
+        <a class="btn btn-ghost" href="#katalog">Kataloğu incele →</a>
+      </div>
+      <div class="hero-meta rv">
+        <div><strong>2002</strong><span>yılından beri sektörde</span></div>
+        <div><strong>YDS</strong><span>Türkiye Ana Bayisi</span></div>
+        <div><strong>%100</strong><span>TPU rütbe ve işaretler</span></div>
+        <div><strong>7</strong><span>marka bayiliği</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip" aria-label="Bayiliklerimiz">
+    <div class="marquee">
+      <ul><li>YDS</li><li>Armatechs</li><li>Ersav</li><li>Armaret</li><li>Güçtav</li><li>Cengiz Pakel</li><li>Halmak</li></ul>
+      <ul aria-hidden="true"><li>YDS</li><li>Armatechs</li><li>Ersav</li><li>Armaret</li><li>Güçtav</li><li>Cengiz Pakel</li><li>Halmak</li></ul>
+    </div>
+  </div>
+
+  <section id="urunler">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow mono rv">Ürün Grupları</span>
+          <h2 class="rv" style="margin-top:18px">İhtiyacın olan<br>her teferruat</h2>
+        </div>
+        <p class="lead rv">Asayiş ve eğitim kıyafetinin rütbesinden brövesine, botundan anı ürününe kadar tek adresten.</p>
+      </div>
+      <div class="bento">
+        <a href="#yds" class="tile photo t1 rv">
+          <img src="assets/110-1024x384.jpg" alt="YDS Gore-Tex taktik bot" style="object-position:22% 50%">
+          <span class="code mono" style="color:#cfccc3">TZ—01</span>
+          <span class="arrow">→</span>
+          <h3>YDS Bot ve Tekstil</h3>
+          <p>Gore-Tex botlar, taktik gömlek ve kıyafetler</p>
+        </a>
+        <a href="#tpu" class="tile dark t2 rv">
+          <img src="assets/karargah-yelek-rutbe.jpg" alt="Karargah yelek rütbeleri" style="object-fit:cover;padding:0;opacity:.55">
+          <span class="code mono">TZ—02</span>
+          <span class="arrow">→</span>
+          <h3>Asayiş Kıyafeti Teferruatı</h3>
+          <p>%100 TPU rütbe, işaret, apolet ve ispolet</p>
+        </a>
+        <a href="#katalog" class="tile t3 rv" data-goto="egitim">
+          <img src="assets/IMG-20240110-WA0039.jpg" alt="Eğitim bröve">
+          <span class="code mono">TZ—03</span>
+          <span class="arrow">→</span>
+          <h3>Eğitim Teferruatı</h3>
+          <p>Parlama yapmayan TPU bröveler</p>
+        </a>
+        <a href="#katalog" class="tile t4 rv" data-goto="metal">
+          <img src="assets/jandarma-komando-brovesi-1-scaled-1.jpg" alt="Komando bröve">
+          <span class="code mono">TZ—04</span>
+          <span class="arrow">→</span>
+          <h3>Metal Ürünler</h3>
+          <p>Güçtav imalatı bröve ve rozetler</p>
+        </a>
+        <a href="#iletisim" class="tile dark t5 rv">
+          <span class="code mono">TZ—05</span>
+          <span class="arrow">→</span>
+          <h3>Anı Ürünleri & Özel Üretim</h3>
+          <p>Birlikler için hatıra ve özel tasarım ürünler. Fikrinizi yazın, birlikte üretelim.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="yds" class="yds">
+    <div class="wrap">
+      <div class="yds-grid">
+        <div class="yds-media rv">
+          <img src="assets/110-1024x384.jpg" alt="YDS Gore-Tex botlar arazide">
+          <div class="yds-badge"><img src="assets/logo.png" alt="YDS"><span class="mono">Türkiye Ana Bayi</span></div>
+        </div>
+        <div>
+          <span class="eyebrow mono rv">Yakupoğlu Tekstil ve Deri · YDS</span>
+          <h2 class="rv" style="margin-top:18px">Arazide test edilmiş <em>YDS</em> kalitesi</h2>
+          <p class="lead rv">Türkiye'de ve yurtdışında yıllardır tercih edilen YDS askeri bot ve taktik ürünlerinin Türkiye Ana Bayisi olarak hizmet veriyoruz.</p>
+          <ul class="feats rv">
+            <li><b>Gore-Tex</b><span>Su geçirmez, nefes alan membran</span></li>
+            <li><b>Su geçirmez deri</b><span>Uzun ömürlü, bakımı kolay</span></li>
+            <li><b>3 renk</b><span>Çöl, siyah ve haki seçenekleri</span></li>
+            <li><b>Taktik tekstil</b><span>Gömlek, pantolon ve dış giyim</span></li>
+          </ul>
+          <a class="btn btn-wa rv" href="https://wa.me/905318405590?text=Merhaba%2C%20YDS%20botlar%20i%C3%A7in%20beden%20ve%20fiyat%20bilgisi%20alabilir%20miyim%3F" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.6-4.1-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.2 1.3Z"/></svg>
+            Beden & fiyat sor
+          </a>
+        </div>
+      </div>
+      <figure class="boots rv">
+        <img src="assets/ASTORLAR-scaled.jpg" alt="YDS Gore-Tex taktik botlar: çöl, siyah ve haki">
+        <figcaption><span class="mono">YDS Gore-Tex Taktik Bot</span><span>Çöl · Siyah · Haki</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="tpu">
+    <div class="wrap tpu-grid">
+      <div class="tpu-sticky">
+        <span class="eyebrow mono rv">Neden TPU?</span>
+        <h2 class="rv" style="margin-top:18px">Bir kez alınır.<br>Hep kullanılır.</h2>
+        <p class="lead rv" style="margin-top:24px">Asayiş ve eğitim kıyafeti rütbe ve işaretlerimiz %100 TPU'dan, Jandarma Bröve Yönergesine uygun üretilir.</p>
+        <ol class="tpu-list rv">
+          <li><div><b>Renkleri solmaz</b><span>Güneşte ve yıkamada ilk günkü rengini korur.</span></div></li>
+          <li><div><b>Dökülmez</b><span>Kenar açılması, iplik atması yok.</span></div></li>
+          <li><div><b>Parlama yapmaz</b><span>Mat yüzey, arazide göze batmaz.</span></div></li>
+          <li><div><b>Formunu bozmaz</b><span>Uzun yıllar aynı görünüm, aynı duruş.</span></div></li>
+        </ol>
+      </div>
+      <div class="tpu-media">
+        <figure class="paper rv"><img src="assets/tpu-1-1-667x1024.jpg" alt="TPU rütbe ve armalar"></figure>
+        <figure class="rv"><img src="assets/karargah-yelek-rutbe.jpg" alt="Karargah yelek rütbeleri"></figure>
+        <figure class="paper wide rv"><img src="assets/ispoletler-asayis-1024x271.jpg" alt="Asayiş ispoletleri"></figure>
+        <figure class="paper white rv"><img src="assets/IMG-20230124-WA0015-1.jpg" alt="Subay apoletleri"></figure>
+        <figure class="paper rv"><img src="assets/egitim-broveleri-501x1024.jpg" alt="Eğitim bröveleri"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="katalog" style="padding-top:40px">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow mono rv">Katalog</span>
+          <h2 class="rv" style="margin-top:18px">Öne çıkan ürünler</h2>
+        </div>
+        <p class="lead rv">Görsele dokunun, büyütün. Fiyat ve stok için WhatsApp'tan ürün adını yazmanız yeterli.</p>
+      </div>
+      <div class="tabs rv" role="tablist">
+        <button class="tab" role="tab" aria-selected="true" data-f="all">Tümü</button>
+        <button class="tab" role="tab" aria-selected="false" data-f="yds">YDS</button>
+        <button class="tab" role="tab" aria-selected="false" data-f="asayis">Asayiş</button>
+        <button class="tab" role="tab" aria-selected="false" data-f="egitim">Eğitim</button>
+        <button class="tab" role="tab" aria-selected="false" data-f="metal">Metal</button>
+      </div>
+      <div class="grid" id="grid">
+        <article class="card" data-c="metal"><div class="ph"><img loading="lazy" src="assets/jandarma-komando-brovesi-1-scaled-1.jpg" alt=""></div><div class="meta"><b>Jandarma Komando Bröve</b><span class="mono">Metal · Güçtav</span></div></article>
+        <article class="card" data-c="egitim"><div class="ph"><img loading="lazy" src="assets/IMG-20240110-WA0039.jpg" alt=""></div><div class="meta"><b>Komando Eğitim Bröve</b><span class="mono">%100 TPU</span></div></article>
+        <article class="card" data-c="yds"><div class="ph"><img loading="lazy" src="assets/YDS-GOMLEKLER-1024x411.jpg" alt=""></div><div class="meta"><b>YDS Taktik Gömlek</b><span class="mono">YDS · 3 renk</span></div></article>
+        <article class="card" data-c="asayis"><div class="ph"><img loading="lazy" src="assets/IMG-20230124-WA0015-1.jpg" alt=""></div><div class="meta"><b>Subay Apoletleri</b><span class="mono">Asayiş</span></div></article>
+        <article class="card" data-c="metal"><div class="ph"><img loading="lazy" src="assets/jandarma-komando-ihtisas-brovesi-scaled-1.jpg" alt=""></div><div class="meta"><b>Komando İhtisas Bröve</b><span class="mono">Metal · Güçtav</span></div></article>
+        <article class="card" data-c="egitim"><div class="ph"><img loading="lazy" src="assets/IMG-20240110-WA0040.jpg" alt=""></div><div class="meta"><b>Eğitim Bröve</b><span class="mono">%100 TPU</span></div></article>
+        <article class="card" data-c="yds"><div class="ph"><img loading="lazy" src="assets/ASTORLAR-scaled.jpg" alt=""></div><div class="meta"><b>YDS Gore-Tex Bot</b><span class="mono">YDS · Çöl / Siyah / Haki</span></div></article>
+        <article class="card" data-c="asayis"><div class="ph"><img loading="lazy" src="assets/karargah-yelek-rutbe.jpg" alt=""></div><div class="meta"><b>Karargâh Yelek Rütbe</b><span class="mono">%100 TPU</span></div></article>
+        <article class="card" data-c="metal"><div class="ph"><img loading="lazy" src="assets/jandarma-ic-guvenlik-brovesi.jpg" alt=""></div><div class="meta"><b>İç Güvenlik Bröve</b><span class="mono">Metal · Güçtav</span></div></article>
+        <article class="card" data-c="egitim"><div class="ph"><img loading="lazy" src="assets/IMG-20240110-WA0042.jpg" alt=""></div><div class="meta"><b>Eğitim Bröve</b><span class="mono">%100 TPU</span></div></article>
+        <article class="card" data-c="metal"><div class="ph"><img loading="lazy" src="assets/jandarma-kurbaga-adam-brovesi-scaled-1.jpg" alt=""></div><div class="meta"><b>Kurbağa Adam Bröve</b><span class="mono">Metal · Güçtav</span></div></article>
+        <article class="card" data-c="asayis"><div class="ph"><img loading="lazy" src="assets/ispoletler-asayis-1024x271.jpg" alt=""></div><div class="meta"><b>Asayiş İspoletleri</b><span class="mono">%100 TPU</span></div></article>
+        <article class="card" data-c="metal"><div class="ph"><img loading="lazy" src="assets/jandarma-muhimmat-imha-uzmani-scaled-1.jpg" alt=""></div><div class="meta"><b>Mühimmat İmha Uzmanı</b><span class="mono">Metal · Güçtav</span></div></article>
+        <article class="card" data-c="egitim"><div class="ph"><img loading="lazy" src="assets/IMG-20240110-WA0044.jpg" alt=""></div><div class="meta"><b>Eğitim Bröve</b><span class="mono">%100 TPU</span></div></article>
+        <article class="card" data-c="metal"><div class="ph"><img loading="lazy" src="assets/ataturk-rozeti-scaled-e1593942674371.jpg" alt=""></div><div class="meta"><b>Atatürk Rozeti</b><span class="mono">Metal</span></div></article>
+        <article class="card" data-c="asayis"><div class="ph"><img loading="lazy" src="assets/tpu-1-1-667x1024.jpg" alt=""></div><div class="meta"><b>Rütbe ve İşaretler</b><span class="mono">%100 TPU</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="comply">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow mono rv">Mevzuata Uygunluk</span>
+          <h2 class="rv" style="margin-top:18px">Her ürün<br>yönergeye göre</h2>
+        </div>
+        <p class="lead rv">Jandarma Genel Komutanlığı'nın kıyafet ve teferruat düzenlemelerine birebir uyumlu üretim.</p>
+      </div>
+      <div class="comply-grid rv">
+        <div><span class="mono">01</span><b>Kıyafet Yönetmeliği</b><p>Kıyafet ve teferruatı</p></div>
+        <div><span class="mono">02</span><b>Bröve Yönergesi</b><p>Eğitim, ihtisas ve görev bröveleri</p></div>
+        <div><span class="mono">03</span><b>Şerit Rozet Yönergesi</b><p>Şerit ve rozet ürünleri</p></div>
+        <div><span class="mono">04</span><b>Tören Yönergesi</b><p>Tören kıyafeti teferruatı</p></div>
+        <div><span class="mono">05</span><b>Ziyaret Esasları</b><p>Ziyaret ve anı ürünleri</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hakkimizda" class="about">
+    <div class="wrap about-grid">
+      <div>
+        <span class="eyebrow mono rv">Hakkımızda</span>
+        <blockquote class="rv" style="margin-top:22px">En kaliteli ürünü, en uygun fiyata. <em>2002'den beri</em> aksatmadan.</blockquote>
+      </div>
+      <div class="rv">
+        <p>Tez Reklam Elektronik Kırtasiye Tekstil ve Gıda San. Ltd. Şti., Jandarma Genel Komutanlığı Kıyafet Yönetmeliğine uygun kıyafet ve teferruatı ile yönergelere uygun ürünlerin imalatını ve satışını 2002 yılından beri yapan tecrübeli bir firmadır.</p>
+        <p>Yakupoğlu Tekstil ve Deri Ürünleri'nin (YDS) askeri bot ve taktik ürünlerinin Türkiye Ana Bayisi olmanın yanı sıra, Jandarma personelinin yıllardır kullandığı markaların bayiliğini yapar; teşkilata özel anı ürünleri de üretir.</p>
+        <div class="dealers">
+          <span class="main">YDS · Ana Bayi</span><span>Cengiz Pakel Deri</span><span>Armatechs TPU</span><span>Armaret Metal</span><span>Ersav Taktik</span><span>Güçtav Metal</span><span>Halmak Komando Bıçakları</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="eyebrow mono rv">Sipariş</span>
+          <h2 class="rv" style="margin-top:18px">Üç adımda kapında</h2>
+        </div>
+      </div>
+      <div class="steps">
+        <div class="step rv"><span class="num">01</span><b>Ürünü seç</b><p>Katalogdan ürünü bul ya da ihtiyacını tarif et: rütbe, bröve, bot bedeni.</p></div>
+        <div class="step rv"><span class="num">02</span><b>WhatsApp'tan yaz</b><p>Sipariş hattımıza ürün adını ve adedi gönder, fiyat ve stok bilgisini hemen al.</p></div>
+        <div class="step rv"><span class="num">03</span><b>Hazırlayıp gönderelim</b><p>Siparişin Ankara'dan hazırlanır, adresine ulaştırılır.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="iletisim" class="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="contact-card rv">
+        <div class="contact-l">
+          <span class="eyebrow mono">İletişim</span>
+          <h2>Bir mesaj<br>kadar yakın</h2>
+          <ul class="lines">
+            <li><a href="https://wa.me/905318405590" target="_blank" rel="noopener"><span class="mono">WhatsApp Sipariş</span><b>0 531 840 55 90</b></a></li>
+            <li><a href="tel:+905052815704"><span class="mono">İrtibat</span><b>0 505 281 57 04</b></a></li>
+            <li><a href="tel:+903122307289"><span class="mono">Telefon</span><b>0312 230 72 89</b></a></li>
+            <li><a href="https://www.instagram.com/tezreklam" target="_blank" rel="noopener"><span class="mono">Instagram</span><b>@tezreklam</b></a></li>
+            <li><div><span class="mono">Adres</span><b>Kazım Karabekir Cad. Başkent İş Merkezi No: 91/54, Altındağ / Ankara</b></div></li>
+          </ul>
+          <a class="btn btn-wa" href="https://wa.me/905318405590?text=Merhaba%2C%20sipari%C5%9F%20vermek%20istiyorum." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.6-4.1-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.2 1.3Z"/></svg>
+            Hemen yaz
+          </a>
+        </div>
+        <div class="contact-r">
+          <iframe title="Tez Reklam konum" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Ba%C5%9Fkent%20%C4%B0%C5%9F%20Merkezi%2C%20Kaz%C4%B1m%20Karabekir%20Caddesi%2091%2C%20Alt%C4%B1nda%C4%9F%2C%20Ankara&output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Tez Reklam Elektronik Kırtasiye Tekstil ve Gıda San. Ltd. Şti.</span>
+    <span>Altındağ / Ankara</span>
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/905318405590" target="_blank" rel="noopener" aria-label="WhatsApp ile yazın">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.3-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6-2.7-1.2-4.4-3.9-4.6-4.1-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 1-2.3.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.1.1.3 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.2 1.3Z"/></svg>
+</a>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Ürün görseli">
+  <button id="lbClose" aria-label="Kapat">✕</button>
+  <img id="lbImg" alt="">
+  <p id="lbCap"></p>
+</div>
+
+<script>
+const hdr=document.getElementById('hdr');
+const onScroll=()=>hdr.classList.toggle('scrolled',scrollY>20);
+addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+const nav=document.getElementById('nav'),burger=document.getElementById('burger');
+burger.addEventListener('click',()=>{const o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');burger.setAttribute('aria-expanded',false)}));
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(el.closest('.hero')?i*90:0)+'ms';io.observe(el)});
+
+const tabs=document.querySelectorAll('.tab'),cards=document.querySelectorAll('.card');
+function filter(f){
+  tabs.forEach(t=>t.setAttribute('aria-selected',t.dataset.f===f));
+  cards.forEach(c=>c.hidden=!(f==='all'||c.dataset.c===f));
+}
+tabs.forEach(t=>t.addEventListener('click',()=>filter(t.dataset.f)));
+document.querySelectorAll('[data-goto]').forEach(a=>a.addEventListener('click',()=>filter(a.dataset.goto)));
+
+const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg'),lbCap=document.getElementById('lbCap');
+cards.forEach(c=>c.addEventListener('click',()=>{lbImg.src=c.querySelector('img').src;lbCap.textContent=c.querySelector('b').textContent;lb.classList.add('open')}));
+const close=()=>lb.classList.remove('open');
+document.getElementById('lbClose').addEventListener('click',close);
+lb.addEventListener('click',e=>{if(e.target===lb)close()});
+addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+</script>
+</body>
+</html>
