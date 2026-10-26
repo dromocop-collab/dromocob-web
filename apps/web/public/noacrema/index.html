@@ -191,7 +191,117 @@ footer{background:var(--olive-deep);color:var(--cream);padding:80px 0 34px}
 .lb figcaption b{font:500 24px/1.1 var(--serif);color:var(--olive-deep)}
 
 /* FLOAT CALL */
-.fab{position:fixed;right:18px;bottom:18px;z-index:40;display:none}
+
+/* ORDER */
+[hidden]{display:none!important}
+.buy{display:flex;align-items:center;gap:12px}
+.add{flex:none;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--olive-deep);cursor:pointer;display:grid;place-items:center;transition:background .25s,color .25s,transform .25s var(--ease)}
+.add svg{width:15px;height:15px}
+.add:hover{background:var(--olive-deep);color:var(--cream);border-color:var(--olive-deep)}
+.add:active{transform:scale(.9)}
+.add.done{background:var(--gold);border-color:var(--gold);color:#fff}
+.set .buy{justify-content:space-between;margin-top:14px}
+.dock{position:fixed;right:20px;bottom:20px;z-index:60;display:flex;gap:10px}
+.dock button{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 22px;border-radius:999px;border:0;cursor:pointer;font:600 14px var(--sans);box-shadow:0 14px 30px -12px rgba(51,51,28,.5);transition:transform .3s var(--ease)}
+.dock button:hover{transform:translateY(-2px)}
+.dock svg{width:18px;height:18px}
+.dock .d-waiter{background:var(--paper);color:var(--olive-deep);box-shadow:0 14px 30px -12px rgba(51,51,28,.5),inset 0 0 0 1px var(--line)}
+.d-cart{background:var(--olive-deep);color:var(--cream)}
+.d-cart .cnt{min-width:22px;height:22px;border-radius:11px;background:var(--gold);color:#fff;font-size:12px;display:grid;place-items:center;padding:0 6px}
+.d-cart.bump{animation:bump .5s var(--ease)}
+@keyframes bump{40%{transform:scale(1.08)}}
+.scrim{position:fixed;inset:0;z-index:80;background:rgba(25,24,12,.45);opacity:0;pointer-events:none;transition:opacity .35s}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;z-index:90;width:min(440px,100%);background:var(--paper);display:flex;flex-direction:column;transform:translateX(105%);transition:transform .5s var(--ease);box-shadow:-30px 0 60px -30px rgba(0,0,0,.3)}
+.drawer.on{transform:none}
+.dr-h{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 24px;border-bottom:1px solid var(--line)}
+.dr-h h3{font-size:32px;margin-top:6px}
+.x{flex:none;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:none;cursor:pointer;font-size:20px;color:var(--ink)}
+.dr-b{flex:1;overflow:auto;padding:8px 24px}
+.dr-f{padding:20px 24px;border-top:1px solid var(--line);display:grid;gap:14px;background:var(--cream)}
+.line{display:grid;grid-template-columns:52px 1fr auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px dashed var(--line)}
+.line img,.line .ph{width:52px;height:52px;border-radius:12px;object-fit:cover}
+.line .ph{display:grid;place-items:center;background:var(--sand);color:var(--gold)}
+.line .ph svg{width:20px}
+.line h5{font:600 14.5px/1.3 var(--sans)}
+.line small{color:var(--muted);font-size:13px}
+.qty{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:999px;padding:3px}
+.qty button{width:28px;height:28px;border-radius:50%;border:0;background:#fff;cursor:pointer;font-size:16px;color:var(--olive-deep)}
+.qty span{min-width:16px;text-align:center;font-weight:600;font-size:14px}
+.dr-empty{text-align:center;padding:70px 10px;color:var(--muted)}
+.dr-empty svg{width:40px;color:var(--gold);margin:0 auto}
+.dr-empty b{display:block;font:500 28px var(--serif);color:var(--olive-deep);margin:14px 0 6px}
+.field{display:grid;gap:6px;font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.field select,.field input,.field textarea{font:500 15px var(--sans);letter-spacing:0;text-transform:none;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;outline:none;width:100%;min-height:46px}
+.field textarea{resize:vertical;min-height:84px}
+.field select:focus,.field input:focus,.field textarea:focus{border-color:var(--gold)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.seg{display:flex;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px}
+.seg button{flex:1;border:0;background:none;border-radius:999px;padding:10px;font:600 13px var(--sans);color:var(--muted);cursor:pointer;transition:all .25s}
+.seg button.on{background:var(--olive-deep);color:var(--cream)}
+.tot{display:flex;justify-content:space-between;align-items:baseline;font-size:14px;color:var(--muted)}
+.tot b{font:700 24px var(--sans);color:var(--olive-deep)}
+.btn-full{width:100%;justify-content:center;border:0;cursor:pointer;padding:17px}
+.btn:disabled{opacity:.4;pointer-events:none}
+.done-box{text-align:center;padding:40px 6px}
+.check{width:72px;height:72px;border-radius:50%;background:var(--olive-deep);color:var(--cream);display:grid;place-items:center;margin:0 auto 18px}
+.check svg{width:34px;stroke-dasharray:30;stroke-dashoffset:30;animation:draw .6s .2s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.done-box h4{font:500 34px/1.1 var(--serif);color:var(--olive-deep)}
+.done-box p{color:var(--muted);margin-top:8px}
+.steps{list-style:none;margin-top:30px;text-align:left}
+.steps li{display:grid;grid-template-columns:28px 1fr auto;gap:12px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line);color:var(--muted);transition:color .4s}
+.steps li i{width:14px;height:14px;border-radius:50%;border:2px solid var(--line);margin-left:6px;transition:all .4s}
+.steps li.on{color:var(--ink);font-weight:600}
+.steps li.on i{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 5px rgba(184,138,46,.18)}
+.steps small{font-size:12px;font-weight:500;color:var(--muted)}
+.modal{position:fixed;inset:0;z-index:95;display:grid;place-items:center;padding:16px;pointer-events:none}
+.modal .box{background:var(--paper);border-radius:24px;width:min(460px,100%);padding:26px;opacity:0;transform:translateY(20px) scale(.97);transition:opacity .35s,transform .45s var(--ease)}
+.modal.on{pointer-events:auto}
+.modal.on .box{opacity:1;transform:none}
+.modal .dr-h{padding:0 0 18px}
+.modal h3{font-size:30px}
+.w-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0}
+.w-opt{border:1px solid var(--line);background:#fff;border-radius:16px;padding:16px 14px;text-align:left;cursor:pointer;display:grid;gap:8px;transition:all .25s;font-family:var(--sans)}
+.w-opt svg{width:24px;height:24px;color:var(--gold-ink)}
+.w-opt b{font:600 14.5px var(--sans);color:var(--ink)}
+.w-opt small{font-size:12px;color:var(--muted)}
+.w-opt:hover,.w-opt.on{border-color:var(--olive-deep);background:var(--cream)}
+.w-opt.on{box-shadow:inset 0 0 0 1px var(--olive-deep)}
+.toast{position:fixed;left:50%;top:20px;z-index:120;transform:translate(-50%,-160%);background:var(--olive-deep);color:var(--cream);padding:14px 20px;border-radius:16px;display:flex;align-items:center;gap:12px;font-size:14px;font-weight:500;box-shadow:0 20px 40px -20px rgba(0,0,0,.5);transition:transform .5s var(--ease);width:max-content;max-width:calc(100% - 32px)}
+.toast.on{transform:translate(-50%,0)}
+.toast i{width:10px;height:10px;border-radius:50%;background:var(--gold-soft);flex:none;animation:pulse 1.4s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 6px rgba(217,183,110,.25)}}
+.table-pill{position:fixed;left:20px;bottom:20px;z-index:60;background:var(--paper);border-radius:999px;padding:10px 16px;font-size:13px;font-weight:600;color:var(--olive-deep);box-shadow:0 10px 24px -14px rgba(0,0,0,.4),inset 0 0 0 1px var(--line)}
+
+/* EXPERIENCE */
+.exp{background:var(--cream)}
+.exp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.feat{background:var(--paper);border-radius:var(--r);padding:28px 24px;display:flex;flex-direction:column;gap:14px;min-height:290px;border:1px solid transparent;transition:border-color .3s,transform .5s var(--ease)}
+.feat:hover{border-color:var(--line);transform:translateY(-4px)}
+.feat .ic{width:52px;height:52px;border-radius:16px;background:var(--olive-deep);color:var(--gold-soft);display:grid;place-items:center}
+.feat .ic svg{width:24px;height:24px}
+.feat h3{font-size:30px}
+.feat p{font-size:14.5px;color:var(--muted);flex:1}
+.feat .lnk{align-self:flex-start;background:none;border:0;border-bottom:1px solid var(--gold);padding:0 0 3px;font:600 13.5px var(--sans);color:var(--olive-deep);cursor:pointer}
+
+/* RESERVATION */
+.rez-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.rez-grid > div > p{color:var(--muted);margin-top:20px;max-width:28em}
+.rez-form{background:var(--cream);border-radius:24px;padding:32px;display:grid;gap:16px}
+.rez-form .row3{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:12px}
+.loyal{margin-top:40px;background:var(--olive-deep);color:var(--cream);border-radius:24px;padding:28px;position:relative;overflow:hidden;max-width:460px}
+.loyal::after{content:"";position:absolute;right:-70px;top:-70px;width:220px;height:220px;border-radius:50%;border:1px solid rgba(217,183,110,.3)}
+.loyal .top{display:flex;justify-content:space-between;align-items:center}
+.loyal .brand b{color:var(--cream);font-size:22px}
+.loyal .brand small{font-size:8px}
+.loyal .lbl{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);font-weight:600}
+.stamps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:24px 0 18px}
+.stamps span{aspect-ratio:1;border-radius:50%;border:1.5px dashed rgba(246,236,223,.3);display:grid;place-items:center}
+.stamps span.on{background:var(--gold-soft);border:0;color:var(--olive-deep)}
+.stamps span.free{border:1.5px solid var(--gold-soft);color:var(--gold-soft);font:italic 500 13px var(--serif)}
+.stamps svg{width:46%}
+.loyal p{font-size:14px;opacity:.85}
 
 /* REVEAL */
 .rv{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
@@ -212,6 +322,8 @@ footer{background:var(--olive-deep);color:var(--cream);padding:80px 0 34px}
   .bf-grid .big{grid-column:span 2;grid-row:auto;aspect-ratio:4/3}
   .set .items{grid-template-columns:1fr 1fr}
   .head{flex-direction:column;align-items:start;gap:16px}
+  .exp-grid{grid-template-columns:1fr 1fr}
+  .rez-grid{grid-template-columns:1fr}
 }
 @media (max-width:680px){
   .wrap{width:calc(100% - 32px)}
@@ -231,7 +343,17 @@ footer{background:var(--olive-deep);color:var(--cream);padding:80px 0 34px}
   .sig-list img{width:60px;height:60px}
   .f-top .brand b{font-size:46px}
   .map{min-height:340px}
-  .fab{display:inline-flex}
+  .exp-grid{grid-template-columns:1fr}
+  .feat{min-height:0}
+  .dock{left:12px;right:12px;bottom:12px}
+  .dock button{flex:1;padding:0 14px}
+  .table-pill{left:50%;transform:translateX(-50%);bottom:76px}
+  .rez-form{padding:22px}
+  .rez-form .row2{grid-template-columns:1fr}
+  .rez-form .row3{grid-template-columns:1fr 1fr}
+  .rez-form .row3 > :first-child{grid-column:span 2}
+  .w-grid{grid-template-columns:1fr 1fr}
+  footer{padding-bottom:100px}
 }
 </style>
 </head>
@@ -245,6 +367,8 @@ footer{background:var(--olive-deep);color:var(--cream);padding:80px 0 34px}
       <li><a href="#imza">İmza</a></li>
       <li><a href="#kahvalti">Kahvaltı</a></li>
       <li><a href="#menu">Menü</a></li>
+      <li><a href="#deneyim">Masadan sipariş</a></li>
+      <li><a href="#rezervasyon">Rezervasyon</a></li>
       <li><a href="#ziyaret">Ziyaret</a></li>
     </ul>
     <a class="btn btn-dark" href="tel:+905324600535">Ara · 0532 460 05 35</a>
@@ -353,6 +477,52 @@ footer{background:var(--olive-deep);color:var(--cream);padding:80px 0 34px}
   </div>
 </section>
 
+<!-- EXPERIENCE -->
+<section class="exp" id="deneyim">
+  <div class="wrap">
+    <div class="head">
+      <div><div class="eyebrow rv">Noa deneyimi</div><h2 class="rv">Masanızdan <em>kalkmadan</em>.</h2></div>
+      <p class="rv">Masadaki QR kodu okutun; menüden seçin, siparişiniz doğrudan baristaya düşsün. Garson çağırmak ya da hesap istemek tek dokunuş.</p>
+    </div>
+    <div class="exp-grid">
+      <article class="feat rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 14h3v3M21 14v.01M14 21h7v-4"/></svg></span><h3>QR ile sipariş</h3><p>Menüden ürünü seçin, masa numaranızı girin, sipariş durumunu canlı takip edin.</p><button class="lnk" data-go="menu">Sipariş vermeye başla</button></article>
+      <article class="feat rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17h16M6 17v-3a6 6 0 0 1 12 0v3M12 5V3M10 20h4"/></svg></span><h3>Garson çağır</h3><p>Garson, hesap, su ya da masa temizliği. İsteğiniz anında ekibimizin ekranına düşer.</p><button class="lnk" data-open="waiter">Garson çağır</button></article>
+      <article class="feat rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8z"/><path d="M17 9h1.5a2.5 2.5 0 0 1 0 5H17M8 3v2M12 3v2"/></svg></span><h3>Noa Kart</h3><p>Her kahvenizde bir damga. Onuncu kahve bizden, doğum gününüzde tatlı ikramımız.</p><button class="lnk" data-go="rezervasyon">Kartımı gör</button></article>
+      <article class="feat rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><h3>Rezervasyon</h3><p>Gün batımına karşı teras masası mı? Birkaç saniyede yerinizi ayırtın.</p><button class="lnk" data-go="rezervasyon">Masa ayırt</button></article>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVATION -->
+<section class="rez" id="rezervasyon">
+  <div class="wrap rez-grid">
+    <div>
+      <div class="eyebrow rv">Rezervasyon</div>
+      <h2 class="rv">Gün batımına <em>masa ayırt</em>.</h2>
+      <p class="rv">Kahvaltı, doğum günü ya da akşam kahvesi. Teras veya iç mekan tercihinizi seçin, ekibimiz sizi arayıp onaylasın.</p>
+      <div class="loyal rv" aria-label="Noa Kart örneği">
+        <div class="top"><div class="brand" style="align-items:flex-start"><b>NOA</b><small>CREMA</small></div><span class="lbl">Noa Kart</span></div>
+        <div class="stamps" id="stamps"></div>
+        <p><b>6 / 10</b> damga · 4 kahve sonra bir kahve bizden.</p>
+      </div>
+    </div>
+    <form class="rez-form rv" id="rez" autocomplete="off">
+      <div class="row2">
+        <label class="field">Ad soyad<input name="ad" required placeholder="Adınız"></label>
+        <label class="field">Telefon<input name="tel" type="tel" required placeholder="05xx xxx xx xx"></label>
+      </div>
+      <div class="row3">
+        <label class="field">Tarih<input name="tarih" type="date" required></label>
+        <label class="field">Saat<input name="saat" type="time" value="18:30" required></label>
+        <label class="field">Kişi<select name="kisi"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></label>
+      </div>
+      <div class="field">Alan<div class="seg" id="rArea"><button type="button" class="on">Teras · deniz</button><button type="button">İç mekan</button></div></div>
+      <label class="field">Not<textarea name="not" placeholder="Doğum günü, mama sandalyesi, özel istek…"></textarea></label>
+      <button class="btn btn-dark btn-full" type="submit">Rezervasyon iste</button>
+    </form>
+  </div>
+</section>
+
 <!-- GALLERY -->
 <section class="gal" id="galeri">
   <div class="wrap">
@@ -403,8 +573,33 @@ footer{background:var(--olive-deep);color:var(--cream);padding:80px 0 34px}
   </div>
 </footer>
 
-<a class="btn btn-dark fab" href="tel:+905324600535" aria-label="Noa Crema'yı ara">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Ara</a>
+<div class="dock" aria-label="Hızlı işlemler">
+  <button class="d-waiter" id="dWaiter" data-open="waiter"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17h16M6 17v-3a6 6 0 0 1 12 0v3M12 5V3M10 20h4"/></svg>Garson çağır</button>
+  <button class="d-cart" id="dCart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>Sepet <span class="cnt" id="cnt">0</span></button>
+</div>
+<div class="table-pill" id="tablePill" hidden></div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Sepet">
+  <div class="dr-h"><div><div class="eyebrow">Masadan sipariş</div><h3>Siparişiniz</h3></div><button class="x" data-close aria-label="Kapat">×</button></div>
+  <div class="dr-b" id="drBody"></div>
+  <div class="dr-f" id="drFoot">
+    <div class="seg" id="cMode"><button class="on" data-m="masa">Masaya servis</button><button data-m="gel">Gel-al</button></div>
+    <div class="row2"><label class="field" id="cTableWrap">Masa no<select id="cTable" class="tsel"></select></label><label class="field">Not<input id="cNote" placeholder="Örn. yulaf sütü"></label></div>
+    <div class="tot"><span>Toplam</span><b id="cartTotal">₺0</b></div>
+    <button class="btn btn-dark btn-full" id="send" disabled>Siparişi gönder</button>
+  </div>
+  <div class="dr-f" id="drNew" hidden><button class="btn btn-dark btn-full" id="drNewBtn">Menüye dön</button></div>
+</aside>
+
+<div class="modal" id="waiter" role="dialog" aria-modal="true" aria-labelledby="wT"><div class="box">
+  <div class="dr-h"><div><div class="eyebrow">Masa servisi</div><h3 id="wT">Nasıl yardımcı olalım?</h3></div><button class="x" data-close aria-label="Kapat">×</button></div>
+  <div class="w-grid" id="wOpts"></div>
+  <label class="field">Masa no<select id="wTable" class="tsel"></select></label>
+  <button class="btn btn-dark btn-full" id="wSend" style="margin-top:16px" disabled>Gönder</button>
+</div></div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"><i></i><span id="toastMsg"></span></div>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true"><figure><img id="lbImg" alt=""><figcaption><b id="lbName"></b><span class="price" id="lbPrice"></span></figcaption></figure></div>
 
@@ -415,6 +610,9 @@ footer{background:var(--olive-deep);color:var(--cream);padding:80px 0 34px}
   const tl = n => "₺" + n.toLocaleString("tr-TR");
   const src = k => `img/menu/${k}.webp`;
   const bean = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="12" cy="12" rx="6" ry="9"/><path d="M12 3.5c-3 5 3 11 0 17"/></svg>';
+  const plus = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>';
+  const tick = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+  const addBtn = (n, p, im) => `<button class="add" data-n="${esc(n)}" data-p="${p}" data-im="${im || ""}" aria-label="${esc(n)} sepete ekle">${plus}</button>`;
   const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
   // Marquee
@@ -427,7 +625,7 @@ footer{background:var(--olive-deep);color:var(--cream);padding:80px 0 34px}
   const byName = n => all.find(i => i.name === n);
   document.getElementById("sig").innerHTML = pick.map(n => {
     const i = byName(n);
-    return `<li class="rv"><img src="${src(i.img)}" alt="" loading="lazy"><div><h4>${esc(i.name)}</h4><p>${esc(i.desc)}</p></div><span class="price">${tl(i.price)}</span></li>`;
+    return `<li class="rv"><img src="${src(i.img)}" alt="" loading="lazy"><div><h4>${esc(i.name)}</h4><p>${esc(i.desc)}</p></div><div class="buy"><span class="price">${tl(i.price)}</span>${addBtn(i.name, i.price, i.img)}</div></li>`;
   }).join("");
 
   // Menu
@@ -440,7 +638,7 @@ footer{background:var(--olive-deep);color:var(--cream);padding:80px 0 34px}
         <div class="item" data-q="${esc((n + " " + (d || "")).toLocaleLowerCase("tr"))}">
           ${im ? `<img class="ph" src="${src(im)}" alt="${esc(n)}" loading="lazy" data-n="${esc(n)}" data-p="${p}">` : `<span class="ph empty">${bean}</span>`}
           <div><h4>${esc(n)}</h4>${d ? `<p>${esc(d)}</p>` : ""}</div>
-          <span class="price">${tl(p)}</span>
+          <div class="buy"><span class="price">${tl(p)}</span>${addBtn(n, p, im)}</div>
         </div>`).join("")}</div>
     </div>`).join("");
 
@@ -481,6 +679,126 @@ footer{background:var(--olive-deep);color:var(--cream);padding:80px 0 34px}
   // Gallery
   document.getElementById("gal").innerHTML = [4,10,2,12,6,8,1,11,7,3,9,5].map(n =>
     `<a href="https://instagram.com/noacremafethiye" target="_blank" rel="noopener" class="rv"><img src="img/ig/ig${n}.jpg" alt="Noa Crema Instagram gönderisi" loading="lazy"></a>`).join("");
+
+  // Sipariş, garson çağır, rezervasyon (demo: hiçbir yere gönderilmez)
+  const $ = id => document.getElementById(id);
+  const cart = new Map();
+  let table = new URLSearchParams(location.search).get("masa") || "";
+  let mode = "masa", tt;
+  const toast = msg => { $("toastMsg").textContent = msg; $("toast").classList.add("on"); clearTimeout(tt); tt = setTimeout(() => $("toast").classList.remove("on"), 2800); };
+  const syncTable = () => {
+    document.querySelectorAll(".tsel").forEach(sel => { sel.value = table; });
+    $("tablePill").hidden = !table; $("tablePill").textContent = `Masa ${table}`;
+    validate();
+  };
+  document.querySelectorAll(".tsel").forEach(sel => {
+    sel.innerHTML = `<option value="">Seçin</option>` + Array.from({ length: 20 }, (_, i) => `<option value="${i + 1}">Masa ${i + 1}</option>`).join("");
+    sel.addEventListener("change", () => { table = sel.value; syncTable(); });
+  });
+
+  const thumb = i => i.im ? `<img src="${src(i.im)}" alt="">` : `<span class="ph">${bean}</span>`;
+  function renderCart() {
+    const items = [...cart.values()];
+    const n = items.reduce((a, i) => a + i.q, 0), sum = items.reduce((a, i) => a + i.q * i.p, 0);
+    $("cnt").textContent = n; $("cartTotal").textContent = tl(sum);
+    $("drFoot").hidden = false; $("drNew").hidden = true;
+    $("drBody").innerHTML = n ? items.map(i => `<div class="line">${thumb(i)}<div><h5>${esc(i.n)}</h5><small>${tl(i.p * i.q)}</small></div>
+      <div class="qty"><button data-d="-1" data-k="${esc(i.n)}" aria-label="Azalt">−</button><span>${i.q}</span><button data-d="1" data-k="${esc(i.n)}" aria-label="Arttır">+</button></div></div>`).join("")
+      : `<div class="dr-empty">${bean}<b>Sepetiniz boş</b>Menüden + ile ürün ekleyin.</div>`;
+    validate();
+  }
+  function validate() {
+    const n = [...cart.values()].reduce((a, i) => a + i.q, 0);
+    $("send").disabled = !n || (mode === "masa" && !table);
+    $("wSend").disabled = !table || !$("wOpts").querySelector(".on");
+  }
+
+  const scrim = $("scrim");
+  const closeAll = () => { scrim.classList.remove("on"); $("drawer").classList.remove("on"); $("waiter").classList.remove("on"); };
+  const openDrawer = () => { scrim.classList.add("on"); $("drawer").classList.add("on"); };
+  const openWaiter = () => { scrim.classList.add("on"); $("waiter").classList.add("on"); };
+  scrim.onclick = closeAll;
+  $("waiter").addEventListener("click", e => { if (e.target === $("waiter")) closeAll(); });
+  addEventListener("keydown", e => e.key === "Escape" && closeAll());
+  $("dCart").onclick = openDrawer;
+
+  document.addEventListener("click", e => {
+    if (e.target.closest("[data-close]")) return closeAll();
+    const o = e.target.closest("[data-open]"); if (o) return openWaiter();
+    const g = e.target.closest("[data-go]"); if (g) return $(g.dataset.go).scrollIntoView({ behavior: "smooth" });
+    const b = e.target.closest(".add"); if (!b) return;
+    const k = b.dataset.n, it = cart.get(k) || { n: k, p: +b.dataset.p, im: b.dataset.im, q: 0 };
+    it.q++; cart.set(k, it); renderCart();
+    b.classList.add("done"); b.innerHTML = tick;
+    setTimeout(() => { b.classList.remove("done"); b.innerHTML = plus; }, 900);
+    const d = $("dCart"); d.classList.remove("bump"); void d.offsetWidth; d.classList.add("bump");
+    toast(`${k} sepete eklendi`);
+  });
+  $("drBody").addEventListener("click", e => {
+    const b = e.target.closest("[data-d]"); if (!b) return;
+    const it = cart.get(b.dataset.k); it.q += +b.dataset.d;
+    if (it.q <= 0) cart.delete(it.n);
+    renderCart();
+  });
+  $("cMode").addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    mode = b.dataset.m;
+    $("cMode").querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b));
+    $("cTableWrap").style.visibility = mode === "masa" ? "" : "hidden";
+    validate();
+  });
+  $("send").onclick = () => {
+    const no = "NC-" + Math.floor(1000 + Math.random() * 9000);
+    const where = mode === "masa" ? `Masa ${table}` : "Gel-al";
+    $("drBody").innerHTML = `<div class="done-box"><div class="check">${tick}</div><h4>Siparişiniz alındı</h4><p>${no} · ${where} · ${$("cartTotal").textContent}</p>
+      <ul class="steps"><li class="on"><i></i><span>Sipariş alındı</span><small>şimdi</small></li><li><i></i><span>Baristanız hazırlıyor</span><small>~5 dk</small></li><li><i></i><span>${mode === "masa" ? "Masanıza geliyor" : "Teslime hazır"}</span><small></small></li></ul></div>`;
+    $("drFoot").hidden = true; $("drNew").hidden = false;
+    const lis = $("drBody").querySelectorAll(".steps li");
+    setTimeout(() => lis[1].classList.add("on"), 2200);
+    setTimeout(() => lis[2].classList.add("on"), 5200);
+    cart.clear(); $("cnt").textContent = 0; $("cNote").value = "";
+  };
+  $("drNewBtn").onclick = () => { renderCart(); closeAll(); $("menu").scrollIntoView({ behavior: "smooth" }); };
+
+  // Garson çağır
+  const ICON = {
+    garson: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17h16M6 17v-3a6 6 0 0 1 12 0v3M12 5V3M10 20h4"/></svg>',
+    hesap: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6"/></svg>',
+    su: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg>',
+    temiz: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3zM19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8L19 15z"/></svg>',
+  };
+  const W = [["garson", "Garson çağır", "Masanıza gelsin", "Garsonunuz masanıza geliyor"], ["hesap", "Hesap iste", "Nakit veya kart", "Hesabınız hazırlanıyor"],
+             ["su", "Su & peçete", "Hemen getirelim", "Su ve peçeteniz yolda"], ["temiz", "Masa temizliği", "Masayı toparlayalım", "Masanız birazdan toparlanacak"]];
+  $("wOpts").innerHTML = W.map(([k, t, s]) => `<button type="button" class="w-opt" data-w="${k}">${ICON[k]}<b>${t}</b><small>${s}</small></button>`).join("");
+  $("wOpts").addEventListener("click", e => {
+    const b = e.target.closest(".w-opt"); if (!b) return;
+    $("wOpts").querySelectorAll(".w-opt").forEach(x => x.classList.toggle("on", x === b)); validate();
+  });
+  $("wSend").onclick = () => {
+    const b = $("wOpts").querySelector(".on"), msg = W.find(w => w[0] === b.dataset.w)[3];
+    b.classList.remove("on"); closeAll(); validate();
+    toast(`Masa ${table} · ${msg}`);
+  };
+
+  // Noa Kart + rezervasyon
+  const cup = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8z"/><path d="M17 9h1.5a2.5 2.5 0 0 1 0 5H17"/></svg>';
+  $("stamps").innerHTML = Array.from({ length: 10 }, (_, i) => i < 6 ? `<span class="on">${cup}</span>` : i === 9 ? `<span class="free">bizden</span>` : "<span></span>").join("");
+  const rez = $("rez"), today = new Date().toISOString().slice(0, 10);
+  rez.elements.tarih.min = today; rez.elements.tarih.value = today;
+  $("rArea").addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    $("rArea").querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b));
+  });
+  rez.addEventListener("submit", e => {
+    e.preventDefault();
+    const f = rez.elements, ad = f.ad.value.trim().split(" ")[0];
+    const gun = new Date(f.tarih.value + "T12:00").toLocaleDateString("tr-TR", { weekday: "long", day: "numeric", month: "long" });
+    const alan = $("rArea").querySelector(".on").textContent;
+    rez.innerHTML = `<div class="done-box"><div class="check">${tick}</div><h4>Teşekkürler${ad ? ", " + esc(ad) : ""}!</h4>
+      <p>${gun} · ${f.saat.value} · ${f.kisi.value} kişi · ${alan}<br>Rezervasyonunuzu onaylamak için sizi arayacağız.</p></div>`;
+  });
+
+  syncTable(); renderCart();
 
   // Nav
   const nav = document.getElementById("nav");
