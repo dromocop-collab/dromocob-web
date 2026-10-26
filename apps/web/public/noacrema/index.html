@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Noa Crema · Fethiye</title>
+<meta name="description" content="Noa Crema — Fethiye Akarca sahilinde specialty kahve, taze tatlılar ve kahvaltı. Deniz manzaralı, zarif ve sıcak bir mola.">
+<meta name="theme-color" content="#F6ECDF">
+<link rel="icon" href="img/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#F6ECDF; --paper:#FBF6EE; --sand:#EBDCC6;
+  --olive:#5E5E33; --olive-deep:#33331C; --gold:#B88A2E; --gold-ink:#7E5B14; --gold-soft:#D9B76E;
+  --ink:#2A2718; --muted:#6E6852; --line:rgba(51,51,28,.14);
+  --serif:"Cormorant Garamond",Georgia,serif; --sans:"Manrope",system-ui,sans-serif;
+  --r:18px; --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+.eyebrow{font:600 12px/1 var(--sans);letter-spacing:.28em;text-transform:uppercase;color:var(--gold-ink)}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.02;letter-spacing:-.01em;color:var(--olive-deep)}
+h2{font-size:clamp(40px,6vw,76px)}
+h2 em,h1 em{font-style:italic;color:#94701F}
+.bf h2 em{color:var(--gold-soft)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font:600 14px/1 var(--sans);letter-spacing:.02em;transition:transform .4s var(--ease),background .3s,color .3s}
+.btn:hover{transform:translateY(-2px)}
+.btn-dark{background:var(--olive-deep);color:var(--cream)}
+.btn-dark:hover{background:var(--olive)}
+.btn-line{border:1px solid currentColor}
+.btn svg{width:16px;height:16px}
+
+/* NAV */
+.nav{position:fixed;inset:0 0 auto;z-index:50;transition:background .4s,box-shadow .4s}
+.nav.solid{background:rgba(251,246,238,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.brand{display:flex;flex-direction:column;align-items:center;line-height:1}
+.brand b{font:500 28px/1 var(--serif);letter-spacing:.32em;color:var(--olive);padding-left:.32em}
+.brand small{font:600 9px/1 var(--sans);letter-spacing:.6em;color:var(--gold);margin-top:5px;padding-left:.6em}
+.nav ul{display:flex;gap:34px;list-style:none;font-size:14px;font-weight:500}
+.nav ul a{position:relative;padding:6px 0}
+.nav ul a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .4s var(--ease)}
+.nav ul a:hover::after{transform:scaleX(1);transform-origin:left}
+.nav .btn{padding:12px 20px}
+.burger{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer}
+.burger span{display:block;height:1.5px;background:var(--olive-deep);margin:6px 10px;transition:transform .3s}
+
+/* HERO */
+.hero{position:relative;min-height:100svh;padding:120px 0 70px;background:var(--cream);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;min-height:calc(100svh - 190px)}
+.hero h1{font-size:clamp(56px,8.6vw,124px);margin:22px 0 26px}
+.hero p.lead{font-size:18px;color:var(--muted);max-width:30em}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+.hero .meta{display:flex;gap:28px;margin-top:56px;padding-top:26px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+.hero .meta b{display:block;font:500 26px/1.1 var(--serif);color:var(--olive-deep)}
+.collage{position:relative;height:min(680px,78svh)}
+.collage figure{position:absolute;overflow:hidden;border-radius:var(--r);box-shadow:0 30px 60px -30px rgba(51,51,28,.45)}
+.collage img{width:100%;height:100%;object-fit:cover;transition:transform 1.6s var(--ease)}
+.collage figure:hover img{transform:scale(1.05)}
+.c1{inset:0 18% 8% 6%;border-radius:220px 220px var(--r) var(--r)!important}
+.c2{width:38%;aspect-ratio:3/4;right:0;bottom:0}
+.c3{width:30%;aspect-ratio:3/4;left:-4%;bottom:-2%;border:6px solid var(--cream)}
+.stamp{position:absolute;right:6%;top:4%;width:120px;height:120px;animation:spin 22s linear infinite}
+.stamp text{font:600 10.5px var(--sans);letter-spacing:.32em;fill:var(--olive)}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* MARQUEE */
+.marquee{background:var(--olive-deep);color:var(--cream);overflow:hidden;padding:22px 0}
+.marquee .track{display:flex;gap:48px;width:max-content;animation:slide 38s linear infinite}
+.marquee span{font:italic 400 30px/1 var(--serif);white-space:nowrap;display:flex;align-items:center;gap:48px}
+.marquee span::after{content:"";width:9px;height:14px;border-radius:50%;background:var(--gold-soft)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+section{padding:clamp(80px,11vw,150px) 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:56px}
+.head p{max-width:28em;color:var(--muted)}
+
+/* RITUAL */
+.ritual{background:var(--paper)}
+.ritual-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.rcard{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:3/4.3;color:#fff;isolation:isolate}
+.rcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.4s var(--ease)}
+.rcard::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 40%,rgba(25,24,12,.85))}
+.rcard:hover img{transform:scale(1.06)}
+.rcard .in{position:absolute;inset:auto 0 0;padding:28px}
+.rcard .n{font:500 13px var(--sans);letter-spacing:.2em;color:var(--gold-soft)}
+.rcard h3{color:#fff;font-size:38px;margin:10px 0 8px}
+.rcard p{font-size:14.5px;opacity:.85}
+
+/* SIGNATURE */
+.sig{background:var(--sand)}
+.sig-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.sig-photo{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5}
+.sig-photo img{width:100%;height:100%;object-fit:cover}
+.sig-photo .tag{position:absolute;left:20px;bottom:20px;background:var(--paper);color:var(--olive-deep);padding:12px 18px;border-radius:999px;font-size:13px;font-weight:600}
+.sig-list{list-style:none;margin-top:40px}
+.sig-list li{display:grid;grid-template-columns:72px 1fr auto;gap:20px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}
+.sig-list img{width:72px;height:72px;border-radius:14px;object-fit:cover}
+.sig-list h4{font:500 25px/1.1 var(--serif);color:var(--olive-deep)}
+.sig-list p{font-size:13.5px;color:var(--muted)}
+.price{font:600 15px var(--sans);color:var(--olive);white-space:nowrap}
+
+/* BREAKFAST */
+.bf{background:var(--olive-deep);color:var(--cream)}
+.bf h2{color:var(--cream)}
+.bf .eyebrow{color:var(--gold-soft)}
+.bf .head p{color:rgba(246,236,223,.7)}
+.bf-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:auto auto;gap:18px}
+.bf-grid figure{border-radius:var(--r);overflow:hidden;position:relative}
+.bf-grid figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.bf-grid figure:hover img{transform:scale(1.05)}
+.bf-grid .big{grid-row:span 2}
+.bf-card{border:1px solid rgba(246,236,223,.18);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.bf-card h4{font:500 28px/1.1 var(--serif)}
+.bf-card .price{color:var(--gold-soft);font-size:17px}
+.bf-card p{font-size:14px;opacity:.7}
+
+/* MENU */
+.menu{background:var(--paper)}
+.menu-bar{position:sticky;top:76px;z-index:20;background:rgba(251,246,238,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:14px 0;margin-bottom:30px;border-bottom:1px solid var(--line)}
+.menu-bar .row{display:flex;gap:16px;align-items:center}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;flex:1;padding:2px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:10px 16px;font:500 13.5px var(--sans);cursor:pointer;transition:all .25s}
+.chip:hover{border-color:var(--olive)}
+.chip.on{background:var(--olive-deep);border-color:var(--olive-deep);color:var(--cream)}
+.search{position:relative;flex:none;width:240px}
+.search input{width:100%;border:1px solid var(--line);background:#fff;border-radius:999px;padding:11px 16px 11px 40px;font:500 14px var(--sans);color:var(--ink);outline:none}
+.search input:focus{border-color:var(--gold)}
+.search svg{position:absolute;left:14px;top:50%;width:16px;height:16px;transform:translateY(-50%);color:var(--muted)}
+.cat{margin-bottom:64px}
+.cat-h{display:flex;align-items:baseline;gap:16px;margin-bottom:22px}
+.cat-h h3{font-size:clamp(32px,4vw,44px)}
+.cat-h span{font-size:13px;color:var(--muted)}
+.cat-h::after{content:"";flex:1;height:1px;background:var(--line)}
+.items{display:grid;grid-template-columns:repeat(2,1fr);gap:4px 48px}
+.item{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;padding:14px 0;border-bottom:1px dashed var(--line)}
+.item .ph{width:64px;height:64px;border-radius:12px;object-fit:cover;background:var(--sand);cursor:zoom-in}
+.item .ph.empty{display:grid;place-items:center;cursor:default;color:var(--gold)}
+.item .ph.empty svg{width:22px}
+.item h4{font:600 15.5px/1.3 var(--sans);color:var(--ink)}
+.item p{font-size:13px;color:var(--muted);line-height:1.45;margin-top:2px}
+.set .items{grid-template-columns:repeat(4,1fr);gap:14px}
+.set .item{grid-template-columns:1fr;align-content:space-between;background:var(--cream);border:0;border-radius:var(--r);padding:22px;min-height:150px}
+.set .item .ph{display:none}
+.set .item h4{font:500 22px/1.15 var(--serif);color:var(--olive-deep)}
+.set .item .price{font-size:16px;color:var(--gold-ink)}
+.empty-msg{text-align:center;color:var(--muted);padding:60px 0;display:none}
+.note{font-size:13px;color:var(--muted);margin-top:10px}
+
+/* GALLERY */
+.gal{background:var(--cream)}
+.gal-grid{columns:4 220px;column-gap:16px}
+.gal-grid a{display:block;margin-bottom:16px;border-radius:14px;overflow:hidden;break-inside:avoid;position:relative}
+.gal-grid img{width:100%;transition:transform 1.2s var(--ease),filter .4s}
+.gal-grid a:hover img{transform:scale(1.04);filter:brightness(.85)}
+
+/* VISIT */
+.visit-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:60px;align-items:stretch}
+.info{display:grid;gap:26px;margin-top:40px}
+.info div{display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start}
+.info .ic{width:44px;height:44px;border-radius:50%;background:var(--cream);display:grid;place-items:center;color:var(--olive)}
+.info .ic svg{width:18px;height:18px}
+.info small{display:block;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-ink);font-weight:600}
+.info b{font:500 24px/1.2 var(--serif);color:var(--olive-deep)}
+.map{border-radius:var(--r);overflow:hidden;min-height:440px;background:var(--sand);position:relative}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:sepia(.25) saturate(.85)}
+
+/* FOOTER */
+footer{background:var(--olive-deep);color:var(--cream);padding:80px 0 34px}
+.f-top{display:flex;justify-content:space-between;align-items:end;gap:40px;flex-wrap:wrap;padding-bottom:50px;border-bottom:1px solid rgba(246,236,223,.15)}
+.f-top .brand b{color:var(--cream);font-size:64px}
+.f-top .brand small{font-size:12px}
+.f-top p{font:italic 400 28px/1.2 var(--serif);max-width:16em;color:var(--gold-soft)}
+.f-bot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:26px;font-size:13px;opacity:.7}
+
+/* LIGHTBOX */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(25,24,12,.82);display:grid;place-items:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s}
+.lb.on{opacity:1;pointer-events:auto}
+.lb figure{background:var(--paper);border-radius:var(--r);overflow:hidden;max-width:420px;width:100%;transform:scale(.94);transition:transform .4s var(--ease)}
+.lb.on figure{transform:none}
+.lb img{width:100%;aspect-ratio:1;object-fit:cover}
+.lb figcaption{padding:18px 22px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.lb figcaption b{font:500 24px/1.1 var(--serif);color:var(--olive-deep)}
+
+/* FLOAT CALL */
+.fab{position:fixed;right:18px;bottom:18px;z-index:40;display:none}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+
+/* RESPONSIVE */
+@media (max-width:980px){
+  .nav ul,.nav .btn{display:none}
+  .burger{display:block}
+  .nav.open ul{display:flex;flex-direction:column;position:absolute;top:76px;left:0;right:0;background:var(--paper);padding:20px 24px 28px;gap:18px;font-size:18px;box-shadow:0 20px 30px -20px rgba(0,0,0,.2)}
+  .hero .wrap,.sig-grid,.visit-grid{grid-template-columns:1fr}
+  .hero{padding-top:100px}
+  .collage{height:520px}
+  .ritual-grid{grid-template-columns:1fr 1fr}
+  .ritual-grid .rcard:last-child{grid-column:span 2;aspect-ratio:16/10}
+  .bf-grid{grid-template-columns:1fr 1fr}
+  .bf-grid .big{grid-column:span 2;grid-row:auto;aspect-ratio:4/3}
+  .set .items{grid-template-columns:1fr 1fr}
+  .head{flex-direction:column;align-items:start;gap:16px}
+}
+@media (max-width:680px){
+  .wrap{width:calc(100% - 32px)}
+  .hero h1{font-size:62px}
+  .hero .meta{gap:18px}
+  .collage{height:440px}
+  .stamp{width:96px;height:96px}
+  .ritual-grid{grid-template-columns:1fr}
+  .ritual-grid .rcard,.ritual-grid .rcard:last-child{grid-column:auto;aspect-ratio:4/4.6}
+  .items{grid-template-columns:1fr}
+  .set .items{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin-right:-16px;padding-right:16px}
+  .set .items::-webkit-scrollbar{display:none}
+  .set .item{flex:0 0 74%;scroll-snap-align:start;min-height:150px}
+  .menu-bar .row{flex-direction:column;align-items:stretch;gap:10px}
+  .search{width:100%}
+  .sig-list li{grid-template-columns:60px 1fr auto;gap:14px}
+  .sig-list img{width:60px;height:60px}
+  .f-top .brand b{font-size:46px}
+  .map{min-height:340px}
+  .fab{display:inline-flex}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="Noa Crema"><b>NOA</b><small>CREMA</small></a>
+    <ul id="navlinks">
+      <li><a href="#ritual">Kahve</a></li>
+      <li><a href="#imza">İmza</a></li>
+      <li><a href="#kahvalti">Kahvaltı</a></li>
+      <li><a href="#menu">Menü</a></li>
+      <li><a href="#ziyaret">Ziyaret</a></li>
+    </ul>
+    <a class="btn btn-dark" href="tel:+905324600535">Ara · 0532 460 05 35</a>
+    <button class="burger" id="burger" aria-label="Menüyü aç"><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow rv">Fethiye · Akarca Sahil Yolu</div>
+      <h1 class="rv">Denize karşı <em>bir fincan</em> huzur.</h1>
+      <p class="lead rv">Specialty kahve, günlük taze tatlılar ve güne yavaş başlatan kahvaltılar. Fethiye körfezinin gün batımına bakan zarif ve sıcak bir köşe.</p>
+      <div class="cta rv">
+        <a class="btn btn-dark" href="#menu">Menüyü keşfet
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-line" href="#ziyaret">Yol tarifi al</a>
+      </div>
+      <div class="meta rv">
+        <div><b>100+</b>menü lezzeti</div>
+        <div><b>V60 · Chemex</b>demleme barı</div>
+        <div><b>4,9 ★</b>Google · 139 yorum</div>
+      </div>
+    </div>
+    <div class="collage rv">
+      <figure class="c1"><img src="img/ig/ig12.jpg" alt="Noa Crema terasından Fethiye körfezi manzarası"></figure>
+      <figure class="c2"><img src="img/ig/ig8.jpg" alt="Akarca sahilinde gün batımı"></figure>
+      <figure class="c3"><img src="img/ig/ig6.jpg" alt="Noa Crema bardağında espresso"></figure>
+      <svg class="stamp" viewBox="0 0 120 120" aria-hidden="true">
+        <defs><path id="circ" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
+        <text><textPath href="#circ">SPECIALTY COFFEE · FETHİYE · NOA CREMA ·</textPath></text>
+        <ellipse cx="60" cy="60" rx="8" ry="12" fill="#5E5E33"/><path d="M60 49c-3 7 3 15 0 22" stroke="#F6ECDF" stroke-width="1.6" fill="none"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="track" id="mq"></div></div>
+
+<!-- RITUAL -->
+<section class="ritual" id="ritual">
+  <div class="wrap">
+    <div class="head">
+      <div><div class="eyebrow rv">Kahve ritüeli</div><h2 class="rv">Çekirdekten <em>fincana</em>.</h2></div>
+      <p class="rv">Her fincan taze öğütülür, özenle çekilir. Espresso bazlı klasiklerden V60 ve Chemex demlemelerine, kahveyi acele etmeden hazırlıyoruz.</p>
+    </div>
+    <div class="ritual-grid">
+      <article class="rcard rv"><img src="img/ig/ig5.jpg" alt="Taze öğütülen kahve"><div class="in"><div class="n">01</div><h3>Taze öğütüm</h3><p>Her shot için çekirdek, siparişle birlikte öğütülür.</p></div></article>
+      <article class="rcard rv"><img src="img/ig/ig9.jpg" alt="Espresso çekimi"><div class="in"><div class="n">02</div><h3>Espresso barı</h3><p>Flat white, cortado, Raf Coffee ve imza lattelerimiz.</p></div></article>
+      <article class="rcard rv"><img src="img/ig/ig7.jpg" alt="V60 demleme"><div class="in"><div class="n">03</div><h3>Demleme</h3><p>V60, Chemex ve 12 saat bekleyen Cold Brew.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNATURE -->
+<section class="sig" id="imza">
+  <div class="wrap sig-grid">
+    <div class="sig-photo rv"><img src="img/ig/ig11.jpg" alt="Green Espresso Tonic"><span class="tag">Noa Special · Green Espresso Tonic</span></div>
+    <div>
+      <div class="eyebrow rv">İmza lezzetler</div>
+      <h2 class="rv">Sadece <em>Noa'da</em>.</h2>
+      <ul class="sig-list" id="sig"></ul>
+    </div>
+  </div>
+</section>
+
+<!-- BREAKFAST -->
+<section class="bf" id="kahvalti">
+  <div class="wrap">
+    <div class="head">
+      <div><div class="eyebrow rv">Kahvaltı</div><h2 class="rv">Güne <em>yavaş</em> başla.</h2></div>
+      <p class="rv">Sahil havasında serpme lezzetler, avokadolu tabaklar, tereyağında kavurmalı yumurta ve sıcak gözlemeler.</p>
+    </div>
+    <div class="bf-grid">
+      <figure class="big rv"><img src="img/ig/ig3.jpg" alt="Noa Crema kahvaltı masası"></figure>
+      <div class="bf-card rv"><div><h4>Noa Crema Breakfast</h4><p>Evin imza kahvaltı tabağı</p></div><span class="price">₺490</span></div>
+      <figure class="rv"><img src="img/ig/ig2.jpg" alt="Gözleme" style="aspect-ratio:4/3"></figure>
+      <figure class="rv"><img src="img/ig/ig1.jpg" alt="Sahanda yumurta" style="aspect-ratio:4/3"></figure>
+      <div class="bf-card rv"><div><h4>2 kişilik kahvaltı seti</h4><p>2 kahvaltı tabağı + 2 portakal suyu + 2 çay</p></div><span class="price">₺1.200</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu" id="menu">
+  <div class="wrap">
+    <div class="head">
+      <div><div class="eyebrow rv">Menü</div><h2 class="rv">Ne <em>içersiniz?</em></h2></div>
+      <p class="rv">Kahveden matchaya, tatlıdan gözlemeye tüm menümüz. Görsele dokunarak büyütebilirsiniz.</p>
+    </div>
+  </div>
+  <div class="menu-bar">
+    <div class="wrap row">
+      <div class="chips" id="chips"></div>
+      <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        <input id="q" type="search" placeholder="Menüde ara…" aria-label="Menüde ara"></label>
+    </div>
+  </div>
+  <div class="wrap">
+    <div id="cats"></div>
+    <p class="empty-msg" id="empty">Aradığınızı bulamadık. Başka bir şey deneyin.</p>
+    <p class="note">Fiyatlar Türk Lirası'dır ve KDV dahildir. Tüm kahvelerde vegan süt seçeneği mevcuttur.</p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gal" id="galeri">
+  <div class="wrap">
+    <div class="head">
+      <div><div class="eyebrow rv">@noacremafethiye</div><h2 class="rv">Noa'dan <em>anlar</em>.</h2></div>
+      <a class="btn btn-line rv" href="https://instagram.com/noacremafethiye" target="_blank" rel="noopener">Instagram'da takip et</a>
+    </div>
+    <div class="gal-grid" id="gal"></div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="visit" id="ziyaret">
+  <div class="wrap visit-grid">
+    <div>
+      <div class="eyebrow rv">Ziyaret</div>
+      <h2 class="rv">Sahilde <em>buluşalım</em>.</h2>
+      <div class="info">
+        <div class="rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>
+          <span><small>Adres</small><b>Akarca, Cahit Gündüz Cd. No:102/G<br>48300 Fethiye / Muğla</b></span></div>
+        <div class="rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
+          <span><small>Telefon</small><b><a href="tel:+905324600535">0532 460 05 35</a></b></span></div>
+        <div class="rv"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></span>
+          <span><small>Instagram</small><b><a href="https://instagram.com/noacremafethiye" target="_blank" rel="noopener">@noacremafethiye</a></b></span></div>
+      </div>
+      <div class="cta rv" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:40px">
+        <a class="btn btn-dark" href="https://www.google.com/maps/search/?api=1&query=Noa+Crema+Akarca+Fethiye" target="_blank" rel="noopener">Haritada aç</a>
+        <a class="btn btn-line" href="tel:+905324600535">Hemen ara</a>
+      </div>
+    </div>
+    <div class="map rv">
+      <iframe title="Noa Crema konumu" loading="lazy" src="https://maps.google.com/maps?q=Noa%20Crema%20Akarca%20Sahil%20Yolu%20Fethiye&z=15&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div class="brand" style="align-items:flex-start"><b>NOA</b><small>CREMA · FETHİYE</small></div>
+      <p>Specialty coffee, fresh desserts &amp; elegant, cozy atmosphere.</p>
+    </div>
+    <div class="f-bot">
+      <span>© 2026 Noa Crema · Cahit Gündüz Cd. No:102/G, Akarca, Fethiye</span>
+      <span><a href="tel:+905324600535">0532 460 05 35</a> · <a href="https://instagram.com/noacremafethiye" target="_blank" rel="noopener">Instagram</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="btn btn-dark fab" href="tel:+905324600535" aria-label="Noa Crema'yı ara">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Ara</a>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true"><figure><img id="lbImg" alt=""><figcaption><b id="lbName"></b><span class="price" id="lbPrice"></span></figcaption></figure></div>
+
+<script src="menu.js"></script>
+<script>
+(() => {
+  const M = window.NOA_MENU;
+  const tl = n => "₺" + n.toLocaleString("tr-TR");
+  const src = k => `img/menu/${k}.webp`;
+  const bean = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="12" cy="12" rx="6" ry="9"/><path d="M12 3.5c-3 5 3 11 0 17"/></svg>';
+  const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+  // Marquee
+  const words = ["Specialty Coffee","Fresh Desserts","Matcha Bar","Sahil Kahvaltısı","V60 & Chemex","Gün Batımı"];
+  document.getElementById("mq").innerHTML = [...words, ...words, ...words, ...words].map(w => `<span>${w}</span>`).join("");
+
+  // Signature list
+  const pick = ["Green Espresso Tonic","Cookie Berry","Pistachio Matcha","Orange Espresso","Blue Ocean Matcha"];
+  const all = M.flatMap(c => c.items.map(i => ({ c: c.id, name: i[0], price: i[1], desc: i[2] || "", img: i[3] })));
+  const byName = n => all.find(i => i.name === n);
+  document.getElementById("sig").innerHTML = pick.map(n => {
+    const i = byName(n);
+    return `<li class="rv"><img src="${src(i.img)}" alt="" loading="lazy"><div><h4>${esc(i.name)}</h4><p>${esc(i.desc)}</p></div><span class="price">${tl(i.price)}</span></li>`;
+  }).join("");
+
+  // Menu
+  const chips = document.getElementById("chips"), cats = document.getElementById("cats");
+  chips.innerHTML = `<button class="chip on" data-c="all">Tümü</button>` + M.map(c => `<button class="chip" data-c="${c.id}">${c.title}</button>`).join("");
+  cats.innerHTML = M.map(c => `
+    <div class="cat ${c.id === "set" ? "set" : ""}" id="cat-${c.id}" data-c="${c.id}">
+      <div class="cat-h"><h3>${c.title}</h3><span>${c.items.length} çeşit</span></div>
+      <div class="items">${c.items.map(([n, p, d, im]) => `
+        <div class="item" data-q="${esc((n + " " + (d || "")).toLocaleLowerCase("tr"))}">
+          ${im ? `<img class="ph" src="${src(im)}" alt="${esc(n)}" loading="lazy" data-n="${esc(n)}" data-p="${p}">` : `<span class="ph empty">${bean}</span>`}
+          <div><h4>${esc(n)}</h4>${d ? `<p>${esc(d)}</p>` : ""}</div>
+          <span class="price">${tl(p)}</span>
+        </div>`).join("")}</div>
+    </div>`).join("");
+
+  let active = "all";
+  const q = document.getElementById("q"), empty = document.getElementById("empty");
+  function filter() {
+    const s = q.value.trim().toLocaleLowerCase("tr");
+    let shown = 0;
+    cats.querySelectorAll(".cat").forEach(cat => {
+      const okCat = s ? true : (active === "all" || cat.dataset.c === active);
+      let n = 0;
+      cat.querySelectorAll(".item").forEach(it => { const ok = !s || it.dataset.q.includes(s); it.style.display = ok ? "" : "none"; if (ok) n++; });
+      const vis = okCat && n > 0; cat.style.display = vis ? "" : "none"; if (vis) shown += n;
+    });
+    empty.style.display = shown ? "none" : "block";
+  }
+  chips.addEventListener("click", e => {
+    const b = e.target.closest(".chip"); if (!b) return;
+    active = b.dataset.c; q.value = "";
+    chips.querySelectorAll(".chip").forEach(x => x.classList.toggle("on", x === b));
+    filter();
+    document.getElementById("menu").scrollIntoView({ behavior: "smooth" });
+  });
+  q.addEventListener("input", filter);
+
+  // Lightbox
+  const lb = document.getElementById("lb");
+  cats.addEventListener("click", e => {
+    const im = e.target.closest("img.ph"); if (!im) return;
+    document.getElementById("lbImg").src = im.src; document.getElementById("lbImg").alt = im.alt;
+    document.getElementById("lbName").textContent = im.dataset.n;
+    document.getElementById("lbPrice").textContent = tl(+im.dataset.p);
+    lb.classList.add("on");
+  });
+  lb.addEventListener("click", () => lb.classList.remove("on"));
+  addEventListener("keydown", e => e.key === "Escape" && lb.classList.remove("on"));
+
+  // Gallery
+  document.getElementById("gal").innerHTML = [4,10,2,12,6,8,1,11,7,3,9,5].map(n =>
+    `<a href="https://instagram.com/noacremafethiye" target="_blank" rel="noopener" class="rv"><img src="img/ig/ig${n}.jpg" alt="Noa Crema Instagram gönderisi" loading="lazy"></a>`).join("");
+
+  // Nav
+  const nav = document.getElementById("nav");
+  const onScroll = () => nav.classList.toggle("solid", scrollY > 30);
+  onScroll(); addEventListener("scroll", onScroll, { passive: true });
+  document.getElementById("burger").onclick = () => nav.classList.toggle("open");
+  document.getElementById("navlinks").onclick = () => nav.classList.remove("open");
+
+  // Reveal
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" });
+  document.querySelectorAll(".rv").forEach((el, i) => { el.style.transitionDelay = (i % 4) * 70 + "ms"; io.observe(el); });
+})();
+</script>
+</body>
+</html>
