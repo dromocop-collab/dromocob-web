@@ -1088,7 +1088,7 @@ const bankIban = String(bankSettings?.iban || "").trim();
 const bankCompanyName = String(
   bankSettings?.companyName ||
     bankSettings?.accountName ||
-    "DROMOCOB DEMO MAĞAZACILIK A.Ş."
+    "Cihat Erdem Studio"
 ).trim();
 
 const bankName = String(bankSettings?.bankName || "").trim();

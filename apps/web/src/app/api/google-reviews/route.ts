@@ -12,7 +12,7 @@ async function resolvePlaceId(apiKey: string) {
   const response = await fetch("https://places.googleapis.com/v1/places:searchText", {
     method: "POST",
     headers: { "Content-Type": "application/json", "X-Goog-Api-Key": apiKey, "X-Goog-FieldMask": "places.id" },
-    body: JSON.stringify({ textQuery: clean(process.env.GOOGLE_BUSINESS_QUERY || "Dromocob İstanbul", 180), languageCode: "tr", regionCode: "TR", pageSize: 1 }),
+    body: JSON.stringify({ textQuery: clean(process.env.GOOGLE_BUSINESS_QUERY || "Dromocob Fethiye", 180), languageCode: "tr", regionCode: "TR", pageSize: 1 }),
     next: { revalidate: 86400 },
   });
   if (!response.ok) throw new Error(`PLACE_SEARCH_${response.status}`);

@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Braces, Check, Layers3, Orbit, SearchCheck, Sparkles, Target, Workflow, Zap } from "lucide-react";
 import ProjectStartButton from "@/components/studio/ProjectStartButton";
+import { realPortfolio } from "@/data/realPortfolio";
+import { mobileApps } from "@/data/mobileApps";
 import s from "./studioAbout.module.css";
 
 const disciplines = [
@@ -33,7 +35,7 @@ export default function StudioAboutPage() {
             <div className={s.heroActions}><ProjectStartButton label="Birlikte proje başlat" /><Link href="/#tasarimlar">Seçilmiş işleri görün <ArrowRight /></Link></div>
           </div>
           <div className={s.heroVisual}>
-            <div className={s.visualMain}><Image src="/portfolio/kurumsal-web-tasarim-v1.jpg" alt="Dromocob dijital deneyim stüdyosu çalışmaları" fill priority sizes="(max-width: 900px) 100vw, 46vw" /><span><b>48+</b> dijital deneyim</span></div>
+            <div className={s.visualMain}><Image src="/portfolio/kurumsal-web-tasarim-v1.jpg" alt="Dromocob dijital deneyim stüdyosu çalışmaları" fill priority sizes="(max-width: 900px) 100vw, 46vw" /><span><b>{realPortfolio.length}</b> canlı proje</span></div>
             <div className={s.visualFloatA}><Image src="/portfolio/e-ticaret-web-tasarim-v1.jpg" alt="Dromocob e-ticaret deneyimi" fill sizes="240px" /></div>
             <div className={s.visualFloatB}><Orbit /><b>360°</b><span>STRATEGY TO SCALE</span></div>
           </div>
@@ -53,7 +55,7 @@ export default function StudioAboutPage() {
       </section>
 
       <section className={s.story}>
-        <div className={s.storyVisual}><Image src="/portfolio/otel-web-tasarim-v1.jpg" alt="Dromocob tasarım ve teknoloji yaklaşımı" fill sizes="(max-width: 900px) 100vw, 50vw" /><div><span>İSTANBUL / TÜRKİYE</span><b>Yerelden doğan,<br />global düşünen stüdyo.</b></div></div>
+        <div className={s.storyVisual}><Image src="/portfolio/otel-web-tasarim-v1.jpg" alt="Dromocob tasarım ve teknoloji yaklaşımı" fill sizes="(max-width: 900px) 100vw, 50vw" /><div><span>FETHİYE / MUĞLA</span><b>Yerelden doğan,<br />global düşünen stüdyo.</b></div></div>
         <div className={s.storyCopy}><span>NASIL DÜŞÜNÜYORUZ?</span><h2>Az katman.<br />Net sorumluluk.<br />Yüksek özen.</h2><p>Projenizi satıştan üretime aktaran kalabalık zincirler yok. Stratejist, tasarımcı ve geliştirici aynı hedefe bakar; kararlar daha hızlı, sonuç daha tutarlı olur.</p><div>{principles.map((item) => <span key={item}><Check />{item}</span>)}</div><ProjectStartButton label="Stüdyoyla tanışın" variant="outline" /></div>
       </section>
 
@@ -63,7 +65,7 @@ export default function StudioAboutPage() {
       </section>
 
       <section className={s.impact}>
-        <div><span>48+</span><p>tasarım sistemi ve dijital deneyim</p></div><div><span>7</span><p>uzmanlaştığımız sektör</p></div><div><span>100%</span><p>markaya özel tasarım yaklaşımı</p></div><div><span>∞</span><p>iyileştirme ve büyüme alanı</p></div>
+        <div><span>{realPortfolio.length}</span><p>yayında olan gerçek proje</p></div><div><span>7</span><p>uzmanlaştığımız sektör</p></div><div><span>100%</span><p>markaya özel tasarım yaklaşımı</p></div><div><span>{mobileApps.length}</span><p>iOS ve Android uygulama</p></div>
       </section>
 
       <section className={s.finalCta}><Zap /><span>SONRAKİ GÜÇLÜ DENEYİM SİZİNKİ OLSUN</span><h2>İyi bir fikir varsa,<br />onu etkileyici hale getirebiliriz.</h2><p>Projenizi birkaç adımda anlatın; ekibimiz size özel kapsam ve yaratıcı yön önerisiyle ulaşsın.</p><ProjectStartButton label="Proje briefini oluştur" variant="light" /></section>

@@ -16,7 +16,7 @@ export default function PrivacyPolicyPage() {
       eyebrow="Yasal Metin"
       title="Gizlilik Politikası"
       updatedAt="19.04.2026"
-      description="Bu gizlilik politikası, DROMOCOB DEMO MAĞAZACILIK A.Ş. tarafından sunulan Dromocob web sitesi, mobil uygulaması ve ilişkili hizmetler kapsamında işlenen kişisel verilere ilişkin temel bilgilendirmeyi içerir."
+      description="Bu gizlilik politikası, Cihat Erdem Studio tarafından sunulan Dromocob web sitesi, mobil uygulaması ve ilişkili hizmetler kapsamında işlenen kişisel verilere ilişkin temel bilgilendirmeyi içerir."
       sections={[
         {
           title: "Toplanan Veriler",

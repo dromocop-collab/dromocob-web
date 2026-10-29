@@ -149,10 +149,10 @@ type Props = {
 };
 
 const RETURN_ADDRESS_TR =
-  "DROMOCOB DEMO MAĞAZACILIK A.Ş., İstanbul · Demo Showroom";
+  "Cihat Erdem Studio, Fethiye / Muğla";
 
 const RETURN_ADDRESS_EN =
-  "DROMOCOB DEMO MAĞAZACILIK A.Ş., İstanbul · Demo Showroom";
+  "Cihat Erdem Studio, Fethiye / Muğla";
 
 const CARRIERS = [
   "Yurtiçi Kargo",

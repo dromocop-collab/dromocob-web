@@ -153,7 +153,7 @@ export async function getAboutPage(): Promise<AboutPageDoc> {
           : [
               { title: "Telefon", text: "+90 530 478 82 98" },
               { title: "E-posta", text: "info@dromocob.tr" },
-              { title: "Adres", text: "İstanbul · Demo Showroom" },
+              { title: "Adres", text: "Fethiye / Muğla" },
               { title: "Çalışma Saatleri", text: "Her gün 09:00 – 22:00" },
             ],
       },

@@ -918,7 +918,7 @@ function AdminFooterPageInner() {
                 style={inputStyle}
                 value={contactAddress}
                 onChange={(e) => setContactAddress(e.target.value)}
-                placeholder="İstanbul · Demo Showroom"
+                placeholder="Fethiye / Muğla"
               />
             </div>
             <div>

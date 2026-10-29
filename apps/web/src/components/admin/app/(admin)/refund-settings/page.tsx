@@ -70,7 +70,7 @@ const DEFAULT_SETTINGS: RefundSettings = {
     city: "İSTANBUL",
     district: "FETHİYE",
     postalCode: "48303",
-    addressLine: "Demo Showroom",
+    addressLine: "Fethiye / Muğla",
   },
 };
 
@@ -703,7 +703,7 @@ async function deleteAllRefundRequests() {
             <input
               value={settings.returnReceiver.addressLine}
               onChange={(e) => updateReceiver("addressLine", e.target.value)}
-              placeholder="Demo Showroom"
+              placeholder="Fethiye / Muğla"
             />
           </label>
         </div>

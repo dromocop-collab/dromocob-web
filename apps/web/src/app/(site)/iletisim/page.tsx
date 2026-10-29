@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Clock3, Mail, MessageCircle, PhoneCall, ShieldCheck, Sparkles, Workflow } from "lucide-react";
+import { ArrowRight, CheckCircle2, Clock3, Mail, MapPin, MessageCircle, PhoneCall, ShieldCheck, Sparkles, Workflow } from "lucide-react";
 import { useEffect, useState } from "react";
 import ProjectStartButton from "@/components/studio/ProjectStartButton";
 import { getWhatsAppNumber, onWhatsAppNumberChange } from "@/lib/whatsapp";
@@ -21,7 +21,7 @@ export default function IletisimPage() {
           <h1>İyi fikirler bir mesajla başlar.<br /><em>Birlikte büyütelim.</em></h1>
           <p>Yeni web sitesi, e-ticaret altyapısı veya dijital ürün fikrinizi anlatın. Ekibimiz ihtiyacınızı analiz edip net bir yol haritasıyla size dönsün.</p>
           <div className={s.heroActions}><ProjectStartButton label="Proje briefini oluştur" /><a href={whatsappUrl} target="_blank" rel="noreferrer"><MessageCircle /> WhatsApp’tan yaz</a></div>
-          <div className={s.response}><span><i /> Şu anda yeni proje kabul ediyoruz</span><span><Clock3 /> Ortalama ilk dönüş: 24–48 saat</span></div>
+          <div className={s.response}><span><i /> Şu anda yeni proje kabul ediyoruz</span><span><Clock3 /> Hafta içi 09:00–18:00 · ilk dönüş en geç 24–48 saat</span><span><MapPin /> Fethiye, Muğla · Türkiye geneli uzaktan hizmet</span></div>
         </div>
       </section>
 

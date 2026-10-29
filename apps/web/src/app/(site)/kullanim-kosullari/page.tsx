@@ -16,7 +16,7 @@ export default function TermsPage() {
       eyebrow="Yasal Metin"
       title="Kullanım Koşulları"
       updatedAt="19.04.2026"
-      description="Bu kullanım koşulları, DROMOCOB DEMO MAĞAZACILIK A.Ş. tarafından sunulan Dromocob platformlarını kullanan tüm ziyaretçi ve üyeler için geçerlidir."
+      description="Bu kullanım koşulları, Cihat Erdem Studio tarafından sunulan Dromocob platformlarını kullanan tüm ziyaretçi ve üyeler için geçerlidir."
       sections={[
         {
           title: "Hizmet Kapsamı",

@@ -177,11 +177,12 @@ export default async function RootLayout({
           url: "https://cihaterdem.com",
         },
         address:
-          seo.jsonld.addressLocality || seo.jsonld.addressCountry
+          true
             ? {
               "@type": "PostalAddress",
-              addressLocality: seo.jsonld.addressLocality || undefined,
-              addressCountry: seo.jsonld.addressCountry || undefined,
+              addressLocality: "Fethiye",
+              addressRegion: "Muğla",
+              addressCountry: "TR",
             }
             : undefined,
       }
@@ -361,11 +362,16 @@ export default async function RootLayout({
                 knowsAbout: ["Web tasarım", "E-ticaret", "SEO", "Next.js", "iOS uygulama", "Android uygulama", "Yönetim paneli"],
                 address: {
                   "@type": "PostalAddress",
-                  addressLocality: "İstanbul",
-                  addressRegion: "İstanbul",
+                  addressLocality: "Fethiye",
+                  addressRegion: "Muğla",
                   addressCountry: "TR",
                 },
-                areaServed: { "@type": "Country", name: "Türkiye" },
+                areaServed: [
+                  { "@type": "City", name: "Fethiye" },
+                  { "@type": "AdministrativeArea", name: "Muğla" },
+                  { "@type": "Country", name: "Türkiye" },
+                ],
+                geo: { "@type": "GeoCoordinates", latitude: 36.6219, longitude: 29.1164 },
                 openingHoursSpecification: [
                   {
                     "@type": "OpeningHoursSpecification",

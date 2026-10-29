@@ -9,7 +9,7 @@ import s from "./sectors.module.css";
 export const metadata: Metadata = {
   title: "Sektörel Web Tasarım Çözümleri",
   description: "Rent a car, e-ticaret, emlak, restoran, otel, klinik ve kurumsal firmalar için SEO uyumlu, yönetim panelli web sitesi çözümleri.",
-  keywords: ["sektörel web tasarım", "profesyonel web sitesi", "SEO uyumlu web sitesi", "web tasarım ajansı", "İstanbul web tasarım"],
+  keywords: ["sektörel web tasarım", "profesyonel web sitesi", "SEO uyumlu web sitesi", "web tasarım ajansı", "Fethiye web tasarım", "Muğla web tasarım"],
   alternates: { canonical: "https://cihaterdem.com/sektorler" },
   openGraph: { title: "Sektörünüze Özel Web Tasarım Çözümleri", description: "Her sektörün satış ve iletişim modeline göre kurgulanan modern web deneyimleri.", url: "https://cihaterdem.com/sektorler", type: "website" },
 };

@@ -1115,7 +1115,7 @@ function SiteSettingsAdminPageInner() {
                     className={s.input}
                     value={cfg.contact?.address?.tr || ""}
                     onChange={(e) => setLT("contact.address", "tr", e.target.value)}
-                    placeholder="İstanbul · Demo Showroom"
+                    placeholder="Fethiye / Muğla"
                   />
                 </div>
                 <div className={s.field}>
@@ -1124,7 +1124,7 @@ function SiteSettingsAdminPageInner() {
                     className={s.input}
                     value={cfg.contact?.address?.en || ""}
                     onChange={(e) => setLT("contact.address", "en", e.target.value)}
-                    placeholder="İstanbul · Demo Showroom"
+                    placeholder="Fethiye / Muğla"
                   />
                 </div>
               </div>

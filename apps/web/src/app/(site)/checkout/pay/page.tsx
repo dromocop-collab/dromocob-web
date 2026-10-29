@@ -1890,7 +1890,7 @@ function AgreementModal({
 
         SATICI bilgileri: BİZİM 6 e-ticaret İNŞAAT EMLAK SANAYİ TİCARET LİMİTED
 
-        ŞİRKETİ. Adres: İstanbul · Demo Showroom.
+        ŞİRKETİ. Adres: Fethiye / Muğla.
 
         E-posta: info@dromocob.tr.
 
@@ -2020,7 +2020,7 @@ function AgreementModal({
 
         SATICI bilgileri: BİZİM 6 e-ticaret İNŞAAT EMLAK SANAYİ TİCARET LİMİTED
 
-        ŞİRKETİ. Adres: İstanbul · Demo Showroom.
+        ŞİRKETİ. Adres: Fethiye / Muğla.
 
         E-posta: info@dromocob.tr.
 

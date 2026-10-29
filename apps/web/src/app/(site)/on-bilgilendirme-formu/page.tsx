@@ -20,7 +20,7 @@ export default function PreInformationFormPage() {
       sections={[
         {
           title: "Satıcı Bilgisi",
-          body: "Satıcı unvanı: DROMOCOB DEMO MAĞAZACILIK A.Ş.. Adres: İstanbul · Demo Showroom. E-posta: info@dromocob.tr.",
+          body: "Satıcı unvanı: Cihat Erdem Studio. Adres: Fethiye / Muğla. E-posta: info@dromocob.tr.",
         },
         {
           title: "Ürün ve Fiyat",

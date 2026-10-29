@@ -337,7 +337,7 @@ const DEFAULT_ETBIS_LINK =
 const DEFAULT_CONTACT: ContactSettings = {
   phone: "+90 530 478 82 98",
   email: "info@dromocob.tr",
-  address: "İstanbul · Demo Showroom",
+  address: "Fethiye / Muğla",
   whatsapp: "905304788298",
 };
 

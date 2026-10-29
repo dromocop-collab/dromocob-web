@@ -7,7 +7,8 @@ export const metadata: Metadata = {
   keywords: [
     "web tasarım iletişim",
     "web sitesi teklif al",
-    "İstanbul web tasarım ajansı",
+    "Fethiye web tasarım ajansı",
+    "Muğla web tasarım",
     "e ticaret sitesi yaptırma",
     "Dromocob iletişim",
   ],

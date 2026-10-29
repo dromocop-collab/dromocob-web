@@ -74,10 +74,10 @@ const DEFAULT_FORM: FormState = {
   bankTransfer: {
     isActive: false,
     adminPreviewEnabled: true,
-    companyName: "DROMOCOB DEMO MAĞAZACILIK A.Ş.",
+    companyName: "Cihat Erdem Studio",
     bankName: "",
     branchName: "",
-    accountName: "DROMOCOB DEMO MAĞAZACILIK A.Ş.",
+    accountName: "Cihat Erdem Studio",
     accountNumber: "",
     iban: "",
     currency: "TRY",

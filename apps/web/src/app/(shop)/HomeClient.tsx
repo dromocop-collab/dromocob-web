@@ -15,6 +15,7 @@ import styles from "./HomeClient.module.css";
 import cardStyles from "./HomeClientCards.module.css";
 import MobileAppShowcase from "@/components/studio/MobileAppShowcase";
 import RealPortfolioShowcase from "@/components/studio/RealPortfolioShowcase";
+import { realPortfolio } from "@/data/realPortfolio";
 
 const iconBySector = {
   "rent-a-car-web-sitesi": CarFront,
@@ -41,7 +42,12 @@ export default function HomeClient() {
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
-        <div className={styles.heroImage} /><div className={styles.heroShade} />
+        <div className={styles.heroImage} />
+        <video className={styles.heroVideo} autoPlay muted loop playsInline preload="metadata" poster="/home/studio-hero-poster.jpg" aria-hidden="true" tabIndex={-1}>
+          <source src="/home/studio-hero.webm" type="video/webm" />
+          <source src="/home/studio-hero.mp4" type="video/mp4" />
+        </video>
+        <div className={styles.heroShade} />
         <div className={styles.inner}>
           <span className={styles.kicker}><Sparkles size={15} /> Web tasarım, e-ticaret ve mobil uygulama stüdyosu</span>
           <h1>İşinize uygun siteyi<br /><em>dakikalar içinde keşfedin.</em></h1>
@@ -55,7 +61,7 @@ export default function HomeClient() {
               <select value={style} onChange={(e) => setStyle(e.target.value)}><option value="all">Tüm stiller</option>{["Lüks", "Modern", "Minimal", "Editoryal", "Kurumsal", "Fütüristik"].map((item) => <option key={item}>{item}</option>)}</select>
                           </div>
           </div>
-          <div className={styles.stats}><span><b>48+</b> özgün tasarım</span><span><b>12</b> sektör</span><span><b>7–21 gün</b> teslim</span><span><b>∞</b> özelleştirme</span></div>
+          <div className={styles.stats}><span><b>{realPortfolio.length}</b> canlı proje</span><span><b>{sectors.length}</b> sektör</span><span><b>7–21 gün</b> teslim</span><span><b>Fethiye</b> merkezli, Türkiye geneli</span></div>
         </div>
       </section>
 

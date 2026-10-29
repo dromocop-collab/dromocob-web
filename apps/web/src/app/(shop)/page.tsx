@@ -15,7 +15,8 @@ export async function generateMetadata(): Promise<Metadata> {
       "Rent a car, e-ticaret, emlak, restoran, otel, sağlık ve kurumsal markalar için gelişmiş, yönetim panelli web sitesi tasarımları.",
     keywords: [
       "Cihat Erdem web tasarım",
-      "İstanbul web tasarım ajansı",
+      "Fethiye web tasarım",
+      "Muğla web tasarım ajansı",
       "SEO uyumlu web sitesi",
       "yönetim panelli web sitesi",
       "rent a car web sitesi",

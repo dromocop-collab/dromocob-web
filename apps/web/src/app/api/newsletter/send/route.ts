@@ -136,7 +136,7 @@ export async function POST(req: NextRequest) {
               <!-- Address -->
               <tr>
                 <td align="center" style="padding-bottom:8px">
-                  <p style="margin:0;font-size:12px;color:#999;font-family:Arial,sans-serif;line-height:1.6">Bizim Dromocob<br>İstanbul &bull; Türkiye</p>
+                  <p style="margin:0;font-size:12px;color:#999;font-family:Arial,sans-serif;line-height:1.6">Bizim Dromocob<br>Fethiye, Muğla &bull; Türkiye</p>
                 </td>
               </tr>
               <!-- Unsubscribe -->

@@ -14,9 +14,9 @@ type Props = {
 };
 
 const COMPANY_NAME =
-  "DROMOCOB DEMO MAĞAZACILIK A.Ş.";
+  "Cihat Erdem Studio";
 const COMPANY_ADDRESS =
-  "İstanbul · Demo Showroom";
+  "Fethiye / Muğla";
 const COMPANY_EMAIL = "info@dromocob.tr";
 
 export default function LegalPageTemplate({

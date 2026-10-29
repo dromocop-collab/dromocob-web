@@ -219,6 +219,7 @@ export default function ProjectBriefModal({ open, onClose, mode = "website" }: P
               <label className={s.consent}><input type="checkbox" checked={form.consent} onChange={(e) => update("consent", e.target.checked)} /><i><Check /></i><span>İletişim bilgilerimin proje talebim için kullanılmasını kabul ediyorum.</span></label>
               <div className={s.summary}><span>SEÇİMİNİZ</span><b>{form.siteType}</b><small>{form.design} · {form.features.length || 0} özellik</small></div>
               <button className={`${s.submit} ${isMobile ? mobileTheme.submit : ""}`} type="submit" disabled={sending}>{sending ? <Loader2 className={s.spin} /> : <Send />} Talebi Cihat Erdem Studio’ya gönder <ArrowRight /></button>
+              <p className={s.assure}>Teklif ücretsizdir ve bağlayıcı değildir. Bilgileriniz yalnızca bu talep için kullanılır. Hafta içi 09:00–18:00 arası dönüş yapılır.</p>
             </form>
           )}
 

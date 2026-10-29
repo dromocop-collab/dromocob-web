@@ -16,7 +16,7 @@ export default function CookiePolicyPage() {
       eyebrow="Yasal Metin"
       title="Çerez Politikası"
       updatedAt="10.06.2026"
-      description="Bu çerez politikası, DROMOCOB DEMO MAĞAZACILIK A.Ş. tarafından sunulan Dromocob web sitesi ve ilişkili dijital hizmetlerde kullanılan çerezler, izleme teknolojileri ve reklam ölçümleme araçlarına ilişkin bilgilendirmeyi içerir."
+      description="Bu çerez politikası, Cihat Erdem Studio tarafından sunulan Dromocob web sitesi ve ilişkili dijital hizmetlerde kullanılan çerezler, izleme teknolojileri ve reklam ölçümleme araçlarına ilişkin bilgilendirmeyi içerir."
       sections={[
         {
           title: "Çerez Nedir?",

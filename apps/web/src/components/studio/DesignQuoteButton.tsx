@@ -103,6 +103,7 @@ export default function DesignQuoteButton({ brand, design, siteType, label, vari
                 <label className={s.consent}><input type="checkbox" checked={form.consent} onChange={(e) => update("consent", e.target.checked)} /><i><Check /></i><span>Bilgilerimin bu teklif talebi için kullanılmasını kabul ediyorum.</span></label>
                 {error && <div className={s.error}>{error}</div>}
                 <button className={s.submit} disabled={sending} type="submit">{sending ? <Loader2 className={s.spin} /> : <Send />} Bu site için teklif iste <ArrowRight /></button>
+                <p className={s.assure}>Teklif ücretsizdir ve bağlayıcı değildir. Bilgileriniz yalnızca bu talep için kullanılır. Hafta içi 09:00–18:00 arası dönüş yapılır.</p>
               </form>
             )}
           </section>

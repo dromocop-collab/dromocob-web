@@ -20,7 +20,7 @@ export default function DistanceSalesAgreementPage() {
       sections={[
         {
           title: "Taraflar",
-          body: "Satıcı: DROMOCOB DEMO MAĞAZACILIK A.Ş.. Alıcı: Platform üzerinden sipariş veren kullanıcıdır.",
+          body: "Satıcı: Cihat Erdem Studio. Alıcı: Platform üzerinden sipariş veren kullanıcıdır.",
         },
         {
           title: "Konu",

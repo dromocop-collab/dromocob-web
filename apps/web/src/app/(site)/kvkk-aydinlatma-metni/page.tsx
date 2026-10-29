@@ -16,11 +16,11 @@ export default function KvkkPage() {
       eyebrow="KVKK"
       title="KVKK Aydınlatma Metni"
       updatedAt="19.04.2026"
-      description="Bu aydınlatma metni, 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında, DROMOCOB DEMO MAĞAZACILIK A.Ş. tarafından veri sorumlusu sıfatıyla hazırlanmıştır."
+      description="Bu aydınlatma metni, 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında, Cihat Erdem Studio tarafından veri sorumlusu sıfatıyla hazırlanmıştır."
       sections={[
         {
           title: "Veri Sorumlusu",
-          body: "Kişisel verileriniz, İstanbul · Demo Showroom adresinde faaliyet gösteren DROMOCOB DEMO MAĞAZACILIK A.Ş. tarafından işlenmektedir.",
+          body: "Kişisel verileriniz, Fethiye / Muğla adresinde faaliyet gösteren Cihat Erdem Studio tarafından işlenmektedir.",
         },
         {
           title: "İşlenen Veriler",

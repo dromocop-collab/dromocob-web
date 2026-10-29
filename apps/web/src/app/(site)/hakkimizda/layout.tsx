@@ -6,7 +6,8 @@ export const metadata: Metadata = {
     "Dromocob; strateji, deneyim tasarımı, web geliştirme ve SEO alanlarını birleştiren bağımsız dijital ürün stüdyosudur.",
   keywords: [
     "Dromocob dijital stüdyo",
-    "web tasarım ajansı İstanbul",
+    "web tasarım ajansı Fethiye",
+    "Muğla web tasarım",
     "dijital ürün stüdyosu",
     "deneyim tasarımı ajansı",
   ],
