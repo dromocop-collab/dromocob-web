@@ -57,7 +57,7 @@ function getTemplatePreview(_template: CampaignTemplate, subject: string, body: 
     <div style="height:4px;background:linear-gradient(90deg,#b8941f,#d4af37,#e6c874,#d4af37,#b8941f)"></div>
     <!-- Header -->
     <div style="background:#0f1728;padding:36px 32px;text-align:center">
-      <div style="width:56px;height:56px;border-radius:50%;background:#d4af37;margin:0 auto 12px;line-height:56px;font-size:18px;font-weight:900;color:#0f1728;font-family:Georgia,serif">6'ncı</div>
+      <div style="width:56px;height:56px;border-radius:50%;background:#d4af37;margin:0 auto 12px;line-height:56px;font-size:18px;font-weight:900;color:#0f1728;font-family:Georgia,serif">CE</div>
       <div style="font-size:13px;font-weight:700;color:#d4af37;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px">DROMOCOB</div>
       <h1 style="margin:0;font-size:26px;font-weight:800;color:#ffffff;font-family:Georgia,serif;line-height:1.3">${subject}</h1>
     </div>

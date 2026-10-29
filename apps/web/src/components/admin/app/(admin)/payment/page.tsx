@@ -577,7 +577,7 @@ function AdminPaymentPageInner() {
                     <input
                       value={form.bankTransfer.companyName}
                       onChange={onText((value) => updateBank("companyName", value))}
-                      placeholder="BİZİM 6 e-ticaret..."
+                      placeholder="Cihat Erdem Studio"
                     />
                   </label>
 
@@ -604,7 +604,7 @@ function AdminPaymentPageInner() {
                     <input
                       value={form.bankTransfer.accountName}
                       onChange={onText((value) => updateBank("accountName", value))}
-                      placeholder="BİZİM 6 e-ticaret..."
+                      placeholder="Cihat Erdem Studio"
                     />
                   </label>
 

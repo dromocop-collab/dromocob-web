@@ -246,7 +246,7 @@ export default function MaintenanceGate({ children }: { children: ReactNode }) {
     loc,
     cfg?.title,
     "Dromocob yenileniyor",
-    "6’ncı lifestyle is being updated"
+    "Cihat Erdem Studio is being updated"
   );
 
   const subtitle = pickLT(

@@ -1876,9 +1876,7 @@ function AgreementModal({
 
       <p>
 
-        İşbu Mesafeli Satış Sözleşmesi, BİZİM 6 e-ticaret İNŞAAT EMLAK SANAYİ
-
-        TİCARET LİMİTED ŞİRKETİ ile ALICI arasında, Dromocob internet
+        İşbu Mesafeli Satış Sözleşmesi, Cihat Erdem Studio ile ALICI arasında, Dromocob internet
 
         sitesi üzerinden elektronik ortamda verilen siparişe ilişkin tarafların
 
@@ -1888,9 +1886,7 @@ function AgreementModal({
 
       <p>
 
-        SATICI bilgileri: BİZİM 6 e-ticaret İNŞAAT EMLAK SANAYİ TİCARET LİMİTED
-
-        ŞİRKETİ. Adres: Fethiye / Muğla.
+        SATICI bilgileri: Cihat Erdem Studio. Adres: Fethiye / Muğla.
 
         E-posta: info@dromocob.tr.
 
@@ -2018,9 +2014,7 @@ function AgreementModal({
 
       <p>
 
-        SATICI bilgileri: BİZİM 6 e-ticaret İNŞAAT EMLAK SANAYİ TİCARET LİMİTED
-
-        ŞİRKETİ. Adres: Fethiye / Muğla.
+        SATICI bilgileri: Cihat Erdem Studio. Adres: Fethiye / Muğla.
 
         E-posta: info@dromocob.tr.
 

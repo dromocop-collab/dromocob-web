@@ -69,7 +69,7 @@ export async function POST(req: NextRequest) {
                   <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                     <tr>
                       <td align="center" style="width:56px;height:56px;border-radius:50%;background:#d4af37;text-align:center;vertical-align:middle">
-                        <span style="font-size:18px;font-weight:900;color:#0f1728;font-family:Georgia,serif;line-height:56px">6'ncı</span>
+                        <span style="font-size:18px;font-weight:900;color:#0f1728;font-family:Georgia,serif;line-height:56px">CE</span>
                       </td>
                     </tr>
                   </table>

@@ -32,7 +32,7 @@ const DEFAULTS: Required<Omit<MaintenanceSettings, "launchStartedAt" | "launchEn
   enabled: false,
   title: {
     tr: "Dromocob yenileniyor",
-    en: "6’ncı lifestyle is being updated",
+    en: "Cihat Erdem Studio is being updated",
   },
   subtitle: {
     tr: "Size daha hızlı, güvenli ve premium bir alışveriş deneyimi hazırlıyoruz.",

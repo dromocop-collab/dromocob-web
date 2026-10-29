@@ -1514,7 +1514,7 @@ export default function AdminProductEdit({ params }: { params: { id: string } })
         ? `${fmt(Number(form.hasGram || form.gram))} gr`
         : "";
 
-    const suffix = loc === "en" ? "6'ncı lifestyle" : "Dromocob";
+    const suffix = loc === "en" ? "Cihat Erdem Studio" : "Cihat Erdem Studio";
 
     return truncateSeo(
       [title, karat, gram, suffix].filter(Boolean).join(" | "),
@@ -1540,7 +1540,7 @@ export default function AdminProductEdit({ params }: { params: { id: string } })
 
     if (loc === "en") {
       return truncateSeo(
-        `${title} model with premium craftsmanship, secure shopping experience, fast shipping and 6'ncı lifestyle assurance.`,
+        `${title} model with premium craftsmanship, secure shopping experience, fast shipping and Cihat Erdem Studio assurance.`,
         155
       );
     }
@@ -1559,7 +1559,7 @@ export default function AdminProductEdit({ params }: { params: { id: string } })
       form.sku,
       "altın",
       "e-ticaret",
-      "6'ncı e-ticaret",
+      "Cihat Erdem Studio",
       "hediye",
       Number(form.karat || 0) > 0 ? `${form.karat} ayar` : "",
       Number(form.hasGram || form.gram || 0) > 0

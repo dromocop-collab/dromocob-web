@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   keywords: ["web tasarım projeleri", "mobil uygulama projeleri", "Cihat Erdem projeleri", "Dromocob projeleri", "iOS uygulama örnekleri", "e-ticaret sitesi örnekleri"],
   alternates: { canonical: "https://cihaterdem.com/projelerimiz" },
   robots: { index: true, follow: true },
-  openGraph: { title: "Canlı Web ve Mobil Uygulama Projeleri", description: "Örnek şablonlar değil; gerçek kullanıcılar ve markalar için yayına alınmış dijital ürünler.", images: [{ url: "/portfolio/dromocob/6nci-kuyumculuk.jpg" }] },
-  twitter: { card: "summary_large_image", title: "Canlı Web ve Mobil Uygulama Projeleri", description: "Gerçek markalar için yayına alınmış web, SaaS ve iOS ürünleri.", images: ["/portfolio/dromocob/6nci-kuyumculuk.jpg"] },
+  openGraph: { title: "Canlı Web ve Mobil Uygulama Projeleri", description: "Örnek şablonlar değil; gerçek kullanıcılar ve markalar için yayına alınmış dijital ürünler.", images: [{ url: "/portfolio/dromocob/kilic-spot.jpg" }] },
+  twitter: { card: "summary_large_image", title: "Canlı Web ve Mobil Uygulama Projeleri", description: "Gerçek markalar için yayına alınmış web, SaaS ve iOS ürünleri.", images: ["/portfolio/dromocob/kilic-spot.jpg"] },
 };
 
 export default function ProjectsPage(){
