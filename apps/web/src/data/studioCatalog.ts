@@ -21,7 +21,6 @@ export type StudioTemplate = {
   sector: string;
   category: string;
   style: string;
-  price: number;
   accent: string;
   image: string;
   features: string[];
@@ -192,15 +191,15 @@ export const sectors: Sector[] = [
 ];
 
 export const studioTemplates: StudioTemplate[] = [
-  { id: 1, name: "Boğaz Premium Araç Kiralama", slug: "bogaz-premium-arac-kiralama", sector: "rent-a-car-web-sitesi", category: "Rent a Car", style: "Lüks", price: 34900, accent: "#4f7cff", image: "/portfolio/rent-a-car-web-tasarim-v1.jpg", features: ["Online rezervasyon", "Filo", "Çoklu dil"] },
-  { id: 2, name: "İstanbul Moda E-Mağaza", slug: "istanbul-moda-e-magaza", sector: "e-ticaret-web-sitesi", category: "E-Ticaret", style: "Editoryal", price: 42900, accent: "#ff7657", image: "/portfolio/e-ticaret-web-tasarim-v1.jpg", features: ["Ödeme", "Kampanya", "Ürün yönetimi"] },
-  { id: 3, name: "Marmara Seçkin Gayrimenkul", slug: "marmara-seckin-gayrimenkul", sector: "emlak-web-sitesi", category: "Gayrimenkul", style: "Kurumsal", price: 38900, accent: "#8b5cf6", image: "/portfolio/emlak-web-tasarim-v1.jpg", features: ["Akıllı filtre", "Harita", "Danışman"] },
-  { id: 4, name: "Sofra İstanbul Restoran", slug: "sofra-istanbul-restoran", sector: "restoran-web-sitesi", category: "Restoran", style: "Lüks", price: 29900, accent: "#e65252", image: "/portfolio/restoran-web-tasarim-v1.jpg", features: ["Dijital menü", "Masa ayırt", "Galeri"] },
-  { id: 5, name: "Ege Butik Otel", slug: "ege-butik-otel", sector: "otel-web-sitesi", category: "Otel & Turizm", style: "Modern", price: 44900, accent: "#09a6c7", image: "/portfolio/otel-web-tasarim-v1.jpg", features: ["Oda seçimi", "Takvim", "Rezervasyon"] },
-  { id: 6, name: "İyi Yaşam Kliniği", slug: "iyi-yasam-klinigi", sector: "klinik-web-sitesi", category: "Sağlık & Klinik", style: "Minimal", price: 32900, accent: "#10a779", image: "/portfolio/saglik-web-tasarim-v1.jpg", features: ["Randevu", "Uzmanlar", "KVKK"] },
-  { id: 7, name: "Vizyon Kurumsal", slug: "vizyon-kurumsal", sector: "kurumsal-web-sitesi", category: "Kurumsal", style: "Modern", price: 26900, accent: "#64748b", image: "/portfolio/kurumsal-web-tasarim-v1.jpg", features: ["Hizmetler", "Projeler", "Teklif formu"] },
-  { id: 8, name: "Anadolu E-Ticaret", slug: "anadolu-e-ticaret", sector: "e-ticaret-web-sitesi", category: "E-Ticaret", style: "Modern", price: 46900, accent: "#ec4899", image: "/portfolio/e-ticaret-web-tasarim-v1.jpg", features: ["Pazaryeri", "Stok", "Raporlama"] },
-  { id: 9, name: "Yeni Nesil Elektrikli Araç", slug: "yeni-nesil-elektrikli-arac", sector: "rent-a-car-web-sitesi", category: "Rent a Car", style: "Fütüristik", price: 36900, accent: "#22c55e", image: "/portfolio/rent-a-car-web-tasarim-v1.jpg", features: ["Hızlı rezervasyon", "Lokasyon", "Transfer"] },
+  { id: 1, name: "Boğaz Premium Araç Kiralama", slug: "bogaz-premium-arac-kiralama", sector: "rent-a-car-web-sitesi", category: "Rent a Car", style: "Lüks", accent: "#4f7cff", image: "/portfolio/rent-a-car-web-tasarim-v1.jpg", features: ["Online rezervasyon", "Filo", "Çoklu dil"] },
+  { id: 2, name: "İstanbul Moda E-Mağaza", slug: "istanbul-moda-e-magaza", sector: "e-ticaret-web-sitesi", category: "E-Ticaret", style: "Editoryal", accent: "#ff7657", image: "/portfolio/e-ticaret-web-tasarim-v1.jpg", features: ["Ödeme", "Kampanya", "Ürün yönetimi"] },
+  { id: 3, name: "Marmara Seçkin Gayrimenkul", slug: "marmara-seckin-gayrimenkul", sector: "emlak-web-sitesi", category: "Gayrimenkul", style: "Kurumsal", accent: "#8b5cf6", image: "/portfolio/emlak-web-tasarim-v1.jpg", features: ["Akıllı filtre", "Harita", "Danışman"] },
+  { id: 4, name: "Sofra İstanbul Restoran", slug: "sofra-istanbul-restoran", sector: "restoran-web-sitesi", category: "Restoran", style: "Lüks", accent: "#e65252", image: "/portfolio/restoran-web-tasarim-v1.jpg", features: ["Dijital menü", "Masa ayırt", "Galeri"] },
+  { id: 5, name: "Ege Butik Otel", slug: "ege-butik-otel", sector: "otel-web-sitesi", category: "Otel & Turizm", style: "Modern", accent: "#09a6c7", image: "/portfolio/otel-web-tasarim-v1.jpg", features: ["Oda seçimi", "Takvim", "Rezervasyon"] },
+  { id: 6, name: "İyi Yaşam Kliniği", slug: "iyi-yasam-klinigi", sector: "klinik-web-sitesi", category: "Sağlık & Klinik", style: "Minimal", accent: "#10a779", image: "/portfolio/saglik-web-tasarim-v1.jpg", features: ["Randevu", "Uzmanlar", "KVKK"] },
+  { id: 7, name: "Vizyon Kurumsal", slug: "vizyon-kurumsal", sector: "kurumsal-web-sitesi", category: "Kurumsal", style: "Modern", accent: "#64748b", image: "/portfolio/kurumsal-web-tasarim-v1.jpg", features: ["Hizmetler", "Projeler", "Teklif formu"] },
+  { id: 8, name: "Anadolu E-Ticaret", slug: "anadolu-e-ticaret", sector: "e-ticaret-web-sitesi", category: "E-Ticaret", style: "Modern", accent: "#ec4899", image: "/portfolio/e-ticaret-web-tasarim-v1.jpg", features: ["Pazaryeri", "Stok", "Raporlama"] },
+  { id: 9, name: "Yeni Nesil Elektrikli Araç", slug: "yeni-nesil-elektrikli-arac", sector: "rent-a-car-web-sitesi", category: "Rent a Car", style: "Fütüristik", accent: "#22c55e", image: "/portfolio/rent-a-car-web-tasarim-v1.jpg", features: ["Hızlı rezervasyon", "Lokasyon", "Transfer"] },
 ];
 
 export function getSector(slug: string) {

@@ -45,7 +45,7 @@ const DEFAULTS: SeoSettings = {
     defaultTitle: "Dromocob",
     defaultDescription:
       "Dromocob; sektörünüze özel, SEO uyumlu, yüksek performanslı ve yönetim panelli web deneyimleri tasarlar.",
-    defaultOgImage: "https://dromocob.tr/home/dromocob-studio-hero-v1.jpg",
+    defaultOgImage: "https://cihaterdem.com/home/dromocob-studio-hero-v1.jpg",
     twitterHandle: "",
     themeColor: "#0b0b0b",
   },
@@ -60,8 +60,8 @@ const DEFAULTS: SeoSettings = {
     noindexReason: "",
   },
   site: {
-    primaryUrl: "https://dromocob.tr",
-    fallbackUrl: "https://dromocob.tr",
+    primaryUrl: "https://cihaterdem.com",
+    fallbackUrl: "https://cihaterdem.com",
     canonicalMode: "auto",
   },
   openGraph: {
@@ -71,7 +71,7 @@ const DEFAULTS: SeoSettings = {
   jsonld: {
     enabled: true,
     organizationName: "Dromocob",
-    organizationLogo: "https://dromocob.tr/dromocob-mark.svg",
+    organizationLogo: "https://cihaterdem.com/dromocob-mark.svg",
     sameAs: [],
     phone: "+90 530 478 82 98",
     email: "info@dromocob.tr",
@@ -148,8 +148,8 @@ export async function getSeoSettings(): Promise<SeoSettings> {
 export function resolveBaseUrl(seo: SeoSettings) {
   const primary = cleanUrl(seo.site.primaryUrl);
   const fallback = cleanUrl(seo.site.fallbackUrl);
-  const liveApp = "https://dromocob.tr";
-  const legacyHosts = ["demo.dromocob.com", "dromocob-web--dromocob-demo.europe-west4.hosted.app", "dromocob-web--dromocob-web-edit.europe-west4.hosted.app"];
+  const liveApp = "https://cihaterdem.com";
+  const legacyHosts = ["dromocob.tr", "demo.dromocob.com", "dromocob-web--dromocob-demo.europe-west4.hosted.app", "dromocob-web--dromocob-web-edit.europe-west4.hosted.app"];
   const usable = (value: string) => value && !legacyHosts.some((host) => value.includes(host));
 
   if (seo.site.canonicalMode === "primary" && usable(primary)) return primary;

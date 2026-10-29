@@ -10,13 +10,13 @@ export const metadata: Metadata = {
     "güncel fiyat verisi",
   ],
   alternates: {
-    canonical: "https://dromocob.tr/rates",
+    canonical: "https://cihaterdem.com/rates",
   },
   openGraph: {
     title: "Piyasa Verileri | Dromocob",
     description:
       "Dinamik fiyatlandırma altyapısında kullanılan güncel piyasa verileri.",
-    url: "https://dromocob.tr/rates",
+    url: "https://cihaterdem.com/rates",
     type: "website",
   },
 };

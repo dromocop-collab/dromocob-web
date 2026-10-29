@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Dromocob gizlilik politikası. Kişisel verilerin işlenmesi, saklanması ve korunmasına ilişkin bilgilendirme metni.",
   alternates: {
-    canonical: "https://dromocob.tr/gizlilik-politikasi",
+    canonical: "https://cihaterdem.com/gizlilik-politikasi",
   },
 };
 

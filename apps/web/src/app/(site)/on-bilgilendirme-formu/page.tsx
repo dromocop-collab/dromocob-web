@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Sipariş öncesi ön bilgilendirme formu. Ürün, ödeme, teslimat ve iade süreçlerine ilişkin özet bilgilendirme.",
   alternates: {
-    canonical: "https://dromocob.tr/on-bilgilendirme-formu",
+    canonical: "https://cihaterdem.com/on-bilgilendirme-formu",
   },
 };
 

@@ -69,7 +69,7 @@ const DEFAULTS: SeoSettings = {
     defaultTitle: "Web Tasarım, E-Ticaret ve SEO Ajansı | Cihat Erdem",
     defaultDescription:
       "Dromocob; sektörünüze özel, SEO uyumlu, yüksek performanslı ve yönetim panelli web siteleri tasarlar ve geliştirir.",
-    defaultOgImage: "https://dromocob.tr/home/dromocob-studio-hero-v1.jpg",
+    defaultOgImage: "https://cihaterdem.com/home/dromocob-studio-hero-v1.jpg",
     twitterHandle: "",
     themeColor: "#0b0b0b",
     defaultKeywords: "web tasarım, kurumsal web sitesi, e-ticaret sitesi, SEO uyumlu web sitesi, İstanbul web tasarım ajansı",
@@ -93,8 +93,8 @@ const DEFAULTS: SeoSettings = {
     googlebot: "",
   },
   site: {
-    primaryUrl: "https://dromocob.tr",
-    fallbackUrl: "https://dromocob.tr",
+    primaryUrl: "https://cihaterdem.com",
+    fallbackUrl: "https://cihaterdem.com",
     canonicalMode: "auto",
   },
   openGraph: {
@@ -104,13 +104,13 @@ const DEFAULTS: SeoSettings = {
   jsonld: {
     enabled: true,
     organizationName: "Cihat Erdem Studio",
-    organizationLogo: "https://dromocob.tr/dromocob-app-icon-512.png",
+    organizationLogo: "https://cihaterdem.com/dromocob-app-icon-512.png",
     sameAs: [],
     phone: "+90 530 478 82 98",
     email: "info@dromocob.tr",
     addressLocality: "İstanbul",
     addressCountry: "TR",
-    priceRange: "₺₺₺",
+    priceRange: "",
   },
   sitemap: {
     enabled: true,
@@ -159,6 +159,12 @@ function ensureHttps(url: string): string {
   return value;
 }
 
+// Bu uygulama cihaterdem.com'da yayınlanıyor; dromocob.tr başka bir site.
+// Firestore'da kalmış dromocob.tr görsel/logo adreslerini buraya taşı.
+function rehost(url: string): string {
+  return url.replace(/^https:\/\/(www\.)?dromocob\.tr(?=\/|$)/i, "https://cihaterdem.com");
+}
+
 function safeCanonicalMode(v: unknown): "primary" | "auto" {
   return v === "primary" ? "primary" : "auto";
 }
@@ -191,7 +197,7 @@ function normalize(raw?: Partial<SeoSettings>): SeoSettings {
       titleTemplate: s(x.meta?.titleTemplate) || DEFAULTS.meta.titleTemplate,
       defaultTitle: s(x.meta?.defaultTitle) || DEFAULTS.meta.defaultTitle,
       defaultDescription: s(x.meta?.defaultDescription) || DEFAULTS.meta.defaultDescription,
-      defaultOgImage: ensureHttps(s(x.meta?.defaultOgImage) || DEFAULTS.meta.defaultOgImage),
+      defaultOgImage: rehost(ensureHttps(s(x.meta?.defaultOgImage) || DEFAULTS.meta.defaultOgImage)),
       twitterHandle: s(x.meta?.twitterHandle) || "",
       themeColor: s(x.meta?.themeColor) || DEFAULTS.meta.themeColor,
       defaultKeywords: s(x.meta?.defaultKeywords) || DEFAULTS.meta.defaultKeywords,
@@ -227,13 +233,13 @@ function normalize(raw?: Partial<SeoSettings>): SeoSettings {
       enabled: b(x.jsonld?.enabled, true),
       organizationName: s(x.jsonld?.organizationName) || DEFAULTS.jsonld.organizationName,
       organizationLogo:
-        ensureHttps(s(x.jsonld?.organizationLogo) || DEFAULTS.jsonld.organizationLogo),
+        rehost(ensureHttps(s(x.jsonld?.organizationLogo) || DEFAULTS.jsonld.organizationLogo)),
       sameAs: arr(x.jsonld?.sameAs),
       phone: s(x.jsonld?.phone),
       email: s(x.jsonld?.email),
       addressLocality: s(x.jsonld?.addressLocality) || DEFAULTS.jsonld.addressLocality,
       addressCountry: s(x.jsonld?.addressCountry) || DEFAULTS.jsonld.addressCountry,
-      priceRange: s(x.jsonld?.priceRange) || DEFAULTS.jsonld.priceRange,
+      priceRange: "",
     },
     sitemap: {
       enabled: b(x.sitemap?.enabled, true),
@@ -271,8 +277,8 @@ export async function getSeoSettings(): Promise<SeoSettings> {
 export function resolveBaseUrl(seo: SeoSettings): string {
   const primary = cleanUrl(ensureHttps(seo.site.primaryUrl));
   const fallback = cleanUrl(ensureHttps(seo.site.fallbackUrl));
-  const liveApp = "https://dromocob.tr";
-  const legacyHosts = ["demo.dromocob.com", "dromocob-web--dromocob-demo.europe-west4.hosted.app", "dromocob-web--dromocob-web-edit.europe-west4.hosted.app"];
+  const liveApp = "https://cihaterdem.com";
+  const legacyHosts = ["dromocob.tr", "demo.dromocob.com", "dromocob-web--dromocob-demo.europe-west4.hosted.app", "dromocob-web--dromocob-web-edit.europe-west4.hosted.app"];
   const usable = (value: string) => value && !legacyHosts.some((host) => value.includes(host));
 
   if (seo.site.canonicalMode === "primary" && usable(primary)) return primary;

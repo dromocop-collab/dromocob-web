@@ -11,13 +11,13 @@ export const metadata: Metadata = {
     "deneyim tasarımı ajansı",
   ],
   alternates: {
-    canonical: "https://dromocob.tr/hakkimizda",
+    canonical: "https://cihaterdem.com/hakkimizda",
   },
   openGraph: {
     title: "Dromocob Dijital Deneyim Stüdyosu",
     description:
       "Strateji, tasarım, teknoloji ve büyümeyi tek ekipte buluşturan bağımsız dijital ürün stüdyosu.",
-    url: "https://dromocob.tr/hakkimizda",
+    url: "https://cihaterdem.com/hakkimizda",
     type: "website",
   },
 };

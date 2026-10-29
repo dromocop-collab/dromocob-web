@@ -28,7 +28,6 @@ export default function robots(): MetadataRoute.Robots {
           "/search",
           "/shop",
           "/products/",
-          "/demo/",
           "/sertifika-guvence",
           "/olcu-rehberi",
           "/hediye-danismanligi",
@@ -41,8 +40,8 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: [
-      "https://dromocob.tr/sitemap.xml",
+      "https://cihaterdem.com/sitemap.xml",
     ],
-    host: "https://dromocob.tr",
+    host: "https://cihaterdem.com",
   };
 }

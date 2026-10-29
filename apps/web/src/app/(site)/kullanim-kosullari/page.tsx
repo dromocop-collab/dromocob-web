@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Dromocob web sitesi ve uygulama kullanım koşulları. Hizmet kullanımına ilişkin genel hükümler.",
   alternates: {
-    canonical: "https://dromocob.tr/kullanim-kosullari",
+    canonical: "https://cihaterdem.com/kullanim-kosullari",
   },
 };
 

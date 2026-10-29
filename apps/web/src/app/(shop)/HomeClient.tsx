@@ -9,6 +9,7 @@ import {
   UtensilsCrossed, WandSparkles, X,
 } from "lucide-react";
 import ProjectStartButton from "@/components/studio/ProjectStartButton";
+import DesignQuoteButton from "@/components/studio/DesignQuoteButton";
 import { sectors, studioTemplates } from "@/data/studioCatalog";
 import styles from "./HomeClient.module.css";
 import cardStyles from "./HomeClientCards.module.css";
@@ -25,30 +26,26 @@ const iconBySector = {
   "kurumsal-web-sitesi": LayoutGrid,
 } as const;
 
-const money = new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 0 });
-
 export default function HomeClient() {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("all");
   const [style, setStyle] = useState("all");
-  const [budget, setBudget] = useState("all");
   const [open, setOpen] = useState(false);
 
   const results = useMemo(() => studioTemplates.filter((item) => {
     const q = query.trim().toLocaleLowerCase("tr-TR");
     const haystack = [item.name, item.category, item.style, ...item.features].join(" ").toLocaleLowerCase("tr-TR");
-    const budgetOk = budget === "all" || (budget === "under30" ? item.price < 30000 : budget === "30to40" ? item.price >= 30000 && item.price <= 40000 : item.price > 40000);
-    return (!q || haystack.includes(q)) && (category === "all" || item.sector === category) && (style === "all" || item.style === style) && budgetOk;
-  }), [query, category, style, budget]);
+    return (!q || haystack.includes(q)) && (category === "all" || item.sector === category) && (style === "all" || item.style === style);
+  }), [query, category, style]);
 
   return (
     <main className={styles.page}>
       <section className={styles.hero}>
         <div className={styles.heroImage} /><div className={styles.heroShade} />
         <div className={styles.inner}>
-          <span className={styles.kicker}><Sparkles size={15} /> Yeni nesil web tasarım stüdyosu</span>
+          <span className={styles.kicker}><Sparkles size={15} /> Web tasarım, e-ticaret ve mobil uygulama stüdyosu</span>
           <h1>İşinize uygun siteyi<br /><em>dakikalar içinde keşfedin.</em></h1>
-          <p>Hazır şablon değil; sektörünüze göre kurgulanmış, yönetim panelli ve satışa hazır dijital deneyimler.</p>
+          <p>Hazır şablon değil; sektörünüze göre kurgulanmış, SEO uyumlu, yönetim panelli ve satışa hazır web siteleri. Beğendiğiniz tasarımı seçin, size özel teklifinizi alın.</p>
           <div className={styles.searchPanel}>
             <label><Search /><input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Örn: araç kiralama, butik otel, e-ticaret..." />{query && <button onClick={() => setQuery("")} aria-label="Aramayı temizle"><X /></button>}</label>
             <button className={styles.filter} onClick={() => setOpen(!open)}><Filter /> Filtrele <ChevronDown /></button>
@@ -56,8 +53,7 @@ export default function HomeClient() {
             <div className={`${styles.filters} ${open ? styles.filtersOpen : ""}`}>
               <select value={category} onChange={(e) => setCategory(e.target.value)}><option value="all">Tüm sektörler</option>{sectors.map((sector) => <option key={sector.slug} value={sector.slug}>{sector.shortName}</option>)}</select>
               <select value={style} onChange={(e) => setStyle(e.target.value)}><option value="all">Tüm stiller</option>{["Lüks", "Modern", "Minimal", "Editoryal", "Kurumsal", "Fütüristik"].map((item) => <option key={item}>{item}</option>)}</select>
-              <select value={budget} onChange={(e) => setBudget(e.target.value)}><option value="all">Tüm bütçeler</option><option value="under30">30.000 TL altı</option><option value="30to40">30–40 bin TL</option><option value="over40">40.000 TL üzeri</option></select>
-            </div>
+                          </div>
           </div>
           <div className={styles.stats}><span><b>48+</b> özgün tasarım</span><span><b>12</b> sektör</span><span><b>7–21 gün</b> teslim</span><span><b>∞</b> özelleştirme</span></div>
         </div>
@@ -102,12 +98,12 @@ export default function HomeClient() {
                   <h3>{item.name}</h3>
                   <p className={cardStyles.cardSummary}>{sectors.find((sector) => sector.slug === item.sector)?.summary}</p>
                   <div className={`${styles.tags} ${cardStyles.tags}`}>{item.features.map((feature) => <small key={feature}><Check />{feature}</small>)}</div>
-                  <footer className={cardStyles.footer}><div><small>Proje başlangıç bütçesi</small><b>{money.format(item.price)} TL</b></div><Link href={`/demo/${item.slug}`} aria-label={`${item.name} sitesini incele`}><span>Siteyi incele</span><i><ArrowRight /></i></Link></footer>
+                  <footer className={cardStyles.footer}><DesignQuoteButton brand={item.name} design={item.slug} siteType={item.category} label="Teklif al" variant="card" /><Link href={`/demo/${item.slug}`} aria-label={`${item.name} sitesini incele`}><span>Siteyi incele</span><i><ArrowRight /></i></Link></footer>
                 </div>
               </article>
             ))}
           </div>
-        ) : <div className={styles.empty}><Search /><h3>Uygun tasarım bulunamadı.</h3><button onClick={() => { setQuery(""); setCategory("all"); setStyle("all"); setBudget("all"); }}>Filtreleri temizle</button></div>}
+        ) : <div className={styles.empty}><Search /><h3>Uygun tasarım bulunamadı.</h3><button onClick={() => { setQuery(""); setCategory("all"); setStyle("all"); }}>Filtreleri temizle</button></div>}
       </section>
 
       <RealPortfolioShowcase />

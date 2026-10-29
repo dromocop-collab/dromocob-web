@@ -26,19 +26,19 @@ const DEFAULTS: SeoSettings = {
     titleTemplate: "%s | Dromocob",
     defaultTitle: "Dromocob",
     defaultDescription: "Dromocob; sektörünüze özel, SEO uyumlu, yüksek performanslı ve yönetim panelli web siteleri tasarlar ve geliştirir.",
-    defaultOgImage: "https://dromocob.tr/home/dromocob-studio-hero-v1.jpg",
+    defaultOgImage: "https://cihaterdem.com/home/dromocob-studio-hero-v1.jpg",
     twitterHandle: "",
     themeColor: "#0b0b0b",
   },
   google: { searchConsoleVerification: "", tagManagerId: "", analyticsMeasurementId: "" },
   robots: { index: true, follow: true, noindexReason: "" },
   site: {
-    primaryUrl: "https://dromocob.tr",
-    fallbackUrl: "https://dromocob.tr",
+    primaryUrl: "https://cihaterdem.com",
+    fallbackUrl: "https://cihaterdem.com",
     canonicalMode: "auto",
   },
   openGraph: { defaultType: "website", locale: "tr_TR" },
-  jsonld: { enabled: true, organizationName: "Dromocob", organizationLogo: "https://dromocob.tr/dromocob-mark.svg", sameAs: [] },
+  jsonld: { enabled: true, organizationName: "Dromocob", organizationLogo: "https://cihaterdem.com/dromocob-mark.svg", sameAs: [] },
 };
 
 function s(v: any) { return String(v ?? "").trim(); }

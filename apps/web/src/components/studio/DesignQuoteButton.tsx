@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { ArrowRight, Check, Loader2, Send, Sparkles, X } from "lucide-react";
 import s from "./DesignQuoteButton.module.css";
 
@@ -9,7 +10,7 @@ type Props = {
   design: string;
   siteType: string;
   label: string;
-  variant?: "notice" | "cta";
+  variant?: "notice" | "cta" | "card";
 };
 
 export default function DesignQuoteButton({ brand, design, siteType, label, variant = "cta" }: Props) {
@@ -70,10 +71,11 @@ export default function DesignQuoteButton({ brand, design, siteType, label, vari
 
   return (
     <>
-      <button className={variant === "notice" ? s.noticeButton : s.ctaButton} type="button" onClick={() => setOpen(true)}>
+      <button className={variant === "notice" ? s.noticeButton : variant === "card" ? s.cardButton : s.ctaButton} type="button" onClick={() => setOpen(true)}>
         {label} <ArrowRight />
       </button>
-      {open && (
+      {/* Kart hover'da transform aldığı için modal body'ye taşınıyor; yoksa fixed konum karta göre hesaplanır. */}
+      {open && createPortal(
         <div className={s.backdrop} onMouseDown={(event) => event.target === event.currentTarget && close()}>
           <section className={s.modal} role="dialog" aria-modal="true" aria-labelledby="quote-title">
             <div className={s.visual}>
@@ -104,7 +106,8 @@ export default function DesignQuoteButton({ brand, design, siteType, label, vari
               </form>
             )}
           </section>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );

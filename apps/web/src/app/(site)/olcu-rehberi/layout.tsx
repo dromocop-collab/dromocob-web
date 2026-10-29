@@ -12,13 +12,13 @@ export const metadata: Metadata = {
     "takı ölçü rehberi",
   ],
   alternates: {
-    canonical: "https://dromocob.tr/olcu-rehberi",
+    canonical: "https://cihaterdem.com/olcu-rehberi",
   },
   openGraph: {
     title: "Ölçü Rehberi | Dromocob",
     description:
       "Yüzük, bileklik ve kolye ölçü rehberi. Doğru ölçüyü bulmanız için kapsamlı rehber.",
-    url: "https://dromocob.tr/olcu-rehberi",
+    url: "https://cihaterdem.com/olcu-rehberi",
     type: "website",
   },
 };

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Dromocob çerez politikası. Çerezlerin kullanım amaçları, üçüncü taraf araçlar ve tercih yönetimi hakkında bilgilendirme.",
   alternates: {
-    canonical: "https://dromocob.tr/cerez-politikasi",
+    canonical: "https://cihaterdem.com/cerez-politikasi",
   },
 };
 

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, CalendarDays, Check, Quote, ShieldCheck, Sparkles, Star } from "lucide-react";
@@ -19,6 +20,18 @@ const demos: Record<string, any> = {
   "anadolu-e-ticaret": { brand: "ANADOLU", type: "shop", theme: "nexa", eyebrow: "GÜNLÜK, DAHA İYİ", title: "Yeni nesil alışveriş,\ntam sana göre.", text: "Trend ürünler, hızlı teslimat ve kişiselleştirilmiş keşif deneyimi tek platformda.", cta: "Alışverişe başla", stats: [["50B+", "Ürün"], ["24 saat", "Hızlı kargo"], ["4.8", "Müşteri puanı"]], works: ["Günlük Seçki", "Teknoloji", "Üretici Koleksiyonu"] },
   "yeni-nesil-elektrikli-arac": { brand: "YENİ NESİL:E", type: "rent", theme: "electric", eyebrow: "GELECEK HAREKET EDİYOR", title: "Sessiz. Güçlü.\nTamamen elektrikli.", text: "Şehir içi yolculuğu akıllı teknoloji ve sıfır emisyonla yeniden tanımlayın.", cta: "Sürüşünü başlat", stats: [["520 km", "Menzil"], ["18 dk", "Hızlı şarj"], ["0", "Emisyon"]], works: ["Şehir Ritmi", "Uzun Menzil", "Gece Sürüşü"] },
 };
+
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+  const d = demos[params.slug];
+  if (!d) return {};
+  return {
+    title: `${d.brand} Demo Web Sitesi`,
+    description: `${d.brand} örnek web sitesi tasarımı. Bu tasarımı markanıza uyarlamak için ücretsiz teklif alın.`,
+    alternates: { canonical: `https://cihaterdem.com/demo/${params.slug}` },
+    // Demo içerikleri kurgusal; arama sonuçlarında değil, ana sayfadaki kartlarda görünsün.
+    robots: { index: false, follow: true },
+  };
+}
 
 export default function DemoPage({ params }: { params: { slug: string } }) {
   const d = demos[params.slug];

@@ -10,7 +10,7 @@ import s from "../mobileApps.module.css";
 export function generateStaticParams(){ return mobileApps.map(app=>({slug:app.slug})); }
 export function generateMetadata({params}:{params:{slug:string}}):Metadata{
   const app=getMobileApp(params.slug); if(!app) return {};
-  return {title:`${app.name} | iOS ve Android Uygulama Örneği`,description:app.description,keywords:app.keywords,alternates:{canonical:`https://dromocob.tr/mobil-uygulama/${app.slug}`},openGraph:{title:`${app.name} Mobil Uygulama Tasarımı`,description:app.summary,images:[{url:app.image,alt:`${app.name} iOS ve Android uygulaması`}]}};
+  return {title:`${app.name} | iOS ve Android Uygulama Örneği`,description:app.description,keywords:app.keywords,alternates:{canonical:`https://cihaterdem.com/mobil-uygulama/${app.slug}`},openGraph:{title:`${app.name} Mobil Uygulama Tasarımı`,description:app.summary,images:[{url:app.image,alt:`${app.name} iOS ve Android uygulaması`}]}};
 }
 
 export default function MobileAppDetail({params}:{params:{slug:string}}){

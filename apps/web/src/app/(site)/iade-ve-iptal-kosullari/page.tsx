@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "İade ve iptal koşulları. Sipariş iptali, iade ve geri ödeme süreçlerine ilişkin genel esaslar.",
   alternates: {
-    canonical: "https://dromocob.tr/iade-ve-iptal-kosullari",
+    canonical: "https://cihaterdem.com/iade-ve-iptal-kosullari",
   },
 };
 

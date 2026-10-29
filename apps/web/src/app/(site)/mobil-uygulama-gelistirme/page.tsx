@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "iOS ve Android Mobil Uygulama Geliştirme",
   description: "İstanbul merkezli iOS ve Android mobil uygulama geliştirme stüdyosu. E-ticaret, rezervasyon, hizmet ve kurumsal uygulamalar; tasarım, yazılım, panel ve mağaza yayını.",
   keywords: ["mobil uygulama geliştirme", "iOS uygulama geliştirme", "Android uygulama geliştirme", "mobil uygulama yaptırma", "İstanbul mobil uygulama ajansı"],
-  alternates: { canonical: "https://dromocob.tr/mobil-uygulama-gelistirme" },
+  alternates: { canonical: "https://cihaterdem.com/mobil-uygulama-gelistirme" },
 };
 
 const strengths = [

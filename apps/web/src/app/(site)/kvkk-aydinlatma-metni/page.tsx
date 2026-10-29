@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "KVKK aydınlatma metni. Kişisel verilerin korunmasına ilişkin yasal bilgilendirme.",
   alternates: {
-    canonical: "https://dromocob.tr/kvkk-aydinlatma-metni",
+    canonical: "https://cihaterdem.com/kvkk-aydinlatma-metni",
   },
 };
 

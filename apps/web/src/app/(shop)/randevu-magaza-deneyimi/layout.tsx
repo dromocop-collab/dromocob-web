@@ -12,13 +12,13 @@ export const metadata: Metadata = {
     "özel ürün deneyimi",
   ],
   alternates: {
-    canonical: "https://dromocob.tr/randevu-magaza-deneyimi",
+    canonical: "https://cihaterdem.com/randevu-magaza-deneyimi",
   },
   openGraph: {
     title: "Randevu & Mağaza Deneyimi | Dromocob",
     description:
       "İstanbul mağazamızda kişiye özel danışmanlık ve özel ürün deneyimi için randevu alın.",
-    url: "https://dromocob.tr/randevu-magaza-deneyimi",
+    url: "https://cihaterdem.com/randevu-magaza-deneyimi",
     type: "website",
   },
 };

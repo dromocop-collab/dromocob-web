@@ -10,6 +10,7 @@ import CookieConsent from "@/components/CookieConsent";
 import MetaPixelRouteEvents from "@/components/meta/MetaPixelRouteEvents";
 import AnalyticsTracker from "@/components/AnalyticsTracker";
 import PublicFloatingLayer from "@/components/PublicFloatingLayer";
+import { sectors } from "@/data/studioCatalog";
 
 export const dynamic = "force-dynamic";
 const PUBLIC_SITE_NAME = "Cihat Erdem Studio";
@@ -67,7 +68,7 @@ export async function generateMetadata(): Promise<Metadata> {
     creator: seo.meta.author || undefined,
     publisher: seo.meta.publisher || undefined,
     referrer: "origin-when-cross-origin",
-    category: "lifestyle",
+    category: "technology",
     robots: {
       index: seo.robots.index,
       follow: seo.robots.follow,
@@ -183,7 +184,6 @@ export default async function RootLayout({
               addressCountry: seo.jsonld.addressCountry || undefined,
             }
             : undefined,
-        priceRange: seo.jsonld.priceRange || undefined,
       }
       : null;
 
@@ -310,11 +310,7 @@ export default async function RootLayout({
                   "cihaterdem.com",
                 ])),
                 url: baseUrl,
-                potentialAction: {
-                  "@type": "SearchAction",
-                  target: `${baseUrl}/search?q={search_term_string}`,
-                  "query-input": "required name=search_term_string",
-                },
+                inLanguage: "tr-TR",
               }),
             }}
           />
@@ -340,7 +336,29 @@ export default async function RootLayout({
                   name: "Cihat Erdem",
                   url: "https://cihaterdem.com",
                 },
-                priceRange: seo.jsonld.priceRange || "₺₺",
+                hasOfferCatalog: {
+                  "@type": "OfferCatalog",
+                  name: "Web tasarım ve yazılım hizmetleri",
+                  itemListElement: [
+                    ...sectors.map((sector) => ({
+                      "@type": "Offer",
+                      itemOffered: {
+                        "@type": "Service",
+                        name: sector.name,
+                        url: baseUrl ? `${baseUrl}/sektorler/${sector.slug}` : undefined,
+                      },
+                    })),
+                    {
+                      "@type": "Offer",
+                      itemOffered: {
+                        "@type": "Service",
+                        name: "iOS ve Android Mobil Uygulama Geliştirme",
+                        url: baseUrl ? `${baseUrl}/mobil-uygulama-gelistirme` : undefined,
+                      },
+                    },
+                  ],
+                },
+                knowsAbout: ["Web tasarım", "E-ticaret", "SEO", "Next.js", "iOS uygulama", "Android uygulama", "Yönetim paneli"],
                 address: {
                   "@type": "PostalAddress",
                   addressLocality: "İstanbul",
